@@ -38,7 +38,7 @@ export const styles = css`
     visibility: hidden;
   }
 
-  main ::slotted([state="active"]) {
+  main ::slotted([state='active']) {
     visibility: visible;
   }
-  `;
+`;

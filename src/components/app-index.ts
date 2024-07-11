@@ -4,7 +4,7 @@ import { customElement } from 'lit/decorators.js';
 import { ElementController } from '@open-cells/element-controller';
 import { routes } from '../router/routes.js';
 import './header/header.js';
-// import { styles } from './app-index.css.js';
+import { styles } from './app-index.css.js';
 
 startApp({
   routes,
@@ -19,7 +19,7 @@ export class AppIndex extends LitElement {
     return this;
   }
 
-  // static styles = styles;
+  static styles = styles;
 
   render() {
     return html`
