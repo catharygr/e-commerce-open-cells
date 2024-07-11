@@ -1,19 +1,14 @@
-import { LitElement, html, css } from 'lit';
+import { LitElement, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import '@material/web/icon/icon.js';
+import { styles } from './header.css.js';
 
 @customElement('header-component')
 export class HeaderComponent extends LitElement {
   protected createRenderRoot(): HTMLElement | DocumentFragment {
     return this;
   }
-  static styles = css`
-    header {
-      color: black;
-      padding: 1rem;
-      text-align: center;
-    }
-  `;
+  static styles = styles;
 
   render() {
     return html`<header>
