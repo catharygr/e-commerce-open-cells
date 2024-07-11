@@ -1,20 +1,12 @@
-import { LitElement, html, css } from 'lit';
+import { LitElement, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import '@material/web/icon/icon.js';
-// import { styles } from './header.css.js';
+import { styles } from './header.css.js';
+import CssReset from '../../css/reset.css.js';
 
 @customElement('header-component')
 export class HeaderComponent extends LitElement {
-  // protected createRenderRoot(): HTMLElement | DocumentFragment {
-  //   return this;
-  // }
-  static styles = css`
-    .main-nav {
-      display: flex;
-      gap: 1rem;
-      list-style: none;
-    }
-  `;
+  static styles = [CssReset, styles];
 
   render() {
     return html`<header>
