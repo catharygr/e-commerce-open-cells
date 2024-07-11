@@ -3,6 +3,7 @@ import { LitElement, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { ElementController } from '@open-cells/element-controller';
 import { routes } from '../router/routes.js';
+import './header/header.js';
 // import { styles } from './app-index.css.js';
 
 startApp({
@@ -18,7 +19,7 @@ export class AppIndex extends LitElement {
 
   render() {
     return html`
-      <h1>App Index</h1>
+      <header-component></header-component>
       <main role="main" tabindex="-1">
         <slot></slot>
       </main>
