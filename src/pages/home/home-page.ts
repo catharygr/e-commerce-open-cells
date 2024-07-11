@@ -7,11 +7,7 @@ export class HomePage extends LitElement {
   pageController = new PageController(this);
 
   render() {
-    return html`
-      <button @click="${() => this.pageController.navigate('second')}">
-        Go to second page
-      </button>
-    `;
+    return html` <h1>Home Page</h1> `;
   }
 }
 // Este código es de open cells
