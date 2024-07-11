@@ -6,11 +6,10 @@ import { customElement } from 'lit/decorators.js';
 export class HomePage extends LitElement {
   pageController = new PageController(this);
 
+  protected createRenderRoot(): HTMLElement | DocumentFragment {
+    return this;
+  }
   render() {
     return html` <h1>Home Page</h1> `;
   }
 }
-// Este código es de open cells
-// protected createRenderRoot(): HTMLElement | DocumentFragment {
-//   return this;
-// }

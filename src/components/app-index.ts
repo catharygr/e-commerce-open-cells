@@ -15,6 +15,10 @@ startApp({
 export class AppIndex extends LitElement {
   elementController = new ElementController(this);
 
+  protected createRenderRoot(): HTMLElement | DocumentFragment {
+    return this;
+  }
+
   // static styles = styles;
 
   render() {
