@@ -16,6 +16,7 @@ export class HeaderComponent extends LitElement {
         width: 100%;
         height: 40%;
         --md-outlined-text-field-container-shape: 50px;
+        --mdc-text-field-outlined-idle-border-color: red;
       }
     `,
   ];
