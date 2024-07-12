@@ -10,7 +10,7 @@ export class HeaderComponent extends LitElement {
   static styles = [CssReset, styles];
 
   render() {
-    return html`<header>
+    return html` <header>
       <md-icon>storefront</md-icon>
       <nav>
         <ul class="main-nav">
