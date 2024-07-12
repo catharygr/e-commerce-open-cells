@@ -1,8 +1,9 @@
 import { LitElement, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
-import '@material/web/icon/icon.js';
 import { styles } from './header.css.js';
 import CssReset from '../../css/reset.css.js';
+import '@material/web/icon/icon.js';
+import '@material/web/textfield/outlined-text-field';
 
 @customElement('header-component')
 export class HeaderComponent extends LitElement {
@@ -19,6 +20,9 @@ export class HeaderComponent extends LitElement {
           <li><a href="/contact">Contacto</a></li>
         </ul>
       </nav>
+      <md-outlined-text-field label="Buscar" icon="search">
+        <md-icon slot="trailing-icon">search</md-icon>
+      </md-outlined-text-field>
     </header>`;
   }
 }
