@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit';
+import { LitElement, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { styles } from './header.css.js';
 import CssReset from '../../css/reset.css.js';
@@ -7,19 +7,7 @@ import '@material/web/textfield/outlined-text-field';
 
 @customElement('header-component')
 export class HeaderComponent extends LitElement {
-  static styles = [
-    CssReset,
-    styles,
-    css`
-      md-outlined-text-field {
-        margin-left: auto;
-        width: 100%;
-        height: 40%;
-        --md-outlined-text-field-container-shape: 50px;
-        --mdc-text-field-outlined-idle-border-color: red;
-      }
-    `,
-  ];
+  static styles = [CssReset, styles];
 
   render() {
     return html`<header>
@@ -32,7 +20,7 @@ export class HeaderComponent extends LitElement {
           <li><a href="/contact">Contacto</a></li>
         </ul>
       </nav>
-      <md-outlined-text-field icon="search">
+      <md-outlined-text-field label="buscar" icon="search">
         <md-icon slot="trailing-icon">search</md-icon>
       </md-outlined-text-field>
     </header>`;
