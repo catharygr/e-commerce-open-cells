@@ -7,9 +7,10 @@ export const styles = css`
   }
   md-outlined-text-field {
     width: 100%;
-    height: 2rem;
+    height: 3rem;
     --md-outlined-text-field-container-shape: 50px;
     --md-outlined-text-field-top-space: 0.2rem;
     --md-outlined-text-field-bottom-space: 0.2rem;
+    --md-ref-typeface-plain: system-ui, sans-serif;
   }
 `;
