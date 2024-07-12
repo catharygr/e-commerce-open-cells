@@ -15,11 +15,7 @@ export class HeaderComponent extends LitElement {
         margin-left: auto;
         width: 100%;
         height: 40%;
-        border-radius: 50%;
-      }
-
-      md-outlined-text-field label {
-        text-align: center;
+        --md-outlined-text-field-container-shape: 50px;
       }
     `,
   ];
