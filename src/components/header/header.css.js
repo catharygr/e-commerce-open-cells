@@ -6,6 +6,7 @@ export const styles = css`
     flex-direction: row;
     align-items: center;
     gap: 2rem;
+    padding-inline: 1rem;
   }
 
   .main-nav {
@@ -26,7 +27,6 @@ export const styles = css`
   .action-header {
     display: flex;
     flex-direction: row;
-    gap: 0.4rem;
-    padding-inline: 1rem;
+    gap: 0.5rem;
   }
 `;
