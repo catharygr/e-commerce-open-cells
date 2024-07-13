@@ -3,7 +3,7 @@ import { customElement } from 'lit/decorators.js';
 import { styles } from './header.css.js';
 import CssReset from '../../css/reset.css.js';
 import '@material/web/icon/icon.js';
-import '@material/web/textfield/outlined-text-field';
+import '@material/web/textfield/filled-text-field';
 
 @customElement('header-component')
 export class HeaderComponent extends LitElement {
@@ -20,9 +20,9 @@ export class HeaderComponent extends LitElement {
           <li><a href="/contact">Contacto</a></li>
         </ul>
       </nav>
-      <md-outlined-text-field label="Buscar productos" icon="search">
+      <md-filled-text-field label="Buscar productos" icon="search">
         <md-icon slot="trailing-icon">search</md-icon>
-      </md-outlined-text-field>
+      </md-filled-text-field>
       <div class="action-header">
         <md-icon>account_circle</md-icon>
         <md-icon>favorite</md-icon>

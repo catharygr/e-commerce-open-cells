@@ -12,7 +12,7 @@ export class FooterComponent extends LitElement {
         justify-content: center;
         align-items: center;
         padding-block: 2rem;
-        background-color: #f8f8f8;
+        background-color: #e4e4e4;
         border-top: 1px solid #e0e0e0;
       }
     `,
