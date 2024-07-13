@@ -1,8 +1,10 @@
+// @ts-nocheck
 import { startApp } from '@open-cells/core';
 import { LitElement, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { ElementController } from '@open-cells/element-controller';
 import { routes } from '../router/routes.js';
+import { fetchData } from '../utilidades/backend.js';
 import './header/header.js';
 import './footer/footer.js';
 
@@ -14,6 +16,15 @@ startApp({
 @customElement('app-index')
 export class AppIndex extends LitElement {
   elementController = new ElementController(this);
+
+  static outbounds = {
+    allProducts: { channel: 'all-products' },
+  };
+
+  async connectedCallback() {
+    super.connectedCallback();
+    this.allProducts = await fetchData();
+  }
 
   render() {
     return html`

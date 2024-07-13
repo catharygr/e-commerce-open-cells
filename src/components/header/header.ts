@@ -22,7 +22,6 @@ export class HeaderComponent extends LitElement {
   }
 
   render() {
-    console.log(this.searchValue);
     return html` <header>
       <md-icon>storefront</md-icon>
       <nav>
