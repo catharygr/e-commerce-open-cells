@@ -20,7 +20,7 @@ export class HeaderComponent extends LitElement {
           <li><a href="/contact">Contacto</a></li>
         </ul>
       </nav>
-      <md-filled-text-field label="Buscar productos" icon="search">
+      <md-filled-text-field placeholder="Buscar productos" icon="search">
         <md-icon slot="trailing-icon">search</md-icon>
       </md-filled-text-field>
       <div class="action-header">
