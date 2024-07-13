@@ -8,7 +8,7 @@ export class HomePage extends LitElement {
   pageController = new PageController(this);
 
   static inbounds = {
-    allProducts: {
+    randomProduct: {
       channel: 'all-products',
       action: (data) => {
         const randomNum = Math.floor(Math.random() * data.length);
@@ -18,8 +18,8 @@ export class HomePage extends LitElement {
   };
 
   render() {
-    console.log(this.allProducts);
-    return html` <h1>Home Page</h1> `;
+    console.log(this.randomProduct.title);
+    return html` <h1>${this.randomProduct.title}</h1> `;
   }
 }
 
