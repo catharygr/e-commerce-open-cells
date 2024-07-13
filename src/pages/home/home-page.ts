@@ -11,6 +11,7 @@ export class HomePage extends LitElement {
     randomProduct: {
       channel: 'all-products',
       action: (data) => {
+        if (!data) return;
         const randomNum = Math.floor(Math.random() * data.length);
         return data[randomNum];
       },
@@ -18,8 +19,7 @@ export class HomePage extends LitElement {
   };
 
   render() {
-    console.log(this.randomProduct.title);
-    return html` <h1>${this.randomProduct.title}</h1> `;
+    return html` <h1>${this.randomProduct?.title}</h1> `;
   }
 }
 

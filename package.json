@@ -9,7 +9,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "npm run build && vite preview",
-    "jsonserver": "npx json-server --watch ./src/data/db.json"
+    "jsonserver": "npx json-server --delay 2000 --watch ./src/data/db.json"
   },
   "dependencies": {
     "@material/web": "^1.5.1",
