@@ -6,10 +6,15 @@ import { customElement } from 'lit/decorators.js';
 export class HomePage extends LitElement {
   pageController = new PageController(this);
 
-  protected createRenderRoot(): HTMLElement | DocumentFragment {
-    return this;
-  }
+  static inbounds = {
+    OllProducts: { channel: 'all-products' },
+  };
+
   render() {
     return html` <h1>Home Page</h1> `;
   }
 }
+
+// protected createRenderRoot(): HTMLElement | DocumentFragment {
+//   return this;
+// }

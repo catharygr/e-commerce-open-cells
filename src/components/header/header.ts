@@ -32,9 +32,8 @@ export class HeaderComponent extends LitElement {
               >Inicio</a
             >
           </li>
-          <li><a href="/categorias">Categorias</a></li>
+          <li><a href="/productos">Productos</a></li>
           <li><a href="/ofertas">Ofertas</a></li>
-          <li><a href="/contact">Contacto</a></li>
         </ul>
       </nav>
       <md-filled-text-field
