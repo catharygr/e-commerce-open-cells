@@ -20,9 +20,15 @@ export class HeaderComponent extends LitElement {
           <li><a href="/contact">Contacto</a></li>
         </ul>
       </nav>
-      <md-outlined-text-field label="buscar" icon="search">
+      <md-outlined-text-field label="Buscar productos" icon="search">
         <md-icon slot="trailing-icon">search</md-icon>
       </md-outlined-text-field>
+      <div class="action-header">
+        <md-icon>account_circle</md-icon>
+        <md-icon>favorite</md-icon>
+        <md-icon>dark_mode</md-icon>
+        <md-icon>shopping_cart</md-icon>
+      </div>
     </header>`;
   }
 }

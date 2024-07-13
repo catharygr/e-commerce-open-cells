@@ -22,4 +22,11 @@ export const styles = css`
     --md-outlined-text-field-top-space: 0.2rem;
     --md-outlined-text-field-bottom-space: 0.2rem;
   }
+
+  .action-header {
+    display: flex;
+    flex-direction: row;
+    gap: 0.4rem;
+    padding-inline: 1rem;
+  }
 `;
