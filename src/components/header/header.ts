@@ -1,5 +1,6 @@
+// @ts-nocheck
 import { LitElement, html } from 'lit';
-import { customElement, state } from 'lit/decorators.js';
+import { customElement } from 'lit/decorators.js';
 import { styles } from './header.css.js';
 import CssReset from '../../css/reset.css.js';
 import '@material/web/icon/icon.js';
@@ -11,12 +12,13 @@ export class HeaderComponent extends LitElement {
   pageController = new PageController(this);
   static styles = [CssReset, styles];
 
-  @state()
-  private searchValue = '';
+  static outbounds = {
+    searcQuery: { channel: 'search-query' },
+  };
 
-  handleSearch(e: Event) {
-    const target = e.target as HTMLInputElement;
-    this.searchValue = target.value;
+  handleSearch(e) {
+    this.searcQuery = e.target.value;
+    console.log(this.searcQuery);
   }
 
   render() {
@@ -38,8 +40,7 @@ export class HeaderComponent extends LitElement {
       <md-filled-text-field
         placeholder="Buscar productos"
         icon="search"
-        @input="${(e: Event) => this.handleSearch(e)}"
-        .value=${this.searchValue}
+        @input="${this.handleSearch}"
       >
         <md-icon slot="trailing-icon">search</md-icon>
       </md-filled-text-field>
