@@ -46,8 +46,7 @@ export class HeaderComponent extends LitElement {
         icon="search"
         @input="${this.handleSearch}"
       >
-        <!-- <md-icon slot="trailing-icon">search</md-icon> -->
-        <img slot="leading-icon" src="${svgSearch}" alt="search" />
+        <img slot="trailing-icon" src="${svgSearch}" alt="search" />
       </md-filled-text-field>
       <div class="action-header">
         <img src="${svgAccountCircle}" alt="account" />
