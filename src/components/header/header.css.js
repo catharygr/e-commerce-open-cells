@@ -18,7 +18,8 @@ export const styles = css`
   }
 
   md-filled-text-field {
-    width: 100%;
+    flex-basis: auto;
+    flex-grow: 1;
     height: 2.3rem;
     --md-ref-typeface-plain: system-ui, sans-serif;
     --md-filled-text-field-container-shape: 50px;

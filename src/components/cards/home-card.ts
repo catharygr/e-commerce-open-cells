@@ -33,11 +33,6 @@ export class HomeCard extends LitElement {
         flex-direction: column;
         gap: 1rem;
       }
-      .opiniones {
-        display: flex;
-        margin-top: auto;
-        gap: 2rem;
-      }
 
       .img-product {
         aspect-ratio: 1/1;
@@ -46,6 +41,21 @@ export class HomeCard extends LitElement {
         box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
         background-color: #fff;
         padding: 0.5rem;
+      }
+      .opiniones {
+        display: flex;
+        font-size: 1rem;
+        margin-top: auto;
+        gap: 2rem;
+      }
+      .opiniones-stars {
+        display: flex;
+        align-items: center;
+      }
+      .opiniones-stars-svg {
+        width: 1rem;
+        height: 1rem;
+        font-size: 1rem;
       }
     `,
   ];
@@ -58,6 +68,15 @@ export class HomeCard extends LitElement {
       price = '',
       rating: { rate = 0, count = 0 } = {},
     } = this.product || {};
+
+    const starArray = new Array(Math.round(rate)).fill(null).map((elem) => {
+      return html`<img
+        class="opiniones-stars-svg"
+        src="${grade}"
+        alt="rating"
+      />`;
+    });
+
     return html` <section>
       <h2>${title}</h2>
       <div class="content">
@@ -66,8 +85,10 @@ export class HomeCard extends LitElement {
           <p>${description}</p>
           <p>Price: ${price}</p>
           <div class="opiniones">
-            <img src="${grade}" alt="rating" />
-            <p>Rating: ${rate}</p>
+            <div class="opiniones-stars">
+              <p>Rating:&nbsp;&nbsp</p>
+              ${starArray}
+            </div>
             <p>Reviews: ${count}</p>
           </div>
         </div>
