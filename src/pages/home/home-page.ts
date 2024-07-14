@@ -9,6 +9,16 @@ import '../../components/Others/spinner.js';
 export class HomePage extends LitElement {
   pageController = new PageController(this);
 
+  static styles = css`
+    .container {
+      padding: 0.5rem 1rem;
+    }
+    h1 {
+      margin-top: 0;
+      text-align: center;
+    }
+  `;
+
   static inbounds = {
     randomProduct: {
       channel: 'all-products',
@@ -24,8 +34,10 @@ export class HomePage extends LitElement {
     return !this.randomProduct
       ? html`<spinner-element></spinner-element>`
       : html`
-          <h1>Bienvenido a mi tienda</h1>
-          <home-card .product=${this.randomProduct}></home-card>
+          <div class="container">
+            <h1>Bienvenido a mi tienda</h1>
+            <home-card .product=${this.randomProduct}></home-card>
+          </div>
         `;
   }
 }

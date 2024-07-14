@@ -1,11 +1,44 @@
 // @ts-nocheck
-import { LitElement, html } from 'lit';
+import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import CssReset from '../../css/reset.css.js';
 
 @customElement('home-card')
 export class HomeCard extends LitElement {
   @property()
   product = {};
+
+  static styles = [
+    CssReset,
+    css`
+      section {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem;
+        background-color: #f5f5f5;
+        border-radius: 0.5rem;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border: 1px solid #ddd;
+      }
+      .content {
+        display: grid;
+        grid-template-columns: 40% 1fr;
+        gap: 2rem;
+      }
+      .detalles {
+        font-size: 1.3rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .opiniones {
+        display: flex;
+        margin-top: auto;
+        gap: 2rem;
+      }
+    `,
+  ];
 
   render() {
     const {
@@ -17,26 +50,17 @@ export class HomeCard extends LitElement {
     } = this.product || {};
     return html` <section>
       <h2>${title}</h2>
-      <img src="${image}" alt="${title}" />
-      <div>
-        <p>${description}</p>
-        <p>${price}</p>
-        <p>${rate}</p>
-        <p>${count}</p>
+      <div class="content">
+        <img src="${image}" alt="${title}" />
+        <div class="detalles">
+          <p>${description}</p>
+          <p>Precio: ${price}</p>
+          <div class="opiniones">
+            <p>Rate: ${rate}</p>
+            <p>Count: ${count}</p>
+          </div>
+        </div>
       </div>
     </section>`;
   }
 }
-
-// {
-//   "id": 1,
-//   "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
-//   "price": 109.95,
-//   "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
-//   "category": "men's clothing",
-//   "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-//   "rating": {
-//     "rate": 3.9,
-//     "count": 120
-//   }
-// },
