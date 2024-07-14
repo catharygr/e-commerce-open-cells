@@ -5,16 +5,16 @@ import { customElement, property } from 'lit/decorators.js';
 @customElement('home-card')
 export class HomeCard extends LitElement {
   @property()
-  products = {};
+  product = {};
 
   render() {
     const {
-      title,
-      image,
-      description,
-      price,
-      rating: { rate, count },
-    } = this.products;
+      title = '',
+      image = '',
+      description = '',
+      price = '',
+      rating: { rate = 0, count = 0 } = {},
+    } = this.product || {};
     return html` <section>
       <h2>${title}</h2>
       <img src="${image}" alt="${title}" />

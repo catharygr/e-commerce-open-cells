@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { html, LitElement } from 'lit';
+import { html, LitElement, css } from 'lit';
 import { PageController } from '@open-cells/page-controller';
 import { customElement } from 'lit/decorators.js';
 import '../../components/cards/home-card.js';
@@ -7,6 +7,8 @@ import '../../components/cards/home-card.js';
 @customElement('home-page')
 export class HomePage extends LitElement {
   pageController = new PageController(this);
+
+  static styles = css``;
 
   static inbounds = {
     randomProduct: {
@@ -20,9 +22,12 @@ export class HomePage extends LitElement {
   };
 
   render() {
-    return html` <h1>${this.randomProduct?.title}</h1>
-
-      <home-card .products=${this.randomProduct}> </home-card>`;
+    return !this.randomProduct
+      ? html`<div>Loading...</div>`
+      : html`
+          <h1>Bienvenido a mi tienda</h1>
+          <home-card .product=${this.randomProduct}></home-card>
+        `;
   }
 }
 
