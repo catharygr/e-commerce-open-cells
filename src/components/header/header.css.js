@@ -4,6 +4,7 @@ export const styles = css`
   header {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     gap: 2rem;
     padding: 0.5rem 1rem;

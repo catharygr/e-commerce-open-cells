@@ -37,6 +37,15 @@ export class HomeCard extends LitElement {
         margin-top: auto;
         gap: 2rem;
       }
+
+      img {
+        aspect-ratio: 1/1;
+        object-fit: contain;
+        border-radius: 0.5rem;
+        box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+        background-color: #fff;
+        padding: 0.5rem;
+      }
     `,
   ];
 
