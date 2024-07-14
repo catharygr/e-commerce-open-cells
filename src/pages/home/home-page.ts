@@ -3,12 +3,11 @@ import { html, LitElement, css } from 'lit';
 import { PageController } from '@open-cells/page-controller';
 import { customElement } from 'lit/decorators.js';
 import '../../components/cards/home-card.js';
+import '../../components/Others/spinner.js';
 
 @customElement('home-page')
 export class HomePage extends LitElement {
   pageController = new PageController(this);
-
-  static styles = css``;
 
   static inbounds = {
     randomProduct: {
@@ -23,7 +22,7 @@ export class HomePage extends LitElement {
 
   render() {
     return !this.randomProduct
-      ? html`<div>Loading...</div>`
+      ? html`<spinner-element></spinner-element>`
       : html`
           <h1>Bienvenido a mi tienda</h1>
           <home-card .product=${this.randomProduct}></home-card>
