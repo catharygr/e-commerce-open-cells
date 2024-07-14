@@ -57,6 +57,19 @@ export class HomeCard extends LitElement {
         height: 1rem;
         font-size: 1rem;
       }
+
+      @media (max-width: 43rem) {
+        section {
+          padding: 1rem;
+        }
+        .content {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+        .img-product {
+          width: 100%;
+        }
+      }
     `,
   ];
 
@@ -82,8 +95,16 @@ export class HomeCard extends LitElement {
       <div class="content">
         <img class="img-product" src="${image}" alt="${title}" />
         <div class="detalles">
-          <p>${description}</p>
-          <p>Price: ${price}</p>
+          <p>
+            <b>Description: </b><br />
+            ${description}
+          </p>
+          <p>
+            <b>Price: </b>${new Intl.NumberFormat('es-ES', {
+              style: 'currency',
+              currency: 'EUR',
+            }).format(price)}
+          </p>
           <div class="opiniones">
             <div class="opiniones-stars">
               <p>Rating:&nbsp;&nbsp</p>
