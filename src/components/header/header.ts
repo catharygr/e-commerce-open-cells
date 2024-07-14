@@ -6,6 +6,12 @@ import CssReset from '../../css/reset.css.js';
 import '@material/web/icon/icon.js';
 import '@material/web/textfield/filled-text-field';
 import { PageController } from '@open-cells/page-controller';
+import svgAccountCircle from '@material-design-icons/svg/outlined/account_circle.svg';
+import svgFavorite from '@material-design-icons/svg/outlined/favorite_border.svg';
+import svgDarkMode from '@material-design-icons/svg/outlined/dark_mode.svg';
+import svgShoppingCart from '@material-design-icons/svg/outlined/shopping_cart.svg';
+import svgStorefront from '@material-design-icons/svg/outlined/storefront.svg';
+import svgSearch from '@material-design-icons/svg/outlined/search.svg';
 
 @customElement('header-component')
 export class HeaderComponent extends LitElement {
@@ -23,7 +29,7 @@ export class HeaderComponent extends LitElement {
 
   render() {
     return html` <header>
-      <md-icon>storefront</md-icon>
+      <img src="${svgStorefront}" alt="storefront" />
       <nav>
         <ul class="main-nav">
           <li>
@@ -40,13 +46,14 @@ export class HeaderComponent extends LitElement {
         icon="search"
         @input="${this.handleSearch}"
       >
-        <md-icon slot="trailing-icon">search</md-icon>
+        <!-- <md-icon slot="trailing-icon">search</md-icon> -->
+        <img slot="leading-icon" src="${svgSearch}" alt="search" />
       </md-filled-text-field>
       <div class="action-header">
-        <md-icon>account_circle</md-icon>
-        <md-icon>favorite</md-icon>
-        <md-icon>dark_mode</md-icon>
-        <md-icon>shopping_cart</md-icon>
+        <img src="${svgAccountCircle}" alt="account" />
+        <img src="${svgFavorite}" alt="favorite" />
+        <img src="${svgDarkMode}" alt="dark mode" />
+        <img src="${svgShoppingCart}" alt="shopping cart" />
       </div>
     </header>`;
   }

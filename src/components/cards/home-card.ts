@@ -2,6 +2,7 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import CssReset from '../../css/reset.css.js';
+import grade from '@material-design-icons/svg/filled/grade.svg';
 
 @customElement('home-card')
 export class HomeCard extends LitElement {
@@ -38,7 +39,7 @@ export class HomeCard extends LitElement {
         gap: 2rem;
       }
 
-      img {
+      .img-product {
         aspect-ratio: 1/1;
         object-fit: contain;
         border-radius: 0.5rem;
@@ -60,13 +61,14 @@ export class HomeCard extends LitElement {
     return html` <section>
       <h2>${title}</h2>
       <div class="content">
-        <img src="${image}" alt="${title}" />
+        <img class="img-product" src="${image}" alt="${title}" />
         <div class="detalles">
           <p>${description}</p>
-          <p>Precio: ${price}</p>
+          <p>Price: ${price}</p>
           <div class="opiniones">
-            <p>Rate: ${rate}</p>
-            <p>Count: ${count}</p>
+            <img src="${grade}" alt="rating" />
+            <p>Rating: ${rate}</p>
+            <p>Reviews: ${count}</p>
           </div>
         </div>
       </div>

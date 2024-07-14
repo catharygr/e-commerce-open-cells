@@ -9,9 +9,10 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "npm run build && vite preview",
-    "jsonserver": "npx json-server --delay 2000 --watch ./src/data/db.json"
+    "jsonserver": "npx json-server --delay 1000 --watch ./src/data/db.json"
   },
   "dependencies": {
+    "@material-design-icons/svg": "^0.14.13",
     "@material/web": "^1.5.1",
     "@open-cells/core": "^1.0.1",
     "@open-cells/element-controller": "^1.0.1",
