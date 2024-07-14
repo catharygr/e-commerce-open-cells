@@ -22,8 +22,12 @@ export class AppIndex extends LitElement {
   };
 
   async connectedCallback() {
-    super.connectedCallback();
-    this.allProducts = await fetchData();
+    try {
+      super.connectedCallback();
+      this.allProducts = await fetchData();
+    } catch (error) {
+      console.error('Error en appIndex', error);
+    }
   }
 
   render() {
