@@ -29,7 +29,7 @@ export class HeaderComponent extends LitElement {
 
   render() {
     return html` <header>
-      <img src="${svgStorefront}" alt="storefront" />
+      <img class="tienda-logo" src="${svgStorefront}" alt="storefront" />
       <nav>
         <ul class="main-nav">
           <li>
