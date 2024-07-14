@@ -2,6 +2,7 @@
 import { html, LitElement } from 'lit';
 import { PageController } from '@open-cells/page-controller';
 import { customElement } from 'lit/decorators.js';
+import '../../components/cards/home-card.js';
 
 @customElement('home-page')
 export class HomePage extends LitElement {
@@ -19,7 +20,9 @@ export class HomePage extends LitElement {
   };
 
   render() {
-    return html` <h1>${this.randomProduct?.title}</h1> `;
+    return html` <h1>${this.randomProduct?.title}</h1>
+
+      <home-card .products=${this.randomProduct}> </home-card>`;
   }
 }
 
