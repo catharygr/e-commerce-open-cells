@@ -62,6 +62,7 @@ export class HeaderComponent extends LitElement {
         </ul>
       </nav>
       <md-filled-text-field
+        class="search-field"
         placeholder="Buscar productos"
         icon="search"
         @input="${this.handleSearch}"

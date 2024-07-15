@@ -31,7 +31,8 @@ export const styles = css`
 
   .action-header {
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    flex-grow: 1;
     gap: 0.5rem;
   }
 
@@ -71,7 +72,42 @@ export const styles = css`
     z-index: 1000;
   }
 
+  header {
+    & > .tienda-logo {
+      order: 1;
+    }
+    & > .open-menu-btn {
+      order: 3;
+    }
+    & > .navegation {
+      order: 3;
+    }
+    & > .search-field {
+      order: 2;
+    }
+    & > .action-header {
+      order: 5;
+    }
+  }
+
   @media (min-width: 43rem) {
+    header {
+      & > .tienda-logo {
+        order: 1;
+      }
+      & > .open-menu-btn {
+        order: 2;
+      }
+      & > .navegation {
+        order: 3;
+      }
+      & > .search-field {
+        order: 4;
+      }
+      & > .action-header {
+        order: 5;
+      }
+    }
     .tienda-logo {
       width: 40px;
     }
