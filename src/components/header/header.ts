@@ -19,8 +19,8 @@ export class HeaderComponent extends LitElement {
   pageController = new PageController(this);
   static styles = [CssReset, styles];
 
-  @property()
-  isOpen = false;
+  // @property()
+  // isOpen = false;
 
   static outbounds = {
     searcQuery: { channel: 'search-query' },
@@ -31,17 +31,19 @@ export class HeaderComponent extends LitElement {
     console.log(this.searcQuery);
   }
 
+  // toggleMenu() {
+  //   this.isOpen = !this.isOpen;
+  //   this.requestUpdate();
+  // }
+
   render() {
     return html` <header>
       <img class="tienda-logo" src="${svgStorefront}" alt="storefront" />
-      <nav class="container-nav">
-        <img
-          @click="${this.toggleMenu}"
-          class="menu-icon"
-          src="${svgMenu}"
-          alt="menu"
-        />
-        <ul class="main-nav">
+      <button class="open-menu-btn">
+        <img src="${svgMenu}" alt="menu" />
+      </button>
+      <nav class="navegation">
+        <ul class="list-nav">
           <li>
             <a href="/" @click=${this.pageController.navigate('home')}
               >Inicio</a

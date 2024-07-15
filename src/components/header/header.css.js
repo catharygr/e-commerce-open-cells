@@ -16,30 +16,14 @@ export const styles = css`
     cursor: pointer;
   }
 
-  .container-nav {
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-    flex-grow: 1;
-    }
-
-  .menu-icon {
-    display: block;
+  .open-menu-btn {
+    border: none;
+    background-color: transparent;
     cursor: pointer;
-  
+    padding: 0;
   }
 
-  .main-nav {
-    display: none;
-    flex-direction: row;
-    gap: 0.5rem;
-  }
-
-  .main-nav a {
-    text-decoration: none;
-    font-weight: 700;
-    color: black;
-    font-size: 1rem;
+  .navegation {
   }
 
   md-filled-text-field {
@@ -62,12 +46,26 @@ export const styles = css`
     gap: 0.5rem;
   }
 
-  @media (max-width: 48rem) {
-   .tienda-logo {
+  @media (min-width: 48rem) {
+    .tienda-logo {
       width: 30px;
     }
-    .main-nav a {
+    .list-nav a {
       font-size: 0.8rem;
     }
-  
+    .list-nav {
+      display: flex;
+      flex-direction: row;
+      gap: 0.5rem;
+    }
+    .list-nav a {
+      text-decoration: none;
+      font-weight: 700;
+      color: black;
+      font-size: 1rem;
+    }
+    .open-menu-btn {
+      display: none;
+    }
+  }
 `;
