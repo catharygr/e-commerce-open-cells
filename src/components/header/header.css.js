@@ -15,6 +15,10 @@ export const styles = css`
     width: 40px;
   }
 
+  .menu-icon {
+  
+  }
+
   .main-nav {
     display: flex;
     flex-direction: row;
@@ -48,7 +52,7 @@ export const styles = css`
     gap: 0.5rem;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 48rem) {
    .tienda-logo {
       width: 30px;
     }

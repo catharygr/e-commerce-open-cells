@@ -12,6 +12,7 @@ import svgDarkMode from '@material-design-icons/svg/outlined/dark_mode.svg';
 import svgShoppingCart from '@material-design-icons/svg/outlined/shopping_cart.svg';
 import svgStorefront from '@material-design-icons/svg/outlined/storefront.svg';
 import svgSearch from '@material-design-icons/svg/outlined/search.svg';
+import svgMenu from '@material-design-icons/svg/outlined/menu.svg';
 
 @customElement('header-component')
 export class HeaderComponent extends LitElement {
@@ -31,6 +32,7 @@ export class HeaderComponent extends LitElement {
     return html` <header>
       <img class="tienda-logo" src="${svgStorefront}" alt="storefront" />
       <nav>
+        <img class="menu-icon" src="${svgMenu}" alt="menu" />
         <ul class="main-nav">
           <li>
             <a href="/" @click=${this.pageController.navigate('home')}
@@ -57,3 +59,23 @@ export class HeaderComponent extends LitElement {
     </header>`;
   }
 }
+
+// <mwc-icon @click="${this.toggleMenu}">menu</mwc-icon>
+// <div class="menu ${this.isOpen ? 'open' : ''}">
+//   <mwc-icon class="close" @click="${this.toggleMenu}">close</mwc-icon>
+
+// @property({ type: Boolean }) isOpen = false;
+
+// toggleMenu() {
+//   this.isOpen = !this.isOpen;
+//   this.requestUpdate();
+// }
+
+// firstUpdated() {
+//   const links = this._menu.querySelectorAll('a');
+//   links.forEach((link) => {
+//     link.addEventListener('click', () => {
+//       this.toggleMenu();
+//     });
+//   });
+// }
