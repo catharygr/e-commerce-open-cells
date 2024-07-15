@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { LitElement, html } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { customElement, query } from 'lit/decorators.js';
 import { styles } from './header.css.js';
 import CssReset from '../../css/reset.css.js';
 import '@material/web/icon/icon.js';
@@ -20,8 +20,7 @@ export class HeaderComponent extends LitElement {
   pageController = new PageController(this);
   static styles = [CssReset, styles];
 
-  // @property()
-  // isOpen = false;
+  @query('.navegation') navegation;
 
   static outbounds = {
     searcQuery: { channel: 'search-query' },
@@ -32,21 +31,24 @@ export class HeaderComponent extends LitElement {
     console.log(this.searcQuery);
   }
 
-  // toggleMenu() {
-  //   this.isOpen = !this.isOpen;
-  //   this.requestUpdate();
-  // }
+  openNavegation() {
+    this.navegation.classList.add('open-nav');
+  }
+
+  closeNavegation() {
+    this.navegation.classList.remove('open-nav');
+  }
 
   render() {
     return html` <header>
       <img class="tienda-logo" src="${svgStorefront}" alt="storefront" />
-      <button class="open-menu-btn">
+      <button @click=${this.openNavegation} class="open-menu-btn">
         <img src="${svgMenu}" alt="menu" />
       </button>
-      <nav class="navegation open-nav">
+      <nav class="navegation">
         <ul class="list-nav">
           <li>
-            <button class="close-menu-btn">
+            <button @click=${this.closeNavegation} class="close-menu-btn">
               <img class="close-menu-icon" src="${svgClose}" alt="close" />
             </button>
           </li>

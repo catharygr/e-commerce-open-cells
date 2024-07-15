@@ -49,6 +49,14 @@ export default css`
     font: inherit;
   }
 
+  button {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+  }
+
   /*
   7. Avoid text overflows
 */

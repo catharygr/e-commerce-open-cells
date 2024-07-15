@@ -13,7 +13,6 @@ export const styles = css`
 
   .tienda-logo {
     width: 30px;
-    cursor: pointer;
   }
 
   md-filled-text-field {
@@ -36,20 +35,14 @@ export const styles = css`
     gap: 0.5rem;
   }
 
-  .open-menu-btn,
-  .close-menu-btn {
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    padding: 0;
-  }
-
   .close-menu-icon {
     width: 1em;
     height: 1em;
     font-size: 4rem;
     fill: currentColor;
     color: red;
+    filter: invert(20%) sepia(100%) saturate(7500%) hue-rotate(5deg)
+      brightness(100%) contrast(105%);
   }
 
   .navegation {
@@ -65,7 +58,6 @@ export const styles = css`
       font-weight: 500;
       color: white;
       font-size: 1.8rem;
-      padding: 1.5rem;
     }
   }
 
@@ -97,6 +89,9 @@ export const styles = css`
     }
     .navegation {
       display: block;
+    }
+    .close-menu-btn {
+      display: none;
     }
   }
 `;
