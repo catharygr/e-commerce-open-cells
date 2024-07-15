@@ -5,6 +5,7 @@ import { customElement } from 'lit/decorators.js';
 import { ElementController } from '@open-cells/element-controller';
 import { routes } from '../router/routes.js';
 import { fetchData } from '../utilidades/backend.js';
+import { styles } from './app-index.css.js';
 import './header/header.js';
 import './footer/footer.js';
 
@@ -20,6 +21,8 @@ export class AppIndex extends LitElement {
   static outbounds = {
     allProducts: { channel: 'all-products' },
   };
+
+  // static styles = styles;
 
   async connectedCallback() {
     try {

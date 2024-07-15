@@ -78,23 +78,3 @@ export class HeaderComponent extends LitElement {
     </header>`;
   }
 }
-
-// <mwc-icon @click="${this.toggleMenu}">menu</mwc-icon>
-// <div class="menu ${this.isOpen ? 'open' : ''}">
-//   <mwc-icon class="close" @click="${this.toggleMenu}">close</mwc-icon>
-
-// @property({ type: Boolean }) isOpen = false;
-
-// toggleMenu() {
-//   this.isOpen = !this.isOpen;
-//   this.requestUpdate();
-// }
-
-// firstUpdated() {
-//   const links = this._menu.querySelectorAll('a');
-//   links.forEach((link) => {
-//     link.addEventListener('click', () => {
-//       this.toggleMenu();
-//     });
-//   });
-// }
