@@ -13,14 +13,24 @@ export const styles = css`
 
   .tienda-logo {
     width: 40px;
+    cursor: pointer;
   }
 
+  .container-nav {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    flex-grow: 1;
+    }
+
   .menu-icon {
+    display: block;
+    cursor: pointer;
   
   }
 
   .main-nav {
-    display: flex;
+    display: none;
     flex-direction: row;
     gap: 0.5rem;
   }

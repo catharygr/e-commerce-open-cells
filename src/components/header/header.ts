@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { LitElement, html } from 'lit';
-import { customElement } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import { styles } from './header.css.js';
 import CssReset from '../../css/reset.css.js';
 import '@material/web/icon/icon.js';
@@ -19,6 +19,9 @@ export class HeaderComponent extends LitElement {
   pageController = new PageController(this);
   static styles = [CssReset, styles];
 
+  @property()
+  isOpen = false;
+
   static outbounds = {
     searcQuery: { channel: 'search-query' },
   };
@@ -31,8 +34,13 @@ export class HeaderComponent extends LitElement {
   render() {
     return html` <header>
       <img class="tienda-logo" src="${svgStorefront}" alt="storefront" />
-      <nav>
-        <img class="menu-icon" src="${svgMenu}" alt="menu" />
+      <nav class="container-nav">
+        <img
+          @click="${this.toggleMenu}"
+          class="menu-icon"
+          src="${svgMenu}"
+          alt="menu"
+        />
         <ul class="main-nav">
           <li>
             <a href="/" @click=${this.pageController.navigate('home')}
