@@ -15,6 +15,14 @@ export class FooterComponent extends LitElement {
         background-color: #e4e4e4;
         border-top: 1px solid #e0e0e0;
       }
+
+      footer a {
+        color: red;
+      }
+
+      footer a:hover {
+        color: green;
+      }
     `,
   ];
 
