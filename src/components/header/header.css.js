@@ -12,18 +12,8 @@ export const styles = css`
   }
 
   .tienda-logo {
-    width: 40px;
+    width: 30px;
     cursor: pointer;
-  }
-
-  .open-menu-btn {
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    padding: 0;
-  }
-
-  .navegation {
   }
 
   md-filled-text-field {
@@ -46,26 +36,58 @@ export const styles = css`
     gap: 0.5rem;
   }
 
-  @media (min-width: 48rem) {
-    .tienda-logo {
-      width: 30px;
+  .open-menu-btn {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .navegation {
+    display: none;
+  }
+  .list-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    & a {
+      text-decoration: none;
+      font-weight: 500;
+      color: white;
+      font-size: 1.8rem;
+      padding: 1.5rem;
     }
-    .list-nav a {
-      font-size: 0.8rem;
+  }
+
+  .open-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+  }
+
+  @media (min-width: 43rem) {
+    .tienda-logo {
+      width: 40px;
     }
     .list-nav {
-      display: flex;
       flex-direction: row;
-      gap: 0.5rem;
     }
     .list-nav a {
       text-decoration: none;
       font-weight: 700;
       color: black;
-      font-size: 1rem;
+      font-size: 1.2rem;
     }
     .open-menu-btn {
       display: none;
+    }
+    .navegation {
+      display: block;
     }
   }
 `;

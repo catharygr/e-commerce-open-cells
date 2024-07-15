@@ -42,7 +42,7 @@ export class HeaderComponent extends LitElement {
       <button class="open-menu-btn">
         <img src="${svgMenu}" alt="menu" />
       </button>
-      <nav class="navegation">
+      <nav class="navegation open-na">
         <ul class="list-nav">
           <li>
             <a href="/" @click=${this.pageController.navigate('home')}
