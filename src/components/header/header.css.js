@@ -36,11 +36,20 @@ export const styles = css`
     gap: 0.5rem;
   }
 
-  .open-menu-btn {
+  .open-menu-btn,
+  .close-menu-btn {
     border: none;
     background-color: transparent;
     cursor: pointer;
     padding: 0;
+  }
+
+  .close-menu-icon {
+    width: 1em;
+    height: 1em;
+    font-size: 4rem;
+    fill: currentColor;
+    color: red;
   }
 
   .navegation {

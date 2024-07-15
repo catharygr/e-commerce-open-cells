@@ -13,6 +13,7 @@ import svgShoppingCart from '@material-design-icons/svg/outlined/shopping_cart.s
 import svgStorefront from '@material-design-icons/svg/outlined/storefront.svg';
 import svgSearch from '@material-design-icons/svg/outlined/search.svg';
 import svgMenu from '@material-design-icons/svg/outlined/menu.svg';
+import svgClose from '@material-design-icons/svg/outlined/close.svg';
 
 @customElement('header-component')
 export class HeaderComponent extends LitElement {
@@ -42,8 +43,13 @@ export class HeaderComponent extends LitElement {
       <button class="open-menu-btn">
         <img src="${svgMenu}" alt="menu" />
       </button>
-      <nav class="navegation open-na">
+      <nav class="navegation open-nav">
         <ul class="list-nav">
+          <li>
+            <button class="close-menu-btn">
+              <img class="close-menu-icon" src="${svgClose}" alt="close" />
+            </button>
+          </li>
           <li>
             <a href="/" @click=${this.pageController.navigate('home')}
               >Inicio</a
