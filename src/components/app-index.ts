@@ -22,7 +22,7 @@ export class AppIndex extends LitElement {
     allProducts: { channel: 'all-products' },
   };
 
-  // static styles = styles;
+  static styles = styles;
 
   async connectedCallback() {
     try {

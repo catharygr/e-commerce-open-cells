@@ -53,12 +53,35 @@ export class HeaderComponent extends LitElement {
             </button>
           </li>
           <li>
-            <a href="/" @click=${this.pageController.navigate('home')}
+            <a
+              href="/"
+              @click=${(e) => {
+                e.preventDefault();
+                this.pageController.navigate('home');
+              }}
               >Inicio</a
             >
           </li>
-          <li><a href="/productos">Productos</a></li>
-          <li><a href="/ofertas">Ofertas</a></li>
+          <li>
+            <a
+              href="/productos"
+              @click=${(e) => {
+                e.preventDefault();
+                this.pageController.navigate('productos');
+              }}
+              >Productos</a
+            >
+          </li>
+          <li>
+            <a
+              href="/ofertas"
+              @click=${(e) => {
+                e.preventDefault();
+                this.pageController.navigate('ofertas');
+              }}
+              >Ofertas</a
+            >
+          </li>
         </ul>
       </nav>
       <md-filled-text-field
