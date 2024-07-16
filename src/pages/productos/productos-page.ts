@@ -15,7 +15,14 @@ export class ProductosPage extends LitElement {
     css`
       .container {
         display: flex;
+        flex-wrap: wrap;
         padding: 1rem;
+        gap: 1rem;
+
+        & > * {
+          flex-grow: 1;
+          flex-shrink: 1;
+        }
       }
     `,
   ];

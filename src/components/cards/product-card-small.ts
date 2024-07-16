@@ -9,7 +9,25 @@ export class ProductCardSmall extends LitElement {
   @property()
   product;
 
-  static styles = [CssReset, css``];
+  static styles = [
+    CssReset,
+    css`
+      .container {
+        container-type: inline-size;
+        min-width: 10rem;
+      }
+        .card {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          padding: 1rem;
+          border: 1px solid #ccc;
+          border-radius: 0.5rem;
+          box-shadow: 0 0 0.5rem #ccc;
+          }
+      @container(min-width: 10rem) {;
+    `,
+  ];
 
   render() {
     const {
