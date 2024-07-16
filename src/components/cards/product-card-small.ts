@@ -1,12 +1,15 @@
 // @ts-nocheck
-import { LitElement, html } from 'lit';
+import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import grade from '@material-design-icons/svg/filled/grade.svg';
+import CssReset from '../../css/reset.css.js';
 
 @customElement('product-card-small')
 export class ProductCardSmall extends LitElement {
   @property()
   product;
+
+  static styles = [CssReset, css``];
 
   render() {
     const {
