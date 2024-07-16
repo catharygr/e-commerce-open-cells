@@ -3,6 +3,7 @@ import { LitElement, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { PageController } from '@open-cells/page-controller';
 import '../../components/Others/spinner.js';
+import '../../components/cards/product-card-small.js';
 
 @customElement('productos-page')
 export class ProductosPage extends LitElement {
@@ -17,7 +18,13 @@ export class ProductosPage extends LitElement {
       ? html`<spinner-element></spinner-element>`
       : html`
           <div class="container">
-            <h1>Productos</h1>
+            <h1>
+              ${this.allProducts.map((product) => {
+                return html`<product-card-small
+                  .product=${product}
+                ></product-card-small>`;
+              })}
+            </h1>
           </div>
         `;
   }
