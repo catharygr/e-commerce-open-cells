@@ -29,6 +29,13 @@ export class ProductosPage extends LitElement {
   static inbounds = {
     allProducts: {
       channel: 'all-products',
+      searchQuery: {
+        channel: 'search-query',
+        action: (data) =>
+          data.filter((product) =>
+            product.title.toLowerCase().includes(searchQuery.toLowerCase())
+          ),
+      },
     },
   };
   render() {

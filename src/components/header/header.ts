@@ -28,7 +28,6 @@ export class HeaderComponent extends LitElement {
 
   handleSearch(e) {
     this.searcQuery = e.target.value;
-    console.log(this.searcQuery);
   }
 
   openNavegation() {
