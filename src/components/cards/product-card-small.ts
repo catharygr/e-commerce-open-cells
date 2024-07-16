@@ -82,10 +82,19 @@ export class ProductCardSmall extends LitElement {
         <div class="card">
           <img class="card-img" src=${image} />
           <h3 class="card-title">${title}</h3>
-          <p class="card-description">${description}</p>
+          <p class="card-description">
+            ${description.slice(0, 300)}${description.length > 300
+              ? '... Read more.'
+              : ''}
+          </p>
           <div class="card-details">
             <span class="card-rating">${starArray}</span>
-            <span class="card-price">${price}</span>
+            <span class="card-price">
+              ${new Intl.NumberFormat('es-ES', {
+                style: 'currency',
+                currency: 'EUR',
+              }).format(price)}</span
+            >
           </div>
         </div>
       </div>
