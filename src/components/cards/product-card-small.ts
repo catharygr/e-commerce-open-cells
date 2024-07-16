@@ -14,18 +14,50 @@ export class ProductCardSmall extends LitElement {
     css`
       .container {
         container-type: inline-size;
+        height: 100%;
         min-width: 10rem;
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 0.5rem;
+        box-shadow: 0 0 0.5rem #ccc;
       }
-        .card {
-          display: flex;
-          flex-direction: column;
-          gap: 1rem;
-          padding: 1rem;
-          border: 1px solid #ccc;
-          border-radius: 0.5rem;
-          box-shadow: 0 0 0.5rem #ccc;
-          }
-      @container(min-width: 10rem) {;
+      .card {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        height: 100%;
+      }
+
+      .card-img {
+        object-fit: contain;
+        aspect-ratio: 1/1;
+      }
+
+      .card-title {
+        font-size: 1rem;
+      }
+      .card-description {
+        font-size: 0.8rem;
+      }
+
+      .card-details {
+        display: flex;
+        justify-content: space-between;
+        margin-top: auto;
+      }
+
+      .card-rating {
+        display: flex;
+        align-items: center;
+      }
+
+      .opiniones-stars-svg {
+        width: 1em;
+        height: 1em;
+        font-size: 0.8em;
+      }
+      @container (min-width: 15rem) {
+      }
     `,
   ];
 
@@ -49,11 +81,11 @@ export class ProductCardSmall extends LitElement {
       <div class="container">
         <div class="card">
           <img class="card-img" src=${image} />
-          <h3>${title}</h3>
-          <p>${description}</p>
-          <div>
-            <span>${price}</span>
-            <span>${starArray}</span>
+          <h3 class="card-title">${title}</h3>
+          <p class="card-description">${description}</p>
+          <div class="card-details">
+            <span class="card-rating">${starArray}</span>
+            <span class="card-price">${price}</span>
           </div>
         </div>
       </div>

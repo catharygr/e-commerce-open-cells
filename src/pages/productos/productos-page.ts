@@ -14,15 +14,10 @@ export class ProductosPage extends LitElement {
     CssReset,
     css`
       .container {
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
         padding: 1rem;
-        gap: 1rem;
-
-        & > * {
-          flex-grow: 1;
-          flex-shrink: 1;
-        }
+        gap: 0.5rem;
       }
     `,
   ];
