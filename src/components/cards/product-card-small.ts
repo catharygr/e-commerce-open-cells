@@ -69,17 +69,21 @@ export class ProductCardSmall extends LitElement {
           gap: 1rem;
         }
         .card-img {
-          align-self: top;
+          align-self: center;
           max-width: 40%;
-      }
+        }
 
-      .card-content {
-        max-width: 60%;
-        font-size: 2rem;  
+        .card-content {
+          max-width: 60%;
+          font-size: 2rem;
+        }
+        .card-title {
+          font-size: 1.5rem;
+        }
+        .card-description {
+          font-size: 1rem;
+        }
       }
-          .card-title {
-            font-size: 1.5rem;
-          }
     `,
   ];
 
