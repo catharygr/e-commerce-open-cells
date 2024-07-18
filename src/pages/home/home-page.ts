@@ -45,6 +45,6 @@ export class HomePage extends LitElement {
   }
 
   onPageEnter() {
-    this.randomProduct = this.getRandomProduct();
+    this.requestUpdate();
   }
 }
