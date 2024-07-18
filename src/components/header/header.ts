@@ -23,11 +23,11 @@ export class HeaderComponent extends LitElement {
   @query('.navegation') navegation;
 
   static outbounds = {
-    searcQuery: { channel: 'search-query' },
+    searchQuery: { channel: 'search-query' },
   };
 
   handleSearch(e) {
-    this.searcQuery = e.target.value;
+    this.searchQuery = e.target.value;
   }
 
   openNavegation() {

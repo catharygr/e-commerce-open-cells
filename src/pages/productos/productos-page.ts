@@ -27,28 +27,28 @@ export class ProductosPage extends LitElement {
   ];
 
   static inbounds = {
-    allProducts: {
-      channel: 'all-products',
-      searchQuery: {
-        channel: 'search-query',
-        action: (data) =>
-          data.filter((product) =>
-            product.title.toLowerCase().includes(searchQuery.toLowerCase())
-          ),
-      },
-    },
+    allProducts: { channel: 'all-products' },
+    searchQuery: { channel: 'search-query' },
   };
+
   render() {
     return !this.allProducts
       ? html`<spinner-element></spinner-element>`
-      : html`
-          <div class="container">
-            ${this.allProducts.map((product) => {
-              return html`<product-card-small
-                .product=${product}
-              ></product-card-small>`;
-            })}
-          </div>
-        `;
+      : html` <div class="container">${this.renderCards()}</div> `;
+  }
+
+  renderCards() {
+    return this.allProducts
+      .filter((product) => {
+        if (!this.searchQuery) return product;
+        return product.title
+          .toLowerCase()
+          .includes(this.searchQuery.toLowerCase());
+      })
+      .map((product) => {
+        return html`<product-card-small
+          .product=${product}
+        ></product-card-small>`;
+      });
   }
 }
