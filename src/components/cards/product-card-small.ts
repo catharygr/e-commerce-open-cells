@@ -33,6 +33,13 @@ export class ProductCardSmall extends LitElement {
         aspect-ratio: 1/1;
       }
 
+      .card-content {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        height: 100%;
+      }
+
       .card-title {
         font-size: 1rem;
       }
@@ -56,8 +63,17 @@ export class ProductCardSmall extends LitElement {
         height: 1em;
         font-size: 0.8em;
       }
-      @container (min-width: 15rem) {
+      @container (min-width: 29rem) {
+        .card {
+          flex-direction: row;
+          gap: 1rem;
+        }
+        .card-img {
+          align-self: top;
+          max-width: 40%;
       }
+          card-content {
+          align-self: center;
     `,
   ];
 
@@ -81,20 +97,22 @@ export class ProductCardSmall extends LitElement {
       <div class="container">
         <div class="card">
           <img class="card-img" src=${image} />
-          <h3 class="card-title">${title}</h3>
-          <p class="card-description">
-            ${description.slice(0, 300)}${description.length > 300
-              ? '... Read more.'
-              : ''}
-          </p>
-          <div class="card-details">
-            <span class="card-rating">${starArray}</span>
-            <span class="card-price">
-              ${new Intl.NumberFormat('es-ES', {
-                style: 'currency',
-                currency: 'EUR',
-              }).format(price)}</span
-            >
+          <div class="card-content">
+            <h3 class="card-title">${title}</h3>
+            <p class="card-description">
+              ${description.slice(0, 300)}${description.length > 300
+                ? '... Read more.'
+                : ''}
+            </p>
+            <div class="card-details">
+              <span class="card-rating">${starArray}</span>
+              <span class="card-price">
+                ${new Intl.NumberFormat('es-ES', {
+                  style: 'currency',
+                  currency: 'EUR',
+                }).format(price)}</span
+              >
+            </div>
           </div>
         </div>
       </div>
