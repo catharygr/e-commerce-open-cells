@@ -72,8 +72,14 @@ export class ProductCardSmall extends LitElement {
           align-self: top;
           max-width: 40%;
       }
-          card-content {
-          align-self: center;
+
+      .card-content {
+        max-width: 60%;
+        font-size: 2rem;  
+      }
+          .card-title {
+            font-size: 1.5rem;
+          }
     `,
   ];
 
