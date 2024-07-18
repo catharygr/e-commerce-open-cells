@@ -77,15 +77,21 @@ export class ProductCardSmall extends LitElement {
             font-size: 2rem;
           }
 
-          .card-title,
-          .card-description {
-            align-self: center;
+          .card-img {
+            max-width: 30%;
           }
+
           .card-title {
-            font-size: 1.5rem;
+            margin-top: 2rem;
+            padding: 0.5rem;
+            font-size: 2rem;
           }
           .card-description {
             font-size: 1rem;
+          }
+          .card-details {
+            margin-top: auto;
+            padding: 0.5rem;
           }
         }
       }
