@@ -76,6 +76,11 @@ export class ProductCardSmall extends LitElement {
           .card-content {
             font-size: 2rem;
           }
+
+          .card-title,
+          .card-description {
+            align-self: center;
+          }
           .card-title {
             font-size: 1.5rem;
           }
