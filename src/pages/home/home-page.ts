@@ -40,4 +40,17 @@ export class HomePage extends LitElement {
           </div>
         `;
   }
+
+  async onPageEnter() {
+    try {
+      const products = await this.pageController.getProducts();
+      if (products && products.length > 0) {
+        const randomIndex = Math.floor(Math.random() * products.length);
+        this.randomProduct = products[randomIndex];
+        this.requestUpdate();
+      }
+    } catch (error) {
+      console.error('Error al obtener los productos:', error);
+    }
+  }
 }
