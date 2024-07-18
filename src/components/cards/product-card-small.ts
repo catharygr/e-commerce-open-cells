@@ -74,6 +74,7 @@ export class ProductCardSmall extends LitElement {
         }
         @container (min-width: 40rem) {
           .card-content {
+            self-content: center;
             font-size: 2rem;
           }
           .card-title {
