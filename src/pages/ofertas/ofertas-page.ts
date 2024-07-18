@@ -23,22 +23,22 @@ export class OfertasPage extends LitElement {
   `;
 
   static inbounds = {
-    allOfertas: { channel: 'all-ofertas' },
+    allProducts: { channel: 'all-products' },
   };
 
   render() {
-    console.log(this.allOfertas);
-    return !this.allOfertas
+    console.log(this.allProducts);
+    return !this.allProducts
       ? html`<spinner-element></spinner-element>`
       : html` <div class="container">${this.oferCards()}</div> `;
   }
 
   oferCards() {
-    const ofertasFiltradas = this.allOfertas.filter(
-      (oferta) => ofertas.offer === true
-    );
-    return ofertasFiltradas.map((oferta) => {
-      return html`<product-card-small .product=${oferta}></product-card-small>`;
-    });
+    return this.allProducts
+      .filter((products) => products.offer === true)
+      .map(
+        (products) =>
+          html`<product-card-small .products=${products}></product-card-small>`
+      );
   }
 }
