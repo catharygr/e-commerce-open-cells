@@ -33,4 +33,12 @@ export const routes: RouteDefinition[] = [
       await import('../pages/acount/acount-page.js');
     },
   },
+  {
+    path: '/login',
+    name: 'login',
+    component: 'login-page',
+    action: async () => {
+      await import('../pages/login/login-page.js');
+    },
+  },
 ];
