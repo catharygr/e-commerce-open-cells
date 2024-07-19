@@ -35,7 +35,7 @@ export class OfertasPage extends LitElement {
 
   oferCards() {
     return this.allProducts
-      .filter((product) => product.offer === true)
+      .filter((product) => product.offer === false)
       .map(
         (product) =>
           html`<product-card-small .product=${product}></product-card-small>`
