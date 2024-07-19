@@ -19,7 +19,8 @@ export class LoginPage extends LitElement {
 
       .titulo {
         text-align: center;
-        margin: 2rem;
+        margin-top: 10rem;
+        font-size: 2rem;
       }
 
       .form-login {
