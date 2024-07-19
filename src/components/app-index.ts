@@ -12,6 +12,15 @@ import './footer/footer.js';
 startApp({
   routes,
   mainNode: 'app-content',
+  interceptor: function (navigation, ctx) {
+    let intercept = false;
+    let redirect;
+    if (navigation.to.page === 'account') {
+      intercept = true;
+      redirect = { page: 'login' };
+    }
+    return { intercept, redirect };
+  },
 });
 
 @customElement('app-index')

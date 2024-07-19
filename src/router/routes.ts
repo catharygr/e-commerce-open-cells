@@ -26,11 +26,11 @@ export const routes: RouteDefinition[] = [
     },
   },
   {
-    path: '/acount',
-    name: 'acount',
-    component: 'acount-page',
+    path: '/account',
+    name: 'account',
+    component: 'account-page',
     action: async () => {
-      await import('../pages/acount/acount-page.js');
+      await import('../pages/account/account-page.js');
     },
   },
   {

@@ -92,7 +92,7 @@ export class HeaderComponent extends LitElement {
         <img slot="trailing-icon" src="${svgSearch}" alt="search" />
       </md-filled-text-field>
       <div class="action-header">
-        <button @click=${this.pageController.navigate('acount')}>
+        <button @click=${() => this.pageController.navigate('account')}>
           <img src="${svgAccountCircle}" alt="account" />
         </button>
         <button>
