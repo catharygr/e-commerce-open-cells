@@ -2,6 +2,7 @@
 import { html, LitElement, css } from 'lit';
 import { PageController } from '@open-cells/page-controller';
 import { customElement, state } from 'lit/decorators.js';
+import CssReset from '../../css/reset.css.js';
 import '../../components/cards/home-card.js';
 import '../../components/Others/spinner.js';
 
@@ -9,15 +10,18 @@ import '../../components/Others/spinner.js';
 export class HomePage extends LitElement {
   pageController = new PageController(this);
 
-  static styles = css`
-    .container {
-      padding: 0.5rem 1rem;
-    }
-    h1 {
-      margin-top: 0;
-      text-align: center;
-    }
-  `;
+  static styles = [
+    CssReset,
+    css`
+      .container {
+        padding: 0.5rem 1rem;
+      }
+      h1 {
+        margin-top: 0;
+        text-align: center;
+      }
+    `,
+  ];
 
   @state()
   randomProduct = null;

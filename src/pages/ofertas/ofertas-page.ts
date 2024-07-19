@@ -9,25 +9,28 @@ import '../../components/cards/product-card-small.js';
 @customElement('ofertas-page')
 export class OfertasPage extends LitElement {
   pageController = new PageController(this);
-  static styles = css`
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      padding: 1rem;
-      gap: 0.5rem;
 
-      & > * {
-        flex: 1 1 15rem;
+  static styles = [
+    CssReset,
+    css`
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 1rem;
+        gap: 0.5rem;
+
+        & > * {
+          flex: 1 1 15rem;
+        }
       }
-    }
-  `;
+    `,
+  ];
 
   static inbounds = {
     allProducts: { channel: 'all-products' },
   };
 
   render() {
-    console.log(this.allProducts);
     return !this.allProducts
       ? html`<spinner-element></spinner-element>`
       : html` <div class="container">${this.oferCards()}</div> `;
