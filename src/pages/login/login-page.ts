@@ -3,17 +3,51 @@ import { LitElement, html, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import '@material/web/textfield/outlined-text-field';
 import '@material/web/button/filled-button.js';
+import CssReset from '../../css/reset.css.js';
 
 @customElement('login-page')
 export class LoginPage extends LitElement {
+  static styles = [
+    CssReset,
+    css`
+      .container {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+      }
+
+      .titulo {
+        text-align: center;
+        margin: 2rem;
+      }
+
+      .form-login {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      md-outlined-text-field {
+        width: 40%;
+      }
+      md-filled-button {
+        width: 40%;
+        font-size: 1.2rem;
+      }
+    `,
+  ];
   render() {
-    return html`<h1>My login</h1>
-      <form>
+    return html` <div class="container">
+      <h3 class="titulo">Loguear</h3>
+      <form class="form-login">
         <md-outlined-text-field
           label="Email"
           id="email"
           name="email"
           type="email"
+          minLenght="5"
           required
         ></md-outlined-text-field>
         <md-outlined-text-field
@@ -21,9 +55,11 @@ export class LoginPage extends LitElement {
           id="password"
           name="password"
           type="password"
+          minLenght="8"
           required
         ></md-outlined-text-field>
         <md-filled-button type="submit">Login</md-filled-button>
-      </form>`;
+      </form>
+    </div>`;
   }
 }
