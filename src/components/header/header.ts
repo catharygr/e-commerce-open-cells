@@ -92,10 +92,18 @@ export class HeaderComponent extends LitElement {
         <img slot="trailing-icon" src="${svgSearch}" alt="search" />
       </md-filled-text-field>
       <div class="action-header">
-        <img src="${svgAccountCircle}" alt="account" />
-        <img src="${svgFavorite}" alt="favorite" />
-        <img src="${svgDarkMode}" alt="dark mode" />
-        <img src="${svgShoppingCart}" alt="shopping cart" />
+        <button @click=${this.pageController.navigate('acount')}>
+          <img src="${svgAccountCircle}" alt="account" />
+        </button>
+        <button>
+          <img src="${svgFavorite}" alt="favorite" />
+        </button>
+        <button>
+          <img src="${svgDarkMode}" alt="dark mode" />
+        </button>
+        <button>
+          <img src="${svgShoppingCart}" alt="shopping cart" />
+        </button>
       </div>
     </header>`;
   }

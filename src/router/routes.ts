@@ -25,4 +25,12 @@ export const routes: RouteDefinition[] = [
       await import('../pages/ofertas/ofertas-page.js');
     },
   },
+  {
+    path: '/acount',
+    name: 'acount',
+    component: 'acount-page',
+    action: async () => {
+      await import('../pages/acount/acount-page.js');
+    },
+  },
 ];

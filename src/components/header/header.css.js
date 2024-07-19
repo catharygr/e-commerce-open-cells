@@ -34,6 +34,10 @@ export const styles = css`
     justify-content: center;
     flex-grow: 1;
     gap: 0.5rem;
+
+    & > * {
+      cursor: pointer;
+    }
   }
 
   .close-menu-icon {
