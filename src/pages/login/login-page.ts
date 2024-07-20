@@ -3,7 +3,9 @@ import { LitElement, html, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import '@material/web/textfield/outlined-text-field';
 import '@material/web/button/filled-button.js';
+import '@material/web/icon/icon.js';
 import CssReset from '../../css/reset.css.js';
+import svgTrailing from '@material-design-icons/svg/outlined/trailing.svg';
 
 @customElement('login-page')
 export class LoginPage extends LitElement {
@@ -58,7 +60,16 @@ export class LoginPage extends LitElement {
           type="password"
           minLenght="8"
           required
-        ></md-outlined-text-field>
+        >
+          <button>
+            <img
+              toggle
+              slot="trailing-icon"
+              src="${svgTrailing}"
+              alt="trailing"
+            />
+          </button>
+        </md-outlined-text-field>
         <md-filled-button type="submit">Login</md-filled-button>
       </form>
     </div>`;
