@@ -5,7 +5,7 @@ import '@material/web/textfield/outlined-text-field';
 import '@material/web/button/filled-button.js';
 import '@material/web/icon/icon.js';
 import CssReset from '../../css/reset.css.js';
-import svgTrailing from '@material-design-icons/svg/outlined/trailing.svg';
+import svgVisibility from '@material-design-icons/svg/outlined/visibility.svg';
 
 @customElement('login-page')
 export class LoginPage extends LitElement {
@@ -65,8 +65,8 @@ export class LoginPage extends LitElement {
             <img
               toggle
               slot="trailing-icon"
-              src="${svgTrailing}"
-              alt="trailing"
+              src="${svgVisibility}"
+              alt="visibility"
             />
           </button>
         </md-outlined-text-field>
