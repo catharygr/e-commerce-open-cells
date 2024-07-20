@@ -10,7 +10,7 @@ import { resetInterceptorContext } from '@open-cells/core/src/bridge.js';
 export class AccountPage extends LitElement {
   pageController = new PageController(this);
 
-  @property({ type: Object }) userData = {};
+  @property() userData = {};
 
   static styles = [
     CssReset,
@@ -32,18 +32,21 @@ export class AccountPage extends LitElement {
     `,
   ];
 
-  constructor() {
-    super();
+  connectedCallback() {
+    super.connectedCallback();
+    this.updateUserData();
+  }
+
+  updateUserData() {
     const user = sessionStorage.getItem('user');
-    if (user) {
-      this.userData = JSON.parse(user);
-    }
+    this.userData = user ? JSON.parse(user) : {};
   }
 
   handleLogOff() {
     sessionStorage.removeItem('user');
-    resetInterceptorContext();
+    this.pageController.resetInterceptorContext();
     this.pageController.navigate('home');
+    this.requestUpdate();
   }
 
   render() {
@@ -51,14 +54,16 @@ export class AccountPage extends LitElement {
       <div class="container">
         <div class="acc-header">
           <h1>My account</h1>
-          ${this.userData
-            ? html`<div>Welcome, ${this.userData.name}</div>`
-            : ''}
           <md-filled-button @click=${this.handleLogOff} class=""
             >Logout</md-filled-button
           >
         </div>
-        ${this.userData ? html`<div>Email: ${this.userData.email}</div>` : ''}
+      </div>
+      <div class="acc-info">
+        <p>Welcome</p>
+        ${this.userData
+          ? html`<p><strong>Email: ${this.userData.email}</strong></p>`
+          : ''}
       </div>
     `;
   }
