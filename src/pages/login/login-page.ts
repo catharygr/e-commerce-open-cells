@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { LitElement, html, css } from 'lit';
-import { customElement } from 'lit/decorators.js';
+import { customElement, query } from 'lit/decorators.js';
 import '@material/web/textfield/outlined-text-field';
 import '@material/web/button/filled-button.js';
 import '@material/web/iconbutton/icon-button.js';
@@ -43,6 +43,14 @@ export class LoginPage extends LitElement {
       }
     `,
   ];
+
+  @query('md-outlined-text-field[id="password"]') passField;
+
+  togglePasswordVisibility() {
+    this.passField.type =
+      this.passField.type === 'password' ? 'text' : 'password';
+    console.log('togglePasswordVisibility');
+  }
   render() {
     return html` <div class="container">
       <h3 class="titulo">Loguear</h3>
@@ -52,18 +60,22 @@ export class LoginPage extends LitElement {
           id="email"
           name="email"
           type="email"
-          minLenght="5"
           required
-        ></md-outlined-text-field>
+        >
+        </md-outlined-text-field>
         <md-outlined-text-field
           label="Password"
           id="password"
           name="password"
           type="password"
-          minLenght="8"
+          minLength="8"
           required
         >
-          <md-icon-button toggle slot="trailing-icon">
+          <md-icon-button
+            @click=${this.togglePasswordVisibility}
+            toggle
+            slot="trailing-icon"
+          >
             <img src="${svgVisibility}" alt="visibility" />
             <img
               slot="selected"
