@@ -8,9 +8,11 @@ import '@material/web/iconbutton/icon-button.js';
 import CssReset from '../../css/reset.css.js';
 import svgVisibility from '@material-design-icons/svg/outlined/visibility.svg';
 import svgVisibilityOff from '@material-design-icons/svg/outlined/visibility_off.svg';
+import { PageController } from '@open-cells/page-controller';
 
 @customElement('login-page')
 export class LoginPage extends LitElement {
+  pageController = new PageController(this);
   static styles = [
     CssReset,
     css`
@@ -46,7 +48,8 @@ export class LoginPage extends LitElement {
 
   @query('md-outlined-text-field[id="password"]') passField;
 
-  togglePasswordVisibility() {
+  togglePasswordVisibility(e) {
+    e.preventDefault;
     this.passField.type =
       this.passField.type === 'password' ? 'text' : 'password';
   }
@@ -57,6 +60,12 @@ export class LoginPage extends LitElement {
     const password = this.shadowRoot?.querySelector('#password').value;
     // Guardar ambos en sessionStorage como un objecto
     sessionStorage.setItem('user', JSON.stringify({ email, password }));
+    this.pageController.updateInterceptorContext({ user: { email, password } });
+    // Redirigir a la pagina de cuenta
+    this.pageController.navigate('account');
+    // Eliminar los valores de los campos
+    this.shadowRoot.querySelector('#email').value = '';
+    this.shadowRoot.querySelector('#password').value = '';
   }
   render() {
     return html` <div class="container">
@@ -82,6 +91,7 @@ export class LoginPage extends LitElement {
             @click=${this.togglePasswordVisibility}
             toggle
             slot="trailing-icon"
+            type="button"
           >
             <img src="${svgVisibility}" alt="visibility" />
             <img

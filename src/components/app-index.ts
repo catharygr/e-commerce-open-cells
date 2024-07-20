@@ -15,10 +15,11 @@ startApp({
   interceptor: function (navigation, ctx) {
     let intercept = false;
     let redirect;
-    if (navigation.to.page === 'account') {
+    if (navigation.to.page === 'account' && !sessionStorage.getItem('user')) {
       intercept = true;
       redirect = { page: 'login' };
     }
+
     return { intercept, redirect };
   },
 });
@@ -37,6 +38,11 @@ export class AppIndex extends LitElement {
     try {
       super.connectedCallback();
       this.allProducts = await fetchData();
+      if (sessionStorage.getItem('user')) {
+        this.elementController.updateInterceptorContext({
+          user: JSON.parse(sessionStorage.getItem('user')),
+        });
+      }
     } catch (error) {
       console.error('Error en appIndex', error);
     }
