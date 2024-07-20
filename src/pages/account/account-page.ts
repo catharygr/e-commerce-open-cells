@@ -10,7 +10,7 @@ import { resetInterceptorContext } from '@open-cells/core/src/bridge.js';
 export class AccountPage extends LitElement {
   pageController = new PageController(this);
 
-  @property() userData = {};
+  @property({ type: Object }) userData = {};
 
   static styles = [
     CssReset,
@@ -29,14 +29,6 @@ export class AccountPage extends LitElement {
         justify-content: space-between;
         align-items: center;
       }
-      .user-data {
-        margin-top: 2rem;
-        text-align: center;
-      }
-      .saludo {
-        font-size: 2rem;
-        font-weight: bold;
-      }
     `,
   ];
 
@@ -50,8 +42,8 @@ export class AccountPage extends LitElement {
 
   handleLogOff() {
     sessionStorage.removeItem('user');
+    resetInterceptorContext();
     this.pageController.navigate('home');
-    this.pageController.updateInterceptorContext();
   }
 
   render() {
@@ -59,14 +51,14 @@ export class AccountPage extends LitElement {
       <div class="container">
         <div class="acc-header">
           <h1>My account</h1>
+          ${this.userData
+            ? html`<div>Welcome, ${this.userData.name}</div>`
+            : ''}
           <md-filled-button @click=${this.handleLogOff} class=""
             >Logout</md-filled-button
           >
         </div>
-      </div>
-      <div class="user-data">
-        <p class="saludo">Welcome</p>
-        ${this.userData ? html`<p>Email: ${this.userData.email}</p>` : ''}
+        ${this.userData ? html`<div>Email: ${this.userData.email}</div>` : ''}
       </div>
     `;
   }
