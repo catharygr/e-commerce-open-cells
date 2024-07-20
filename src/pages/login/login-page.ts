@@ -49,7 +49,14 @@ export class LoginPage extends LitElement {
   togglePasswordVisibility() {
     this.passField.type =
       this.passField.type === 'password' ? 'text' : 'password';
-    console.log('togglePasswordVisibility');
+  }
+
+  handleSubmmit(e) {
+    e.preventDefault();
+    const email = this.shadowRoot?.querySelector('#email').value;
+    const password = this.shadowRoot?.querySelector('#password').value;
+    // Guardar ambos en sessionStorage como un objecto
+    sessionStorage.setItem('user', JSON.stringify({ email, password }));
   }
   render() {
     return html` <div class="container">
@@ -84,7 +91,7 @@ export class LoginPage extends LitElement {
             />
           </md-icon-button>
         </md-outlined-text-field>
-        <md-filled-button type="submit">Login</md-filled-button>
+        <md-filled-button @click=${this.handleSubmmit}>Login</md-filled-button>
       </form>
     </div>`;
   }
