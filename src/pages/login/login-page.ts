@@ -4,6 +4,7 @@ import { customElement } from 'lit/decorators.js';
 import '@material/web/textfield/outlined-text-field';
 import '@material/web/button/filled-button.js';
 import '@material/web/icon/icon.js';
+import '@material/web/iconbutton/icon-button.js';
 import CssReset from '../../css/reset.css.js';
 import svgVisibility from '@material-design-icons/svg/outlined/visibility.svg';
 
@@ -61,14 +62,12 @@ export class LoginPage extends LitElement {
           minLenght="8"
           required
         >
-          <button>
-            <img
-              toggle
-              slot="trailing-icon"
-              src="${svgVisibility}"
-              alt="visibility"
-            />
-          </button>
+          <img
+            toggle
+            slot="trailing-icon"
+            src="${svgVisibility}"
+            alt="visibility"
+          />
         </md-outlined-text-field>
         <md-filled-button type="submit">Login</md-filled-button>
       </form>
