@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { LitElement, html, css } from 'lit';
-import { customElement } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import CssReset from '../../css/reset.css.js';
 import '@material/web/button/filled-button.js';
 import { PageController } from '@open-cells/page-controller';
@@ -9,6 +9,9 @@ import { resetInterceptorContext } from '@open-cells/core/src/bridge.js';
 @customElement('account-page')
 export class AccountPage extends LitElement {
   pageController = new PageController(this);
+
+  @property() userData = {};
+
   static styles = [
     CssReset,
     css`
@@ -26,13 +29,29 @@ export class AccountPage extends LitElement {
         justify-content: space-between;
         align-items: center;
       }
+      .user-data {
+        margin-top: 2rem;
+        text-align: center;
+      }
+      .saludo {
+        font-size: 2rem;
+        font-weight: bold;
+      }
     `,
   ];
 
+  constructor() {
+    super();
+    const user = sessionStorage.getItem('user');
+    if (user) {
+      this.userData = JSON.parse(user);
+    }
+  }
+
   handleLogOff() {
     sessionStorage.removeItem('user');
-    resetInterceptorContext();
     this.pageController.navigate('home');
+    this.pageController.updateInterceptorContext();
   }
 
   render() {
@@ -44,6 +63,10 @@ export class AccountPage extends LitElement {
             >Logout</md-filled-button
           >
         </div>
+      </div>
+      <div class="user-data">
+        <p class="saludo">Welcome</p>
+        ${this.userData ? html`<p>Email: ${this.userData.email}</p>` : ''}
       </div>
     `;
   }
