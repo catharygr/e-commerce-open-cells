@@ -61,7 +61,7 @@ export class LoginPage extends LitElement {
     // Guardar ambos en sessionStorage como un objecto
     sessionStorage.setItem('user', JSON.stringify({ email, password }));
     this.pageController.updateInterceptorContext({ user: { email, password } });
-    // Redirigir a la pagina de cuenta
+    // Redirigir a la página de cuenta
     this.pageController.navigate('account');
     // Eliminar los valores de los campos
     this.shadowRoot.querySelector('#email').value = '';
