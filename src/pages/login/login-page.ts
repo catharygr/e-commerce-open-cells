@@ -3,10 +3,11 @@ import { LitElement, html, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import '@material/web/textfield/outlined-text-field';
 import '@material/web/button/filled-button.js';
-import '@material/web/icon/icon.js';
+import '@material/web/iconbutton/icon-button.js';
 import '@material/web/iconbutton/icon-button.js';
 import CssReset from '../../css/reset.css.js';
 import svgVisibility from '@material-design-icons/svg/outlined/visibility.svg';
+import svgVisibilityOff from '@material-design-icons/svg/outlined/visibility_off.svg';
 
 @customElement('login-page')
 export class LoginPage extends LitElement {
@@ -62,12 +63,14 @@ export class LoginPage extends LitElement {
           minLenght="8"
           required
         >
-          <img
-            toggle
-            slot="trailing-icon"
-            src="${svgVisibility}"
-            alt="visibility"
-          />
+          <md-icon-button toggle slot="trailing-icon">
+            <img src="${svgVisibility}" alt="visibility" />
+            <img
+              slot="selected"
+              src="${svgVisibilityOff}"
+              alt="visibility_off"
+            />
+          </md-icon-button>
         </md-outlined-text-field>
         <md-filled-button type="submit">Login</md-filled-button>
       </form>
