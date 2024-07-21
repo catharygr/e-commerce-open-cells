@@ -11,7 +11,7 @@ export class AccountPage extends LitElement {
   pageController = new PageController(this);
 
   @property()
-  user = this;
+  user = this.pageController.getInterceptorContext().user || {};
 
   static styles = [
     CssReset,
@@ -21,6 +21,9 @@ export class AccountPage extends LitElement {
         margin: 1rem auto;
       }
       .container {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
         border: 1px solid #ccc;
         padding: 1rem;
         border-radius: 0.5rem;
@@ -30,8 +33,22 @@ export class AccountPage extends LitElement {
         justify-content: space-between;
         align-items: center;
       }
+      .user-info {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .user-admin {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
     `,
   ];
+
+  onPageEnter() {
+    this.user = this.pageController.getInterceptorContext().user || {};
+  }
 
   handleLogOff() {
     sessionStorage.removeItem('user');
@@ -45,15 +62,23 @@ export class AccountPage extends LitElement {
       <div class="container">
         <div class="acc-header">
           <h1>My account</h1>
-          <md-filled-button @click=${this.handleLogOff} class=""
+          <md-filled-button @click=${this.handleLogOff}
             >Logout</md-filled-button
           >
         </div>
-      </div>
-      <div class="acc-info">
-        <p>Welcome</p>
-        ${this.userData
-          ? html`<p><strong>Email: ${this.userData.email}</strong></p>`
+        <div class="user-info">
+          <h2>User Information</h2>
+          <p>UserName: ${this.user?.name || 'Anónimo'}</p>
+          <p>Email: ${this.user?.email || 'No email'}</p>
+          <p>Password: ${this.user?.password || 'No password'}</p>
+        </div>
+        ${this.user?.admin
+          ? html`
+              <div class="user-admin">
+                <h2>Admin Section</h2>
+                <md-filled-button> Panel de administrador </md-filled-button>
+              </div>
+            `
           : ''}
       </div>
     `;

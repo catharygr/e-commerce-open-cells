@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { startApp } from '@open-cells/core';
-import { LitElement, html } from 'lit';
+import { LitElement, PropertyValues, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { ElementController } from '@open-cells/element-controller';
 import { routes } from '../router/routes.js';
@@ -48,6 +48,13 @@ export class AppIndex extends LitElement {
     }
   }
 
+  updated() {
+    if (sessionStorage.getItem('user')) {
+      this.elementController.updateInterceptorContext({
+        user: JSON.parse(sessionStorage.getItem('user')),
+      });
+    }
+  }
   render() {
     return html`
       <header-component></header-component>
