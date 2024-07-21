@@ -10,7 +10,8 @@ import { resetInterceptorContext } from '@open-cells/core/src/bridge.js';
 export class AccountPage extends LitElement {
   pageController = new PageController(this);
 
-  @property() userData = {};
+  @property()
+  user = this;
 
   static styles = [
     CssReset,
@@ -31,16 +32,6 @@ export class AccountPage extends LitElement {
       }
     `,
   ];
-
-  connectedCallback() {
-    super.connectedCallback();
-    this.updateUserData();
-  }
-
-  updateUserData() {
-    const user = sessionStorage.getItem('user');
-    this.userData = user ? JSON.parse(user) : {};
-  }
 
   handleLogOff() {
     sessionStorage.removeItem('user');
