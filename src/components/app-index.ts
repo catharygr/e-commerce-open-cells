@@ -19,8 +19,7 @@ startApp({
       intercept = true;
       redirect = { page: 'login' };
     }
-
-    return { intercept, redirect };
+    if (navigation.to) return { intercept, redirect };
   },
 });
 
