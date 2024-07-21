@@ -79,7 +79,7 @@ export class AccountPage extends LitElement {
                 <md-filled-button
                   @click=${() => this.pageController.navigate('admin')}
                 >
-                  Panel de administrador
+                  Panel de admin
                 </md-filled-button>
               </div>
             `

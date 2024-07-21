@@ -5,6 +5,7 @@ import '@material/web/textfield/outlined-text-field';
 import '@material/web/button/filled-button.js';
 import '@material/web/iconbutton/icon-button.js';
 import '@material/web/iconbutton/icon-button.js';
+import '@material/web/checkbox/checkbox.js';
 import CssReset from '../../css/reset.css.js';
 import svgVisibility from '@material-design-icons/svg/outlined/visibility.svg';
 import svgVisibilityOff from '@material-design-icons/svg/outlined/visibility_off.svg';
@@ -58,30 +59,43 @@ export class LoginPage extends LitElement {
     e.preventDefault();
     const email = this.shadowRoot?.querySelector('#email').value;
     const password = this.shadowRoot?.querySelector('#password').value;
+    const name = this.shadowRoot?.querySelector('#nombre').value;
+    const role = this.shadowRoot?.querySelector('#admin').checked
+      ? 'admin'
+      : 'user';
+
     // Guardar ambos en sessionStorage como un objecto
     sessionStorage.setItem(
       'user',
-      JSON.stringify({ email, password, ame: 'Caty', role: 'admin' })
+      JSON.stringify({ email, password, name, role })
     );
     this.pageController.updateInterceptorContext({
-      user: { email, password, name: 'Caty', role: 'admin' },
+      user: { email, password, name, role },
     });
     // Redirigir a la página de cuenta
     this.pageController.navigate('account');
     // Eliminar los valores de los campos
     this.shadowRoot.querySelector('#email').value = '';
     this.shadowRoot.querySelector('#password').value = '';
+    this.shadowRoot.querySelector('#nombre').value = '';
+    this.shadowRoot.querySelector('#admin').checked = false;
   }
   render() {
     return html` <div class="container">
       <h3 class="titulo">Loguear</h3>
       <form class="form-login">
         <md-outlined-text-field
+          label="Nombre"
+          id="nombre"
+          name="nombre"
+          type="text"
+        >
+        </md-outlined-text-field>
+        <md-outlined-text-field
           label="Email"
           id="email"
           name="email"
           type="email"
-          required
         >
         </md-outlined-text-field>
         <md-outlined-text-field
@@ -90,7 +104,6 @@ export class LoginPage extends LitElement {
           name="password"
           type="password"
           minLength="8"
-          required
         >
           <md-icon-button
             @click=${this.togglePasswordVisibility}
@@ -106,6 +119,10 @@ export class LoginPage extends LitElement {
             />
           </md-icon-button>
         </md-outlined-text-field>
+        <label for="admin">
+          <md-checkbox id="admin"></md-checkbox>
+          ¿Eres admin?
+        </label>
         <md-filled-button @click=${this.handleSubmmit}>Login</md-filled-button>
       </form>
     </div>`;
