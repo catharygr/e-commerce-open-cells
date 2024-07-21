@@ -59,7 +59,8 @@ export class AdminPage extends LitElement {
               <h3>${product.title}</h3>
               <md-filled-button
                 class="edit-button"
-                @click=${() => this.pageController.navigate('edit', product.id)}
+                @click=${() =>
+                  this.pageController.navigate('edit', { edit: product.id })}
                 >Editar</md-filled-button
               >
             </div>`
