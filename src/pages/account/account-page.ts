@@ -72,11 +72,15 @@ export class AccountPage extends LitElement {
           <p>Email: ${this.user?.email || 'No email'}</p>
           <p>Password: ${this.user?.password || 'No password'}</p>
         </div>
-        ${this.user?.admin
+        ${this.user?.role === 'admin'
           ? html`
               <div class="user-admin">
                 <h2>Admin Section</h2>
-                <md-filled-button> Panel de administrador </md-filled-button>
+                <md-filled-button
+                  @click=${() => this.pageController.navigate('admin')}
+                >
+                  Panel de administrador
+                </md-filled-button>
               </div>
             `
           : ''}

@@ -61,10 +61,10 @@ export class LoginPage extends LitElement {
     // Guardar ambos en sessionStorage como un objecto
     sessionStorage.setItem(
       'user',
-      JSON.stringify({ email, password, ame: 'Caty', admin: true })
+      JSON.stringify({ email, password, ame: 'Caty', role: 'admin' })
     );
     this.pageController.updateInterceptorContext({
-      user: { email, password, name: 'Caty', admin: true },
+      user: { email, password, name: 'Caty', role: 'admin' },
     });
     // Redirigir a la página de cuenta
     this.pageController.navigate('account');

@@ -15,11 +15,19 @@ startApp({
   interceptor: function (navigation, ctx) {
     let intercept = false;
     let redirect;
-    if (navigation.to.page === 'account' && !sessionStorage.getItem('user')) {
+    if (
+      (navigation.to.page === 'account' || navigation.to.page === 'admin') &&
+      !sessionStorage.getItem('user')
+    ) {
       intercept = true;
       redirect = { page: 'login' };
     }
-    if (navigation.to) return { intercept, redirect };
+    if (navigation.to.page === 'admin' && ctx.user?.role !== 'admin') {
+      intercept = true;
+      redirect = { page: 'account' };
+    }
+
+    return { intercept, redirect };
   },
 });
 
