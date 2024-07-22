@@ -12,8 +12,12 @@ export class EditPage extends LitElement {
     CssReset,
     css`
       :host {
-        max-width: 50rem;
+        width: min(96vw, 40rem);
         margin: 1rem auto;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
       }
     `,
   ];

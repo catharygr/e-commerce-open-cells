@@ -112,6 +112,7 @@ export const styles = css`
         order: 5;
       }
     }
+
     .tienda-logo {
       width: 40px;
     }
