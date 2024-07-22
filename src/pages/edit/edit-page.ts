@@ -28,6 +28,7 @@ export class EditPage extends LitElement {
         display: flex;
         flex-direction: column;
         gap: 1rem;
+        width: 94%;
       }
 
       .edit-header {
@@ -50,6 +51,7 @@ export class EditPage extends LitElement {
 
       .delete-btn {
         --md-sys-color-primary: red;
+        width: 94%;
       }
     `,
   ];
@@ -93,8 +95,9 @@ export class EditPage extends LitElement {
         <md-outlined-text-field
           id="price"
           label="Price"
-          type="number"
-          value=${product?.price}
+          type="text"
+          suffix-text="€"
+          value=${product?.price.toFixed(2)}
         ></md-outlined-text-field>
         <md-checkbox touch-target="wrapper"></md-checkbox>
 
