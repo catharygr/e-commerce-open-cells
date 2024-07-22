@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { LitElement, html, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import CssReset from '../../css/reset.css.js';
@@ -5,6 +6,8 @@ import { PageController } from '@open-cells/page-controller';
 import '@material/web/button/filled-button.js';
 import '@material/web/textfield/outlined-text-field';
 import '@material/web/checkbox/checkbox.js';
+import svgArrowBack from '@material-design-icons/svg/filled/arrow_back.svg';
+
 @customElement('edit-page')
 export class EditPage extends LitElement {
   pageController = new PageController(this);
@@ -18,6 +21,12 @@ export class EditPage extends LitElement {
         padding: 1rem;
         display: flex;
         flex-direction: column;
+        gap: 3rem;
+      }
+
+      .edit-form {
+        display: flex;
+        flex-direction: column;
         gap: 1rem;
       }
 
@@ -26,6 +35,22 @@ export class EditPage extends LitElement {
         justify-content: space-between;
         align-items: center;
       }
+
+      .link-back {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: underline;
+        text-underline-offset: 0.5rem;
+      }
+
+      .save-btn {
+        --md-sys-color-primary: green;
+      }
+
+      .delete-btn {
+        --md-sys-color-primary: red;
+      }
     `,
   ];
 
@@ -33,8 +58,8 @@ export class EditPage extends LitElement {
     return html`
       <div class="edit-header">
         <h1>Edit product</h1>
-        <md-filled-button @click=${() => this.pageController.backStep()}
-          >Go to Admin</md-filled-button
+        <a class="link-back" @click=${() => this.pageController.backStep()}
+          ><img src=${svgArrowBack} />Go to list product</a
         >
       </div>
       <form class="edit-form">
@@ -55,9 +80,9 @@ export class EditPage extends LitElement {
         ></md-outlined-text-field>
         <md-checkbox touch-target="wrapper"></md-checkbox>
 
-        <md-filled-button type="submit">Save</md-filled-button>
+        <md-filled-button class="save-btn" type="submit">Save</md-filled-button>
       </form>
-      <md-filled-button>Eliminar</md-filled-button>
+      <md-filled-button class="delete-btn">Eliminar</md-filled-button>
     `;
   }
 }
