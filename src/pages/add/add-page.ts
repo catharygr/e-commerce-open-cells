@@ -59,7 +59,7 @@ export class AddPage extends LitElement {
     return html`
       <section class="container">
         <div class="edit-header">
-          <h1>Add Product</h1>
+          <h1>Add roduct</h1>
           <a
             class="link-back"
             href="/account/admin"
@@ -76,28 +76,26 @@ export class AddPage extends LitElement {
             label="Title"
             type="textarea"
             rows="2"
-            value=${this.product?.title}
           ></md-outlined-text-field>
           <md-outlined-text-field
             id="description"
             label="Description"
             type="textarea"
             rows="5"
-            value=${this.product?.description}
+          ></md-outlined-text-field>
+          <md-outlined-text-field
+            id="category"
+            label="Category"
+            type="text"
           ></md-outlined-text-field>
           <md-outlined-text-field
             id="price"
             label="Price"
             type="text"
             suffix-text="€"
-            value=${this.product?.price.toFixed(2)}
           ></md-outlined-text-field>
           <label>
-            <md-checkbox
-              touch-target="wrapper"
-              ?checked=${this.product?.offer}
-              id="offer"
-            ></md-checkbox>
+            <md-checkbox touch-target="wrapper" id="offer"></md-checkbox>
             Product on offer
           </label>
 
