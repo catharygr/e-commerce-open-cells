@@ -19,7 +19,6 @@ export class EditPage extends LitElement {
   ];
 
   render() {
-    console.log('Edit Page');
     return html`
       <h1>Edit Page</h1>
       <md-filled-button @click=${() => this.pageController.backStep()}
