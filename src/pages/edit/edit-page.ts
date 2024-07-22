@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { LitElement, html, css } from 'lit';
-import { customElement } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import CssReset from '../../css/reset.css.js';
 import { PageController } from '@open-cells/page-controller';
 import '@material/web/button/filled-button.js';
@@ -54,11 +54,25 @@ export class EditPage extends LitElement {
     `,
   ];
 
+  @property()
+  params = {};
+
+  static inbounds = {
+    allProducts: { channel: 'all-products' },
+  };
+
   render() {
+    console.log(this.params.productId);
     return html`
       <div class="edit-header">
         <h1>Edit product</h1>
-        <a class="link-back" @click=${() => this.pageController.backStep()}
+        <a
+          class="link-back"
+          href="/account/admin"
+          @click=${(e) => {
+            e.preventDefault();
+            this.pageController.backStep();
+          }}
           ><img src=${svgArrowBack} />Go to list product</a
         >
       </div>
@@ -84,5 +98,11 @@ export class EditPage extends LitElement {
       </form>
       <md-filled-button class="delete-btn">Eliminar</md-filled-button>
     `;
+  }
+
+  handleFindProduct() {
+    const product = this.allProducts.find(
+      (product) => product.id === this.params.productId
+    );
   }
 }

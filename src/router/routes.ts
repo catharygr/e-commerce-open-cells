@@ -50,7 +50,7 @@ export const routes: RouteDefinition[] = [
     },
   },
   {
-    path: '/account/products/:edit',
+    path: '/account/products/:productId',
     name: 'edit',
     component: 'edit-page',
     action: async () => {
