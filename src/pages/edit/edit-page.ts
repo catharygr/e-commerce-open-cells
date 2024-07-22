@@ -15,7 +15,7 @@ export class EditPage extends LitElement {
   static styles = [
     CssReset,
     css`
-      :host {
+      .container {
         width: min(96vw, 40rem);
         margin: 1rem auto;
         padding: 1rem;
@@ -28,7 +28,6 @@ export class EditPage extends LitElement {
         display: flex;
         flex-direction: column;
         gap: 1rem;
-        width: 94%;
       }
 
       .edit-header {
@@ -51,7 +50,6 @@ export class EditPage extends LitElement {
 
       .delete-btn {
         --md-sys-color-primary: red;
-        width: 94%;
       }
     `,
   ];
@@ -66,44 +64,48 @@ export class EditPage extends LitElement {
   render() {
     const product = this.handleFindProduct();
     return html`
-      <div class="edit-header">
-        <h1>Edit product</h1>
-        <a
-          class="link-back"
-          href="/account/admin"
-          @click=${(e) => {
-            e.preventDefault();
-            this.pageController.backStep();
-          }}
-          ><img src=${svgArrowBack} />Go to list product</a
-        >
-      </div>
-      <form class="edit-form">
-        <md-outlined-text-field
-          id="title"
-          label="Title"
-          type="text"
-          value=${product?.title}
-        ></md-outlined-text-field>
-        <md-outlined-text-field
-          id="description"
-          label="Description"
-          type="textarea"
-          rows="5"
-          value=${product?.description}
-        ></md-outlined-text-field>
-        <md-outlined-text-field
-          id="price"
-          label="Price"
-          type="text"
-          suffix-text="€"
-          value=${product?.price.toFixed(2)}
-        ></md-outlined-text-field>
-        <md-checkbox touch-target="wrapper"></md-checkbox>
+      <section class="container">
+        <div class="edit-header">
+          <h1>Edit product</h1>
+          <a
+            class="link-back"
+            href="/account/admin"
+            @click=${(e) => {
+              e.preventDefault();
+              this.pageController.backStep();
+            }}
+            ><img src=${svgArrowBack} />Go to list</a
+          >
+        </div>
+        <form class="edit-form">
+          <md-outlined-text-field
+            id="title"
+            label="Title"
+            type="text"
+            value=${product?.title}
+          ></md-outlined-text-field>
+          <md-outlined-text-field
+            id="description"
+            label="Description"
+            type="textarea"
+            rows="5"
+            value=${product?.description}
+          ></md-outlined-text-field>
+          <md-outlined-text-field
+            id="price"
+            label="Price"
+            type="text"
+            suffix-text="€"
+            value=${product?.price.toFixed(2)}
+          ></md-outlined-text-field>
+          <md-checkbox touch-target="wrapper"></md-checkbox>
 
-        <md-filled-button class="save-btn" type="submit">Save</md-filled-button>
-      </form>
-      <md-filled-button class="delete-btn">Eliminar</md-filled-button>
+          <md-filled-button class="save-btn" type="submit"
+            >Save</md-filled-button
+          >
+        </form>
+        <md-filled-button class="delete-btn">Eliminar</md-filled-button>
+      </section>
     `;
   }
 
