@@ -66,13 +66,14 @@ export class EditPage extends LitElement {
   };
 
   static outbounds = {
-    allProducts: { channel: 'all-product' },
+    allProducts: { channel: 'all-products' },
   };
 
   @query('#offer') checkbox;
   @query('#title') titleField;
   @query('#description') descriptionField;
   @query('#price') priceField;
+  @query('.edit-form') form;
 
   render() {
     this.product = this.handleFindProduct();
@@ -148,6 +149,8 @@ export class EditPage extends LitElement {
       };
       await editProduct(newEditProduct);
       this.allProducts = await fetchData();
+      this.pageController.navigate('admin');
+      this.form.reset();
     } catch (error) {
       console.error(error);
     }
