@@ -56,6 +56,7 @@ export class EditPage extends LitElement {
 
   @property()
   params = {};
+  isChecked = false;
 
   static inbounds = {
     allProducts: { channel: 'all-products' },
@@ -81,7 +82,8 @@ export class EditPage extends LitElement {
           <md-outlined-text-field
             id="title"
             label="Title"
-            type="text"
+            type="textarea"
+            rows="2"
             value=${product?.title}
           ></md-outlined-text-field>
           <md-outlined-text-field
@@ -98,7 +100,11 @@ export class EditPage extends LitElement {
             suffix-text="€"
             value=${product?.price.toFixed(2)}
           ></md-outlined-text-field>
-          <md-checkbox touch-target="wrapper"></md-checkbox>
+          <md-checkbox
+            touch-target="wrapper"
+            ?checked=${this.isChecked}
+            @change=${this.toggleCheckbox}
+          ></md-checkbox>
 
           <md-filled-button class="save-btn" type="submit"
             >Save</md-filled-button
@@ -113,5 +119,8 @@ export class EditPage extends LitElement {
     return this.allProducts?.find(
       (product) => product.id === this.params?.productId
     );
+  }
+  toggleCheckbox() {
+    this.isChecked = !this.isChecked;
   }
 }
