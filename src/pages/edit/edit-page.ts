@@ -7,6 +7,7 @@ import '@material/web/button/filled-button.js';
 import '@material/web/textfield/outlined-text-field';
 import '@material/web/checkbox/checkbox.js';
 import svgArrowBack from '@material-design-icons/svg/filled/arrow_back.svg';
+import { editProduct } from '../../utilidades/backend.js';
 
 @customElement('edit-page')
 export class EditPage extends LitElement {
@@ -56,7 +57,6 @@ export class EditPage extends LitElement {
 
   @property()
   params = {};
-  isChecked = false;
 
   static inbounds = {
     allProducts: { channel: 'all-products' },
@@ -78,7 +78,7 @@ export class EditPage extends LitElement {
             ><img src=${svgArrowBack} />Go to list</a
           >
         </div>
-        <form class="edit-form">
+        <form @submit=${this.handleSaveProduct} class="edit-form">
           <md-outlined-text-field
             id="title"
             label="Title"
@@ -102,8 +102,7 @@ export class EditPage extends LitElement {
           ></md-outlined-text-field>
           <md-checkbox
             touch-target="wrapper"
-            ?checked=${this.isChecked}
-            @change=${this.toggleCheckbox}
+            ?checked=${product?.offer}
           ></md-checkbox>
 
           <md-filled-button class="save-btn" type="submit"
@@ -120,7 +119,9 @@ export class EditPage extends LitElement {
       (product) => product.id === this.params?.productId
     );
   }
-  toggleCheckbox() {
-    this.isChecked = !this.isChecked;
+
+  handleSaveProduct(e) {
+    e.preventDefault();
+    editProduct();
   }
 }

@@ -8,6 +8,8 @@ export async function fetchData() {
   }
 }
 
-export async function editProduct() {}
+export async function editProduct() {
+  console.log('editProduct');
+}
 export async function deleteProduct() {}
 export async function addProduct() {}
