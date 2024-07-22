@@ -62,7 +62,7 @@ export class EditPage extends LitElement {
   };
 
   render() {
-    console.log(this.params.productId);
+    const product = this.handleFindProduct();
     return html`
       <div class="edit-header">
         <h1>Edit product</h1>
@@ -81,16 +81,20 @@ export class EditPage extends LitElement {
           id="title"
           label="Title"
           type="text"
+          value=${product?.title}
         ></md-outlined-text-field>
         <md-outlined-text-field
           id="description"
           label="Description"
           type="textarea"
+          rows="5"
+          value=${product?.description}
         ></md-outlined-text-field>
         <md-outlined-text-field
           id="price"
           label="Price"
           type="number"
+          value=${product?.price}
         ></md-outlined-text-field>
         <md-checkbox touch-target="wrapper"></md-checkbox>
 
@@ -101,8 +105,8 @@ export class EditPage extends LitElement {
   }
 
   handleFindProduct() {
-    const product = this.allProducts.find(
-      (product) => product.id === this.params.productId
+    return this.allProducts?.find(
+      (product) => product.id === this.params?.productId
     );
   }
 }
