@@ -24,6 +24,15 @@ export class AdminPage extends LitElement {
         padding: 1rem;
         border-radius: 0.5rem;
       }
+
+      .admin-add {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        & .add-btn {
+          --md-sys-color-primary: green;
+        }
+      }
       .admin-edit {
         display: flex;
         flex-direction: column;
@@ -50,8 +59,17 @@ export class AdminPage extends LitElement {
 
   render() {
     return html`<div class="container">
-      <h1>Admin</h1>
-      <p>Puedes editar en produtos que ya existen o cargar uno nuevo</p>
+      <div class="admin-add">
+        <h1>Admin</h1>
+        <md-filled-button
+          @click=${() => this.pageController.navigate('add')}
+          class="add-btn"
+          >Add Product</md-filled-button
+        >
+      </div>
+      <b>
+        <p>Puedes editar en produtos que ya existen o cargar uno nuevo</p>
+      </b>
       <div class="admin-edit">
         ${this.allProducts?.map(
           (product) =>

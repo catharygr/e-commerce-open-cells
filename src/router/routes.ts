@@ -57,4 +57,12 @@ export const routes: RouteDefinition[] = [
       await import('../pages/edit/edit-page.js');
     },
   },
+  {
+    path: '/account/add',
+    name: 'add',
+    component: 'add-page',
+    action: async () => {
+      await import('../pages/add/add-page.js');
+    },
+  },
 ];

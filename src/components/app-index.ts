@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { startApp } from '@open-cells/core';
+import { navigate, startApp } from '@open-cells/core';
 import { LitElement, PropertyValues, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { ElementController } from '@open-cells/element-controller';
@@ -16,13 +16,21 @@ startApp({
     let intercept = false;
     let redirect;
     if (
-      (navigation.to.page === 'account' || navigation.to.page === 'admin') &&
+      (navigation.to.page === 'account' ||
+        navigation.to.page === 'admin' ||
+        navigation.to.page === 'edit' ||
+        navigation.to.page === 'add') &&
       !sessionStorage.getItem('user')
     ) {
       intercept = true;
       redirect = { page: 'login' };
     }
-    if (navigation.to.page === 'admin' && ctx.user?.role !== 'admin') {
+    if (
+      (navigation.to.page === 'admin' ||
+        navigation.to.page === 'edit' ||
+        navigation.to.page === 'add') &&
+      ctx.user?.role !== 'admin'
+    ) {
       intercept = true;
       redirect = { page: 'account' };
     }

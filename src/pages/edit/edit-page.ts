@@ -80,7 +80,7 @@ export class EditPage extends LitElement {
     return html`
       <section class="container">
         <div class="edit-header">
-          <h1>Edit product</h1>
+          <h1>Edit Product</h1>
           <a
             class="link-back"
             href="/account/admin"
