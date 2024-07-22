@@ -8,8 +8,24 @@ export async function fetchData() {
   }
 }
 
-export async function editProduct() {
-  console.log('editProduct');
+export async function editProduct(product) {
+  try {
+    const response = await fetch(
+      `http://localhost:3000/products/${product.id}`,
+      {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(product),
+      }
+    );
+    const data = await response.json();
+    console.log('data', data);
+    return data;
+  } catch (error) {
+    console.error('Error en fetch:', error);
+  }
 }
 export async function deleteProduct() {}
 export async function addProduct() {}

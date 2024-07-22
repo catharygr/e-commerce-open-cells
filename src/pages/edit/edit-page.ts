@@ -1,13 +1,13 @@
 // @ts-nocheck
 import { LitElement, html, css } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { customElement, property, query, state } from 'lit/decorators.js';
 import CssReset from '../../css/reset.css.js';
 import { PageController } from '@open-cells/page-controller';
 import '@material/web/button/filled-button.js';
 import '@material/web/textfield/outlined-text-field';
 import '@material/web/checkbox/checkbox.js';
 import svgArrowBack from '@material-design-icons/svg/filled/arrow_back.svg';
-import { editProduct } from '../../utilidades/backend.js';
+import { editProduct, fetchData } from '../../utilidades/backend.js';
 
 @customElement('edit-page')
 export class EditPage extends LitElement {
@@ -58,12 +58,24 @@ export class EditPage extends LitElement {
   @property()
   params = {};
 
+  @state()
+  product = [];
+
   static inbounds = {
     allProducts: { channel: 'all-products' },
   };
 
+  static outbounds = {
+    allProducts: { channel: 'all-product' },
+  };
+
+  @query('#offer') checkbox;
+  @query('#title') titleField;
+  @query('#description') descriptionField;
+  @query('#price') priceField;
+
   render() {
-    const product = this.handleFindProduct();
+    this.product = this.handleFindProduct();
     return html`
       <section class="container">
         <div class="edit-header">
@@ -84,26 +96,30 @@ export class EditPage extends LitElement {
             label="Title"
             type="textarea"
             rows="2"
-            value=${product?.title}
+            value=${this.product?.title}
           ></md-outlined-text-field>
           <md-outlined-text-field
             id="description"
             label="Description"
             type="textarea"
             rows="5"
-            value=${product?.description}
+            value=${this.product?.description}
           ></md-outlined-text-field>
           <md-outlined-text-field
             id="price"
             label="Price"
             type="text"
             suffix-text="€"
-            value=${product?.price.toFixed(2)}
+            value=${this.product?.price.toFixed(2)}
           ></md-outlined-text-field>
-          <md-checkbox
-            touch-target="wrapper"
-            ?checked=${product?.offer}
-          ></md-checkbox>
+          <label>
+            <md-checkbox
+              touch-target="wrapper"
+              ?checked=${this.product?.offer}
+              id="offer"
+            ></md-checkbox>
+            Product on offer
+          </label>
 
           <md-filled-button class="save-btn" type="submit"
             >Save</md-filled-button
@@ -120,8 +136,20 @@ export class EditPage extends LitElement {
     );
   }
 
-  handleSaveProduct(e) {
+  async handleSaveProduct(e) {
     e.preventDefault();
-    editProduct();
+    try {
+      const newEditProduct = {
+        ...this.product,
+        title: this.titleField.value,
+        description: this.descriptionField.value,
+        price: parseFloat(this.priceField.value),
+        offer: this.checkbox.checked,
+      };
+      await editProduct(newEditProduct);
+      this.allProducts = await fetchData();
+    } catch (error) {
+      console.error(error);
+    }
   }
 }
