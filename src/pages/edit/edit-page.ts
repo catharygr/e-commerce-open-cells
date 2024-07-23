@@ -37,14 +37,6 @@ export class EditPage extends LitElement {
         align-items: center;
       }
 
-      .link-back {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        text-decoration: underline;
-        text-underline-offset: 0.5rem;
-      }
-
       .save-btn {
         --md-sys-color-primary: green;
       }
