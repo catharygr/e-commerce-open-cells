@@ -81,6 +81,15 @@ export class EditPage extends LitElement {
       <section class="container">
         <div class="edit-header">
           <h1>Edit Product</h1>
+          <a
+            class="link-back"
+            href="/account/admin"
+            @click=${(e) => {
+              e.preventDefault();
+              this.pageController.backStep();
+            }}
+            ><img src=${svgArrowBack} />Go to list</a
+          >
         </div>
         <form @submit=${this.handleSaveProduct} class="edit-form">
           <md-outlined-text-field
