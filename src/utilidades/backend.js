@@ -2,7 +2,7 @@ export async function fetchData() {
   try {
     const response = await fetch('http://localhost:3000/products');
     const data = await response.json();
-    return data;
+    return data.reverse();
   } catch (error) {
     console.error('Error en fetch:', error);
   }
