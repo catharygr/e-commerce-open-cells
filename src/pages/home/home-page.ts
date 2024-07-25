@@ -5,7 +5,6 @@ import { customElement, state } from 'lit/decorators.js';
 import CssReset from '../../css/reset.css.js';
 import '../../components/cards/home-card.js';
 import '../../components/Others/spinner.js';
-import '../../components/carousel/carouselElement.js';
 
 @customElement('home-page')
 export class HomePage extends LitElement {
@@ -25,9 +24,6 @@ export class HomePage extends LitElement {
   ];
 
   @state()
-  allProducts = [];
-
-  @state()
   randomProduct = null;
 
   getRandomProduct() {
@@ -42,12 +38,12 @@ export class HomePage extends LitElement {
 
   render() {
     this.getRandomProduct();
-    return !this.allProducts.length
+    return !this.randomProduct
       ? html`<spinner-element></spinner-element>`
       : html`
           <div class="container">
             <h1>Bienvenido a mi tienda</h1>
-            <carousel-element .products=${this.allProducts}></carousel-element>
+            <home-card .product=${this.randomProduct}></home-card>
           </div>
         `;
   }
