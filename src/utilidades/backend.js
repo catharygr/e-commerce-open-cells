@@ -27,4 +27,6 @@ export async function editProduct(product) {
   }
 }
 export async function deleteProduct() {}
-export async function addProduct() {}
+export async function addProduct(newProduct) {
+  console.log(newProduct);
+}
