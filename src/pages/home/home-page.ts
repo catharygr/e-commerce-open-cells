@@ -20,32 +20,93 @@ export class HomePage extends LitElement {
         margin-top: 0;
         text-align: center;
       }
+      .carousel {
+        width: 100%;
+        overflow: hidden;
+      }
+      .carousel-inner {
+        display: flex;
+        transition: transform 0.5s ease;
+      }
+      .carousel-item {
+        min-width: 100%;
+        box-sizing: border-box;
+      }
+      .carousel-buttons {
+        display: flex;
+        justify-content: space-between;
+        top: 50%;
+        width: 100%;
+        transform: translateY(-50%);
+      }
+      .carousel-button {
+        background: rgba(0, 0, 0, 0.5);
+        border: none;
+        color: white;
+        padding: 0.5rem;
+        cursor: pointer;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 0.5rem;
+        }
+        .carousel-buttons {
+         top: 10%;
+      }
     `,
   ];
 
   @state()
-  randomProduct = null;
-
-  getRandomProduct() {
-    if (!this.allProducts) return;
-    const randomNum = Math.floor(Math.random() * this.allProducts.length);
-    this.randomProduct = this.allProducts[randomNum];
-  }
+  currentIndex = 0;
 
   static inbounds = {
     allProducts: { channel: 'all-products' },
   };
 
+  next() {
+    if (this.currentIndex < this.allProducts.length - 1) {
+      this.currentIndex += 1;
+    } else {
+      this.currentIndex = 0;
+    }
+  }
+
+  prev() {
+    if (this.currentIndex > 0) {
+      this.currentIndex -= 1;
+    } else {
+      this.currentIndex = this.allProducts.length - 1;
+    }
+  }
+
   render() {
-    this.getRandomProduct();
-    return !this.randomProduct
-      ? html`<spinner-element></spinner-element>`
-      : html`
-          <div class="container">
-            <h1>Bienvenido a mi tienda</h1>
-            <home-card .product=${this.randomProduct}></home-card>
+    if (!this.allProducts) {
+      return html`<spinner-element></spinner-element>`;
+    }
+
+    const transformValue = `translateX(-${this.currentIndex * 100}%)`;
+
+    return html`
+      <div class="container">
+        <h1>Bienvenido a mi tienda</h1>
+        <div class="carousel">
+          <div class="carousel-inner" style="transform: ${transformValue}">
+            ${this.allProducts.map(
+              (product) => html`
+                <div class="carousel-item">
+                  <home-card .product=${product}></home-card>
+                </div>
+              `
+            )}
           </div>
-        `;
+          <div class="carousel-buttons">
+            <button class="carousel-button" @click=${this.prev}>Prev</button>
+            <button class="carousel-button" @click=${this.next}>Next</button>
+          </div>
+        </div>
+      </div>
+    `;
   }
 
   onPageEnter() {
