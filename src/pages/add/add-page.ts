@@ -93,6 +93,17 @@ export class AddPage extends LitElement {
     }
   }
 
+  updated(changedProperties) {
+    super.updated(changedProperties);
+    // Asegúrate de que el desplazamiento solo se realice bajo ciertas condiciones, si es necesario
+    requestAnimationFrame(() => {
+      const formElement = this.shadowRoot?.querySelector('.add-form');
+      if (formElement) {
+        formElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  }
+
   render() {
     return html`
       <section class="container">

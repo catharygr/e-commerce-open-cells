@@ -337,6 +337,19 @@
         "rate": "3.0",
         "count": 86
       }
+    },
+    {
+      "id": "758c8b49-3825-4683-9562-83e994ed0132",
+      "title": "sewqeqw",
+      "price": 24,
+      "offer": true,
+      "description": "wqeqwEQW",
+      "category": "wqwerweR",
+      "image": "https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg",
+      "rating": {
+        "rate": "0.5",
+        "count": 780
+      }
     }
   ]
 }
