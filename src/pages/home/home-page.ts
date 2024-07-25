@@ -53,10 +53,27 @@ export class HomePage extends LitElement {
   @state()
   randomProduct = null;
 
+  @state()
+  currentIndex = 0;
+
+  connectedCallback() {
+    super.connectedCallback();
+    this.getRandomProducts();
+  }
+
   getRandomProduct() {
     if (!this.allProducts) return;
     const randomNum = Math.floor(Math.random() * this.allProducts.length);
     this.randomProduct = this.allProducts[randomNum];
+  }
+
+  next() {
+    this.currentIndex = (this.currentIndex + 1) % this.products.length;
+  }
+
+  prev() {
+    this.currentIndex =
+      (this.currentIndex - 1 + this.products.length) % this.products.length;
   }
 
   static inbounds = {
