@@ -3,7 +3,7 @@ import { css } from 'lit';
 export const styles = css`
   header {
     display: flex;
-    flex-direction: row;
+    justify-content: center;
     flex-wrap: wrap;
     align-items: center;
     gap: 2rem;
@@ -96,6 +96,10 @@ export const styles = css`
 
   @media (min-width: 43rem) {
     header {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
       & > .tienda-logo {
         order: 1;
       }

@@ -26,7 +26,7 @@ export class LoginPage extends LitElement {
 
       .titulo {
         text-align: center;
-        margin-top: 10rem;
+        margin-top: 5rem;
         font-size: 2rem;
       }
 
@@ -96,6 +96,7 @@ export class LoginPage extends LitElement {
           id="email"
           name="email"
           type="email"
+          required
         >
         </md-outlined-text-field>
         <md-outlined-text-field
@@ -104,6 +105,7 @@ export class LoginPage extends LitElement {
           name="password"
           type="password"
           minLength="8"
+          required
         >
           <md-icon-button
             @click=${this.togglePasswordVisibility}
