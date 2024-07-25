@@ -7,7 +7,11 @@ import '@material/web/button/filled-button.js';
 import '@material/web/textfield/outlined-text-field';
 import '@material/web/checkbox/checkbox.js';
 import svgArrowBack from '@material-design-icons/svg/filled/arrow_back.svg';
-import { editProduct, fetchData } from '../../utilidades/backend.js';
+import {
+  editProduct,
+  fetchData,
+  deleteProduct,
+} from '../../utilidades/backend.js';
 
 @customElement('edit-page')
 export class EditPage extends LitElement {
@@ -59,7 +63,7 @@ export class EditPage extends LitElement {
   params = {};
 
   @state()
-  product = [];
+  product = {};
 
   static inbounds = {
     allProducts: { channel: 'all-products' },
@@ -126,7 +130,9 @@ export class EditPage extends LitElement {
             >Save</md-filled-button
           >
         </form>
-        <md-filled-button class="delete-btn">Eliminar</md-filled-button>
+        <md-filled-button @click=${this.handleDeleteProduct} class="delete-btn"
+          >Eliminar</md-filled-button
+        >
       </section>
     `;
   }
@@ -148,6 +154,17 @@ export class EditPage extends LitElement {
         offer: this.checkbox.checked,
       };
       await editProduct(newEditProduct);
+      this.allProducts = await fetchData();
+      this.pageController.navigate('admin');
+      this.form.reset();
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  async handleDeleteProduct(e) {
+    e.preventDefault();
+    try {
+      await deleteProduct(this.product?.id);
       this.allProducts = await fetchData();
       this.pageController.navigate('admin');
       this.form.reset();

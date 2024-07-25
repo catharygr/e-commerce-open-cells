@@ -26,7 +26,19 @@ export async function editProduct(product) {
     console.error('Error en fetch:', error);
   }
 }
-export async function deleteProduct() {}
+
+export async function deleteProduct(id) {
+  try {
+    const response = await fetch(`http://localhost:3000/products/${id}`, {
+      method: 'DELETE',
+    });
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error en fetch:', error);
+  }
+}
+
 export async function addProduct(newProduct) {
   try {
     const response = await fetch('http://localhost:3000/products', {
