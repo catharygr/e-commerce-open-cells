@@ -72,11 +72,12 @@ export class AddPage extends LitElement {
       const newProduct = {
         id: crypto.randomUUID(),
         title: this.inputTitle.value,
-        price: this.priceInput.value,
+        price: parseFloat(this.priceInput.value),
         offer: this.offerInput.checked,
         description: this.descriptionInput.value,
         category: this.categoryInput.value,
-        image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
+        image:
+          'https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg',
         rating: {
           rate: (Math.random() * 5).toFixed(1),
           count: Math.floor(Math.random() * 1000),

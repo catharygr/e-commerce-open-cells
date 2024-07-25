@@ -285,6 +285,32 @@
         "rate": "1.9",
         "count": 360
       }
+    },
+    {
+      "id": "f03dd65e-7b32-4701-ae4b-33be7d03db2a",
+      "title": "dwsAFSW",
+      "price": "98",
+      "offer": true,
+      "description": "DSFSDFSFSD",
+      "category": "DSFDSFDSFDSF",
+      "image": "\"https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg\"",
+      "rating": {
+        "rate": "1.5",
+        "count": 106
+      }
+    },
+    {
+      "id": "3587fe99-2a7f-40dd-9351-5b12ef7acc5a",
+      "title": "rweTE",
+      "price": "34",
+      "offer": true,
+      "description": "werfrfw",
+      "category": "erfttf",
+      "image": "https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg",
+      "rating": {
+        "rate": "4.2",
+        "count": 715
+      }
     }
   ]
 }
