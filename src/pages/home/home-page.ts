@@ -20,21 +20,22 @@ export class HomePage extends LitElement {
         margin-top: 0;
         text-align: center;
       }
-      .carousel {
-        width: 100%;
-        // overflow: hidden;
-      }
+      // .carousel {
+      //   width: 100%;
+      //   // overflow: hidden;
+      // }
       .carousel-inner {
         display: flex;
         transition: transform 0.5s ease;
       }
       .carousel-item {
         min-width: 100%;
-        box-sizing: border-box;
       }
       .carousel-buttons {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
+        gap: 1rem;
+        margin: 1rem;
         // top: 50%;
         // width: 100%;
         transform: translateY(-50%);
@@ -47,12 +48,12 @@ export class HomePage extends LitElement {
         
       }
 
-      @media (max-width: 768px) {
+      @media (min-width: 48rem) {
         .container {
           padding: 0.5rem;
         }
         .carousel-buttons {
-         top: 10%;
+        junstify-content: space-between;
       }
     `,
   ];
