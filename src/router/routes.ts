@@ -26,19 +26,19 @@ export const routes: RouteDefinition[] = [
     },
   },
   {
-    path: '/account',
-    name: 'account',
-    component: 'account-page',
-    action: async () => {
-      await import('../pages/account/account-page.js');
-    },
-  },
-  {
     path: '/login',
     name: 'login',
     component: 'login-page',
     action: async () => {
       await import('../pages/login/login-page.js');
+    },
+  },
+  {
+    path: '/account',
+    name: 'account',
+    component: 'account-page',
+    action: async () => {
+      await import('../pages/account/account-page.js');
     },
   },
   {
@@ -50,7 +50,7 @@ export const routes: RouteDefinition[] = [
     },
   },
   {
-    path: '/account/products/:productId',
+    path: '/account/edit/:productId',
     name: 'edit',
     component: 'edit-page',
     action: async () => {
