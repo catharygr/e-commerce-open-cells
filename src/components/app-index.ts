@@ -12,31 +12,31 @@ import './footer/footer.js';
 startApp({
   routes,
   mainNode: 'app-content',
-  interceptor: function (navigation, ctx) {
-    let intercept = false;
-    let redirect;
-    if (
-      (navigation.to.page === 'account' ||
-        navigation.to.page === 'admin' ||
-        navigation.to.page === 'edit' ||
-        navigation.to.page === 'add') &&
-      !sessionStorage.getItem('user')
-    ) {
-      intercept = true;
-      redirect = { page: 'login' };
-    }
-    if (
-      (navigation.to.page === 'admin' ||
-        navigation.to.page === 'edit' ||
-        navigation.to.page === 'add') &&
-      ctx.user?.role !== 'admin'
-    ) {
-      intercept = true;
-      redirect = { page: 'account' };
-    }
+  // interceptor: function (navigation, ctx) {
+  //   let intercept = false;
+  //   let redirect;
+  //   if (
+  //     (navigation.to.page === 'account' ||
+  //       navigation.to.page === 'admin' ||
+  //       navigation.to.page === 'edit' ||
+  //       navigation.to.page === 'add') &&
+  //     !sessionStorage.getItem('user')
+  //   ) {
+  //     intercept = true;
+  //     redirect = { page: 'login' };
+  //   }
+  //   if (
+  //     (navigation.to.page === 'admin' ||
+  //       navigation.to.page === 'edit' ||
+  //       navigation.to.page === 'add') &&
+  //     ctx.user?.role !== 'admin'
+  //   ) {
+  //     intercept = true;
+  //     redirect = { page: 'account' };
+  //   }
 
-    return { intercept, redirect };
-  },
+  //   return { intercept, redirect };
+  // },
 });
 
 @customElement('app-index')
