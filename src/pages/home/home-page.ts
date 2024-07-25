@@ -36,7 +36,6 @@ export class HomePage extends LitElement {
         display: flex;
         justify-content: center;
         gap: 1rem;
-        width: 100%;
         transform: translateY(-50%);
       }
       .carousel-button {
@@ -44,11 +43,11 @@ export class HomePage extends LitElement {
         border: none;
         color: white;
         padding: 0.5rem;
-        cursor: pointer;
+        border-radius: 0.5rem;
       }
 
       @media (min-width: 48rem) {
-        carousel-buttons {
+        .carousel-buttons {
           justify-content: space-between;
         }
       }
