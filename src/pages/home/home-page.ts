@@ -22,7 +22,7 @@ export class HomePage extends LitElement {
       }
       .carousel {
         width: 100%;
-        overflow: hidden;
+        // overflow: hidden;
       }
       .carousel-inner {
         display: flex;
@@ -35,8 +35,8 @@ export class HomePage extends LitElement {
       .carousel-buttons {
         display: flex;
         justify-content: space-between;
-        top: 50%;
-        width: 100%;
+        // top: 50%;
+        // width: 100%;
         transform: translateY(-50%);
       }
       .carousel-button {
@@ -44,7 +44,7 @@ export class HomePage extends LitElement {
         border: none;
         color: white;
         padding: 0.5rem;
-        cursor: pointer;
+        
       }
 
       @media (max-width: 768px) {
