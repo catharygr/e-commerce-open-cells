@@ -259,6 +259,32 @@
         "rate": 3.6,
         "count": 145
       }
+    },
+    {
+      "id": "86383c10-376d-4f2c-a44b-75950df072f9",
+      "title": "faegdrefg",
+      "price": "23",
+      "offer": true,
+      "description": "regtaregtrae",
+      "category": "regtaertg",
+      "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+      "rating": {
+        "rate": "3.5",
+        "count": 729
+      }
+    },
+    {
+      "id": "fd6b1a45-7175-4060-b9c6-741db52a6330",
+      "title": "fd©zdfh",
+      "price": "24",
+      "offer": true,
+      "description": "fdhgfzhzfg",
+      "category": "fdgdzfhdzf",
+      "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+      "rating": {
+        "rate": "1.9",
+        "count": 360
+      }
     }
   ]
 }

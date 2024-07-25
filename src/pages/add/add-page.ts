@@ -25,13 +25,13 @@ export class AddPage extends LitElement {
         gap: 3rem;
       }
 
-      .edit-form {
+      .add-form {
         display: flex;
         flex-direction: column;
         gap: 1rem;
       }
 
-      .edit-header {
+      .add-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -55,11 +55,48 @@ export class AddPage extends LitElement {
     `,
   ];
 
+  @query('#title') inputTitle;
+  @query('#description') descriptionInput;
+  @query('#category') categoryInput;
+  @query('#price') priceInput;
+  @query('#offer') offerInput;
+  @query('.add-form') addForm;
+
+  static outbounds = {
+    allProducts: { channel: 'all-products' },
+  };
+
+  async handleSaveProduct(e) {
+    e.preventDefault();
+    try {
+      const newProduct = {
+        id: crypto.randomUUID(),
+        title: this.inputTitle.value,
+        price: this.priceInput.value,
+        offer: this.offerInput.checked,
+        description: this.descriptionInput.value,
+        category: this.categoryInput.value,
+        image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
+        rating: {
+          rate: (Math.random() * 5).toFixed(1),
+          count: Math.floor(Math.random() * 1000),
+        },
+      };
+
+      await addProduct(newProduct);
+      this.allProducts = await fetchData();
+      this.pageController.navigate('admin');
+      this.addForm.reset();
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   render() {
     return html`
       <section class="container">
-        <div class="edit-header">
-          <h1>Add roduct</h1>
+        <div class="add-header">
+          <h1>Add Product</h1>
           <a
             class="link-back"
             href="/account/admin"
@@ -70,7 +107,7 @@ export class AddPage extends LitElement {
             ><img src=${svgArrowBack} />Go to list</a
           >
         </div>
-        <form @submit=${this.handleSaveProduct} class="edit-form">
+        <form @submit=${this.handleSaveProduct} class="add-form">
           <md-outlined-text-field
             id="title"
             label="Title"
@@ -105,29 +142,5 @@ export class AddPage extends LitElement {
         </form>
       </section>
     `;
-  }
-
-  async handleSaveProduct(e) {
-    e.preventDefault();
-    try {
-      const newProduct = {
-        id: 1,
-        title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
-        price: 109.95,
-        offer: true,
-        description:
-          'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday',
-        category: "men's clothing",
-        image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
-        rating: {
-          rate: 3.9,
-          count: 120,
-        },
-      };
-
-      await addProduct(newProduct);
-    } catch (error) {
-      console.error(error);
-    }
   }
 }
