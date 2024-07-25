@@ -30,7 +30,6 @@ export class HomePage extends LitElement {
       }
       .carousel-item {
         min-width: 100%;
-        box-sizing: border-box;
       }
       .carousel-buttons {
         display: flex;
