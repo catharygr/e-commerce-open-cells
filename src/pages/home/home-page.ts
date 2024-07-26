@@ -23,6 +23,7 @@ export class HomePage extends LitElement {
       .carousel {
         width: 100%;
         overflow: hidden;
+        position: relative;
       }
       .carousel-inner {
         display: flex;
@@ -30,13 +31,16 @@ export class HomePage extends LitElement {
       }
       .carousel-item {
         min-width: 100%;
+        aspect-ratio: 1/1;
+        object-fit: contain;
       }
       .carousel-buttons {
         display: flex;
         justify-content: center;
         gap: 1rem;
-        transform: translateY(-50%);
-        position: relative;
+        position: absolute;
+        bottom: 10%;
+        width: 100%;
       }
       .carousel-button {
         background: rgba(0, 0, 0, 0.5);
@@ -49,6 +53,7 @@ export class HomePage extends LitElement {
       @media (min-width: 48rem) {
         .carousel-buttons {
           justify-content: space-between;
+          bottom: 40%;
         }
       }
     `,
