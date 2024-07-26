@@ -36,6 +36,7 @@ export class HomePage extends LitElement {
         justify-content: center;
         gap: 1rem;
         transform: translateY(-50%);
+        position: relative;
       }
       .carousel-button {
         background: rgba(0, 0, 0, 0.5);
