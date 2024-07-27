@@ -34,21 +34,6 @@ export class HomePage extends LitElement {
         aspect-ratio: 1/1;
         object-fit: contain;
       }
-      .carousel-buttons {
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-        position: absolute;
-        bottom: 10%;
-        width: 100%;
-      }
-      .carousel-button {
-        background: rgba(0, 0, 0, 0.5);
-        border: none;
-        color: white;
-        padding: 0.5rem;
-        border-radius: 0.5rem;
-      }
 
       @media (min-width: 48rem) {
         .carousel-buttons {
