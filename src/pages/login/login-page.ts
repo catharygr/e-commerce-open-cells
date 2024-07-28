@@ -17,6 +17,10 @@ export class LoginPage extends LitElement {
   static styles = [
     CssReset,
     css`
+      :host {
+        max-width: 100rem;
+        margin-inline: auto;
+      }
       .container {
         display: flex;
         flex-direction: column;

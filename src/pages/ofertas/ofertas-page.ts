@@ -13,6 +13,10 @@ export class OfertasPage extends LitElement {
   static styles = [
     CssReset,
     css`
+      :host {
+        max-width: 100rem;
+        margin-inline: auto;
+      }
       .container {
         display: flex;
         flex-wrap: wrap;

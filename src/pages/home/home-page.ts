@@ -13,6 +13,10 @@ export class HomePage extends LitElement {
   static styles = [
     CssReset,
     css`
+      :host {
+        max-width: 100rem;
+        margin-inline: auto;
+      }
       .container {
         padding: 0.5rem 1rem;
       }

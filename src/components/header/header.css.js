@@ -1,14 +1,18 @@
 import { css } from 'lit';
 
 export const styles = css`
+  :host {
+    background-color: #e4e4e4;
+  }
   header {
     display: flex;
-    justify-content: center;
+    // justify-content: center;
     flex-wrap: wrap;
     align-items: center;
     gap: 2rem;
     padding: 0.5rem 1rem;
-    background-color: #e4e4e4;
+    max-width: 100rem;
+    margin-inline: auto;
   }
 
   .tienda-logo {
@@ -34,10 +38,6 @@ export const styles = css`
     justify-content: center;
     flex-grow: 1;
     gap: 0.5rem;
-
-    & > * {
-      cursor: pointer;
-    }
   }
 
   .close-menu-icon {
@@ -94,7 +94,13 @@ export const styles = css`
     }
   }
 
-  @media (min-width: 43rem) {
+  @media (min-width: 35rem) {
+    .action-header {
+      justify-content: flex-end;
+    }
+  }
+
+  @media (min-width: 50rem) {
     header {
       flex-direction: row;
       justify-content: space-between;
@@ -114,6 +120,8 @@ export const styles = css`
       }
       & > .action-header {
         order: 5;
+        justify-content: flex-end;
+        flex-grow: 0;
       }
     }
 
