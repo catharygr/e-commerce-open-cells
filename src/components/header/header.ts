@@ -65,6 +65,7 @@ export class HeaderComponent extends LitElement {
                 href="/"
                 @click=${(e) => {
                   e.preventDefault();
+                  this.closeNavegation();
                   this.pageController.navigate('home');
                 }}
                 >Inicio</a
@@ -75,6 +76,7 @@ export class HeaderComponent extends LitElement {
                 href="/productos"
                 @click=${(e) => {
                   e.preventDefault();
+                  this.closeNavegation();
                   this.pageController.navigate('productos');
                 }}
                 >Productos</a
@@ -85,6 +87,7 @@ export class HeaderComponent extends LitElement {
                 href="/ofertas"
                 @click=${(e) => {
                   e.preventDefault();
+                  this.closeNavegation();
                   this.pageController.navigate('ofertas');
                 }}
                 >Ofertas</a
