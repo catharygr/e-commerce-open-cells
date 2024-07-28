@@ -43,21 +43,22 @@ export class HomePage extends LitElement {
         justify-content: center;
         gap: 1rem;
         position: absolute;
-        bottom: 10%;
+        top: 10%;
+        padding-inline: 1rem;
         width: 100%;
       }
       .carousel-button {
         background: rgba(0, 0, 0, 0.5);
         border: none;
         color: white;
-        padding: 0.5rem;
+        padding: 1rem 1.5rem;
         border-radius: 0.5rem;
       }
 
-      @media (min-width: 48rem) {
+      @media (min-width: 43rem) {
         .carousel-buttons {
           justify-content: space-between;
-          bottom: 40%;
+          top: 23vw;
         }
       }
     `,

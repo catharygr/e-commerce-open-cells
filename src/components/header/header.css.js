@@ -9,7 +9,7 @@ export const styles = css`
     // justify-content: center;
     flex-wrap: wrap;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
     padding: 0.5rem 1rem;
     max-width: 100rem;
     margin-inline: auto;
