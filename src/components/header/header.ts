@@ -41,7 +41,15 @@ export class HeaderComponent extends LitElement {
   render() {
     return html`
       <header>
-        <img class="tienda-logo" src="${svgStorefront}" alt="storefront" />
+        <a
+          href="/"
+          @click=${(e) => {
+            e.preventDefault();
+            this.pageController.navigate('home');
+          }}
+        >
+          <img class="tienda-logo" src="${svgStorefront}" alt="storefront" />
+        </a>
         <button @click=${this.openNavegation} class="open-menu-btn">
           <img src="${svgMenu}" alt="menu" />
         </button>
