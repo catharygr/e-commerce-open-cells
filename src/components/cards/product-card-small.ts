@@ -57,10 +57,6 @@ export class ProductCardSmall extends LitElement {
         margin-top: auto;
       }
 
-      // .card-link {
-      //   text-decoration: none;
-      // }
-
       .cart-btn {
         --md-sys-color-primary: darkgreen;
         --md-filled-button-container-height: 2rem;
@@ -147,7 +143,6 @@ export class ProductCardSmall extends LitElement {
             </p>
             <div class="card-action">
               <a
-                class="card-link"
                 href="/#!/producto/${this.product.id}"
                 @click=${(e) => {
                   e.preventDefault();
