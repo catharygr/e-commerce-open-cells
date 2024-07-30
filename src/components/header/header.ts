@@ -42,7 +42,7 @@ export class HeaderComponent extends LitElement {
     return html`
       <header>
         <a
-          href="/"
+          href="/#!/"
           @click=${(e) => {
             e.preventDefault();
             this.pageController.navigate('home');
@@ -62,7 +62,7 @@ export class HeaderComponent extends LitElement {
             </li>
             <li>
               <a
-                href="/"
+                href="/#!/"
                 @click=${(e) => {
                   e.preventDefault();
                   this.closeNavegation();
@@ -73,7 +73,7 @@ export class HeaderComponent extends LitElement {
             </li>
             <li>
               <a
-                href="/productos"
+                href="/#!/productos"
                 @click=${(e) => {
                   e.preventDefault();
                   this.closeNavegation();
@@ -84,7 +84,7 @@ export class HeaderComponent extends LitElement {
             </li>
             <li>
               <a
-                href="/ofertas"
+                href="/#!/ofertas"
                 @click=${(e) => {
                   e.preventDefault();
                   this.closeNavegation();
