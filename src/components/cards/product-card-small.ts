@@ -5,6 +5,7 @@ import grade from '@material-design-icons/svg/filled/grade.svg';
 import '@material/web/button/filled-button.js';
 import CssReset from '../../css/reset.css.js';
 import { ElementController } from '@open-cells/element-controller';
+import { addToCart } from '../../utilidades/utils.js';
 
 @customElement('product-card-small')
 export class ProductCardSmall extends LitElement {
@@ -118,7 +119,7 @@ export class ProductCardSmall extends LitElement {
     userState: { channel: 'user-state' },
   };
 
-  firsUpdated() {
+  firstUpdated() {
     if (!this.userState) {
       this.userState = { cart: [], favorites: [] };
     }
@@ -162,7 +163,9 @@ export class ProductCardSmall extends LitElement {
                 }}
                 >Ver producto</a
               >
-              <md-filled-button class="cart-btn">Add to cart</md-filled-button>
+              <md-filled-button @click=${addToCart} class="cart-btn"
+                >Add to cart</md-filled-button
+              >
             </div>
             <div class="card-details">
               <span class="card-rating">${starArray}</span>
