@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { css, html, LitElement } from 'lit';
 import { PageController } from '@open-cells/page-controller';
-import { customElement } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import '../../components/cards/home-card.js';
 import '../../components/Others/spinner.js';
 import CSSreset from '../../css/reset.css.js';
@@ -27,11 +27,15 @@ export class SingleProductPage extends LitElement {
     `,
   ];
 
+  @property()
+  params = {};
+
   static inbounds = {
     allProducts: { channel: 'all-products' },
   };
 
   render() {
+    console.log(this.params);
     return !this.allProducts
       ? html`<spinner-element></spinner-element>`
       : html`
@@ -40,5 +44,11 @@ export class SingleProductPage extends LitElement {
             <!-- <home-card .product=${this.randomProduct}></home-card> -->
           </div>
         `;
+  }
+
+  productFiltrado() {
+    return this.allProducts.find(
+      (product) => product.id === this.params?.productId
+    );
   }
 }
