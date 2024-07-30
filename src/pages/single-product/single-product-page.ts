@@ -4,6 +4,7 @@ import { PageController } from '@open-cells/page-controller';
 import { customElement, property } from 'lit/decorators.js';
 import '../../components/cards/home-card.js';
 import '../../components/Others/spinner.js';
+import '@material/web/button/filled-button.js';
 import CSSreset from '../../css/reset.css.js';
 
 @customElement('single-product-page')

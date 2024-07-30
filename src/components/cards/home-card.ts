@@ -3,6 +3,7 @@ import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import CssReset from '../../css/reset.css.js';
 import grade from '@material-design-icons/svg/filled/grade.svg';
+import '@material/web/button/filled-button.js';
 
 @customElement('home-card')
 export class HomeCard extends LitElement {
@@ -31,6 +32,7 @@ export class HomeCard extends LitElement {
         font-size: 1.3rem;
         display: flex;
         flex-direction: column;
+        align-items: flex-start;
         gap: 1rem;
       }
 
@@ -41,6 +43,12 @@ export class HomeCard extends LitElement {
         box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
         background-color: #fff;
         padding: 0.5rem;
+      }
+      .cart-btn {
+        --md-sys-color-primary: darkgreen;
+        --md-filled-button-container-height: 2rem;
+        --md-filled-button-leading-space: 1rem;
+        --md-filled-button-trailing-space: 1rem;
       }
       .opiniones {
         display: flex;
@@ -105,6 +113,7 @@ export class HomeCard extends LitElement {
               currency: 'EUR',
             }).format(price)}
           </p>
+          <md-filled-button class="cart-btn">Add to cart</md-filled-button>
           <div class="opiniones">
             <div class="opiniones-stars">
               <p>Rating:&nbsp;&nbsp</p>
