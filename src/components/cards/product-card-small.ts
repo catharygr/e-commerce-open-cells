@@ -115,15 +115,13 @@ export class ProductCardSmall extends LitElement {
     `,
   ];
 
-  static outbounds = {
+  static inbounds = {
     userState: { channel: 'user-state' },
   };
 
-  firstUpdated() {
-    if (!this.userState) {
-      this.userState = { cart: [], favorites: [] };
-    }
-  }
+  static outbounds = {
+    userState: { channel: 'user-state' },
+  };
 
   render() {
     const {
