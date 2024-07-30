@@ -4,9 +4,11 @@ import { customElement, property } from 'lit/decorators.js';
 import grade from '@material-design-icons/svg/filled/grade.svg';
 import '@material/web/button/filled-button.js';
 import CssReset from '../../css/reset.css.js';
+import { PageController } from '@open-cells/page-controller';
 
 @customElement('product-card-small')
 export class ProductCardSmall extends LitElement {
+  pageController = new PageController(this);
   @property()
   product;
 
@@ -48,14 +50,27 @@ export class ProductCardSmall extends LitElement {
         font-size: 0.8rem;
       }
 
+      .card-action {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: auto;
+      }
+
+      .card-link {
+        text-decoration: none;
+      }
+
       .cart-btn {
-        --md-sys-color-primary: green;
+        --md-sys-color-primary: darkgreen;
+        --md-filled-button-container-height: 2rem;
+        --md-filled-button-leading-space: 1rem;
+        --md-filled-button-trailing-space: 1rem;
       }
 
       .card-details {
         display: flex;
         justify-content: space-between;
-        margin-top: auto;
       }
 
       .card-rating {
@@ -131,7 +146,17 @@ export class ProductCardSmall extends LitElement {
                 : ''}
             </p>
             <div class="card-action">
-              <a href="/productos/${this.product.id}">Ver producto</a>
+              <a
+                class="card-link"
+                href="/productos/${this.product.id}"
+                @click=${(e) => {
+                  e.preventDefault();
+                  this.pageController.navigate('producto', {
+                    productId: this.product.id,
+                  });
+                }}
+                >Ver producto</a
+              >
               <md-filled-button class="cart-btn">Add to cart</md-filled-button>
             </div>
             <div class="card-details">
