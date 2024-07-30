@@ -18,6 +18,14 @@ export const routes: RouteDefinition[] = [
     },
   },
   {
+    path: '/productos/:productId',
+    name: 'producto',
+    component: 'single-product-page',
+    action: async () => {
+      await import('../pages/single-product/single-product-page.js');
+    },
+  },
+  {
     path: '/ofertas',
     name: 'ofertas',
     component: 'ofertas-page',
