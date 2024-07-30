@@ -2,6 +2,7 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import grade from '@material-design-icons/svg/filled/grade.svg';
+import '@material/web/button/filled-button.js';
 import CssReset from '../../css/reset.css.js';
 
 @customElement('product-card-small')
@@ -45,6 +46,10 @@ export class ProductCardSmall extends LitElement {
       }
       .card-description {
         font-size: 0.8rem;
+      }
+
+      .cart-btn {
+        --md-sys-color-primary: green;
       }
 
       .card-details {
@@ -125,6 +130,10 @@ export class ProductCardSmall extends LitElement {
                 ? '... Read more.'
                 : ''}
             </p>
+            <div class="card-action">
+              <a href="/productos/${this.product.id}">Ver producto</a>
+              <md-filled-button class="cart-btn">Add to cart</md-filled-button>
+            </div>
             <div class="card-details">
               <span class="card-rating">${starArray}</span>
               <span class="card-price">

@@ -41,14 +41,14 @@ export class SingleProductPage extends LitElement {
       : html`
           <div class="container">
             <h1>Welcome to Our Store</h1>
-            <!-- <home-card .product=${this.randomProduct}></home-card> -->
+            <home-card .product=${this.productFiltrado()}></home-card>
           </div>
         `;
   }
 
   productFiltrado() {
     return this.allProducts.find(
-      (product) => product.id === this.params?.productId
+      (product) => product.id === this.params.productId
     );
   }
 }
