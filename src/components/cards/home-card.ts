@@ -4,11 +4,11 @@ import { customElement, property } from 'lit/decorators.js';
 import CssReset from '../../css/reset.css.js';
 import grade from '@material-design-icons/svg/filled/grade.svg';
 import '@material/web/button/filled-button.js';
-import { PageController } from '@open-cells/page-controller';
+import { ElementController } from '@open-cells/element-controller';
 
 @customElement('home-card')
 export class HomeCard extends LitElement {
-  pageController = new PageController(this);
+  elementController = new ElementController(this);
   static styles = [
     CssReset,
     css`
@@ -139,5 +139,6 @@ export class HomeCard extends LitElement {
       ...this.userState,
       cart: [...this.userState.cart, this.product],
     };
+    console.log('Added to cart', this.product);
   }
 }

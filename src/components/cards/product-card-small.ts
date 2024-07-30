@@ -4,11 +4,11 @@ import { customElement, property } from 'lit/decorators.js';
 import grade from '@material-design-icons/svg/filled/grade.svg';
 import '@material/web/button/filled-button.js';
 import CssReset from '../../css/reset.css.js';
-import { PageController } from '@open-cells/page-controller';
+import { ElementController } from '@open-cells/element-controller';
 
 @customElement('product-card-small')
 export class ProductCardSmall extends LitElement {
-  pageController = new PageController(this);
+  elementController = new ElementController(this);
   @property()
   product;
 
@@ -146,7 +146,7 @@ export class ProductCardSmall extends LitElement {
                 href="/#!/producto/${this.product.id}"
                 @click=${(e) => {
                   e.preventDefault();
-                  this.pageController.navigate('producto', {
+                  this.elementController.navigate('producto', {
                     productId: this.product.id,
                   });
                 }}
