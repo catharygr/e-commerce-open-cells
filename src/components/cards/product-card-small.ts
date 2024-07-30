@@ -114,6 +114,16 @@ export class ProductCardSmall extends LitElement {
     `,
   ];
 
+  static outbounds = {
+    userState: { channel: 'user-state' },
+  };
+
+  firsUpdated() {
+    if (!this.userState) {
+      this.userState = { cart: [], favorites: [] };
+    }
+  }
+
   render() {
     const {
       title = '',

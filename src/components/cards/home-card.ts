@@ -5,6 +5,7 @@ import CssReset from '../../css/reset.css.js';
 import grade from '@material-design-icons/svg/filled/grade.svg';
 import '@material/web/button/filled-button.js';
 import { ElementController } from '@open-cells/element-controller';
+import { addToCart } from '../../utilidades/utils.js';
 
 @customElement('home-card')
 export class HomeCard extends LitElement {
@@ -87,6 +88,12 @@ export class HomeCard extends LitElement {
     userState: { channel: 'user-state' },
   };
 
+  firstUpdated() {
+    if (!this.userState) {
+      this.userState = { cart: [], favorites: [] };
+    }
+  }
+
   render() {
     const {
       title = '',
@@ -103,7 +110,6 @@ export class HomeCard extends LitElement {
         alt="rating"
       />`;
     });
-
     return html` <section>
       <h2>${title}</h2>
       <div class="content">
@@ -119,7 +125,7 @@ export class HomeCard extends LitElement {
               currency: 'EUR',
             }).format(price)}
           </p>
-          <md-filled-button @click=${this.addToCart} class="cart-btn"
+          <md-filled-button @click=${addToCart} class="cart-btn"
             >Add to cart</md-filled-button
           >
           <div class="opiniones">
@@ -132,13 +138,5 @@ export class HomeCard extends LitElement {
         </div>
       </div>
     </section>`;
-  }
-
-  addToCart() {
-    this.userState = {
-      ...this.userState,
-      cart: [...this.userState.cart, this.product],
-    };
-    console.log('Added to cart', this.product);
   }
 }
