@@ -4,12 +4,11 @@ import { customElement, property } from 'lit/decorators.js';
 import CssReset from '../../css/reset.css.js';
 import grade from '@material-design-icons/svg/filled/grade.svg';
 import '@material/web/button/filled-button.js';
+import { PageController } from '@open-cells/page-controller';
 
 @customElement('home-card')
 export class HomeCard extends LitElement {
-  @property()
-  product = {};
-
+  pageController = new PageController(this);
   static styles = [
     CssReset,
     css`
@@ -81,6 +80,13 @@ export class HomeCard extends LitElement {
     `,
   ];
 
+  @property()
+  product = {};
+
+  static outbounds = {
+    userState: { channel: 'user-state' },
+  };
+
   render() {
     const {
       title = '',
@@ -113,7 +119,9 @@ export class HomeCard extends LitElement {
               currency: 'EUR',
             }).format(price)}
           </p>
-          <md-filled-button class="cart-btn">Add to cart</md-filled-button>
+          <md-filled-button @click=${this.addToCart} class="cart-btn"
+            >Add to cart</md-filled-button
+          >
           <div class="opiniones">
             <div class="opiniones-stars">
               <p>Rating:&nbsp;&nbsp</p>
@@ -124,5 +132,12 @@ export class HomeCard extends LitElement {
         </div>
       </div>
     </section>`;
+  }
+
+  addToCart() {
+    this.userState = {
+      ...this.userState,
+      cart: [...this.userState.cart, this.product],
+    };
   }
 }

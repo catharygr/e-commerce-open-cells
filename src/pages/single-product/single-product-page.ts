@@ -36,7 +36,6 @@ export class SingleProductPage extends LitElement {
   };
 
   render() {
-    console.log(this.params);
     return !this.allProducts
       ? html`<spinner-element></spinner-element>`
       : html`
