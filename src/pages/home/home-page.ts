@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { html, LitElement, css } from 'lit';
 import { PageController } from '@open-cells/page-controller';
-import { customElement, state } from 'lit/decorators.js';
+import { customElement, state, changedProperties } from 'lit/decorators.js';
 import CssReset from '../../css/reset.css.js';
 import '../../components/Others/spinner.js';
 import '../../components/cards/home-card.js';
@@ -67,8 +67,6 @@ export class HomePage extends LitElement {
 
   @state()
   currentIndex = 0;
-  @state()
-  transformValue = `translateX(-${this.currentIndex * 100}%)`;
 
   static inbounds = {
     allProducts: { channel: 'all-products' },
@@ -87,6 +85,12 @@ export class HomePage extends LitElement {
       this.currentIndex -= 1;
     } else {
       this.currentIndex = this.allProducts.length - 1;
+    }
+  }
+
+  updated(changedProperties) {
+    if (changedProperties.has('currentIndex')) {
+      this.transformValue = `translateX(-${this.currentIndex * 100}%)`;
     }
   }
 
