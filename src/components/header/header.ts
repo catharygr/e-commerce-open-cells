@@ -91,7 +91,7 @@ export class HeaderComponent extends LitElement {
   </nav>`;
 
   // HTMl template para el modal del carrito
-  cartTemplate = html` <div class="cart">
+  cartTemplate = html` <div class="cart open-cart">
     <ul class="cart-list">
       <li>
         <img src="" alt="" />

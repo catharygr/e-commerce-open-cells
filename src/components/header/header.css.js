@@ -84,7 +84,10 @@ export const styles = css`
     width: min(80vw, 20rem);
     background-color: white;
     display: flex;
+    flex-direction: column;
     z-index: 900;
+    border: 1px solid #e4e4e4;
+    padding: 1rem;
   }
 
   header {
