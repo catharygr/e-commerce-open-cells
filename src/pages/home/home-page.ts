@@ -3,6 +3,7 @@ import { html, LitElement, css } from 'lit';
 import { PageController } from '@open-cells/page-controller';
 import { customElement, state } from 'lit/decorators.js';
 import CssReset from '../../css/reset.css.js';
+import '../../components/Others/spinner.js';
 import '../../components/cards/home-card.js';
 import '../../components/Others/spinner.js';
 
@@ -66,6 +67,8 @@ export class HomePage extends LitElement {
 
   @state()
   currentIndex = 0;
+  @state()
+  transformValue = `translateX(-${this.currentIndex * 100}%)`;
 
   static inbounds = {
     allProducts: { channel: 'all-products' },
@@ -88,32 +91,35 @@ export class HomePage extends LitElement {
   }
 
   render() {
-    if (!this.allProducts) {
-      return html`<spinner-element></spinner-element>`;
-    }
-
-    const transformValue = `translateX(-${this.currentIndex * 100}%)`;
-
-    return html`
-      <div class="container">
-        <h1>Bienvenido a mi tienda</h1>
-        <div class="carousel">
-          <div class="carousel-inner" style="transform: ${transformValue}">
-            ${this.allProducts.map(
-              (product) => html`
-                <div class="carousel-item">
-                  <home-card .product=${product}></home-card>
-                </div>
-              `
-            )}
+    return !this.allProducts
+      ? html`<spinner-element></spinner-element>`
+      : html`
+          <div class="container">
+            <h1>Bienvenido a mi tienda</h1>
+            <div class="carousel">
+              <div
+                class="carousel-inner"
+                style="transform: ${this.transformValue}"
+              >
+                ${this.allProducts.map(
+                  (product) => html`
+                    <div class="carousel-item">
+                      <home-card .product=${product}></home-card>
+                    </div>
+                  `
+                )}
+              </div>
+              <div class="carousel-buttons">
+                <button class="carousel-button" @click=${this.prev}>
+                  Prev
+                </button>
+                <button class="carousel-button" @click=${this.next}>
+                  Next
+                </button>
+              </div>
+            </div>
           </div>
-          <div class="carousel-buttons">
-            <button class="carousel-button" @click=${this.prev}>Prev</button>
-            <button class="carousel-button" @click=${this.next}>Next</button>
-          </div>
-        </div>
-      </div>
-    `;
+        `;
   }
 
   onPageEnter() {
