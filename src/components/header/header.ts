@@ -5,6 +5,7 @@ import { styles } from './header.css.js';
 import CssReset from '../../css/reset.css.js';
 import '@material/web/icon/icon.js';
 import '@material/web/textfield/filled-text-field';
+import '@material/web/button/filled-button.js';
 import { PageController } from '@open-cells/page-controller';
 import svgAccountCircle from '@material-design-icons/svg/outlined/account_circle.svg';
 import svgFavorite from '@material-design-icons/svg/outlined/favorite_border.svg';
@@ -14,6 +15,7 @@ import svgStorefront from '@material-design-icons/svg/outlined/storefront.svg';
 import svgSearch from '@material-design-icons/svg/outlined/search.svg';
 import svgMenu from '@material-design-icons/svg/outlined/menu.svg';
 import svgClose from '@material-design-icons/svg/outlined/close.svg';
+import '../shopping-cart/shopping-cart.js';
 
 @customElement('header-component')
 export class HeaderComponent extends LitElement {
@@ -92,24 +94,11 @@ export class HeaderComponent extends LitElement {
 
   // HTMl template para el modal del carrito
   cartTemplate = html` <div class="cart open-cart">
-    <ul class="cart-list">
-      <li>
-        <img src="" alt="" />
-        <div class="product-info">
-          <p>Product name</p>
-          <p>Price</p>
-        </div>
-        <div class="product-quantity">
-          <button>-</button>
-          <p>1</p>
-          <button>+</button>
-        </div>
-      </li>
-    </ul>
-    <div class="cart-actions">
-      <button>Checkout</button>
-      <button>Close</button>
-    </div>
+    <shopping-cart></shopping-cart>
+    <md-filled-button class="checkout-btn">Pagar</md-filled-button>
+    <md-filled-button @click=${this.closeCart} class="close-cart-btn"
+      >Cerrar</md-filled-button
+    >
   </div>`;
 
   render() {

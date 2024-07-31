@@ -88,6 +88,14 @@ export const styles = css`
     z-index: 900;
     border: 1px solid #e4e4e4;
     padding: 1rem;
+    gap: 1rem;
+
+    & > .close-cart-btn {
+      --md-sys-color-primary: red;
+    }
+    & > .checkout-btn {
+      --md-sys-color-primary: darkgreen;
+    }
   }
 
   header {
