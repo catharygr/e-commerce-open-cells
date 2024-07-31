@@ -77,7 +77,14 @@ export const styles = css`
     z-index: 1000;
   }
   .open-cart {
-    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(80vw, 20rem);
+    background-color: white;
+    display: flex;
+    z-index: 900;
   }
 
   header {
