@@ -1,18 +1,22 @@
 // @ts-nocheck
 import { LitElement, html, css } from 'lit';
-import { customElement, state } from 'lit/decorators.js';
+import { customElement } from 'lit/decorators.js';
 import { ElementController } from '@open-cells/element-controller';
 
 @customElement('shopping-cart')
 export class ShoppingCart extends LitElement {
   elementController = new ElementController(this);
-  @state()
+
   productsInCart = [];
 
   static inbounds = {
     allProducts: { channel: 'all-products' },
     userState: { channel: 'user-state' },
   };
+
+  updated() {
+    this.findProductsInCart();
+  }
 
   findProductsInCart() {
     // const products = this.userState?.cart;
@@ -24,7 +28,6 @@ export class ShoppingCart extends LitElement {
   }
 
   render() {
-    this.findProductsInCart();
     return !this.allProducts
       ? html`<spinner-element></spinner-element>`
       : html`
