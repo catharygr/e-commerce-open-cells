@@ -2,6 +2,7 @@
 import { LitElement, html, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { ElementController } from '@open-cells/element-controller';
+import '../../components/Others/spinner.js';
 
 @customElement('shopping-cart')
 export class ShoppingCart extends LitElement {
@@ -24,10 +25,10 @@ export class ShoppingCart extends LitElement {
     this.productsInCart = productsID?.map((id) => {
       return this.allProducts?.find((product) => product.id === id);
     });
-    console.log(this.productsInCart);
   }
 
   render() {
+    console.log(this.allProducts);
     return !this.allProducts
       ? html`<spinner-element></spinner-element>`
       : html`
