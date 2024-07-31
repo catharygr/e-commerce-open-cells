@@ -21,6 +21,7 @@ export class HeaderComponent extends LitElement {
   static styles = [CssReset, styles];
 
   @query('.navegation') navegation;
+  @query('.cart') cart;
 
   static outbounds = {
     searchQuery: { channel: 'search-query' },
@@ -38,6 +39,79 @@ export class HeaderComponent extends LitElement {
     this.navegation.classList.remove('open-nav');
   }
 
+  openCart() {
+    this.cart.classList.add('open-cart');
+  }
+  closeCart() {
+    this.cart.classList.remove('open-cart');
+  }
+
+  // HTMl template para la navegación
+  navTemplate = html` <nav class="navegation">
+    <ul class="list-nav">
+      <li>
+        <button @click=${this.closeNavegation} class="close-menu-btn">
+          <img class="close-menu-icon" src="${svgClose}" alt="close" />
+        </button>
+      </li>
+      <li>
+        <a
+          href="/#!/"
+          @click=${(e) => {
+            e.preventDefault();
+            this.closeNavegation();
+            this.pageController.navigate('home');
+          }}
+          >Inicio</a
+        >
+      </li>
+      <li>
+        <a
+          href="/#!/productos"
+          @click=${(e) => {
+            e.preventDefault();
+            this.closeNavegation();
+            this.pageController.navigate('productos');
+          }}
+          >Productos</a
+        >
+      </li>
+      <li>
+        <a
+          href="/#!/ofertas"
+          @click=${(e) => {
+            e.preventDefault();
+            this.closeNavegation();
+            this.pageController.navigate('ofertas');
+          }}
+          >Ofertas</a
+        >
+      </li>
+    </ul>
+  </nav>`;
+
+  // HTMl template para el modal del carrito
+  cartTemplate = html` <div class="cart">
+    <ul class="cart-list">
+      <li>
+        <img src="" alt="" />
+        <div class="product-info">
+          <p>Product name</p>
+          <p>Price</p>
+        </div>
+        <div class="product-quantity">
+          <button>-</button>
+          <p>1</p>
+          <button>+</button>
+        </div>
+      </li>
+    </ul>
+    <div class="cart-actions">
+      <button>Checkout</button>
+      <button>Close</button>
+    </div>
+  </div>`;
+
   render() {
     return html`
       <header>
@@ -53,48 +127,7 @@ export class HeaderComponent extends LitElement {
         <button @click=${this.openNavegation} class="open-menu-btn">
           <img src="${svgMenu}" alt="menu" />
         </button>
-        <nav class="navegation">
-          <ul class="list-nav">
-            <li>
-              <button @click=${this.closeNavegation} class="close-menu-btn">
-                <img class="close-menu-icon" src="${svgClose}" alt="close" />
-              </button>
-            </li>
-            <li>
-              <a
-                href="/#!/"
-                @click=${(e) => {
-                  e.preventDefault();
-                  this.closeNavegation();
-                  this.pageController.navigate('home');
-                }}
-                >Inicio</a
-              >
-            </li>
-            <li>
-              <a
-                href="/#!/productos"
-                @click=${(e) => {
-                  e.preventDefault();
-                  this.closeNavegation();
-                  this.pageController.navigate('productos');
-                }}
-                >Productos</a
-              >
-            </li>
-            <li>
-              <a
-                href="/#!/ofertas"
-                @click=${(e) => {
-                  e.preventDefault();
-                  this.closeNavegation();
-                  this.pageController.navigate('ofertas');
-                }}
-                >Ofertas</a
-              >
-            </li>
-          </ul>
-        </nav>
+        ${this.navTemplate}
         <md-filled-text-field
           class="search-field"
           placeholder="Buscar productos"
@@ -113,10 +146,11 @@ export class HeaderComponent extends LitElement {
           <button>
             <img src="${svgDarkMode}" alt="dark mode" />
           </button>
-          <button>
+          <button @click=${this.openCart}>
             <img src="${svgShoppingCart}" alt="shopping cart" />
           </button>
         </div>
+        ${this.cartTemplate}
       </header>
     `;
   }

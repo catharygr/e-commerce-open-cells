@@ -50,9 +50,6 @@ export const styles = css`
       brightness(100%) contrast(105%);
   }
 
-  .navegation {
-    display: none;
-  }
   .list-nav {
     display: flex;
     flex-direction: column;
@@ -66,6 +63,10 @@ export const styles = css`
     }
   }
 
+  .navegation,
+  .cart {
+    display: none;
+  }
   .open-nav {
     display: flex;
     justify-content: center;
@@ -74,6 +75,9 @@ export const styles = css`
     inset: 0;
     background-color: rgba(0, 0, 0, 0.9);
     z-index: 1000;
+  }
+  .open-cart {
+    display: block;
   }
 
   header {
