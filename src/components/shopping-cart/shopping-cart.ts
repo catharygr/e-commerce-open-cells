@@ -7,7 +7,6 @@ export class ShoppingCart extends LitElement {
   render() {
     return html`
       <div>
-        <h1>Shopping Cart</h1>
         <ul>
           <li>Product 1</li>
           <li>Product 2</li>
