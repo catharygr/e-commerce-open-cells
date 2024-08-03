@@ -4,6 +4,9 @@ import { customElement } from 'lit/decorators.js';
 import { ElementController } from '@open-cells/element-controller';
 import '../../components/Others/spinner.js';
 import CssReset from '../../css/reset.css.js';
+import '@material/web/iconbutton/icon-button.js';
+import svgMinus from '@material-design-icons/svg/filled/remove.svg';
+import svgPlus from '@material-design-icons/svg/filled/add.svg';
 
 @customElement('shopping-cart')
 export class ShoppingCart extends LitElement {
@@ -35,6 +38,14 @@ export class ShoppingCart extends LitElement {
           object-fit: contain;
         }
       }
+      .cart-product-detail {
+        display: flex;
+        align-items: center;
+
+        & :last-child {
+          margin-left: auto;
+        }
+      }
     `,
   ];
 
@@ -60,6 +71,16 @@ export class ShoppingCart extends LitElement {
           <div class="cart-product-header">
             <img src=${item?.image} alt=${item?.title} />
             <p>${item?.title}</p>
+          </div>
+          <div class="cart-product-detail">
+            <md-icon-button>
+              <img src=${svgMinus} alt="minus" />
+            </md-icon-button>
+            <span>1</span>
+            <md-icon-button>
+              <img src=${svgPlus} alt="plus" />
+            </md-icon-button>
+            <span>124,35</span>
           </div>
         </li>`
       )}
