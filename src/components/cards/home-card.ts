@@ -94,6 +94,7 @@ export class HomeCard extends LitElement {
 
   render() {
     const {
+      id = '',
       title = '',
       image = '',
       description = '',
@@ -136,5 +137,10 @@ export class HomeCard extends LitElement {
         </div>
       </div>
     </section>`;
+  }
+
+  isProductInCart() {
+    if (!useState.cart) return false;
+    return useState.cart.includes(this.product.id.toString());
   }
 }
