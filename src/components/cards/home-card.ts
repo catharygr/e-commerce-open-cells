@@ -124,8 +124,13 @@ export class HomeCard extends LitElement {
               currency: 'EUR',
             }).format(price)}
           </p>
-          <md-filled-button @click=${addToCart} class="cart-btn"
-            >Add to cart</md-filled-button
+          <md-filled-button
+            ?disabled=${this.isProductInCart()}
+            @click=${addToCart}
+            class="cart-btn"
+            >${this.isProductInCart()
+              ? 'Already in cart'
+              : 'Add to cart'}</md-filled-button
           >
           <div class="opiniones">
             <div class="opiniones-stars">
@@ -140,7 +145,7 @@ export class HomeCard extends LitElement {
   }
 
   isProductInCart() {
-    if (!useState.cart) return false;
-    return useState.cart.includes(this.product.id.toString());
+    if (!this.userState) return false;
+    return this.userState.cart.includes(this.product.id.toString());
   }
 }
