@@ -8,3 +8,8 @@ export function addToCart() {
   };
   this.requestUpdate();
 }
+
+export function isProductInCart() {
+  if (!this.userState) return false;
+  return this.userState.cart.includes(this.product.id.toString());
+}
