@@ -58,15 +58,15 @@ export class ShoppingCart extends LitElement {
     userState: { channel: 'user-state' },
   };
 
-  findProductsInCart() {
-    // const products = this.userState?.cart;
-    const productsID = [3, 6, 9];
-    return productsID?.map((id) => {
-      return this.allProducts?.find(
-        (product) => product.id.toString() === id.toString()
-      );
-    });
-  }
+  // findProductsInCart() {
+  //   // const products = this.userState?.cart;
+  //   const productsID = [3, 6, 9];
+  //   return productsID?.map((id) => {
+  //     return this.allProducts?.find(
+  //       (product) => product.id.toString() === id.toString()
+  //     );
+  //   });
+  // }
 
   render() {
     const productTemplate = html`
