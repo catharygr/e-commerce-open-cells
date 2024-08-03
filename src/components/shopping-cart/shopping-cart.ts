@@ -15,13 +15,15 @@ export class ShoppingCart extends LitElement {
       .cart-item {
         display: flex;
         flex-direction: column;
-        gap: 1rem;
-        padding: 1rem;
+        gap: 0.5rem;
       }
       .cart-product {
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
+        background-color: #f5f5f5;
+        padding: 0.1rem;
+        border-radius: 0.5rem;
       }
       .cart-product-header {
         display: flex;
