@@ -29,6 +29,8 @@ export class ShoppingCart extends LitElement {
         align-items: flex-start;
         & img {
           width: 3rem;
+          height: 3rem;
+          object-fit: contain;
         }
       }
     `,
