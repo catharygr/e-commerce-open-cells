@@ -161,8 +161,13 @@ export class ProductCardSmall extends LitElement {
                 }}
                 >Ver producto</a
               >
-              <md-filled-button @click=${addToCart} class="cart-btn"
-                >Add to cart</md-filled-button
+              <md-filled-button
+                ?disabled=${this.isProductInCart()}
+                @click=${addToCart}
+                class="cart-btn"
+                >${this.isProductInCart()
+                  ? 'Already in cart'
+                  : 'Add to cart'}</md-filled-button
               >
             </div>
             <div class="card-details">
@@ -178,5 +183,9 @@ export class ProductCardSmall extends LitElement {
         </div>
       </div>
     `;
+  }
+  isProductInCart() {
+    if (!this.userState) return false;
+    return this.userState?.cart.includes(this.product?.id.toString());
   }
 }
