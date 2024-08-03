@@ -54,6 +54,10 @@ export class ShoppingCart extends LitElement {
     userState: { channel: 'user-state' },
   };
 
+  static outbounds = {
+    userState: { channel: 'user-state' },
+  };
+
   findProductsInCart() {
     // const products = this.userState?.cart;
     const productsID = [3, 6, 9];
@@ -66,7 +70,7 @@ export class ShoppingCart extends LitElement {
 
   render() {
     const productTemplate = html`
-      ${(this.findProductsInCart() || []).map(
+      ${(this.userState?.cart || []).map(
         (item) => html`<li class="cart-product">
           <div class="cart-product-header">
             <img src=${item?.image} alt=${item?.title} />
