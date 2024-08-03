@@ -28,7 +28,6 @@ export class ShoppingCart extends LitElement {
   }
 
   render() {
-    console.log(this.productsInCart);
     return !this.allProducts
       ? html`<spinner-element></spinner-element>`
       : html`
