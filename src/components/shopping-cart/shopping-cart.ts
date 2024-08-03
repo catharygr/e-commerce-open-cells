@@ -24,14 +24,20 @@ export class ShoppingCart extends LitElement {
   }
 
   render() {
+    const productTemplate = html`
+      ${(this.findProductsInCart() || []).map(
+        (item) => html`<li>
+          <div>
+            <img src=${item?.image} alt=${item?.title} />
+            <p>${item?.title}</p>
+          </div>
+        </li>`
+      )}
+    `;
     return !this.allProducts
       ? html`<spinner-element></spinner-element>`
-      : html`
-          <section>
-            ${(this.findProductsInCart() || []).map(
-              (item) => html`<p>${item?.title}</p>`
-            )}
-          </section>
-        `;
+      : html` <ul>
+          ${productTemplate}
+        </ul>`;
   }
 }
