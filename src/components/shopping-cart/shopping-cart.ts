@@ -8,22 +8,18 @@ import '../../components/Others/spinner.js';
 export class ShoppingCart extends LitElement {
   elementController = new ElementController(this);
 
-  productsInCart = [];
-
   static inbounds = {
     allProducts: { channel: 'all-products' },
     userState: { channel: 'user-state' },
   };
 
-  updated() {
-    this.findProductsInCart();
-  }
-
   findProductsInCart() {
     // const products = this.userState?.cart;
-    const productsID = [3, 6, 9, 9, 9];
-    this.productsInCart = productsID?.map((id) => {
-      return this.allProducts?.find((product) => product.id === id);
+    const productsID = [3, 6, 9];
+    return productsID?.map((id) => {
+      return this.allProducts?.find(
+        (product) => product.id.toString() === id.toString()
+      );
     });
   }
 
@@ -31,13 +27,11 @@ export class ShoppingCart extends LitElement {
     return !this.allProducts
       ? html`<spinner-element></spinner-element>`
       : html`
-          <div>
-            <ul>
-              <li>Product 1</li>
-              <li>Product 2</li>
-              <li>Product 3</li>
-            </ul>
-          </div>
+          <section>
+            ${(this.findProductsInCart() || []).map(
+              (item) => html`<p>${item?.title}</p>`
+            )}
+          </section>
         `;
   }
 }
