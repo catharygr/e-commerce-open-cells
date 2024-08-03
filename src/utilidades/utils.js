@@ -4,7 +4,6 @@ export function addToCart() {
   }
   this.userState = {
     ...this.userState,
-    cart: [...this.userState?.cart, this.product?.id.toString()],
+    cart: [...this.userState?.cart, this.product],
   };
-  this.requestUpdate();
 }
