@@ -5,7 +5,7 @@ import CssReset from '../../css/reset.css.js';
 import grade from '@material-design-icons/svg/filled/grade.svg';
 import '@material/web/button/filled-button.js';
 import { ElementController } from '@open-cells/element-controller';
-import { addToCart } from '../../utilidades/utils.js';
+import { addToCart, isProductInCart } from '../../utilidades/utils.js';
 
 @customElement('home-card')
 export class HomeCard extends LitElement {
@@ -125,7 +125,7 @@ export class HomeCard extends LitElement {
             }).format(price)}
           </p>
           <md-filled-button
-            ?disabled=${this.isProductInCart()}
+            ?disabled=${isProductInCart()}
             @click=${addToCart}
             class="cart-btn"
             >${this.isProductInCart()
@@ -142,10 +142,5 @@ export class HomeCard extends LitElement {
         </div>
       </div>
     </section>`;
-  }
-
-  isProductInCart() {
-    if (!this.userState) return false;
-    return this.userState.cart.includes(this.product.id.toString());
   }
 }
