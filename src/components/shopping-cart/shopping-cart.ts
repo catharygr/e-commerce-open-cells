@@ -25,7 +25,7 @@ export class ShoppingCart extends LitElement {
         flex-direction: column;
         gap: 0.5rem;
         background-color: #f5f5f5;
-        padding: 0.1rem;
+        padding: 0.3rem;
         border-radius: 0.5rem;
       }
       .cart-product-header {
@@ -76,11 +76,11 @@ export class ShoppingCart extends LitElement {
             <md-icon-button>
               <img src=${svgMinus} alt="minus" />
             </md-icon-button>
-            <span>1</span>
+            <span></span>
             <md-icon-button>
               <img src=${svgPlus} alt="plus" />
             </md-icon-button>
-            <span>124,35</span>
+            <span>135,24</span>
           </div>
         </li>`
       )}
