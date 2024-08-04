@@ -68,11 +68,15 @@ export class ShoppingCart extends LitElement {
             <p>${item?.title}</p>
           </div>
           <div class="cart-product-detail">
-            <md-icon-button>
+            <md-icon-button
+              @click=${() => this.quantityDown(item?.id, item?.quantity)}
+            >
               <img src=${svgMinus} alt="minus" />
             </md-icon-button>
             <span>${item?.quantity}</span>
-            <md-icon-button>
+            <md-icon-button
+              @click=${() => this.quantityUp(item?.id, item?.quantity)}
+            >
               <img src=${svgPlus} alt="plus" />
             </md-icon-button>
             <span
@@ -90,5 +94,37 @@ export class ShoppingCart extends LitElement {
       : html` <ul class="cart-item">
           ${productTemplate}
         </ul>`;
+  }
+
+  quantityUp(id, quantity) {
+    if (quantity <= 0 || quantity >= 5) return;
+    this.userState = {
+      ...this.userState,
+      cart: this.userState.cart.map((item) => {
+        if (item.id === id) {
+          return {
+            ...item,
+            quantity: item.quantity + 1,
+          };
+        }
+        return item;
+      }),
+    };
+  }
+  quantityDown() {
+    if (quantity <= 0 || quantity >= 5) return;
+
+    this.userState = {
+      ...this.userState,
+      cart: this.userState.cart.map((item) => {
+        if (item.id === id) {
+          return {
+            ...item,
+            quantity: item.quantity - 1,
+          };
+        }
+        return item;
+      }),
+    };
   }
 }
