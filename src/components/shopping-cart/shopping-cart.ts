@@ -71,11 +71,16 @@ export class ShoppingCart extends LitElement {
             <md-icon-button>
               <img src=${svgMinus} alt="minus" />
             </md-icon-button>
-            <span>1</span>
+            <span>${item?.quantity}</span>
             <md-icon-button>
               <img src=${svgPlus} alt="plus" />
             </md-icon-button>
-            <span>135,24</span>
+            <span
+              >${new Intl.NumberFormat('es-ES', {
+                style: 'currency',
+                currency: 'EUR',
+              }).format(item?.price * item?.quantity)}
+            </span>
           </div>
         </li>`
       )}
