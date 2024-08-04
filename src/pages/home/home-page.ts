@@ -117,12 +117,17 @@ export class HomePage extends LitElement {
                 )}
               </div>
               <div class="carousel-buttons">
-                <button class="carousel-button" @click=${this.prev}>
+                <md-icon-button class="carousel-button" @click=${this.prev}>
+                  <img src=${svgMinus} alt="minus" />
+                </md-icon-button>
+                <!-- <button class="carousel-button" @click=${this.prev}>
                   Prev
-                </button>
-                <button class="carousel-button" @click=${this.next}>
+                </button> -->
+                <!-- <button class="carousel-button" @click=${this.next}>
                   Next
-                </button>
+                </button> -->
+                <md-icon-button class="carousel-button" @click=${this.next}>
+                  <img src=${svgPlus} alt="plus" />
               </div>
             </div>
           </div>
