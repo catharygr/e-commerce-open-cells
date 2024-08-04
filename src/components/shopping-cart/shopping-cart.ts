@@ -41,6 +41,7 @@ export class ShoppingCart extends LitElement {
       .cart-product-detail {
         display: flex;
         align-items: center;
+        gap: 0.5rem;
 
         & :last-child {
           margin-left: auto;
@@ -59,7 +60,6 @@ export class ShoppingCart extends LitElement {
   };
 
   render() {
-    console.log(this.userState);
     const productTemplate = html`
       ${(this.userState?.cart || []).map(
         (item) => html`<li class="cart-product">
@@ -69,12 +69,14 @@ export class ShoppingCart extends LitElement {
           </div>
           <div class="cart-product-detail">
             <md-icon-button
+              ?disabled=${item?.quantity <= 1}
               @click=${() => this.quantityDown(item?.id, item?.quantity)}
             >
               <img src=${svgMinus} alt="minus" />
             </md-icon-button>
             <span>${item?.quantity}</span>
             <md-icon-button
+              ?disabled=${item?.quantity >= 5}
               @click=${() => this.quantityUp(item?.id, item?.quantity)}
             >
               <img src=${svgPlus} alt="plus" />
@@ -92,12 +94,26 @@ export class ShoppingCart extends LitElement {
     return !this.allProducts
       ? html`<spinner-element></spinner-element>`
       : html` <ul class="cart-item">
-          ${productTemplate}
-        </ul>`;
+            ${productTemplate}
+          </ul>
+          <div class="cart-total">
+            <p>
+              Total:
+              ${new Intl.NumberFormat('es-ES', {
+                style: 'currency',
+                currency: 'EUR',
+              }).format(
+                this.userState?.cart.reduce(
+                  (acc, item) => acc + item?.price * item?.quantity,
+                  0
+                )
+              )}
+            </p>
+          </div>`;
   }
 
   quantityUp(id, quantity) {
-    if (quantity <= 0 || quantity >= 5) return;
+    if (quantity >= 5) return;
     this.userState = {
       ...this.userState,
       cart: this.userState.cart.map((item) => {
@@ -111,8 +127,8 @@ export class ShoppingCart extends LitElement {
       }),
     };
   }
-  quantityDown() {
-    if (quantity <= 0 || quantity >= 5) return;
+  quantityDown(id, quantity) {
+    if (quantity <= 0) return;
 
     this.userState = {
       ...this.userState,
