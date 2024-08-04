@@ -146,6 +146,8 @@ export class HomeCard extends LitElement {
 
   isProductInCart() {
     if (!this.userState) return false;
-    return this.userState?.cart.includes(this.product?.id.toString());
+    return this.userState?.cart.find(
+      (item) => item.id.toString() === this.product.id.toString()
+    );
   }
 }
