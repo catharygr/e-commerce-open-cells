@@ -59,6 +59,7 @@ export class ShoppingCart extends LitElement {
   };
 
   render() {
+    console.log(this.userState);
     const productTemplate = html`
       ${(this.userState?.cart || []).map(
         (item) => html`<li class="cart-product">
@@ -70,7 +71,7 @@ export class ShoppingCart extends LitElement {
             <md-icon-button>
               <img src=${svgMinus} alt="minus" />
             </md-icon-button>
-            <span></span>
+            <span>1</span>
             <md-icon-button>
               <img src=${svgPlus} alt="plus" />
             </md-icon-button>
