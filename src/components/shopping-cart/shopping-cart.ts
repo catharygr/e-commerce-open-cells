@@ -23,9 +23,8 @@ export class ShoppingCart extends LitElement {
       .cart-product {
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
         background-color: #f5f5f5;
-        padding: 0.3rem;
+        padding: 0.4rem;
         border-radius: 0.5rem;
       }
       .cart-product-header {
@@ -47,6 +46,11 @@ export class ShoppingCart extends LitElement {
           margin-left: auto;
         }
       }
+      .cart-total {
+        text-align: right;
+        padding: 1.5rem 0.4rem;
+        font-weight: bold;
+      }
     `,
   ];
 
@@ -60,6 +64,10 @@ export class ShoppingCart extends LitElement {
   };
 
   render() {
+    const total = this.userState?.cart.reduce(
+      (acc, item) => acc + item?.price * item?.quantity,
+      0
+    );
     const productTemplate = html`
       ${(this.userState?.cart || []).map(
         (item) => html`<li class="cart-product">
@@ -102,12 +110,7 @@ export class ShoppingCart extends LitElement {
               ${new Intl.NumberFormat('es-ES', {
                 style: 'currency',
                 currency: 'EUR',
-              }).format(
-                this.userState?.cart.reduce(
-                  (acc, item) => acc + item?.price * item?.quantity,
-                  0
-                )
-              )}
+              }).format(total)}
             </p>
           </div>`;
   }
