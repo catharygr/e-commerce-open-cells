@@ -50,6 +50,11 @@ export class ShoppingCart extends LitElement {
         text-align: right;
         padding: 1.5rem 0.4rem;
         font-weight: bold;
+
+        & :first-child {
+          font-size: 0.8rem;
+          font-weight: normal;
+        }
       }
     `,
   ];
@@ -68,6 +73,9 @@ export class ShoppingCart extends LitElement {
       (acc, item) => acc + item?.price * item?.quantity,
       0
     );
+    // Calcular el tax el 21% del total
+    const tax = total * 0.21;
+
     const productTemplate = html`
       ${(this.userState?.cart || []).map(
         (item) => html`<li class="cart-product">
@@ -105,6 +113,14 @@ export class ShoppingCart extends LitElement {
             ${productTemplate}
           </ul>
           <div class="cart-total">
+            <p>
+              Tax(Incluido en el precio):
+              ${new Intl.NumberFormat('es-ES', {
+                style: 'currency',
+                currency: 'EUR',
+              }).format(tax)}
+            </p>
+
             <p>
               Total:
               ${new Intl.NumberFormat('es-ES', {
