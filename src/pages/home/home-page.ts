@@ -50,13 +50,12 @@ export class HomePage extends LitElement {
         top: 10%;
         padding-inline: 1rem;
         width: 100%;
-      }
-      .carousel-button {
-        background: rgba(0, 0, 0, 0.5);
-        border: none;
-        color: white;
-        padding: 1rem 1.5rem;
-        border-radius: 0.5rem;
+
+        & md-icon-button {
+          background: rgba(0, 0, 0, 0.5);
+
+          border-radius: 0.5rem;
+        }
       }
 
       @media (min-width: 43rem) {
@@ -81,6 +80,7 @@ export class HomePage extends LitElement {
     } else {
       this.currentIndex = 0;
     }
+    console.log(this.currentIndex);
   }
 
   prev() {
@@ -89,6 +89,7 @@ export class HomePage extends LitElement {
     } else {
       this.currentIndex = this.allProducts.length - 1;
     }
+    console.log(this.currentIndex);
   }
 
   updated(changedProperties) {
@@ -117,16 +118,10 @@ export class HomePage extends LitElement {
                 )}
               </div>
               <div class="carousel-buttons">
-                <md-icon-button class="carousel-button" @click=${this.prev}>
+                <md-icon-button  @click=${this.prev}>
                   <img src=${svgMinus} alt="minus" />
                 </md-icon-button>
-                <!-- <button class="carousel-button" @click=${this.prev}>
-                  Prev
-                </button> -->
-                <!-- <button class="carousel-button" @click=${this.next}>
-                  Next
-                </button> -->
-                <md-icon-button class="carousel-button" @click=${this.next}>
+                <md-icon-button  @click=${this.next}>
                   <img src=${svgPlus} alt="plus" />
               </div>
             </div>
