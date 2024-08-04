@@ -51,7 +51,7 @@ export class ShoppingCart extends LitElement {
         padding: 1.5rem 0.4rem;
         font-weight: bold;
 
-        & :first-child {
+        & :last-child {
           font-size: 0.8rem;
           font-weight: normal;
         }
@@ -109,6 +109,11 @@ export class ShoppingCart extends LitElement {
     `;
     return !this.allProducts
       ? html`<spinner-element></spinner-element>`
+      : this.userState?.cart === undefined || this.userState?.cart.length === 0
+      ? html`<p>
+          Dude, your cart es empty. Add some products into the cart, so I can be
+          rich dude, dude
+        </p>`
       : html` <ul class="cart-item">
             ${productTemplate}
           </ul>
