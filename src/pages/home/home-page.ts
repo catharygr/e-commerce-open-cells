@@ -6,6 +6,9 @@ import CssReset from '../../css/reset.css.js';
 import '../../components/Others/spinner.js';
 import '../../components/cards/home-card.js';
 import '../../components/Others/spinner.js';
+import '@material/web/iconbutton/icon-button.js';
+import svgMinus from '@material-design-icons/svg/filled/remove.svg';
+import svgPlus from '@material-design-icons/svg/filled/add.svg';
 
 @customElement('home-page')
 export class HomePage extends LitElement {
