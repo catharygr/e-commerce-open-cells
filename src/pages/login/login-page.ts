@@ -53,6 +53,10 @@ export class LoginPage extends LitElement {
 
   @query('md-outlined-text-field[id="password"]') passField;
 
+  static outbounds = {
+    userState: { channel: 'user-state' },
+  };
+
   togglePasswordVisibility(e) {
     e.preventDefault;
     this.passField.type =
@@ -76,6 +80,18 @@ export class LoginPage extends LitElement {
     this.pageController.updateInterceptorContext({
       user: { email, password, name, role, isLoged: true },
     });
+
+    this.userState = {
+      ...this.userState,
+      cart: [...(this.userState?.cart || [])],
+      favorites: [...(this.userState?.favorites || [])],
+      email,
+      password,
+      name,
+      role,
+      isLoged: true,
+    };
+
     // Redirigir a la página de cuenta
     this.pageController.navigate('account');
     // Eliminar los valores de los campos

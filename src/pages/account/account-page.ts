@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { LitElement, html, css } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { customElement } from 'lit/decorators.js';
 import CssReset from '../../css/reset.css.js';
 import '@material/web/button/filled-button.js';
 import { PageController } from '@open-cells/page-controller';
@@ -9,9 +9,6 @@ import { resetInterceptorContext } from '@open-cells/core/src/bridge.js';
 @customElement('account-page')
 export class AccountPage extends LitElement {
   pageController = new PageController(this);
-
-  @property()
-  user = this.pageController.getInterceptorContext().user || {};
 
   static styles = [
     CssReset,
@@ -46,13 +43,27 @@ export class AccountPage extends LitElement {
     `,
   ];
 
-  onPageEnter() {
-    this.user = this.pageController.getInterceptorContext().user || {};
-  }
+  static inbounds = {
+    userState: { channel: 'user-state' },
+  };
+
+  static outbounds = {
+    userState: { channel: 'user-state' },
+  };
 
   handleLogOff() {
     sessionStorage.removeItem('user');
     this.pageController.resetInterceptorContext();
+    this.userState = {
+      ...this.userState,
+      cart: [...(this.userState?.cart || [])],
+      favorites: [...(this.userState?.favorites || [])],
+      name: '',
+      email: '',
+      password: '',
+      role: '',
+      isLoged: false,
+    };
     this.pageController.navigate('home');
     this.requestUpdate();
   }
@@ -68,8 +79,8 @@ export class AccountPage extends LitElement {
         </div>
         <div class="user-info">
           <h2>User Information</h2>
-          <p>UserName: ${this.user?.name || 'Anónimo'}</p>
-          <p>Email: ${this.user?.email || 'No email'}</p>
+          <p>UserName: ${this.userState?.name || 'Anónimo'}</p>
+          <p>Email: ${this.userState?.email || 'No email'}</p>
         </div>
         ${this.user?.role === 'admin'
           ? html`

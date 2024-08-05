@@ -97,7 +97,6 @@ export class HeaderComponent extends LitElement {
   </nav>`;
 
   render() {
-    console.log(this.userState.isLoged);
     const cartTemplate = html` <div class="cart">
       <h3 class="cart-title">Shopping Cart</h3>
       <shopping-cart></shopping-cart>
@@ -124,7 +123,7 @@ export class HeaderComponent extends LitElement {
           }}
         >
           <img
-            style=${this.userState.isLoged === true &&
+            style=${this.userState?.isLoged === true &&
             'filter: invert(15%) sepia(82%) saturate(3350%) hue-rotate(355deg) brightness(101%) contrast(79%)'}
             class="tienda-logo"
             src=${svgStorefront}
@@ -146,7 +145,7 @@ export class HeaderComponent extends LitElement {
         <div class="action-header">
           <button @click=${() => this.pageController.navigate('account')}>
             <img
-              style=${this.userState.isLoged === true &&
+              style=${this.userState?.isLoged === true &&
               'filter: invert(80%) sepia(31%) saturate(6604%) hue-rotate(70deg) brightness(97%) contrast(82%)'}
               src=${svgAccountCircle}
               alt="account"
