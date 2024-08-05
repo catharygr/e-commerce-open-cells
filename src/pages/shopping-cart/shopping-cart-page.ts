@@ -36,7 +36,11 @@ export class ShoppingCartPage extends LitElement {
         }
       }
       .payment-msg {
+        margin-inline: auto;
         font-size: 1rem;
+        margin-block: 2rem;
+        max-width: 18rem;
+        text-align: center;
         display: none;
       }
     `,
