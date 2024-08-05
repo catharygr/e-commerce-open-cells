@@ -40,6 +40,9 @@ export class AccountPage extends LitElement {
         justify-content: space-between;
         align-items: center;
       }
+      .user-logout {
+        --md-sys-color-primary: red;
+      }
     `,
   ];
 
@@ -73,7 +76,7 @@ export class AccountPage extends LitElement {
       <div class="container">
         <div class="acc-header">
           <h1>My account</h1>
-          <md-filled-button @click=${this.handleLogOff}
+          <md-filled-button class="user-logout" @click=${this.handleLogOff}
             >Logout</md-filled-button
           >
         </div>

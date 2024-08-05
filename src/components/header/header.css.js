@@ -91,9 +91,6 @@ export const styles = css`
     padding: 1rem;
     gap: 1rem;
 
-    & > .close-cart-btn {
-      --md-sys-color-primary: red;
-    }
     & > .checkout-btn {
       --md-sys-color-primary: darkgreen;
     }
