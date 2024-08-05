@@ -70,7 +70,6 @@ export class AccountPage extends LitElement {
           <h2>User Information</h2>
           <p>UserName: ${this.user?.name || 'Anónimo'}</p>
           <p>Email: ${this.user?.email || 'No email'}</p>
-          <p>Password: ${this.user?.password || 'No password'}</p>
         </div>
         ${this.user?.role === 'admin'
           ? html`

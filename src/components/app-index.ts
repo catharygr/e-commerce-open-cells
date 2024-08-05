@@ -12,6 +12,7 @@ import './footer/footer.js';
 startApp({
   routes,
   mainNode: 'app-content',
+  viewLimit: 1,
   interceptor: function (navigation, ctx) {
     let intercept = false;
     let redirect;
@@ -45,6 +46,7 @@ export class AppIndex extends LitElement {
 
   static outbounds = {
     allProducts: { channel: 'all-products' },
+    userState: { channel: 'user-state' },
   };
 
   static styles = styles;
@@ -65,9 +67,22 @@ export class AppIndex extends LitElement {
 
   updated() {
     if (sessionStorage.getItem('user')) {
+      const { name, email, password, role, isLoged } = JSON.parse(
+        sessionStorage.getItem('user')
+      );
       this.elementController.updateInterceptorContext({
         user: JSON.parse(sessionStorage.getItem('user')),
       });
+      this.userState = {
+        ...this.userState,
+        cart: [],
+        favorites: [],
+        name,
+        email,
+        password,
+        role,
+        isLoged,
+      };
     }
   }
   render() {
