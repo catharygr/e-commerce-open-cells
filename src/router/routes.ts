@@ -73,4 +73,12 @@ export const routes: RouteDefinition[] = [
       await import('../pages/add/add-page.js');
     },
   },
+  {
+    path: '/cart',
+    name: 'cart',
+    component: 'shopping-cart-page',
+    action: async () => {
+      await import('../pages/shopping-cart/shopping-cart-page.js');
+    },
+  },
 ];

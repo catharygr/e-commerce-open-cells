@@ -11,9 +11,9 @@ export class FooterComponent extends LitElement {
         display: flex;
         justify-content: center;
         align-items: center;
-        padding-block: 2rem;
         background-color: #e4e4e4;
         border-top: 1px solid #e0e0e0;
+        padding-block: 1rem;
       }
 
       footer a {
