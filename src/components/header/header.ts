@@ -157,8 +157,13 @@ export class HeaderComponent extends LitElement {
           <button>
             <img src="${svgDarkMode}" alt="dark mode" />
           </button>
-          <button @click=${this.openCart}>
+          <button class="cart-btn" @click=${this.openCart}>
             <img src="${svgShoppingCart}" alt="shopping cart" />
+            ${this.userState?.cart.length
+              ? html`<span class="cart-count"
+                  >${this.userState?.cart.length}</span
+                >`
+              : ''}
           </button>
         </div>
         ${cartTemplate}

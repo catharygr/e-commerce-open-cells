@@ -48,6 +48,10 @@ export class ShoppingCartPage extends LitElement {
 
   @query('.payment-msg') paymentMsg;
 
+  static inbounds = {
+    userState: { channel: 'user-state' },
+  };
+
   static outbounds = {
     userState: { channel: 'user-state' },
   };

@@ -121,6 +121,20 @@ export const styles = css`
     }
   }
 
+  .cart-btn {
+    position: relative;
+    & .cart-count {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background-color: red;
+      color: white;
+      font-size: 0.7rem;
+      border-radius: 50%;
+      padding: 0.2rem 0.4rem;
+    }
+  }
+
   @media (min-width: 35rem) {
     .action-header {
       justify-content: flex-end;
