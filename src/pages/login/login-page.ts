@@ -103,8 +103,9 @@ export class LoginPage extends LitElement {
   render() {
     return html` <div class="container">
       <h3 class="titulo">Loguear</h3>
-      <form class="form-login">
+      <form @submit=${this.handleSubmmit} class="form-login">
         <md-outlined-text-field
+          required
           label="Nombre"
           id="nombre"
           name="nombre"
@@ -112,20 +113,20 @@ export class LoginPage extends LitElement {
         >
         </md-outlined-text-field>
         <md-outlined-text-field
+          required
           label="Email"
           id="email"
           name="email"
           type="email"
-          required
         >
         </md-outlined-text-field>
         <md-outlined-text-field
+          required
           label="Password"
           id="password"
           name="password"
           type="password"
           minLength="8"
-          required
         >
           <md-icon-button
             @click=${this.togglePasswordVisibility}
@@ -145,7 +146,7 @@ export class LoginPage extends LitElement {
           <md-checkbox id="admin"></md-checkbox>
           ¿Eres admin?
         </label>
-        <md-filled-button @click=${this.handleSubmmit}>Login</md-filled-button>
+        <md-filled-button type="submit">Login</md-filled-button>
       </form>
     </div>`;
   }

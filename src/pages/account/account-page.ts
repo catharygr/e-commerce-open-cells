@@ -82,7 +82,7 @@ export class AccountPage extends LitElement {
           <p>UserName: ${this.userState?.name || 'Anónimo'}</p>
           <p>Email: ${this.userState?.email || 'No email'}</p>
         </div>
-        ${this.user?.role === 'admin'
+        ${this.userState?.role === 'admin'
           ? html`
               <div class="user-admin">
                 <h2>Admin Section</h2>
