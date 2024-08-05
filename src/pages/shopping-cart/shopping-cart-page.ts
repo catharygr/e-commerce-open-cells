@@ -1,12 +1,14 @@
 // @ts-nocheck
 import { LitElement, html, css } from 'lit';
-import { customElement } from 'lit/decorators.js';
+import { customElement, query } from 'lit/decorators.js';
 import CssReset from '../../css/reset.css.js';
 import '../../components/shopping-cart/shopping-cart.js';
 import '@material/web/button/filled-button.js';
+import { PageController } from '@open-cells/page-controller';
 
 @customElement('shopping-cart-page')
 export class ShoppingCartPage extends LitElement {
+  pageController = new PageController(this);
   static styles = [
     CssReset,
     css`
@@ -33,25 +35,50 @@ export class ShoppingCartPage extends LitElement {
           --md-sys-color-primary: orange;
         }
       }
+      .payment-msg {
+        font-size: 1rem;
+        display: none;
+      }
     `,
   ];
 
-  @query('payment-msg') paymentMsg;
+  @query('.payment-msg') paymentMsg;
+
+  static outbounds = {
+    userState: { channel: 'user-state' },
+  };
+
   render() {
     return html` <div class="container">
       <h1>Your Shopping Cart</h1>
       <shopping-cart></shopping-cart>
       <div class="action-btn">
-        <md-filled-button>Continue shopping</md-filled-button>
-        <md-filled-button @click=${this.handlePaymet()}
+        <md-filled-button
+          @click=${() => this.pageController.navigate('productos')}
+          >Continue shopping</md-filled-button
+        >
+        <md-filled-button @click=${this.handlePaymet}
           >To payment</md-filled-button
         >
       </div>
-      <p class="payment-msg">Thank you for your good p</p>
+      <p class="payment-msg">
+        Thank you for your purchase. This is a demo page, so no real payment
+        will be made. Built for practice of BBVA OpenCells framework and
+        LitElement. In a few seconds you will be redirected to the products
+        page...
+      </p>
     </div>`;
   }
 
   handlePaymet() {
-    console.log('Payment');
+    this.paymentMsg.style.display = 'block';
+    setTimeout(() => {
+      this.userState = {
+        ...this.userState,
+        cart: [],
+      };
+      this.paymentMsg.style.display = 'none';
+      this.pageController.navigate('productos');
+    }, 8000);
   }
 }
