@@ -7,6 +7,7 @@ import CssReset from '../../css/reset.css.js';
 import '@material/web/iconbutton/icon-button.js';
 import svgMinus from '@material-design-icons/svg/filled/remove.svg';
 import svgPlus from '@material-design-icons/svg/filled/add.svg';
+import svgDeleteForever from '@material-design-icons/svg/outlined/delete_forever.svg';
 
 @customElement('shopping-cart')
 export class ShoppingCart extends LitElement {
@@ -32,11 +33,16 @@ export class ShoppingCart extends LitElement {
         display: flex;
         gap: 1rem;
         align-items: flex-start;
+
         & img {
           width: 3rem;
           height: 3rem;
           object-fit: contain;
         }
+      }
+      .cart-delete {
+        width: 30px;
+        height: 30px;
       }
       .cart-product-detail {
         display: flex;
@@ -83,6 +89,8 @@ export class ShoppingCart extends LitElement {
           <div class="cart-product-header">
             <img src=${item?.image} alt=${item?.title} />
             <p>${item?.title}</p>
+            <md-icon-button class="cart-delete">
+              <img src=${svgDeleteForever} alt="delete" />
           </div>
           <div class="cart-product-detail">
             <md-icon-button
