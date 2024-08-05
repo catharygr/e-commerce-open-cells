@@ -93,7 +93,7 @@ export class HeaderComponent extends LitElement {
   </nav>`;
 
   // HTMl template para el modal del carrito
-  cartTemplate = html` <div class="cart">
+  cartTemplate = html` <div class="cart open-cart">
     <h3 class="cart-title">Shopping Cart</h3>
     <shopping-cart></shopping-cart>
     <md-filled-button class="checkout-btn">Pagar</md-filled-button>

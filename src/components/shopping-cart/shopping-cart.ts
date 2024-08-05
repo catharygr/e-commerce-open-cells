@@ -19,6 +19,7 @@ export class ShoppingCart extends LitElement {
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
+        font-size: 0.8rem;
       }
       .cart-product {
         display: flex;
@@ -49,11 +50,11 @@ export class ShoppingCart extends LitElement {
       .cart-total {
         text-align: right;
         padding: 1.5rem 0.4rem;
-        font-weight: bold;
+        font-size: 0.8rem;
 
         & :last-child {
-          font-size: 0.8rem;
-          font-weight: normal;
+          font-weight: bold;
+          font-size: 1rem;
         }
       }
     `,
@@ -110,10 +111,7 @@ export class ShoppingCart extends LitElement {
     return !this.allProducts
       ? html`<spinner-element></spinner-element>`
       : this.userState?.cart === undefined || this.userState?.cart.length === 0
-      ? html`<p>
-          Dude, your cart es empty. Add some products into the cart, so I can be
-          rich dude, dude
-        </p>`
+      ? html`<p>You cart es empty. Add some products into the cart.</p>`
       : html` <ul class="cart-item">
             ${productTemplate}
           </ul>

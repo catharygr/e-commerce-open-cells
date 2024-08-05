@@ -80,7 +80,6 @@ export class HomePage extends LitElement {
     } else {
       this.currentIndex = 0;
     }
-    console.log(this.currentIndex);
   }
 
   prev() {
@@ -89,7 +88,6 @@ export class HomePage extends LitElement {
     } else {
       this.currentIndex = this.allProducts.length - 1;
     }
-    console.log(this.currentIndex);
   }
 
   updated(changedProperties) {
