@@ -96,22 +96,20 @@ export class HeaderComponent extends LitElement {
     </ul>
   </nav>`;
 
-  // HTMl template para el modal del carrito
-  cartTemplate = html` <div class="cart">
-    <h3 class="cart-title">Shopping Cart</h3>
-    <shopping-cart></shopping-cart>
-    <md-filled-button
-      ?disabled=${!this.userState?.cart && this.userState?.cart.length === 0}
-      @click=${() => this.pageController.navigate('cart')}
-      class="checkout-btn"
-      >Pagar</md-filled-button
-    >
-    <md-filled-button @click=${this.closeCart} class="close-cart-btn"
-      >Cerrar</md-filled-button
-    >
-  </div>`;
-
   render() {
+    const cartTemplate = html` <div class="cart">
+      <h3 class="cart-title">Shopping Cart</h3>
+      <shopping-cart></shopping-cart>
+      <md-filled-button
+        ?disabled=${!this.userState?.cart || this.userState?.cart.length === 0}
+        @click=${() => this.pageController.navigate('cart')}
+        class="checkout-btn"
+        >Pagar</md-filled-button
+      >
+      <md-filled-button @click=${this.closeCart} class="close-cart-btn"
+        >Cerrar</md-filled-button
+      >
+    </div>`;
     return html`
       <header>
         <a
@@ -149,7 +147,7 @@ export class HeaderComponent extends LitElement {
             <img src="${svgShoppingCart}" alt="shopping cart" />
           </button>
         </div>
-        ${this.cartTemplate}
+        ${cartTemplate}
       </header>
     `;
   }
