@@ -102,7 +102,10 @@ export class HeaderComponent extends LitElement {
       <shopping-cart></shopping-cart>
       <md-filled-button
         ?disabled=${!this.userState?.cart || this.userState?.cart.length === 0}
-        @click=${() => this.pageController.navigate('cart')}
+        @click=${() => {
+          this.closeCart();
+          this.pageController.navigate('cart');
+        }}
         class="checkout-btn"
         >Pagar</md-filled-button
       >
