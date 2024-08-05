@@ -77,6 +77,7 @@ export const styles = css`
     z-index: 1000;
   }
   .open-cart {
+    overflow-y: auto;
     position: fixed;
     top: 0;
     right: 0;

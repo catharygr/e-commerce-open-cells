@@ -34,15 +34,24 @@ export class ShoppingCart extends LitElement {
         gap: 1rem;
         align-items: flex-start;
 
+        & md-icon-button {
+          flex-shrink: 0;
+          width: 2rem;
+          height: 2rem;
+          margin-left: auto;
+        }
+
+        & .cart-delete {
+          width: 22px;
+          height: 22px;
+          filter: invert(14%) sepia(92%) saturate(3137%) hue-rotate(351deg)
+            brightness(98%) contrast(86%);
+        }
         & img {
           width: 3rem;
           height: 3rem;
           object-fit: contain;
         }
-      }
-      .cart-delete {
-        width: 30px;
-        height: 30px;
       }
       .cart-product-detail {
         display: flex;
@@ -89,8 +98,8 @@ export class ShoppingCart extends LitElement {
           <div class="cart-product-header">
             <img src=${item?.image} alt=${item?.title} />
             <p>${item?.title}</p>
-            <md-icon-button class="cart-delete">
-              <img src=${svgDeleteForever} alt="delete" />
+            <md-icon-button @click=${() => this.deleteProduct(item?.id)}>
+              <img class="cart-delete" src=${svgDeleteForever} alt="delete" />
           </div>
           <div class="cart-product-detail">
             <md-icon-button
@@ -171,6 +180,12 @@ export class ShoppingCart extends LitElement {
         }
         return item;
       }),
+    };
+  }
+  deleteProduct(id) {
+    this.userState = {
+      ...this.userState,
+      cart: this.userState?.cart.filter((item) => item?.id !== id),
     };
   }
 }
