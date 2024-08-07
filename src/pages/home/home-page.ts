@@ -83,10 +83,10 @@ export class HomePage extends LitElement {
   }
 
   prev() {
-    if ((this.currentIndex = this.allProducts.length - 1)) {
+    if (this.currentIndex > 0) {
       this.currentIndex -= 1;
     } else {
-      this.currentIndex = 0;
+      this.currentIndex = this.allProducts.length - 1;
     }
   }
 
