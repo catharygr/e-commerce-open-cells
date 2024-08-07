@@ -67,7 +67,7 @@ export class AppIndex extends LitElement {
 
   updated() {
     if (sessionStorage.getItem('user')) {
-      const { name, email, password, role, isLoged } = JSON.parse(
+      const { name, email, password, role, isLogged } = JSON.parse(
         sessionStorage.getItem('user')
       );
       this.elementController.updateInterceptorContext({
@@ -81,7 +81,7 @@ export class AppIndex extends LitElement {
         email,
         password,
         role,
-        isLoged,
+        isLogged,
       };
     }
   }

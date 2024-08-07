@@ -65,7 +65,7 @@ export class AccountPage extends LitElement {
       email: '',
       password: '',
       role: '',
-      isLoged: false,
+      isLogged: false,
     };
     this.pageController.navigate('home');
     this.requestUpdate();

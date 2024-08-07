@@ -75,7 +75,7 @@ export class HomePage extends LitElement {
   };
 
   next() {
-    if (this.currentIndex < this.allProducts.length + 1) {
+    if (this.currentIndex < this.allProducts.length - 1) {
       this.currentIndex += 1;
     } else {
       this.currentIndex = 0;
