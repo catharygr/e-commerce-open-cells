@@ -6,6 +6,7 @@ import CssReset from '../../css/reset.css.js';
 import '../../components/Others/spinner.js';
 import '../../components/cards/product-card-small.js';
 import { PageController } from '@open-cells/page-controller';
+import '@material/web/button/filled-button.js';
 
 @customElement('favorites-page')
 export class FavoritesPage extends LitElement {
@@ -17,6 +18,16 @@ export class FavoritesPage extends LitElement {
         max-width: 100rem;
         margin-inline: auto;
       }
+      .not-logged-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 5rem;
+        gap: 1rem;
+      
+
+        }
       .container {
         display: flex;
         flex-wrap: wrap;
@@ -26,7 +37,6 @@ export class FavoritesPage extends LitElement {
         & > * {
           flex: 1 1 15rem;
         }
-      }
     `,
   ];
 
@@ -36,7 +46,13 @@ export class FavoritesPage extends LitElement {
   };
   render() {
     if (!this.userState?.isLogged) {
-      return html`<h1>Debes iniciar sesión para ver tus favoritos</h1>`;
+      return html` <div class="not-logged-container">
+        <h1>Tus favoritos</h1>
+        <p>Por favor login para ver tus favoritos</p>
+        <md-filled-button @click=${() => this.pageController.navigate('login')}
+          >Log in</md-filled-button
+        >
+      </div>`;
     }
     return !this.allProducts
       ? html`<spinner-element></spinner-element>`
