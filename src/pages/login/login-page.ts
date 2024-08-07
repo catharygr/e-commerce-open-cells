@@ -24,29 +24,20 @@ export class LoginPage extends LitElement {
       .container {
         display: flex;
         flex-direction: column;
-        gap: 1rem;
-        padding: 1rem;
-      }
-
-      .titulo {
-        text-align: center;
-        margin-top: 5rem;
-        font-size: 2rem;
+        align-items: center;
+        margin-top: 10rem;
       }
 
       .form-login {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        width: min(90vw, 30rem);
+        margin-block: 2rem;
         gap: 1rem;
       }
 
-      md-outlined-text-field {
-        width: 40%;
-      }
       md-filled-button {
-        width: 40%;
-        font-size: 1.2rem;
+        margin-top: 1rem;
       }
     `,
   ];
@@ -101,53 +92,55 @@ export class LoginPage extends LitElement {
     this.shadowRoot.querySelector('#admin').checked = false;
   }
   render() {
-    return html` <div class="container">
-      <h3 class="titulo">Loguear</h3>
-      <form @submit=${this.handleSubmmit} class="form-login">
-        <md-outlined-text-field
-          required
-          label="Nombre"
-          id="nombre"
-          name="nombre"
-          type="text"
-        >
-        </md-outlined-text-field>
-        <md-outlined-text-field
-          required
-          label="Email"
-          id="email"
-          name="email"
-          type="email"
-        >
-        </md-outlined-text-field>
-        <md-outlined-text-field
-          required
-          label="Password"
-          id="password"
-          name="password"
-          type="password"
-          minLength="8"
-        >
-          <md-icon-button
-            @click=${this.togglePasswordVisibility}
-            toggle
-            slot="trailing-icon"
-            type="button"
+    return html`
+      <div class="container">
+        <h2 class="titulo">Loguear</h2>
+        <form @submit=${this.handleSubmmit} class="form-login">
+          <md-outlined-text-field
+            required
+            label="Nombre"
+            id="nombre"
+            name="nombre"
+            type="text"
           >
-            <img src="${svgVisibility}" alt="visibility" />
-            <img
-              slot="selected"
-              src="${svgVisibilityOff}"
-              alt="visibility_off"
-            />
-          </md-icon-button>
-        </md-outlined-text-field>
-        <label for="admin">
-          <md-checkbox id="admin"></md-checkbox>
-          ¿Eres admin?
-        </label>
-        <md-filled-button type="submit">Login</md-filled-button>
-      </form>
-    </div>`;
+          </md-outlined-text-field>
+          <md-outlined-text-field
+            required
+            label="Email"
+            id="email"
+            name="email"
+            type="email"
+          >
+          </md-outlined-text-field>
+          <md-outlined-text-field
+            required
+            label="Password"
+            id="password"
+            name="password"
+            type="password"
+            minLength="8"
+          >
+            <md-icon-button
+              @click=${this.togglePasswordVisibility}
+              toggle
+              slot="trailing-icon"
+              type="button"
+            >
+              <img src="${svgVisibility}" alt="visibility" />
+              <img
+                slot="selected"
+                src="${svgVisibilityOff}"
+                alt="visibility_off"
+              />
+            </md-icon-button>
+          </md-outlined-text-field>
+          <label for="admin">
+            <md-checkbox id="admin"></md-checkbox>
+            ¿Eres admin?
+          </label>
+          <md-filled-button>Login</md-filled-button>
+        </form>
+      </div>
+    `;
   }
 }

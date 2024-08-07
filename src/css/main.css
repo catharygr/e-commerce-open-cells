@@ -1,3 +1,7 @@
+:root {
+  --md-ref-typeface-plain: system-ui, sans-serif;
+}
+
 html,
 body {
   font-family: system-ui, sans-serif;
