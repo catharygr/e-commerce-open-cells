@@ -37,10 +37,10 @@ export class OfertasPage extends LitElement {
   render() {
     return !this.allProducts
       ? html`<spinner-element></spinner-element>`
-      : html` <div class="container">${this.oferCards()}</div> `;
+      : html` <div class="container">${this.renderCards()}</div> `;
   }
 
-  oferCards() {
+  renderCards() {
     return this.allProducts
       .filter((product) => product.offer === true)
       .map(

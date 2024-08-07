@@ -7,6 +7,7 @@ import '../../components/Others/spinner.js';
 import '../../components/cards/product-card-small.js';
 import { PageController } from '@open-cells/page-controller';
 import '@material/web/button/filled-button.js';
+import '@material/web/iconbutton/icon-button.js';
 
 @customElement('favorites-page')
 export class FavoritesPage extends LitElement {
@@ -56,10 +57,10 @@ export class FavoritesPage extends LitElement {
     }
     return !this.allProducts
       ? html`<spinner-element></spinner-element>`
-      : html` <div class="container">${this.oferCards()}</div> `;
+      : html` <div class="container">${this.renderCards()}</div> `;
   }
 
-  oferCards() {
+  renderCards() {
     return this.allProducts
       .filter((product) => product.offer === true)
       .map(

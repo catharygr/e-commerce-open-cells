@@ -6,6 +6,8 @@ import grade from '@material-design-icons/svg/filled/grade.svg';
 import '@material/web/button/filled-button.js';
 import { ElementController } from '@open-cells/element-controller';
 import { addToCart } from '../../utilidades/utils.js';
+import svgFavFilled from '@material-design-icons/svg/filled/favorite.svg';
+import svgFavOutline from '@material-design-icons/svg/filled/favorite_border.svg';
 
 @customElement('home-card')
 export class HomeCard extends LitElement {
@@ -14,6 +16,7 @@ export class HomeCard extends LitElement {
     CssReset,
     css`
       section {
+        position: relative;
         display: flex;
         flex-direction: column;
         gap: 2rem;
@@ -22,10 +25,20 @@ export class HomeCard extends LitElement {
         border-radius: 0.5rem;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         border: 1px solid #ddd;
+
+        & h2 {
+        max-width: 90%;
+      }
+
+      .fav-btn {
+        position: absolute;
+        top: 0.2rem;
+        right: 0.2rem;
+        z-index: 100;
       }
       .content {
         display: grid;
-        grid-template-columns: 40% 1fr;
+        grid-template-columns: 1fr;
         gap: 2rem;
       }
       .detalles {
@@ -66,17 +79,11 @@ export class HomeCard extends LitElement {
         font-size: 1rem;
       }
 
-      @media (max-width: 43rem) {
-        section {
-          padding: 1rem;
-        }
+      @media (min-width: 43rem) {
         .content {
-          grid-template-columns: 1fr;
-          gap: 1rem;
+          grid-template-columns: 40% 1fr;
         }
-        .img-product {
-          width: 100%;
-        }
+     
       }
     `,
   ];
@@ -110,6 +117,12 @@ export class HomeCard extends LitElement {
       />`;
     });
     return html` <section>
+      <md-icon-button class="fav-btn">
+        <img
+          src="${this.isProductInFavorites ? svgFavOutline : svgFavFilled}"
+          alt="favorite"
+        />
+      </md-icon-button>
       <h2>${title}</h2>
       <div class="content">
         <img class="img-product" src="${image}" alt="${title}" />
@@ -147,6 +160,12 @@ export class HomeCard extends LitElement {
   isProductInCart() {
     if (!this.userState) return false;
     return this.userState?.cart.find(
+      (item) => item?.id.toString() === this.product?.id.toString()
+    );
+  }
+  isProductInFavorites() {
+    if (!this.userState) return false;
+    return this.userState?.favorites.find(
       (item) => item?.id.toString() === this.product?.id.toString()
     );
   }
