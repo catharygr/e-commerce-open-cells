@@ -36,6 +36,10 @@ export class HomeCard extends LitElement {
         top: 0.2rem;
         right: 0.2rem;
         z-index: 100;
+
+         & img {
+         filter: invert(14%) sepia(92%) saturate(3137%) hue-rotate(351deg)
+            brightness(98%) contrast(86%);}
       }
       .content {
         display: grid;
@@ -118,7 +122,12 @@ export class HomeCard extends LitElement {
       />`;
     });
     return html` <section>
-      <md-icon-button @click=${addToFav} class="fav-btn">
+      <md-icon-button
+        @click=${this.isProductInFavorites()
+          ? () => this.removeFromFav(this.product.id)
+          : addToFav}
+        class="fav-btn"
+      >
         <img
           src="${!this.isProductInFavorites() ? svgFavOutline : svgFavFilled}"
           alt="favorite"
@@ -169,5 +178,13 @@ export class HomeCard extends LitElement {
     return this.userState?.favorites.find(
       (item) => item?.id.toString() === this.product?.id.toString()
     );
+  }
+  removeFromFav(id) {
+    this.userState = {
+      ...this.userState,
+      favorites: this.userState.favorites.filter(
+        (item) => item?.id.toString() !== id.toString()
+      ),
+    };
   }
 }
