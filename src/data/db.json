@@ -233,6 +233,19 @@
         "rate": 4.5,
         "count": 146
       }
+    },
+    {
+      "id": "e330d1da-90e0-48ba-82b3-0e880c188515",
+      "title": "Aro",
+      "price": 14.56,
+      "offer": true,
+      "description": "Aro de oro",
+      "category": "prenda",
+      "image": "https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg",
+      "rating": {
+        "rate": "2.0",
+        "count": 716
+      }
     }
   ]
 }

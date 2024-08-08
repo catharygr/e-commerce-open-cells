@@ -78,11 +78,11 @@ export class ProductCardSmall extends LitElement {
       .card-details {
         display: flex;
         justify-content: space-between;
+        align-items: center;
       }
 
       .card-rating {
         display: flex;
-        align-items: center;
       }
 
       .opiniones-stars-svg {
@@ -90,36 +90,28 @@ export class ProductCardSmall extends LitElement {
         height: 1em;
         font-size: 0.8em;
       }
-      @container (min-width: 29rem) {
+      @container (min-width: 30rem) {
         .card {
           flex-direction: row;
           gap: 1rem;
+          padding: 2rem;
         }
         .card-img {
           align-self: top;
-          max-width: 40%;
+          max-width: 30%;
         }
-        @container (min-width: 40rem) {
-          .card-content {
-            font-size: 2rem;
-          }
 
-          .card-img {
-            max-width: 30%;
-          }
+        .card-content {
+          gap: 1rem;
+          padding: 2rem;
+        }
 
-          .card-title {
-            margin-top: 2rem;
-            padding: 0.5rem;
-            font-size: 2rem;
-          }
-          .card-description {
-            font-size: 1rem;
-          }
-          .card-details {
-            margin-top: auto;
-            padding: 0.5rem;
-          }
+        .card-title {
+          font-size: 1.8rem;
+        }
+
+        .card-description {
+          font-size: 1.2rem;
         }
       }
     `,
