@@ -4,6 +4,7 @@ import { customElement, property } from 'lit/decorators.js';
 import CssReset from '../../css/reset.css.js';
 import grade from '@material-design-icons/svg/filled/grade.svg';
 import '@material/web/button/filled-button.js';
+import '@material/web/iconbutton/icon-button.js';
 import { ElementController } from '@open-cells/element-controller';
 import { addToCart } from '../../utilidades/utils.js';
 import svgFavFilled from '@material-design-icons/svg/filled/favorite.svg';

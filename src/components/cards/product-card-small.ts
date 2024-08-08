@@ -6,6 +6,9 @@ import '@material/web/button/filled-button.js';
 import CssReset from '../../css/reset.css.js';
 import { ElementController } from '@open-cells/element-controller';
 import { addToCart } from '../../utilidades/utils.js';
+import svgFavFilled from '@material-design-icons/svg/filled/favorite.svg';
+import svgFavOutline from '@material-design-icons/svg/filled/favorite_border.svg';
+import '@material/web/iconbutton/icon-button.js';
 
 @customElement('product-card-small')
 export class ProductCardSmall extends LitElement {
@@ -18,12 +21,19 @@ export class ProductCardSmall extends LitElement {
     css`
       .container {
         container-type: inline-size;
+        position: relative;
         height: 100%;
         min-width: 10rem;
         padding: 0.5rem;
         border: 1px solid #ccc;
         border-radius: 0.5rem;
         box-shadow: 0 0 0.5rem #ccc;
+      }
+      .fav-btn {
+        position: absolute;
+        top: 0.2rem;
+        right: 0.2rem;
+        z-index: 100;
       }
       .card {
         display: flex;
@@ -142,6 +152,12 @@ export class ProductCardSmall extends LitElement {
     return html`
       <div class="container">
         <div class="card">
+          <md-icon-button class="fav-btn">
+            <img
+              src="${this.isProductInFavorites ? svgFavOutline : svgFavFilled}"
+              alt="favorite"
+            />
+          </md-icon-button>
           <img class="card-img" src=${image} />
           <div class="card-content">
             <h3 class="card-title">${title}</h3>
@@ -187,6 +203,12 @@ export class ProductCardSmall extends LitElement {
   isProductInCart() {
     if (!this.userState) return false;
     return this.userState?.cart.find(
+      (item) => item?.id.toString() === this.product?.id.toString()
+    );
+  }
+  isProductInFavorites() {
+    if (!this.userState) return false;
+    return this.userState?.favorites.find(
       (item) => item?.id.toString() === this.product?.id.toString()
     );
   }
