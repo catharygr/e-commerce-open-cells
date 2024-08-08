@@ -101,7 +101,6 @@ export class HomeCard extends LitElement {
   };
 
   render() {
-    console.log(this.userState);
     const {
       id = '',
       title = '',

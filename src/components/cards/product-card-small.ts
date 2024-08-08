@@ -5,7 +5,7 @@ import grade from '@material-design-icons/svg/filled/grade.svg';
 import '@material/web/button/filled-button.js';
 import CssReset from '../../css/reset.css.js';
 import { ElementController } from '@open-cells/element-controller';
-import { addToCart } from '../../utilidades/utils.js';
+import { addToCart, addToFav } from '../../utilidades/utils.js';
 import svgFavFilled from '@material-design-icons/svg/filled/favorite.svg';
 import svgFavOutline from '@material-design-icons/svg/filled/favorite_border.svg';
 import '@material/web/iconbutton/icon-button.js';
@@ -144,9 +144,11 @@ export class ProductCardSmall extends LitElement {
     return html`
       <div class="container">
         <div class="card">
-          <md-icon-button class="fav-btn">
+          <md-icon-button @click=${addToFav} class="fav-btn">
             <img
-              src="${this.isProductInFavorites ? svgFavOutline : svgFavFilled}"
+              src="${!this.isProductInFavorites()
+                ? svgFavOutline
+                : svgFavFilled}"
               alt="favorite"
             />
           </md-icon-button>
