@@ -122,17 +122,21 @@ export class HomeCard extends LitElement {
       />`;
     });
     return html` <section>
-      <md-icon-button
-        @click=${this.isProductInFavorites()
-          ? () => this.removeFromFav(this.product.id)
-          : addToFav}
-        class="fav-btn"
-      >
-        <img
-          src="${!this.isProductInFavorites() ? svgFavOutline : svgFavFilled}"
-          alt="favorite"
-        />
-      </md-icon-button>
+      ${this.userState?.isLogged
+        ? html` <md-icon-button
+            @click=${this.isProductInFavorites()
+              ? () => this.removeFromFav(this.product.id)
+              : addToFav}
+            class="fav-btn"
+          >
+            <img
+              src="${!this.isProductInFavorites()
+                ? svgFavOutline
+                : svgFavFilled}"
+              alt="favorite"
+            />
+          </md-icon-button>`
+        : ''}
       <h2>${title}</h2>
       <div class="content">
         <img class="img-product" src="${image}" alt="${title}" />

@@ -26,9 +26,7 @@ export class FavoritesPage extends LitElement {
         align-items: center;
         margin-top: 5rem;
         gap: 1rem;
-      
-
-        }
+      }
       .container {
         display: flex;
         flex-wrap: wrap;
@@ -38,6 +36,12 @@ export class FavoritesPage extends LitElement {
         & > * {
           flex: 1 1 15rem;
         }
+      }
+      .empty-fav {
+        text-align: center;
+        margin: 2rem auto;
+        width: 20rem;
+      }
     `,
   ];
 
@@ -57,15 +61,19 @@ export class FavoritesPage extends LitElement {
     }
     return !this.allProducts
       ? html`<spinner-element></spinner-element>`
-      : html` <div class="container">${this.renderCards()}</div> `;
+      : html`
+          <div class="container">
+            ${this.userState.favorites.length
+              ? this.renderCards()
+              : html`<h2 class="empty-fav">No tienes nada en favoritos.</h2>`}
+          </div>
+        `;
   }
 
   renderCards() {
-    return this.allProducts
-      .filter((product) => product.offer === true)
-      .map(
-        (product) =>
-          html`<product-card-small .product=${product}></product-card-small>`
-      );
+    return this.userState.favorites.map(
+      (product) =>
+        html`<product-card-small .product=${product}></product-card-small>`
+    );
   }
 }

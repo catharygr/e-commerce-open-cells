@@ -149,19 +149,21 @@ export class ProductCardSmall extends LitElement {
     return html`
       <div class="container">
         <div class="card">
-          <md-icon-button
-            @click=${this.isProductInFavorites()
-              ? () => this.removeFromFav(this.product.id)
-              : addToFav}
-            class="fav-btn"
-          >
-            <img
-              src="${!this.isProductInFavorites()
-                ? svgFavOutline
-                : svgFavFilled}"
-              alt="favorite"
-            />
-          </md-icon-button>
+          ${this.userState?.isLogged
+            ? html` <md-icon-button
+                @click=${this.isProductInFavorites()
+                  ? () => this.removeFromFav(this.product.id)
+                  : addToFav}
+                class="fav-btn"
+              >
+                <img
+                  src="${!this.isProductInFavorites()
+                    ? svgFavOutline
+                    : svgFavFilled}"
+                  alt="favorite"
+                />
+              </md-icon-button>`
+            : ''}
           <img class="card-img" src=${image} />
           <div class="card-content">
             <h3 class="card-title">${title}</h3>
