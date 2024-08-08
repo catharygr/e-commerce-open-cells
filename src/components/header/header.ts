@@ -6,6 +6,7 @@ import CssReset from '../../css/reset.css.js';
 import '@material/web/icon/icon.js';
 import '@material/web/textfield/filled-text-field';
 import '@material/web/button/filled-button.js';
+import '@material/web/iconbutton/icon-button.js';
 import { PageController } from '@open-cells/page-controller';
 import svgAccountCircle from '@material-design-icons/svg/outlined/account_circle.svg';
 import svgFavorite from '@material-design-icons/svg/outlined/favorite_border.svg';
@@ -134,14 +135,16 @@ export class HeaderComponent extends LitElement {
           <img src="${svgMenu}" alt="menu" />
         </button>
         ${this.navTemplate}
-        <form class="search-form">
+        <form @submit=${this.handleSubmit} class="search-form">
           <md-filled-text-field
             class="search-field"
             placeholder="Buscar productos"
             icon="search"
             @input="${this.handleSearch}"
           >
-            <img slot="trailing-icon" src="${svgSearch}" alt="search" />
+            <md-icon-button slot="trailing-icon"
+              ><img src="${svgSearch}" alt="search"
+            /></md-icon-button>
           </md-filled-text-field>
         </form>
         <div class="action-header">
@@ -171,5 +174,10 @@ export class HeaderComponent extends LitElement {
         ${cartTemplate}
       </header>
     `;
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.pageController.navigate('productos');
   }
 }
