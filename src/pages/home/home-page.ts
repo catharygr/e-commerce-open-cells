@@ -23,10 +23,11 @@ export class HomePage extends LitElement {
       }
       .container {
         padding: 0.5rem 1rem;
-      }
-      h1 {
-        margin-top: 0;
-        text-align: center;
+
+        & h1 {
+          margin-bottom: 1rem;
+          text-align: center;
+        }
       }
       .carousel {
         width: 100%;

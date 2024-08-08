@@ -134,14 +134,16 @@ export class HeaderComponent extends LitElement {
           <img src="${svgMenu}" alt="menu" />
         </button>
         ${this.navTemplate}
-        <md-filled-text-field
-          class="search-field"
-          placeholder="Buscar productos"
-          icon="search"
-          @input="${this.handleSearch}"
-        >
-          <img slot="trailing-icon" src="${svgSearch}" alt="search" />
-        </md-filled-text-field>
+        <form class="search-form">
+          <md-filled-text-field
+            class="search-field"
+            placeholder="Buscar productos"
+            icon="search"
+            @input="${this.handleSearch}"
+          >
+            <img slot="trailing-icon" src="${svgSearch}" alt="search" />
+          </md-filled-text-field>
+        </form>
         <div class="action-header">
           <button @click=${() => this.pageController.navigate('account')}>
             <img

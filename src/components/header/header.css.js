@@ -19,9 +19,13 @@ export const styles = css`
     width: 30px;
   }
 
-  md-filled-text-field {
+  .search-form {
     flex-basis: auto;
     flex-grow: 1;
+  }
+
+  md-filled-text-field {
+    width: 100%;
     height: 2.3rem;
     --md-ref-typeface-plain: system-ui, sans-serif;
     --md-filled-text-field-container-shape: 50px;
@@ -110,7 +114,7 @@ export const styles = css`
     & > .navegation {
       order: 3;
     }
-    & > .search-field {
+    & > .search-form {
       order: 2;
     }
     & > .action-header {
@@ -153,7 +157,7 @@ export const styles = css`
       & > .navegation {
         order: 3;
       }
-      & > .search-field {
+      & > .search-form {
         order: 4;
       }
       & > .action-header {
