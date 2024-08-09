@@ -109,11 +109,13 @@ export class HeaderComponent extends LitElement {
         </md-icon-button>
         <div class="search-modal-result">
           <p>Resultados para: ${this.searchQuery}</p>
+          ${this.allProducts && this.renderCards()}
         </div>
         <md-filled-button @click=${this.handleSubmit} class="search-modal-btn"
           >Ver todos los resultados...</md-filled-button
         >
       </div>
+
       <header>
         <a
           href="/#!/"
@@ -204,5 +206,19 @@ export class HeaderComponent extends LitElement {
     e.preventDefault();
     this.pageController.navigate('productos');
     this.searchModal.style.display = 'none';
+  }
+  renderCards() {
+    return this.allProducts
+      .filter((product) => {
+        if (!this.searchQuery) return product;
+        return product?.title
+          .toLowerCase()
+          .includes(this.searchQuery.toLowerCase());
+      })
+      .map((product) => {
+        return html`<product-card-small
+          .product=${product}
+        ></product-card-small>`;
+      });
   }
 }
