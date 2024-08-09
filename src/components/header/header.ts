@@ -17,6 +17,7 @@ import svgSearch from '@material-design-icons/svg/outlined/search.svg';
 import svgMenu from '@material-design-icons/svg/outlined/menu.svg';
 import svgClose from '@material-design-icons/svg/outlined/close.svg';
 import '../shopping-cart/shopping-cart.js';
+import '../../components/cards/search-modal-card.js';
 
 @customElement('header-component')
 export class HeaderComponent extends LitElement {
@@ -107,7 +108,7 @@ export class HeaderComponent extends LitElement {
         >
           <img src="${svgClose}" alt="close" />
         </md-icon-button>
-        <div class="search-modal-result">
+        <div class="search-modal-results">
           <p>Resultados para: ${this.searchQuery}</p>
           ${this.allProducts && this.renderCards()}
         </div>
@@ -216,9 +217,10 @@ export class HeaderComponent extends LitElement {
           .includes(this.searchQuery.toLowerCase());
       })
       .map((product) => {
-        return html`<product-card-small
+        return html`<search-modal-card
           .product=${product}
-        ></product-card-small>`;
+        ></search-modal-card>`;
       });
+    // .slice(0, 3);
   }
 }
