@@ -27,6 +27,8 @@ export const styles = css`
 
   .search-modal {
     display: none;
+    flex-direction: column;
+    gap: 1rem;
     position: fixed;
     width: min(80vw, 40rem);
     top: 6rem;
@@ -38,6 +40,10 @@ export const styles = css`
     border: 1px solid #e4e4e4;
     border-radius: 0.5rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    & :is(.search-modal-close-btn, .search-modal-btn) {
+      align-self: flex-end;
+    }
   }
 
   md-filled-text-field {

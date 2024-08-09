@@ -36,26 +36,6 @@ export class HeaderComponent extends LitElement {
     searchQuery: { channel: 'search-query' },
   };
 
-  handleSearch(e) {
-    this.searchQuery = e.target.value;
-    this.searchModal.style.display = 'block';
-  }
-
-  openNavegation() {
-    this.navegation.classList.add('open-nav');
-  }
-
-  closeNavegation() {
-    this.navegation.classList.remove('open-nav');
-  }
-
-  openCart() {
-    this.cart.classList.add('open-cart');
-  }
-  closeCart() {
-    this.cart.classList.remove('open-cart');
-  }
-
   // HTMl template para la navegación
   navTemplate = html` <nav class="navegation">
     <ul class="list-nav">
@@ -119,9 +99,13 @@ export class HeaderComponent extends LitElement {
     </div>`;
     return html`
       <div class="search-modal">
-        Soy un modal que viene a dar por culo, pero no me importa, soy un modal
-        y hago lo que quiero, soy un modal y no me importa lo que pienses de mi,
-        soy un modal y no me importa lo que pienses de mi,
+        <md-icon-button class="search-modal-close-btn">
+          <img src="${svgClose}" alt="close" />
+        </md-icon-button>
+        <div class="search-modal-result"></div>
+        <md-filled-button @click=${this.handleSubmit} class="search-modal-btn"
+          >Ver todos los resultados...</md-filled-button
+        >
       </div>
       <header>
         <a
@@ -182,6 +166,25 @@ export class HeaderComponent extends LitElement {
         ${cartTemplate}
       </header>
     `;
+  }
+
+  openNavegation() {
+    this.navegation.classList.add('open-nav');
+  }
+
+  closeNavegation() {
+    this.navegation.classList.remove('open-nav');
+  }
+
+  openCart() {
+    this.cart.classList.add('open-cart');
+  }
+  closeCart() {
+    this.cart.classList.remove('open-cart');
+  }
+  handleSearch(e) {
+    this.searchQuery = e.target.value;
+    this.searchModal.style.display = 'flex';
   }
 
   handleSubmit(e) {
