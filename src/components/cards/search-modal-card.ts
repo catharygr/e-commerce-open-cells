@@ -8,8 +8,11 @@ export class SearchModalCard extends LitElement {
   static styles = [
     CssReset,
     css`
-      :host {
-      }
+    
+    :host {
+    border: 1px solid black;
+    background-color: white;
+    padding: 0.5rem;
     `,
   ];
 

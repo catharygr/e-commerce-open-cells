@@ -44,6 +44,9 @@ export const styles = css`
     & .search-modal-results {
       max-height: 50vh;
       overflow-y: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(6rem, 1fr));
+      gap: 0.5rem;
     }
 
     & :is(.search-modal-close-btn, .search-modal-btn) {

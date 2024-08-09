@@ -100,6 +100,7 @@ export class HeaderComponent extends LitElement {
         >Cerrar</md-filled-button
       >
     </div>`;
+
     return html`
       <div class="search-modal">
         <md-icon-button
@@ -108,8 +109,8 @@ export class HeaderComponent extends LitElement {
         >
           <img src="${svgClose}" alt="close" />
         </md-icon-button>
+        <p>Resultados para: ${this.searchQuery}</p>
         <div class="search-modal-results">
-          <p>Resultados para: ${this.searchQuery}</p>
           ${this.allProducts && this.renderCards()}
         </div>
         <md-filled-button @click=${this.handleSubmit} class="search-modal-btn"
@@ -220,7 +221,7 @@ export class HeaderComponent extends LitElement {
         return html`<search-modal-card
           .product=${product}
         ></search-modal-card>`;
-      });
-    // .slice(0, 3);
+      })
+      .slice(0, 3);
   }
 }
