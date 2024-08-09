@@ -8,13 +8,36 @@ export class SearchModalCard extends LitElement {
   static styles = [
     CssReset,
     css`
-    
-    :host {
-    border: 1px solid black;
-    border-radius: 0.5rem;
-    background-color: white;
-    padding: 0.5rem;
+      :host {
+        border: 1px solid black;
+        border-radius: 0.5rem;
+        background-color: white;
+        padding: 0.5rem;
+      }
 
+      .search-modal-card {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        & h3 {
+          font-size: 0.8rem;
+        }
+
+        & img {
+          aspect-ratio: 1/1;
+          object-fit: contain;
+          border-radius: 0.5rem;
+          box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+          background-color: #fff;
+          padding: 0.5rem;
+        }
+        & .price {
+          font-size: 0.8rem;
+          font-weight: bold;
+          margin-top: auto;
+        }
+      }
     `,
   ];
 
@@ -24,9 +47,14 @@ export class SearchModalCard extends LitElement {
   render() {
     return html`
       <div class="search-modal-card">
-        <h3>${this.product?.title}</h3>
         <img src="${this.product?.image}" alt="${this.product?.title}" />
-        <p>${this.product.price}</p>
+        <h3>${this.product?.title.slice(0, 10)}</h3>
+        <p class="price">
+          ${new Intl.NumberFormat('es-ES', {
+            style: 'currency',
+            currency: 'EUR',
+          }).format(this.product.price)}
+        </p>
       </div>
     `;
   }
