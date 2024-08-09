@@ -2,11 +2,11 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import CssReset from '../../css/reset.css.js';
-import grade from '@material-design-icons/svg/filled/grade.svg';
-import '@material/web/button/filled-button.js';
-import '@material/web/iconbutton/icon-button.js';
 import { ElementController } from '@open-cells/element-controller';
 import { addToCart, addToFav } from '../../utilidades/utils.js';
+import '@material/web/button/filled-button.js';
+import '@material/web/iconbutton/icon-button.js';
+import grade from '@material-design-icons/svg/filled/grade.svg';
 import svgFavFilled from '@material-design-icons/svg/filled/favorite.svg';
 import svgFavOutline from '@material-design-icons/svg/filled/favorite_border.svg';
 
