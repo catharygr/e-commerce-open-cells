@@ -26,10 +26,12 @@ export class HeaderComponent extends LitElement {
   @query('.navegation') navegation;
   @query('.cart') cart;
   @query('.search-modal') searchModal;
+  @query('.search-field') searchField;
 
   static inbounds = {
     userState: { channel: 'user-state' },
     allProducts: { channel: 'all-products' },
+    searchQuery: { channel: 'search-query' },
   };
 
   static outbounds = {
@@ -99,10 +101,15 @@ export class HeaderComponent extends LitElement {
     </div>`;
     return html`
       <div class="search-modal">
-        <md-icon-button class="search-modal-close-btn">
+        <md-icon-button
+          @click=${this.handleCloseModal}
+          class="search-modal-close-btn"
+        >
           <img src="${svgClose}" alt="close" />
         </md-icon-button>
-        <div class="search-modal-result"></div>
+        <div class="search-modal-result">
+          <p>Resultados para: ${this.searchQuery}</p>
+        </div>
         <md-filled-button @click=${this.handleSubmit} class="search-modal-btn"
           >Ver todos los resultados...</md-filled-button
         >
@@ -185,6 +192,12 @@ export class HeaderComponent extends LitElement {
   handleSearch(e) {
     this.searchQuery = e.target.value;
     this.searchModal.style.display = 'flex';
+  }
+
+  handleCloseModal() {
+    this.searchModal.style.display = 'none';
+    this.searchQuery = '';
+    this.searchField.value = '';
   }
 
   handleSubmit(e) {

@@ -26,7 +26,7 @@ export const styles = css`
   }
 
   .search-modal {
-    display: none;
+    display: flex;
     flex-direction: column;
     gap: 1rem;
     position: fixed;
