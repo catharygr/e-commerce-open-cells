@@ -11,8 +11,10 @@ export class SearchModalCard extends LitElement {
     
     :host {
     border: 1px solid black;
+    border-radius: 0.5rem;
     background-color: white;
     padding: 0.5rem;
+
     `,
   ];
 
@@ -20,6 +22,12 @@ export class SearchModalCard extends LitElement {
   product;
 
   render() {
-    return html` <p>${this.product.title}</p> `;
+    return html`
+      <div class="search-modal-card">
+        <h3>${this.product?.title}</h3>
+        <img src="${this.product?.image}" alt="${this.product?.title}" />
+        <p>${this.product.price}</p>
+      </div>
+    `;
   }
 }
