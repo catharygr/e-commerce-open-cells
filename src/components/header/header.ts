@@ -25,6 +25,7 @@ export class HeaderComponent extends LitElement {
 
   @query('.navegation') navegation;
   @query('.cart') cart;
+  @query('.search-dialog') searchDialog;
 
   static inbounds = {
     userState: { channel: 'user-state' },
@@ -147,6 +148,7 @@ export class HeaderComponent extends LitElement {
             /></md-icon-button>
           </md-filled-text-field>
         </form>
+        <dialog class="search-dialog"></dialog>
         <div class="action-header">
           <button @click=${() => this.pageController.navigate('account')}>
             <img
