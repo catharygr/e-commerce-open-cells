@@ -25,10 +25,11 @@ export class HeaderComponent extends LitElement {
 
   @query('.navegation') navegation;
   @query('.cart') cart;
-  @query('.search-dialog') searchDialog;
+  @query('.search-modal') searchModal;
 
   static inbounds = {
     userState: { channel: 'user-state' },
+    allProducts: { channel: 'all-products' },
   };
 
   static outbounds = {
@@ -37,6 +38,7 @@ export class HeaderComponent extends LitElement {
 
   handleSearch(e) {
     this.searchQuery = e.target.value;
+    this.searchModal.style.display = 'block';
   }
 
   openNavegation() {
@@ -116,6 +118,11 @@ export class HeaderComponent extends LitElement {
       >
     </div>`;
     return html`
+      <div class="search-modal">
+        Soy un modal que viene a dar por culo, pero no me importa, soy un modal
+        y hago lo que quiero, soy un modal y no me importa lo que pienses de mi,
+        soy un modal y no me importa lo que pienses de mi,
+      </div>
       <header>
         <a
           href="/#!/"
@@ -148,7 +155,6 @@ export class HeaderComponent extends LitElement {
             /></md-icon-button>
           </md-filled-text-field>
         </form>
-        <dialog class="search-dialog"></dialog>
         <div class="action-header">
           <button @click=${() => this.pageController.navigate('account')}>
             <img
@@ -181,5 +187,6 @@ export class HeaderComponent extends LitElement {
   handleSubmit(e) {
     e.preventDefault();
     this.pageController.navigate('productos');
+    this.searchModal.style.display = 'none';
   }
 }

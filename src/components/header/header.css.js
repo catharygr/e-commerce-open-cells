@@ -3,6 +3,7 @@ import { css } from 'lit';
 export const styles = css`
   :host {
     background-color: #e4e4e4;
+    position: relative;
   }
   header {
     display: flex;
@@ -22,6 +23,21 @@ export const styles = css`
   .search-form {
     flex-basis: auto;
     flex-grow: 1;
+  }
+
+  .search-modal {
+    display: none;
+    position: fixed;
+    width: min(80vw, 40rem);
+    top: 6rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 500;
+    background-color: lightgray;
+    padding: 1rem;
+    border: 1px solid #e4e4e4;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
 
   md-filled-text-field {
