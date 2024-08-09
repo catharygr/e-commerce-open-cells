@@ -1,5 +1,6 @@
+// @ts-nocheck
 import { LitElement, html, css } from 'lit';
-import { customElement } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import CssReset from '../../css/reset.css.js';
 
 @customElement('search-modal-card')
@@ -11,7 +12,11 @@ export class SearchModalCard extends LitElement {
       }
     `,
   ];
+
+  @property()
+  product;
+
   render() {
-    return html` <p>Search Modal Card</p> `;
+    return html` <p>${this.product.title}</p> `;
   }
 }
