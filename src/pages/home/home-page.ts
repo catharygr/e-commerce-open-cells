@@ -1,7 +1,12 @@
 // @ts-nocheck
 import { html, LitElement, css } from 'lit';
 import { PageController } from '@open-cells/page-controller';
-import { customElement, state, changedProperties } from 'lit/decorators.js';
+import {
+  customElement,
+  state,
+  changedProperties,
+  query,
+} from 'lit/decorators.js';
 import CssReset from '../../css/reset.css.js';
 import '../../components/Others/spinner.js';
 import '../../components/cards/home-card.js';
@@ -62,33 +67,14 @@ export class HomePage extends LitElement {
   ];
 
   @state()
+  randomProducts = [];
   currentIndex = 0;
+
+  @query('.carousel-inner') carouselInner;
 
   static inbounds = {
     allProducts: { channel: 'all-products' },
   };
-
-  next() {
-    if (this.currentIndex < this.allProducts.length - 1) {
-      this.currentIndex += 1;
-    } else {
-      this.currentIndex = 0;
-    }
-  }
-
-  prev() {
-    if (this.currentIndex > 0) {
-      this.currentIndex -= 1;
-    } else {
-      this.currentIndex = this.allProducts.length - 1;
-    }
-  }
-
-  updated(changedProperties) {
-    if (changedProperties.has('currentIndex')) {
-      this.transformValue = `translateX(-${this.currentIndex * 100}%)`;
-    }
-  }
 
   render() {
     return !this.allProducts
@@ -98,28 +84,38 @@ export class HomePage extends LitElement {
             <h1>Bienvenido a mi tienda</h1>
             <div class="carousel">
               <div
-                class="carousel-inner"
-                style="transform: ${this.transformValue}"
-              >
-                ${this.allProducts.map(
-                  (product) => html`
-                    <div class="carousel-item">
-                      <home-card .product=${product}></home-card>
-                    </div>
-                  `
-                )}
+                class="carousel-inner">
+              ${this.randomProducts}
               </div>
               <div class="carousel-buttons">
-                <md-icon-button  @click=${this.prev}>
+                <md-icon-button  @click=${this.carouselMinus}>
                   <img src=${svgMinus} alt="minus" />
                 </md-icon-button>
-                <md-icon-button  @click=${this.next}>
+                <md-icon-button  @click=${this.carouselPlus}>
                   <img src=${svgPlus} alt="plus" />
               </div>
             </div>
           </div>
         `;
   }
+
+  getRandomProducts() {
+    if (this.allProducts) {
+      const randomNum = Math.floor(Math.random() * this.allProducts.length);
+      return this.allProducts[randomNum];
+    }
+  }
+
+  carouselMinus() {
+    if (this.currentIndex === 0) {
+      this.currentIndex = 5;
+    }
+    this.currentIndex--;
+    this.corouselInner.style.transform = `translateX(-${
+      this.currentIndex * 100
+    }%)`;
+  }
+  carouselPlus() {}
 
   onPageEnter() {
     this.requestUpdate();
