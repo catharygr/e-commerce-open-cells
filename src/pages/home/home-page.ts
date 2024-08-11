@@ -1,7 +1,12 @@
 // @ts-nocheck
 import { html, LitElement, css } from 'lit';
 import { PageController } from '@open-cells/page-controller';
-import { customElement, state, changedProperties } from 'lit/decorators.js';
+import {
+  customElement,
+  state,
+  changedProperties,
+  query,
+} from 'lit/decorators.js';
 import CssReset from '../../css/reset.css.js';
 import '../../components/Others/spinner.js';
 import '../../components/cards/home-card.js';
@@ -22,82 +27,62 @@ export class HomePage extends LitElement {
         margin-inline: auto;
       }
       .container {
-        padding: 0.5rem 1rem;
+        padding: 1rem;
 
         & h1 {
-          margin-bottom: 1rem;
+          margin-top: 0;
           text-align: center;
         }
       }
       .carousel {
-        width: 100%;
         overflow: hidden;
         position: relative;
+        width: 100%;
       }
+
       .carousel-inner {
         display: flex;
-        transition: transform 0.5s ease;
+        transition: transform 0.5s ease-in-out;
+
+        & > * {
+          flex-shrink: 0;
+          flex-basis: 100%;
+        }
       }
-      .carousel-item {
-        min-width: 100%;
-        aspect-ratio: 1/1;
-        object-fit: contain;
-      }
+
       .carousel-buttons {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         gap: 1rem;
         position: absolute;
-        top: 10%;
+        top: 50vw;
         padding-inline: 1rem;
         width: 100%;
-
-        & md-icon-button {
-          background: rgba(0, 0, 0, 0.5);
-
-          border-radius: 0.5rem;
-        }
       }
-
-      @media (min-width: 43rem) {
-        .carousel-buttons {
-          justify-content: space-between;
-          top: 23vw;
-        }
+      md-icon-button {
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 0.5rem;
       }
     `,
   ];
 
   @state()
-  currentIndex = 0;
+  randomProducts = null;
+  carouselIndex = 0;
+
+  @query('.carousel-inner') carousel;
 
   static inbounds = {
     allProducts: { channel: 'all-products' },
   };
 
-  next() {
-    if (this.currentIndex < this.allProducts.length - 1) {
-      this.currentIndex += 1;
-    } else {
-      this.currentIndex = 0;
-    }
-  }
-
-  prev() {
-    if (this.currentIndex > 0) {
-      this.currentIndex -= 1;
-    } else {
-      this.currentIndex = this.allProducts.length - 1;
-    }
-  }
-
-  updated(changedProperties) {
-    if (changedProperties.has('currentIndex')) {
-      this.transformValue = `translateX(-${this.currentIndex * 100}%)`;
-    }
-  }
-
   render() {
+    this.randomProducts = new Array(5)
+      .fill(null)
+      .map(
+        (item) =>
+          html`<home-card .product=${this.getRandomProducts()}></home-card>`
+      );
     return !this.allProducts
       ? html`<spinner-element></spinner-element>`
       : html`
@@ -105,30 +90,41 @@ export class HomePage extends LitElement {
             <h1>Bienvenido a mi tienda</h1>
             <div class="carousel">
               <div
-                class="carousel-inner"
-                style="transform: ${this.transformValue}"
-              >
-                ${this.allProducts.map(
-                  (product) => html`
-                    <div class="carousel-item">
-                      <home-card .product=${product}></home-card>
-                    </div>
-                  `
-                )}
+                class="carousel-inner">
+              ${this.randomProducts}
               </div>
               <div class="carousel-buttons">
-                <md-icon-button  @click=${this.prev}>
+                <md-icon-button  @click=${this.carouselMinus}>
                   <img src=${svgMinus} alt="minus" />
                 </md-icon-button>
-                <md-icon-button  @click=${this.next}>
+                <md-icon-button  @click=${this.carouselPlus}>
                   <img src=${svgPlus} alt="plus" />
               </div>
             </div>
           </div>
         `;
   }
-
   onPageEnter() {
     this.requestUpdate();
+  }
+
+  getRandomProducts() {
+    if (!this.allProducts) return;
+    const randomNum = Math.floor(Math.random() * this.allProducts.length);
+    return this.allProducts[randomNum];
+  }
+  carouselMinus() {
+    if (this.carouselIndex === 0) {
+      this.carouselIndex = 5;
+    }
+    this.carouselIndex--;
+    this.carousel.style.transform = `translateX(-${this.carouselIndex * 100}%)`;
+  }
+  carouselPlus() {
+    this.carouselIndex++;
+    if (this.carouselIndex === 5) {
+      this.carouselIndex = 0;
+    }
+    this.carousel.style.transform = `translateX(-${this.carouselIndex * 100}%)`;
   }
 }

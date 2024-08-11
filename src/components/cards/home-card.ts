@@ -18,6 +18,7 @@ export class HomeCard extends LitElement {
     css`
       section {
         position: relative;
+        overflow: hidden;
         display: flex;
         flex-direction: column;
         gap: 2rem;
@@ -83,6 +84,24 @@ export class HomeCard extends LitElement {
         height: 1rem;
         font-size: 1rem;
       }
+        .offer-triangle {
+        position: absolute;
+        top: 0;
+        left: 0;
+        aspect-ratio: 1/1;
+        background-color: red;
+        padding: 0 1.5rem 0.3rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        rotate: -45deg;
+        translate: -50% -50%;
+        & p {
+          font-size: 0.8rem;
+          font-weight: bold;
+          color: white;
+        }
+      }
 
       @media (min-width: 43rem) {
         .content {
@@ -110,6 +129,7 @@ export class HomeCard extends LitElement {
       title = '',
       image = '',
       description = '',
+      offer = false,
       price = '',
       rating: { rate = 0, count = 0 } = {},
     } = this.product || {};
@@ -122,6 +142,7 @@ export class HomeCard extends LitElement {
       />`;
     });
     return html` <section>
+      ${offer ? html`<div class="offer-triangle"><p>Offer</p></div>` : ''}
       ${this.userState?.isLogged
         ? html` <md-icon-button
             @click=${this.isProductInFavorites()

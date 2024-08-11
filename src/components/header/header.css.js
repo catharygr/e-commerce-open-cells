@@ -7,7 +7,6 @@ export const styles = css`
   }
   header {
     display: flex;
-    // justify-content: center;
     flex-wrap: wrap;
     align-items: center;
     gap: 1rem;
@@ -26,9 +25,9 @@ export const styles = css`
   }
 
   .search-modal {
-    display: flex;
+    display: none;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.3rem;
     position: fixed;
     width: min(80vw, 40rem);
     top: 6rem;

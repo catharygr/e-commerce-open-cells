@@ -78,6 +78,8 @@ export class EditPage extends LitElement {
   @query('#description') descriptionField;
   @query('#price') priceField;
   @query('.edit-form') form;
+  @query('.save-btn') saveBtn;
+  @query('.delete-btn') deleteBtn;
 
   render() {
     this.product = this.handleFindProduct();
@@ -145,6 +147,8 @@ export class EditPage extends LitElement {
 
   async handleSaveProduct(e) {
     e.preventDefault();
+    this.saveBtn.disabled = true;
+    this.deleteBtn.disabled = true;
     try {
       const newEditProduct = {
         ...this.product,
@@ -163,6 +167,8 @@ export class EditPage extends LitElement {
   }
   async handleDeleteProduct(e) {
     e.preventDefault();
+    this.saveBtn.disabled = true;
+    this.deleteBtn.disabled = true;
     try {
       await deleteProduct(this.product?.id);
       this.allProducts = await fetchData();
