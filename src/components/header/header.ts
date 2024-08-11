@@ -111,7 +111,7 @@ export class HeaderComponent extends LitElement {
         </md-icon-button>
         <p>Resultados para: ${this.searchQuery}</p>
         <div class="search-modal-results">
-          ${this.allProducts && this.renderCards()}
+          ${this.allProducts && this.searchQuery && this.renderCards()}
         </div>
         <md-filled-button @click=${this.handleSubmit} class="search-modal-btn"
           >Ver todos los resultados...</md-filled-button
@@ -227,7 +227,7 @@ export class HeaderComponent extends LitElement {
                 productId: product.id,
               });
               this.searchModal.style.display = 'none';
-              this.searchQuery = '';
+              this.searchField.value = '';
             }}
           >
             <search-modal-card .product=${product}></search-modal-card>
