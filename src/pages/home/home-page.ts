@@ -45,10 +45,10 @@ export class HomePage extends LitElement {
       }
       .carousel-buttons {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         gap: 1rem;
         position: absolute;
-        top: 10%;
+        top: 60vw;
         padding-inline: 1rem;
         width: 100%;
 
@@ -56,13 +56,6 @@ export class HomePage extends LitElement {
           background: rgba(0, 0, 0, 0.5);
 
           border-radius: 0.5rem;
-        }
-      }
-
-      @media (min-width: 43rem) {
-        .carousel-buttons {
-          justify-content: space-between;
-          top: 23vw;
         }
       }
     `,
