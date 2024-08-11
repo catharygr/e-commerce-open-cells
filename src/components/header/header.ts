@@ -222,6 +222,6 @@ export class HeaderComponent extends LitElement {
           .product=${product}
         ></search-modal-card>`;
       })
-      .slice(0, 3);
+      .slice(0, 5);
   }
 }
