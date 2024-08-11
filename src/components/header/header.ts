@@ -209,7 +209,7 @@ export class HeaderComponent extends LitElement {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.pageController.navigate('productos');
+    this.pageController.navigate('search');
     this.searchModal.style.display = 'none';
   }
   renderCards() {

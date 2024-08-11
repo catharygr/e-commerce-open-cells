@@ -6,8 +6,8 @@ import CssReset from '../../css/reset.css.js';
 import '../../components/Others/spinner.js';
 import '../../components/cards/product-card-small.js';
 
-@customElement('productos-page')
-export class ProductosPage extends LitElement {
+@customElement('search-page')
+export class SearchPage extends LitElement {
   pageController = new PageController(this);
 
   static styles = [
@@ -42,19 +42,17 @@ export class ProductosPage extends LitElement {
   }
 
   renderCards() {
-    return (
-      this.allProducts
-        // .filter((product) => {
-        //   if (!this.searchQuery) return product;
-        //   return product.title
-        //     .toLowerCase()
-        //     .includes(this.searchQuery.toLowerCase());
-        // })
-        .map((product) => {
-          return html`<product-card-small
-            .product=${product}
-          ></product-card-small>`;
-        })
-    );
+    return this.allProducts
+      .filter((product) => {
+        if (!this.searchQuery) return product;
+        return product.title
+          .toLowerCase()
+          .includes(this.searchQuery.toLowerCase());
+      })
+      .map((product) => {
+        return html`<product-card-small
+          .product=${product}
+        ></product-card-small>`;
+      });
   }
 }

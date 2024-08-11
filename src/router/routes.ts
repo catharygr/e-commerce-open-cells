@@ -90,6 +90,14 @@ export const routes: RouteDefinition[] = [
     },
   },
   {
+    path: '/search',
+    name: 'search',
+    component: 'search-page',
+    action: async () => {
+      await import('../pages/search/search-page.js');
+    },
+  },
+  {
     path: '/not-found',
     name: 'not-found',
     notFound: true,
