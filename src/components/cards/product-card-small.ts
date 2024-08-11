@@ -22,6 +22,7 @@ export class ProductCardSmall extends LitElement {
       .container {
         container-type: inline-size;
         position: relative;
+        overflow: hidden;
         height: 100%;
         min-width: 10rem;
         padding: 0.5rem;
@@ -95,6 +96,25 @@ export class ProductCardSmall extends LitElement {
         height: 1em;
         font-size: 0.8em;
       }
+
+      .offer-triangle {
+        position: absolute;
+        top: 0;
+        left: 0;
+        aspect-ratio: 1/1;
+        background-color: green;
+        padding: 0 1.5rem 0.3rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        rotate: -45deg;
+        translate: -50% -50%;
+        & p {
+          font-size: 0.8rem;
+          font-weight: bold;
+          color: white;
+        }
+      }
       @container (min-width: 30rem) {
         .card {
           flex-direction: row;
@@ -135,6 +155,7 @@ export class ProductCardSmall extends LitElement {
       title = '',
       image = '',
       description = '',
+      offer = false,
       price = '',
       rating: { rate = 0, count = 0 } = {},
     } = this.product || {};
@@ -149,6 +170,7 @@ export class ProductCardSmall extends LitElement {
     return html`
       <div class="container">
         <div class="card">
+          ${offer ? html`<div class="offer-triangle"><p>Offer</p></div>` : ''}
           ${this.userState?.isLogged
             ? html` <md-icon-button
                 @click=${this.isProductInFavorites()
