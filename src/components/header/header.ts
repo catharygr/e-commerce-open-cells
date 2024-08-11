@@ -39,51 +39,50 @@ export class HeaderComponent extends LitElement {
     searchQuery: { channel: 'search-query' },
   };
 
-  // HTMl template para la navegación
-  navTemplate = html` <nav class="navegation">
-    <ul class="list-nav">
-      <li>
-        <button @click=${this.closeNavegation} class="close-menu-btn">
-          <img class="close-menu-icon" src="${svgClose}" alt="close" />
-        </button>
-      </li>
-      <li>
-        <a
-          href="/#!/"
-          @click=${(e) => {
-            e.preventDefault();
-            this.closeNavegation();
-            this.pageController.navigate('home');
-          }}
-          >Inicio</a
-        >
-      </li>
-      <li>
-        <a
-          href="/#!/productos"
-          @click=${(e) => {
-            e.preventDefault();
-            this.closeNavegation();
-            this.pageController.navigate('productos');
-          }}
-          >Productos</a
-        >
-      </li>
-      <li>
-        <a
-          href="/#!/ofertas"
-          @click=${(e) => {
-            e.preventDefault();
-            this.closeNavegation();
-            this.pageController.navigate('ofertas');
-          }}
-          >Ofertas</a
-        >
-      </li>
-    </ul>
-  </nav>`;
-
   render() {
+    // HTMl template para la navegación
+    const navTemplate = html` <nav class="navegation">
+      <ul class="list-nav">
+        <li>
+          <button @click=${this.closeNavegation} class="close-menu-btn">
+            <img class="close-menu-icon" src="${svgClose}" alt="close" />
+          </button>
+        </li>
+        <li>
+          <a
+            href="/#!/"
+            @click=${(e) => {
+              e.preventDefault();
+              this.closeNavegation();
+              this.pageController.navigate('home');
+            }}
+            >Inicio</a
+          >
+        </li>
+        <li>
+          <a
+            href="/#!/productos"
+            @click=${(e) => {
+              e.preventDefault();
+              this.closeNavegation();
+              this.pageController.navigate('productos');
+            }}
+            >Productos</a
+          >
+        </li>
+        <li>
+          <a
+            href="/#!/ofertas"
+            @click=${(e) => {
+              e.preventDefault();
+              this.closeNavegation();
+              this.pageController.navigate('ofertas');
+            }}
+            >Ofertas</a
+          >
+        </li>
+      </ul>
+    </nav>`;
     const cartTemplate = html` <div class="cart">
       <h3 class="cart-title">Shopping Cart</h3>
       <shopping-cart></shopping-cart>
@@ -101,7 +100,7 @@ export class HeaderComponent extends LitElement {
       >
     </div>`;
 
-    return html`
+    const searchModalTemplate = html`
       <div class="search-modal">
         <md-icon-button
           @click=${this.handleCloseModal}
@@ -117,7 +116,10 @@ export class HeaderComponent extends LitElement {
           >Ver todos los resultados...</md-filled-button
         >
       </div>
+    `;
 
+    return html`
+      ${searchModalTemplate}
       <header>
         <a
           href="/#!/"
@@ -137,7 +139,7 @@ export class HeaderComponent extends LitElement {
         <button @click=${this.openNavegation} class="open-menu-btn">
           <img src="${svgMenu}" alt="menu" />
         </button>
-        ${this.navTemplate}
+        ${navTemplate}
         <form @submit=${this.handleSubmit} class="search-form">
           <md-filled-text-field
             class="search-field"
@@ -196,6 +198,7 @@ export class HeaderComponent extends LitElement {
   handleSearch(e) {
     this.searchQuery = e.target.value;
     this.searchModal.style.display = 'flex';
+    if (!this.searchQuery) this.searchModal.style.display = 'none';
   }
 
   handleCloseModal() {
