@@ -42,19 +42,10 @@ export class ProductosPage extends LitElement {
   }
 
   renderCards() {
-    return (
-      this.allProducts
-        // .filter((product) => {
-        //   if (!this.searchQuery) return product;
-        //   return product.title
-        //     .toLowerCase()
-        //     .includes(this.searchQuery.toLowerCase());
-        // })
-        .map((product) => {
-          return html`<product-card-small
-            .product=${product}
-          ></product-card-small>`;
-        })
-    );
+    return this.allProducts.map((product) => {
+      return html`<product-card-small
+        .product=${product}
+      ></product-card-small>`;
+    });
   }
 }
