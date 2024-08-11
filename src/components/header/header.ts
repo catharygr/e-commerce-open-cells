@@ -218,9 +218,21 @@ export class HeaderComponent extends LitElement {
           .includes(this.searchQuery.toLowerCase());
       })
       .map((product) => {
-        return html`<search-modal-card
-          .product=${product}
-        ></search-modal-card>`;
+        return html`
+          <a
+            href="/#!/productos/${product.id}"
+            @click=${(e) => {
+              e.preventDefault();
+              this.pageController.navigate('producto', {
+                productId: product.id,
+              });
+              this.searchModal.style.display = 'none';
+              this.searchQuery = '';
+            }}
+          >
+            <search-modal-card .product=${product}></search-modal-card>
+          </a>
+        `;
       })
       .slice(0, 5);
   }
