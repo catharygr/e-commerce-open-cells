@@ -102,7 +102,7 @@ export class ProductCardSmall extends LitElement {
         top: 0;
         left: 0;
         aspect-ratio: 1/1;
-        background-color: green;
+        background-color: red;
         padding: 0 1.5rem 0.3rem;
         display: flex;
         flex-direction: column;
