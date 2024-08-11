@@ -55,7 +55,7 @@ export class HomePage extends LitElement {
         justify-content: space-between;
         gap: 1rem;
         position: absolute;
-        top: 10%;
+        top: 50vw;
         padding-inline: 1rem;
         width: 100%;
       }
