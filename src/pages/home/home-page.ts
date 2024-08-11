@@ -80,8 +80,7 @@ export class HomePage extends LitElement {
     this.randomProducts = new Array(5)
       .fill(null)
       .map(
-        (item) =>
-          html`<home-card .product=${this.getRandomProducts()}></home-card>`
+        () => html`<home-card .product=${this.getRandomProducts()}></home-card>`
       );
     return !this.allProducts
       ? html`<spinner-element></spinner-element>`

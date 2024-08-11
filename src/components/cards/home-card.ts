@@ -162,9 +162,10 @@ export class HomeCard extends LitElement {
       <div class="content">
         <img class="img-product" src="${image}" alt="${title}" />
         <div class="detalles">
-          <p>
-            <b>Description: </b><br />
-            ${description}
+          <p class="card-description">
+            ${description.slice(0, 300)}${description.length > 300
+              ? '... Read more.'
+              : ''}
           </p>
           <p>
             <b>Price: </b>${new Intl.NumberFormat('es-ES', {
