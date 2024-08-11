@@ -27,56 +27,62 @@ export class HomePage extends LitElement {
         margin-inline: auto;
       }
       .container {
-        padding: 0.5rem 1rem;
+        padding: 1rem;
 
         & h1 {
-          margin-bottom: 1rem;
+          margin-top: 0;
           text-align: center;
         }
       }
       .carousel {
-        width: 100%;
         overflow: hidden;
         position: relative;
+        width: 100%;
       }
+
       .carousel-inner {
         display: flex;
-        transition: transform 0.5s ease;
+        transition: transform 0.5s ease-in-out;
+
+        & > * {
+          flex-shrink: 0;
+          flex-basis: 100%;
+        }
       }
-      .carousel-item {
-        min-width: 100%;
-        aspect-ratio: 1/1;
-        object-fit: contain;
-      }
+
       .carousel-buttons {
         display: flex;
         justify-content: space-between;
         gap: 1rem;
         position: absolute;
-        top: 60vw;
+        top: 10%;
         padding-inline: 1rem;
         width: 100%;
-
-        & md-icon-button {
-          background: rgba(0, 0, 0, 0.5);
-
-          border-radius: 0.5rem;
-        }
+      }
+      md-icon-button {
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 0.5rem;
       }
     `,
   ];
 
   @state()
-  randomProducts = [];
-  currentIndex = 0;
+  randomProducts = null;
+  carouselIndex = 0;
 
-  @query('.carousel-inner') carouselInner;
+  @query('.carousel-inner') carousel;
 
   static inbounds = {
     allProducts: { channel: 'all-products' },
   };
 
   render() {
+    this.randomProducts = new Array(5)
+      .fill(null)
+      .map(
+        (item) =>
+          html`<home-card .product=${this.getRandomProducts()}></home-card>`
+      );
     return !this.allProducts
       ? html`<spinner-element></spinner-element>`
       : html`
@@ -98,26 +104,27 @@ export class HomePage extends LitElement {
           </div>
         `;
   }
-
-  getRandomProducts() {
-    if (this.allProducts) {
-      const randomNum = Math.floor(Math.random() * this.allProducts.length);
-      return this.allProducts[randomNum];
-    }
-  }
-
-  carouselMinus() {
-    if (this.currentIndex === 0) {
-      this.currentIndex = 5;
-    }
-    this.currentIndex--;
-    this.corouselInner.style.transform = `translateX(-${
-      this.currentIndex * 100
-    }%)`;
-  }
-  carouselPlus() {}
-
   onPageEnter() {
     this.requestUpdate();
+  }
+
+  getRandomProducts() {
+    if (!this.allProducts) return;
+    const randomNum = Math.floor(Math.random() * this.allProducts.length);
+    return this.allProducts[randomNum];
+  }
+  carouselMinus() {
+    if (this.carouselIndex === 0) {
+      this.carouselIndex = 5;
+    }
+    this.carouselIndex--;
+    this.carousel.style.transform = `translateX(-${this.carouselIndex * 100}%)`;
+  }
+  carouselPlus() {
+    this.carouselIndex++;
+    if (this.carouselIndex === 5) {
+      this.carouselIndex = 0;
+    }
+    this.carousel.style.transform = `translateX(-${this.carouselIndex * 100}%)`;
   }
 }
