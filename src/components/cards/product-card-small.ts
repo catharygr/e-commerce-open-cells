@@ -189,11 +189,7 @@ export class ProductCardSmall extends LitElement {
           <img class="card-img" src=${image} />
           <div class="card-content">
             <h3 class="card-title">${title}</h3>
-            <p class="card-description">
-              ${description.slice(0, 300)}${description.length > 300
-                ? '... Read more.'
-                : ''}
-            </p>
+            <p class="card-description">${description}</p>
             <div class="card-action">
               <a
                 href="/#!/producto/${this.product.id}"

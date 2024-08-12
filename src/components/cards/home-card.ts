@@ -117,7 +117,7 @@ export class HomeCard extends LitElement {
 
   static inbounds = {
     userState: { channel: 'user-state' },
-    ocApp: { channel: '__0c_app' },
+    ocApp: { channel: '__oc_app' },
   };
 
   static outbounds = {
@@ -164,9 +164,25 @@ export class HomeCard extends LitElement {
         <img class="img-product" src="${image}" alt="${title}" />
         <div class="detalles">
           <p class="card-description">
-            ${description.slice(0, 300)}${description.length > 300
-              ? '... Read more.'
-              : ''}
+            <b>Description: </b><br />
+
+            ${this.ocApp.value.currentPage === 'home'
+              ? html`
+                  ${description.slice(0, 400)}${description.length > 400
+                    ? html`...
+                        <a
+                          href="/#!/producto/${this.product.id}"
+                          @click=${(e) => {
+                            e.preventDefault();
+                            this.elementController.navigate('producto', {
+                              productId: this.product.id,
+                            });
+                          }}
+                          >Leer más</a
+                        >`
+                    : ''}
+                `
+              : html`${description}`}
           </p>
           <p>
             <b>Price: </b>${new Intl.NumberFormat('es-ES', {
