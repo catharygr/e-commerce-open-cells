@@ -185,9 +185,9 @@ export class HeaderComponent extends LitElement {
                 >`
               : ''}
           </button>
-          <md-icon @click=${this.toggleLanguage} class="icon-language"
+          <md-icon-button @click=${this.toggleLanguage} class="icon-language"
             ><img src="${svgLanguage}" alt="Language"
-          /></md-icon>
+          /></md-icon-button>
         </div>
         ${cartTemplate}
       </header>
