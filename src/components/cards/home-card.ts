@@ -9,10 +9,16 @@ import '@material/web/iconbutton/icon-button.js';
 import grade from '@material-design-icons/svg/filled/grade.svg';
 import svgFavFilled from '@material-design-icons/svg/filled/favorite.svg';
 import svgFavOutline from '@material-design-icons/svg/filled/favorite_border.svg';
+import { t, updateWhenLocaleResourcesChange } from '@open-cells/localize';
 
 @customElement('home-card')
 export class HomeCard extends LitElement {
   elementController = new ElementController(this);
+  constructor() {
+    super();
+    updateWhenLocaleResourcesChange(this);
+  }
+
   static styles = [
     CssReset,
     css`
@@ -117,6 +123,7 @@ export class HomeCard extends LitElement {
 
   static inbounds = {
     userState: { channel: 'user-state' },
+    ocApp: { channel: '__oc_app' },
   };
 
   static outbounds = {
@@ -142,7 +149,10 @@ export class HomeCard extends LitElement {
       />`;
     });
     return html` <section>
-      ${offer ? html`<div class="offer-triangle"><p>Offer</p></div>` : ''}
+      <h1>${t('app-title') ?? 'Taks App'}</h1>
+      ${offer
+        ? html`<div class="offer-triangle"><p>${t('card-offer')}</p></div>`
+        : ''}
       ${this.userState?.isLogged
         ? html` <md-icon-button
             @click=${this.isProductInFavorites()
@@ -163,9 +173,24 @@ export class HomeCard extends LitElement {
         <img class="img-product" src="${image}" alt="${title}" />
         <div class="detalles">
           <p class="card-description">
-            ${description.slice(0, 300)}${description.length > 300
-              ? '... Read more.'
-              : ''}
+            <b>Description: </b><br />
+            ${this.ocApp.value.currentPage === 'home'
+              ? html`
+                  ${description.slice(0, 400)}${description.length > 400
+                    ? html`...
+                        <a
+                          href="/#!/producto/${this.product.id}"
+                          @click=${(e) => {
+                            e.preventDefault();
+                            this.elementController.navigate('producto', {
+                              productId: this.product.id,
+                            });
+                          }}
+                          >Leer más</a
+                        >`
+                    : ''}
+                `
+              : html`${description}`}
           </p>
           <p>
             <b>Price: </b>${new Intl.NumberFormat('es-ES', {
@@ -178,8 +203,8 @@ export class HomeCard extends LitElement {
             @click=${addToCart}
             class="cart-btn"
             >${this.isProductInCart()
-              ? 'Already in cart'
-              : 'Add to cart'}</md-filled-button
+              ? 'En el carrito'
+              : 'Añadir al carrito'}</md-filled-button
           >
           <div class="opiniones">
             <div class="opiniones-stars">

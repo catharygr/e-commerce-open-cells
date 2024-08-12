@@ -86,7 +86,7 @@ export class EditPage extends LitElement {
     return html`
       <section class="container">
         <div class="edit-header">
-          <h1>Edit Product</h1>
+          <h1>Editar producto</h1>
           <a
             class="link-back"
             href="/account/admin"
@@ -94,7 +94,7 @@ export class EditPage extends LitElement {
               e.preventDefault();
               this.pageController.backStep();
             }}
-            ><img src=${svgArrowBack} />Go to list</a
+            ><img src=${svgArrowBack} />Ir a la lista</a
           >
         </div>
         <form @submit=${this.handleSaveProduct} class="edit-form">
@@ -125,11 +125,11 @@ export class EditPage extends LitElement {
               ?checked=${this.product?.offer}
               id="offer"
             ></md-checkbox>
-            Product on offer
+            Producto en oferta
           </label>
 
           <md-filled-button class="save-btn" type="submit"
-            >Save</md-filled-button
+            >Guardar</md-filled-button
           >
         </form>
         <md-filled-button @click=${this.handleDeleteProduct} class="delete-btn"

@@ -128,7 +128,7 @@ export class ShoppingCart extends LitElement {
     return !this.allProducts
       ? html`<spinner-element></spinner-element>`
       : this.userState?.cart === undefined || this.userState?.cart.length === 0
-      ? html`<p>You cart es empty. Add some products into the cart.</p>`
+      ? html`<p>Tu carrito está vacío. Añade algún producto en el carrito</p>`
       : html` <ul class="cart-item">
             ${productTemplate}
           </ul>

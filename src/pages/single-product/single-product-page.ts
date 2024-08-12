@@ -24,6 +24,7 @@ export class SingleProductPage extends LitElement {
       h1 {
         text-align: center;
         margin-top: 0;
+        margin-bottom: 1rem;
       }
     `,
   ];
@@ -40,7 +41,7 @@ export class SingleProductPage extends LitElement {
       ? html`<spinner-element></spinner-element>`
       : html`
           <div class="container">
-            <h1>Welcome to Our Store</h1>
+            <h1>Detalles del producto</h1>
             <home-card .product=${this.productFiltrado()}></home-card>
           </div>
         `;

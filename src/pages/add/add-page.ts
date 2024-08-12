@@ -108,7 +108,7 @@ export class AddPage extends LitElement {
     return html`
       <section class="container">
         <div class="add-header">
-          <h1>Add Product</h1>
+          <h1>Añadir producto</h1>
           <a
             class="link-back"
             href="/account/admin"
@@ -116,7 +116,7 @@ export class AddPage extends LitElement {
               e.preventDefault();
               this.pageController.backStep();
             }}
-            ><img src=${svgArrowBack} />Go to list</a
+            ><img src=${svgArrowBack} />Ir a la lista</a
           >
         </div>
         <form @submit=${this.handleSaveProduct} class="add-form">
@@ -145,11 +145,11 @@ export class AddPage extends LitElement {
           ></md-outlined-text-field>
           <label>
             <md-checkbox touch-target="wrapper" id="offer"></md-checkbox>
-            Product on offer
+            Producto en oferta
           </label>
 
           <md-filled-button class="save-btn" type="submit"
-            >Save</md-filled-button
+            >Guardar</md-filled-button
           >
         </form>
       </section>

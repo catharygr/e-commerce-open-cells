@@ -9,6 +9,7 @@ import { addToCart, addToFav } from '../../utilidades/utils.js';
 import svgFavFilled from '@material-design-icons/svg/filled/favorite.svg';
 import svgFavOutline from '@material-design-icons/svg/filled/favorite_border.svg';
 import '@material/web/iconbutton/icon-button.js';
+import { t, updateWhenLocaleResourcesChange } from '@open-cells/localize';
 
 @customElement('product-card-small')
 export class ProductCardSmall extends LitElement {
@@ -170,7 +171,7 @@ export class ProductCardSmall extends LitElement {
     return html`
       <div class="container">
         <div class="card">
-          ${offer ? html`<div class="offer-triangle"><p>Offer</p></div>` : ''}
+          ${offer ? html`<div class="offer-triangle"><p>Oferta</p></div>` : ''}
           ${this.userState?.isLogged
             ? html` <md-icon-button
                 @click=${this.isProductInFavorites()
@@ -189,11 +190,7 @@ export class ProductCardSmall extends LitElement {
           <img class="card-img" src=${image} />
           <div class="card-content">
             <h3 class="card-title">${title}</h3>
-            <p class="card-description">
-              ${description.slice(0, 300)}${description.length > 300
-                ? '... Read more.'
-                : ''}
-            </p>
+            <p class="card-description">${description}</p>
             <div class="card-action">
               <a
                 href="/#!/producto/${this.product.id}"
@@ -210,8 +207,8 @@ export class ProductCardSmall extends LitElement {
                 @click=${addToCart}
                 class="cart-btn"
                 >${this.isProductInCart()
-                  ? 'Already in cart'
-                  : 'Add to cart'}</md-filled-button
+                  ? 'En el carrito'
+                  : 'Añadir al carrito'}</md-filled-button
               >
             </div>
             <div class="card-details">

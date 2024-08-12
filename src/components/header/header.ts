@@ -16,12 +16,22 @@ import svgStorefront from '@material-design-icons/svg/outlined/storefront.svg';
 import svgSearch from '@material-design-icons/svg/outlined/search.svg';
 import svgMenu from '@material-design-icons/svg/outlined/menu.svg';
 import svgClose from '@material-design-icons/svg/outlined/close.svg';
+import svgLanguage from '@material-design-icons/svg/outlined/language.svg';
 import '../shopping-cart/shopping-cart.js';
 import '../../components/cards/search-modal-card.js';
+import {
+  t,
+  updateWhenLocaleResourcesChange,
+  setLang,
+} from '@open-cells/localize';
 
 @customElement('header-component')
 export class HeaderComponent extends LitElement {
   pageController = new PageController(this);
+  constructor() {
+    super();
+    updateWhenLocaleResourcesChange(this);
+  }
   static styles = [CssReset, styles];
 
   @query('.navegation') navegation;
@@ -56,7 +66,7 @@ export class HeaderComponent extends LitElement {
               this.closeNavegation();
               this.pageController.navigate('home');
             }}
-            >Inicio</a
+            >${t('header-home')}</a
           >
         </li>
         <li>
@@ -67,7 +77,7 @@ export class HeaderComponent extends LitElement {
               this.closeNavegation();
               this.pageController.navigate('productos');
             }}
-            >Productos</a
+            >${t('header-products')}</a
           >
         </li>
         <li>
@@ -78,13 +88,13 @@ export class HeaderComponent extends LitElement {
               this.closeNavegation();
               this.pageController.navigate('ofertas');
             }}
-            >Ofertas</a
+            >${t('header-offers')}</a
           >
         </li>
       </ul>
     </nav>`;
     const cartTemplate = html` <div class="cart">
-      <h3 class="cart-title">Shopping Cart</h3>
+      <h3 class="cart-title">${t('header-cart')}</h3>
       <shopping-cart></shopping-cart>
       <md-filled-button
         ?disabled=${!this.userState?.cart || this.userState?.cart.length === 0}
@@ -108,12 +118,12 @@ export class HeaderComponent extends LitElement {
         >
           <img src="${svgClose}" alt="close" />
         </md-icon-button>
-        <p>Resultados para: ${this.searchQuery}</p>
+        <p>${t('header-search')} ${this.searchQuery}</p>
         <div class="search-modal-results">
           ${this.allProducts && this.searchQuery && this.renderCards()}
         </div>
         <md-filled-button @click=${this.handleSubmit} class="search-modal-btn"
-          >Ver todos los resultados...</md-filled-button
+          >${t('search-all-results')}</md-filled-button
         >
       </div>
     `;
@@ -175,6 +185,9 @@ export class HeaderComponent extends LitElement {
                 >`
               : ''}
           </button>
+          <md-icon-button @click=${this.toggleLanguage} class="icon-language"
+            ><img src="${svgLanguage}" alt="Language"
+          /></md-icon-button>
         </div>
         ${cartTemplate}
       </header>
@@ -238,5 +251,9 @@ export class HeaderComponent extends LitElement {
         `;
       })
       .slice(0, 5);
+  }
+  toggleLanguage() {
+    setLang(document.documentElement.lang === 'en' ? 'es' : 'en');
+    console.log(document.documentElement.lang);
   }
 }

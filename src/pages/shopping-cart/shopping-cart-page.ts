@@ -58,22 +58,20 @@ export class ShoppingCartPage extends LitElement {
 
   render() {
     return html` <div class="container">
-      <h1>Your Shopping Cart</h1>
+      <h1>Tu carrito de compra</h1>
       <shopping-cart></shopping-cart>
       <div class="action-btn">
         <md-filled-button
           @click=${() => this.pageController.navigate('productos')}
-          >Continue shopping</md-filled-button
+          >Continuar comprando</md-filled-button
         >
-        <md-filled-button @click=${this.handlePaymet}
-          >To payment</md-filled-button
-        >
+        <md-filled-button @click=${this.handlePaymet}>Pagar</md-filled-button>
       </div>
       <p class="payment-msg">
-        Thank you for your purchase. This is a demo page, so no real payment
-        will be made. Built for practice of BBVA OpenCells framework and
-        LitElement. In a few seconds you will be redirected to the products
-        page...
+        Gracias por tu compra. Esta es una página de demostración, por lo que no
+        se realizará ningún pago real. Construida para la práctica del marco
+        BBVA OpenCells y LitElement. En unos segundos serás redirigido a la
+        página de productos...
       </p>
     </div>`;
   }
