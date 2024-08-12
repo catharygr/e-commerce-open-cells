@@ -35,12 +35,16 @@ export class HomePage extends LitElement {
         }
       }
       .carousel {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
         overflow: hidden;
         position: relative;
         width: 100%;
       }
 
       .carousel-inner {
+        place-self: center;
         display: flex;
         transition: transform 0.5s ease-in-out;
 
@@ -55,7 +59,7 @@ export class HomePage extends LitElement {
         justify-content: space-between;
         gap: 1rem;
         position: absolute;
-        top: 50vw;
+        botton: 10vw;
         padding-inline: 1rem;
         width: 100%;
       }
@@ -90,7 +94,7 @@ export class HomePage extends LitElement {
             <div class="carousel">
               <div
                 class="carousel-inner">
-              ${this.randomProducts}
+                ${this.randomProducts}
               </div>
               <div class="carousel-buttons">
                 <md-icon-button  @click=${this.carouselMinus}>

@@ -142,7 +142,7 @@ export class HomeCard extends LitElement {
       />`;
     });
     return html` <section>
-      ${offer ? html`<div class="offer-triangle"><p>Offer</p></div>` : ''}
+      ${offer ? html`<div class="offer-triangle"><p>Oferta</p></div>` : ''}
       ${this.userState?.isLogged
         ? html` <md-icon-button
             @click=${this.isProductInFavorites()
