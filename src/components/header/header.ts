@@ -16,6 +16,7 @@ import svgStorefront from '@material-design-icons/svg/outlined/storefront.svg';
 import svgSearch from '@material-design-icons/svg/outlined/search.svg';
 import svgMenu from '@material-design-icons/svg/outlined/menu.svg';
 import svgClose from '@material-design-icons/svg/outlined/close.svg';
+import svgLanguage from '@material-design-icons/svg/outlined/language.svg';
 import '../shopping-cart/shopping-cart.js';
 import '../../components/cards/search-modal-card.js';
 
@@ -175,6 +176,9 @@ export class HeaderComponent extends LitElement {
                 >`
               : ''}
           </button>
+          <md-icon @click=${this.toggleLanguage} class="icon-language"
+            ><img src="${svgLanguage}" alt="Language"
+          /></md-icon>
         </div>
         ${cartTemplate}
       </header>

@@ -9,10 +9,16 @@ import '@material/web/iconbutton/icon-button.js';
 import grade from '@material-design-icons/svg/filled/grade.svg';
 import svgFavFilled from '@material-design-icons/svg/filled/favorite.svg';
 import svgFavOutline from '@material-design-icons/svg/filled/favorite_border.svg';
+import { t, updateWhenLocaleResourcesChange } from '@open-cells/localize';
 
 @customElement('home-card')
 export class HomeCard extends LitElement {
   elementController = new ElementController(this);
+  constructor() {
+    super();
+    updateWhenLocaleResourcesChange(this);
+  }
+
   static styles = [
     CssReset,
     css`

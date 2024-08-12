@@ -9,6 +9,7 @@ import { addToCart, addToFav } from '../../utilidades/utils.js';
 import svgFavFilled from '@material-design-icons/svg/filled/favorite.svg';
 import svgFavOutline from '@material-design-icons/svg/filled/favorite_border.svg';
 import '@material/web/iconbutton/icon-button.js';
+import { t, updateWhenLocaleResourcesChange } from '@open-cells/localize';
 
 @customElement('product-card-small')
 export class ProductCardSmall extends LitElement {
