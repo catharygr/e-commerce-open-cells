@@ -11,7 +11,7 @@ import CssReset from '../../css/reset.css.js';
 import '../../components/Others/spinner.js';
 import '../../components/cards/home-card.js';
 import '../../components/Others/spinner.js';
-import '@material/web/iconbutton/icon-button.js';
+import '@material/web/iconbutton/filled-icon-button.js';
 import svgMinus from '@material-design-icons/svg/filled/remove.svg';
 import svgPlus from '@material-design-icons/svg/filled/add.svg';
 
@@ -31,20 +31,20 @@ export class HomePage extends LitElement {
 
         & h1 {
           margin-top: 0;
+          margin-bottom: 1rem;
           text-align: center;
         }
       }
       .carousel {
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: 100%;
         grid-template-rows: 1fr;
         overflow: hidden;
-        position: relative;
-        width: 100%;
       }
 
       .carousel-inner {
-        place-self: center;
+        grid-row: 1 / -1;
+        grid-column: 1 / -1;
         display: flex;
         transition: transform 0.5s ease-in-out;
 
@@ -53,19 +53,18 @@ export class HomePage extends LitElement {
           flex-basis: 100%;
         }
       }
-
       .carousel-buttons {
+        grid-row: 1 / -1;
+        grid-column: 1 / -1;
+        align-self: center;
+        justify-self: stretch;
         display: flex;
         justify-content: space-between;
-        gap: 1rem;
-        position: absolute;
-        botton: 10vw;
+        align-items: center;
         padding-inline: 1rem;
-        width: 100%;
-      }
-      md-icon-button {
-        background: rgba(0, 0, 0, 0.5);
-        border-radius: 0.5rem;
+        --md-sys-color-primary: #999;
+        --md-filled-icon-button-container-width: 3rem;
+        --md-filled-icon-button-container-height: 3rem;
       }
     `,
   ];
@@ -92,16 +91,14 @@ export class HomePage extends LitElement {
           <div class="container">
             <h1>Bienvenido a mi tienda</h1>
             <div class="carousel">
-              <div
-                class="carousel-inner">
-                ${this.randomProducts}
-              </div>
+              <div class="carousel-inner">${this.randomProducts}</div>
               <div class="carousel-buttons">
-                <md-icon-button  @click=${this.carouselMinus}>
+                <md-filled-icon-button @click=${this.carouselMinus}>
                   <img src=${svgMinus} alt="minus" />
-                </md-icon-button>
-                <md-icon-button  @click=${this.carouselPlus}>
+                </md-filled-icon-button>
+                <md-filled-icon-button @click=${this.carouselPlus}>
                   <img src=${svgPlus} alt="plus" />
+                </md-filled-icon-button>
               </div>
             </div>
           </div>

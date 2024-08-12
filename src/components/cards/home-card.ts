@@ -117,6 +117,7 @@ export class HomeCard extends LitElement {
 
   static inbounds = {
     userState: { channel: 'user-state' },
+    ocApp: { channel: '__0c_app' },
   };
 
   static outbounds = {
