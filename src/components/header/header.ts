@@ -66,7 +66,7 @@ export class HeaderComponent extends LitElement {
               this.closeNavegation();
               this.pageController.navigate('home');
             }}
-            >Inicio</a
+            >${t('header-home')}</a
           >
         </li>
         <li>
@@ -77,7 +77,7 @@ export class HeaderComponent extends LitElement {
               this.closeNavegation();
               this.pageController.navigate('productos');
             }}
-            >Productos</a
+            >${t('header-products')}</a
           >
         </li>
         <li>
@@ -88,13 +88,13 @@ export class HeaderComponent extends LitElement {
               this.closeNavegation();
               this.pageController.navigate('ofertas');
             }}
-            >Ofertas</a
+            >${t('header-offers')}</a
           >
         </li>
       </ul>
     </nav>`;
     const cartTemplate = html` <div class="cart">
-      <h3 class="cart-title">Shopping Cart</h3>
+      <h3 class="cart-title">${t('header-cart')}</h3>
       <shopping-cart></shopping-cart>
       <md-filled-button
         ?disabled=${!this.userState?.cart || this.userState?.cart.length === 0}
@@ -118,12 +118,12 @@ export class HeaderComponent extends LitElement {
         >
           <img src="${svgClose}" alt="close" />
         </md-icon-button>
-        <p>Resultados para: ${this.searchQuery}</p>
+        <p>${t('header-search')} ${this.searchQuery}</p>
         <div class="search-modal-results">
           ${this.allProducts && this.searchQuery && this.renderCards()}
         </div>
         <md-filled-button @click=${this.handleSubmit} class="search-modal-btn"
-          >Ver todos los resultados...</md-filled-button
+          >${t('search-all-results')}</md-filled-button
         >
       </div>
     `;

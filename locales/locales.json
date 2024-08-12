@@ -1,10 +1,20 @@
 {
   "en": {
-    "app-title": "Tasker App",
-    "card-offer": "Offer"
+    "header-home": "Home",
+    "card-offer": "Offer",
+    "header-products": "Products",
+    "header-offers": "Offers",
+    "header-search": "Results for:",
+    "search-all-results": "See all results...",
+    "header-cart": "Shopping Cart"
   },
   "es": {
-    "app-title": "Tarea App",
-    "card-offer": "Oferta"
+    "header-home": "Inicio",
+    "card-offer": "Oferta",
+    "header-products": "Productos",
+    "header-offers": "Ofertas",
+    "header-search": "Resultados para:",
+    "search-all-results": "Ver todos los resultados...",
+    "header-cart": "Carrito de Compras"
   }
 }
