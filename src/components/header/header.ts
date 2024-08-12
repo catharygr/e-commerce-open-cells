@@ -19,10 +19,19 @@ import svgClose from '@material-design-icons/svg/outlined/close.svg';
 import svgLanguage from '@material-design-icons/svg/outlined/language.svg';
 import '../shopping-cart/shopping-cart.js';
 import '../../components/cards/search-modal-card.js';
+import {
+  t,
+  updateWhenLocaleResourcesChange,
+  setLang,
+} from '@open-cells/localize';
 
 @customElement('header-component')
 export class HeaderComponent extends LitElement {
   pageController = new PageController(this);
+  constructor() {
+    super();
+    updateWhenLocaleResourcesChange(this);
+  }
   static styles = [CssReset, styles];
 
   @query('.navegation') navegation;
@@ -242,5 +251,9 @@ export class HeaderComponent extends LitElement {
         `;
       })
       .slice(0, 5);
+  }
+  toggleLanguage() {
+    setLang(document.documentElement.lang === 'en' ? 'es' : 'en');
+    console.log(document.documentElement.lang);
   }
 }

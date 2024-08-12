@@ -149,7 +149,10 @@ export class HomeCard extends LitElement {
       />`;
     });
     return html` <section>
-      ${offer ? html`<div class="offer-triangle"><p>Oferta</p></div>` : ''}
+      <h1>${t('app-title') ?? 'Taks App'}</h1>
+      ${offer
+        ? html`<div class="offer-triangle"><p>${t('card-offer')}</p></div>`
+        : ''}
       ${this.userState?.isLogged
         ? html` <md-icon-button
             @click=${this.isProductInFavorites()

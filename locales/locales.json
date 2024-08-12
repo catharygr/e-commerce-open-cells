@@ -1,8 +1,10 @@
 {
   "en": {
-    "app-title": "Tasker App"
+    "app-title": "Tasker App",
+    "card-offer": "Offer"
   },
   "es": {
-    "app-title": "Tarea App"
+    "app-title": "Tarea App",
+    "card-offer": "Oferta"
   }
 }
