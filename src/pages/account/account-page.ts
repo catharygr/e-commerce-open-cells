@@ -75,20 +75,20 @@ export class AccountPage extends LitElement {
     return html`
       <div class="container">
         <div class="acc-header">
-          <h1>My account</h1>
+          <h1>Cuenta</h1>
           <md-filled-button class="user-logout" @click=${this.handleLogOff}
-            >Logout</md-filled-button
+            >Salir</md-filled-button
           >
         </div>
         <div class="user-info">
-          <h2>User Information</h2>
-          <p>UserName: ${this.userState?.name || 'Anónimo'}</p>
+          <h2>Información del usuario</h2>
+          <p>Nombre del usuario: ${this.userState?.name || 'Anónimo'}</p>
           <p>Email: ${this.userState?.email || 'No email'}</p>
         </div>
         ${this.userState?.role === 'admin'
           ? html`
               <div class="user-admin">
-                <h2>Admin Section</h2>
+                <h2>Sesión de admin</h2>
                 <md-filled-button
                   @click=${() => this.pageController.navigate('admin')}
                 >

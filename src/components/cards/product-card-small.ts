@@ -170,7 +170,7 @@ export class ProductCardSmall extends LitElement {
     return html`
       <div class="container">
         <div class="card">
-          ${offer ? html`<div class="offer-triangle"><p>Offer</p></div>` : ''}
+          ${offer ? html`<div class="offer-triangle"><p>Oferta</p></div>` : ''}
           ${this.userState?.isLogged
             ? html` <md-icon-button
                 @click=${this.isProductInFavorites()
@@ -206,8 +206,8 @@ export class ProductCardSmall extends LitElement {
                 @click=${addToCart}
                 class="cart-btn"
                 >${this.isProductInCart()
-                  ? 'Already in cart'
-                  : 'Add to cart'}</md-filled-button
+                  ? 'En el carrito'
+                  : 'Añadir al carrito'}</md-filled-button
               >
             </div>
             <div class="card-details">

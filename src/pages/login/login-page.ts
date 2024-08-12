@@ -94,7 +94,7 @@ export class LoginPage extends LitElement {
   render() {
     return html`
       <div class="container">
-        <h2 class="titulo">Loguear</h2>
+        <h2 class="titulo">Entra a tu cuenta</h2>
         <form @submit=${this.handleSubmmit} class="form-login">
           <md-outlined-text-field
             required
@@ -138,7 +138,7 @@ export class LoginPage extends LitElement {
             <md-checkbox id="admin"></md-checkbox>
             ¿Eres admin?
           </label>
-          <md-filled-button>Login</md-filled-button>
+          <md-filled-button>Entrar</md-filled-button>
         </form>
       </div>
     `;

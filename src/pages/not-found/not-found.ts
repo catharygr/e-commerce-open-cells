@@ -27,7 +27,7 @@ export class NotFoundPage extends LitElement {
     return html`
       <div class="container-found">
         <h1>404</h1>
-        <p>Page not found</p>
+        <p>Página no encontrada</p>
       </div>
     `;
   }

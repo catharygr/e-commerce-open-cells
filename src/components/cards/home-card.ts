@@ -165,7 +165,6 @@ export class HomeCard extends LitElement {
         <div class="detalles">
           <p class="card-description">
             <b>Description: </b><br />
-
             ${this.ocApp.value.currentPage === 'home'
               ? html`
                   ${description.slice(0, 400)}${description.length > 400
@@ -195,8 +194,8 @@ export class HomeCard extends LitElement {
             @click=${addToCart}
             class="cart-btn"
             >${this.isProductInCart()
-              ? 'Already in cart'
-              : 'Add to cart'}</md-filled-button
+              ? 'En el carrito'
+              : 'Añadir al carrito'}</md-filled-button
           >
           <div class="opiniones">
             <div class="opiniones-stars">
