@@ -16,7 +16,7 @@ import svgStorefront from '@material-design-icons/svg/outlined/storefront.svg';
 import svgSearch from '@material-design-icons/svg/outlined/search.svg';
 import svgMenu from '@material-design-icons/svg/outlined/menu.svg';
 import svgClose from '@material-design-icons/svg/outlined/close.svg';
-import svgLanguage from '@material-design-icons/svg/outlined/language.svg';
+import svgLanguage from '@material-design-icons/svg/outlined/g_translate.svg';
 import '../shopping-cart/shopping-cart.js';
 import '../../components/cards/search-modal-card.js';
 import {
@@ -254,6 +254,5 @@ export class HeaderComponent extends LitElement {
   }
   toggleLanguage() {
     setLang(document.documentElement.lang === 'en' ? 'es' : 'en');
-    console.log(document.documentElement.lang);
   }
 }
