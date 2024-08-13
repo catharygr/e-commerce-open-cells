@@ -43,7 +43,6 @@ export class SearchModalCard extends LitElement {
 
   render() {
     return html`
-<<<<<<< HEAD
       <div class="search-modal-card">
         <img src="${this.product?.image}" alt="${this.product?.title}" />
         <h3>${this.product?.title.slice(0, 30)}</h3>
@@ -54,16 +53,6 @@ export class SearchModalCard extends LitElement {
           }).format(this.product.price)}
         </p>
       </div>
-=======
-      <img src="${this.product?.image}" alt="${this.product?.title}" />
-      <h3>${this.product?.title.slice(0, 10)}</h3>
-      <p class="price">
-        ${new Intl.NumberFormat('es-ES', {
-          style: 'currency',
-          currency: 'EUR',
-        }).format(this.product.price)}
-      </p>
->>>>>>> beta
     `;
   }
 }

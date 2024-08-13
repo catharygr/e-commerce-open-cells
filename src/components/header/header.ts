@@ -153,7 +153,7 @@ export class HeaderComponent extends LitElement {
         <form @submit=${this.handleSubmit} class="search-form">
           <md-filled-text-field
             class="search-field"
-            placeholder="Buscar productos"
+            placeholder=${t('header-search-placeholder')}
             icon="search"
             @input="${this.handleSearch}"
           >

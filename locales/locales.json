@@ -5,6 +5,7 @@
     "header-products": "Products",
     "header-offers": "Offers",
     "header-search": "Results for:",
+    "header-search-placeholder": "Search products",
     "search-all-results": "See all results...",
     "header-cart": "Shopping Cart"
   },
@@ -14,6 +15,7 @@
     "header-products": "Productos",
     "header-offers": "Ofertas",
     "header-search": "Resultados para:",
+    "header-search-placeholder": "Buscar productos",
     "search-all-results": "Ver todos los resultados...",
     "header-cart": "Carrito de Compras"
   }
