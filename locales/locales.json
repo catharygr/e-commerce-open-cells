@@ -1,6 +1,7 @@
 {
   "en": {
     "header-home": "Home",
+    "title-home": "Welcome to My Store",
     "card-offer": "Offer",
     "header-products": "Products",
     "header-offers": "Offers",
@@ -11,6 +12,7 @@
   },
   "es": {
     "header-home": "Inicio",
+    "title-home": "Bienvenido a mi tienda",
     "card-offer": "Oferta",
     "header-products": "Productos",
     "header-offers": "Ofertas",

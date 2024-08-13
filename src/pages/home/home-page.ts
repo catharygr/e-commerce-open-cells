@@ -1,12 +1,7 @@
 // @ts-nocheck
 import { html, LitElement, css } from 'lit';
 import { PageController } from '@open-cells/page-controller';
-import {
-  customElement,
-  state,
-  changedProperties,
-  query,
-} from 'lit/decorators.js';
+import { customElement, state, query } from 'lit/decorators.js';
 import CssReset from '../../css/reset.css.js';
 import '../../components/Others/spinner.js';
 import '../../components/cards/home-card.js';
@@ -14,10 +9,16 @@ import '../../components/Others/spinner.js';
 import '@material/web/iconbutton/filled-icon-button.js';
 import svgMinus from '@material-design-icons/svg/filled/remove.svg';
 import svgPlus from '@material-design-icons/svg/filled/add.svg';
+import { t, updateWhenLocaleResourcesChange } from '@open-cells/localize';
 
 @customElement('home-page')
 export class HomePage extends LitElement {
   pageController = new PageController(this);
+
+  constructor() {
+    super();
+    updateWhenLocaleResourcesChange(this);
+  }
 
   static styles = [
     CssReset,
@@ -89,7 +90,7 @@ export class HomePage extends LitElement {
       ? html`<spinner-element></spinner-element>`
       : html`
           <div class="container">
-            <h1>Bienvenido a mi tienda</h1>
+            <h1>${t('title-home')}</h1>
             <div class="carousel">
               <div class="carousel-inner">${this.randomProducts}</div>
               <div class="carousel-buttons">
