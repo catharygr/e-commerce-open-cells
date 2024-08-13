@@ -33,98 +33,97 @@ export class HomeCard extends LitElement {
         border-radius: 0.5rem;
         border: 1px solid #ddd;
 
-          & h2 {
-            text-align: center;
-            font-size: 1.2rem;
-          }
+        & h2 {
+          text-align: center;
+          font-size: 1.2rem;
         }
+      }
 
-        .fav-btn {
-          position: absolute;
-          top: 0.2rem;
-          right: 0.2rem;
-          z-index: 100;
+      .fav-btn {
+        position: absolute;
+        top: 0.2rem;
+        right: 0.2rem;
+        z-index: 100;
 
-          & img {
-            filter: invert(14%) sepia(92%) saturate(3137%) hue-rotate(351deg)
-              brightness(98%) contrast(86%);
+        & img {
+          filter: invert(14%) sepia(92%) saturate(3137%) hue-rotate(351deg)
+            brightness(98%) contrast(86%);
+        }
+      }
+      .content {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+      .detalles {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+
+      .img-product {
+        aspect-ratio: 2/1;
+        object-fit: contain;
+        border-radius: 0.5rem;
+        box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+        background-color: #fff;
+        padding: 0.5rem;
+      }
+      .cart-btn {
+        --md-sys-color-primary: darkgreen;
+        --md-filled-button-container-height: 2rem;
+        --md-filled-button-leading-space: 1rem;
+        --md-filled-button-trailing-space: 1rem;
+      }
+      .opiniones {
+        display: flex;
+        font-size: 1rem;
+        margin-top: auto;
+        gap: 2rem;
+      }
+      .opiniones-stars {
+        display: flex;
+        align-items: center;
+      }
+      .opiniones-stars-svg {
+        width: 1rem;
+        height: 1rem;
+        font-size: 1rem;
+      }
+      .offer-triangle {
+        position: absolute;
+        top: 0;
+        left: 0;
+        aspect-ratio: 1/1;
+        background-color: red;
+        padding: 0 1.5rem 0.3rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        rotate: -45deg;
+        translate: -50% -50%;
+        & p {
+          font-size: 0.8rem;
+          font-weight: bold;
+          color: white;
+        }
+      }
+
+      @media (min-width: 43rem) {
+        section {
+          padding: 2rem;
+          gap: 2rem;
+
+          & h2 {
+            font-size: 1.8rem;
+            max-width: 90%;
+            text-align: left;
           }
         }
         .content {
-          display: grid;
-          grid-template-columns: 1fr;
-          gap: 0.5rem;
-        }
-        .detalles {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 0.5rem;
-        }
-
-        .img-product {
-          aspect-ratio: 2/1;
-          object-fit: contain;
-          border-radius: 0.5rem;
-          box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
-          background-color: #fff;
-          padding: 0.5rem;
-        }
-        .cart-btn {
-          --md-sys-color-primary: darkgreen;
-          --md-filled-button-container-height: 2rem;
-          --md-filled-button-leading-space: 1rem;
-          --md-filled-button-trailing-space: 1rem;
-        }
-        .opiniones {
-          display: flex;
-          font-size: 1rem;
-          margin-top: auto;
+          grid-template-columns: 40% 1fr;
           gap: 2rem;
-        }
-        .opiniones-stars {
-          display: flex;
-          align-items: center;
-        }
-        .opiniones-stars-svg {
-          width: 1rem;
-          height: 1rem;
-          font-size: 1rem;
-        }
-        .offer-triangle {
-          position: absolute;
-          top: 0;
-          left: 0;
-          aspect-ratio: 1/1;
-          background-color: red;
-          padding: 0 1.5rem 0.3rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: flex-end;
-          rotate: -45deg;
-          translate: -50% -50%;
-          & p {
-            font-size: 0.8rem;
-            font-weight: bold;
-            color: white;
-          }
-        }
-
-        @media (min-width: 43rem) {
-          section {
-            padding: 2rem;
-            gap: 2rem;
-
-            & h2 {
-              font-size: 1.8rem;
-              max-width: 90%;
-              text-align: left;
-            }
-          }
-          .content {
-            grid-template-columns: 40% 1fr;
-            gap: 2rem;
-          }
         }
         .detalles {
           font-size: 1.3rem;

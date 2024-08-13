@@ -39,12 +39,11 @@ export class HomePage extends LitElement {
       .carousel {
         display: grid;
         grid-template-columns: 100%;
-        grid-template-rows: 1fr;
         overflow: hidden;
       }
 
       .carousel-inner {
-        grid-row: 1 / -1;
+        grid-row: 2 / 3;
         grid-column: 1 / -1;
         display: flex;
         transition: transform 0.5s ease-in-out;
@@ -55,17 +54,31 @@ export class HomePage extends LitElement {
         }
       }
       .carousel-buttons {
-        grid-row: 1 / -1;
-        grid-column: 1 / -1;
+        grid-row: 1 / 2;
+        grid-column: 1 / 2;
+        gap: 1rem;
         align-self: center;
         justify-self: stretch;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
-        padding-inline: 1rem;
+        padding: 0.4rem;
         --md-sys-color-primary: #999;
         --md-filled-icon-button-container-width: 3rem;
         --md-filled-icon-button-container-height: 3rem;
+      }
+
+      @media (min-width: 43rem) {
+        .carousel-inner {
+          grid-row: 1 / -1;
+          grid-column: 1 / -1;
+        }
+        .carousel-buttons {
+          grid-row: 1 / -1;
+          grid-column: 1 / -1;
+          justify-content: space-between;
+          padding: 1rem;
+        }
       }
     `,
   ];
