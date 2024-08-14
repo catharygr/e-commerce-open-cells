@@ -140,7 +140,7 @@ export class ShoppingCart extends LitElement {
           </ul>
           <div class="cart-total">
             <p>
-              Tax(Incluido en el precio):
+              ${t('shopping-tax')}:
               ${new Intl.NumberFormat('es-ES', {
                 style: 'currency',
                 currency: 'EUR',
@@ -148,7 +148,7 @@ export class ShoppingCart extends LitElement {
             </p>
 
             <p>
-              Total:
+              Total
               ${new Intl.NumberFormat('es-ES', {
                 style: 'currency',
                 currency: 'EUR',

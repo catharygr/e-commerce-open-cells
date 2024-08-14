@@ -5,10 +5,17 @@ import CssReset from '../../css/reset.css.js';
 import '../../components/shopping-cart/shopping-cart.js';
 import '@material/web/button/filled-button.js';
 import { PageController } from '@open-cells/page-controller';
+import { t, updateWhenLocaleResourcesChange } from '@open-cells/localize';
 
 @customElement('shopping-cart-page')
 export class ShoppingCartPage extends LitElement {
   pageController = new PageController(this);
+
+  constructor() {
+    super();
+    updateWhenLocaleResourcesChange(this);
+  }
+
   static styles = [
     CssReset,
     css`
@@ -58,21 +65,18 @@ export class ShoppingCartPage extends LitElement {
 
   render() {
     return html` <div class="container">
-      <h1>Tu carrito de compra</h1>
+      <h1>${t('shopping-title')}</h1>
       <shopping-cart></shopping-cart>
       <div class="action-btn">
         <md-filled-button
           @click=${() => this.pageController.navigate('productos')}
-          >Continuar comprando</md-filled-button
+          >${t('shopping-continue-btn')}</md-filled-button
         >
-        <md-filled-button @click=${this.handlePaymet}>Pagar</md-filled-button>
+        <md-filled-button @click=${this.handlePaymet}
+          >${t('shopping-pay-btn')}</md-filled-button
+        >
       </div>
-      <p class="payment-msg">
-        Gracias por tu compra. Esta es una página de demostración, por lo que no
-        se realizará ningún pago real. Construida para la práctica del marco
-        BBVA OpenCells y LitElement. En unos segundos serás redirigido a la
-        página de productos...
-      </p>
+      <p class="payment-msg">${t('shopping-payment-msg')}</p>
     </div>`;
   }
 

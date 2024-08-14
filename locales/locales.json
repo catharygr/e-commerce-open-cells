@@ -11,7 +11,12 @@
     "header-cart": "Shopping Cart",
     "header-payment": "To Payment",
     "header-close": "Close",
-    "shopping-msg": "Your cart is empty. Add some products to the cart."
+    "shopping-msg": "Your cart is empty. Add some products to the cart.",
+    "shopping-tax": "Tax (Included in the price)",
+    "shopping-title": "Your shopping cart.",
+    "shopping-continue-btn": "Continue Shopping",
+    "shopping-pay-btn": "To Payment",
+    "shopping-payment-msg": "Thank you for your purchase. This is a demo page, so no real payment will be made. Built for practice using the BBVA OpenCells framework and LitElement. In a few seconds, you will be redirected to the products page..."
   },
   "es": {
     "header-home": "Inicio",
@@ -25,6 +30,11 @@
     "header-cart": "Carrito de Compras",
     "header-payment": "Pagar",
     "header-close": "Cerrar",
-    "shopping-msg": "Tu carrito está vacío. Agrega algunos productos al carrito."
+    "shopping-msg": "Tu carrito está vacío. Agrega algunos productos al carrito.",
+    "shopping-tax": "Tax(Incluido en el precio)",
+    "shopping-title": "Tu carrito de compras.",
+    "shopping-continue-btn": "Continuar Comprando",
+    "shopping-pay-btn": "Pagar",
+    "shopping-payment-msg": "Gracias por tu compra. Esta es una página de demostración, por lo que no se realizará ningún pago real. Construido para practicar usando el marco de trabajo BBVA OpenCells y LitElement. En unos segundos, serás redirigido a la página de productos..."
   }
 }
