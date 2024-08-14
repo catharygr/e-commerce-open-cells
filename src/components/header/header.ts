@@ -103,10 +103,10 @@ export class HeaderComponent extends LitElement {
           this.pageController.navigate('cart');
         }}
         class="checkout-btn"
-        >Pagar</md-filled-button
+        >${t('header-payment')}</md-filled-button
       >
       <md-filled-button @click=${this.closeCart} class="close-cart-btn"
-        >Cerrar</md-filled-button
+        >${t('header-close')}</md-filled-button
       >
     </div>`;
 

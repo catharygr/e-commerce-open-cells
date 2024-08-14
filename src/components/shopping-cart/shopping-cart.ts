@@ -8,10 +8,16 @@ import '@material/web/iconbutton/icon-button.js';
 import svgMinus from '@material-design-icons/svg/filled/remove.svg';
 import svgPlus from '@material-design-icons/svg/filled/add.svg';
 import svgDeleteForever from '@material-design-icons/svg/outlined/delete_forever.svg';
+import { t, updateWhenLocaleResourcesChange } from '@open-cells/localize';
 
 @customElement('shopping-cart')
 export class ShoppingCart extends LitElement {
   elementController = new ElementController(this);
+
+  constructor() {
+    super();
+    updateWhenLocaleResourcesChange(this);
+  }
 
   static styles = [
     CssReset,
@@ -128,7 +134,7 @@ export class ShoppingCart extends LitElement {
     return !this.allProducts
       ? html`<spinner-element></spinner-element>`
       : this.userState?.cart === undefined || this.userState?.cart.length === 0
-      ? html`<p>Tu carrito está vacío. Añade algún producto en el carrito</p>`
+      ? html`<p>${t('shopping-msg')}</p>`
       : html` <ul class="cart-item">
             ${productTemplate}
           </ul>

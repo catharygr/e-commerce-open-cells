@@ -8,7 +8,10 @@
     "header-search": "Results for:",
     "header-search-placeholder": "Search products",
     "search-all-results": "See all results...",
-    "header-cart": "Shopping Cart"
+    "header-cart": "Shopping Cart",
+    "header-payment": "To Payment",
+    "header-close": "Close",
+    "shopping-msg": "Your cart is empty. Add some products to the cart."
   },
   "es": {
     "header-home": "Inicio",
@@ -19,6 +22,9 @@
     "header-search": "Resultados para:",
     "header-search-placeholder": "Buscar productos",
     "search-all-results": "Ver todos los resultados...",
-    "header-cart": "Carrito de Compras"
+    "header-cart": "Carrito de Compras",
+    "header-payment": "Pagar",
+    "header-close": "Cerrar",
+    "shopping-msg": "Tu carrito está vacío. Agrega algunos productos al carrito."
   }
 }
