@@ -20,7 +20,8 @@
     "user-lougot": "Logout",
     "user-info": "User information.",
     "user-name": "Username",
-    "user-title": "User Account"
+    "user-title": "User Account",
+    "user-admin": "Admin session."
   },
   "es": {
     "header-home": "Inicio",
@@ -43,6 +44,7 @@
     "user-lougot": "Salir",
     "user-info": "Información del usuario.",
     "user-name": "Nombre de usuario",
-    "user-title": "Cuenta de usuario"
+    "user-title": "Cuenta de usuario",
+    "user-admin": "Sesión de admin."
   }
 }
