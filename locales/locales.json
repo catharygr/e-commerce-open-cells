@@ -19,7 +19,8 @@
     "shopping-payment-msg": "Thank you for your purchase. This is a demo page, so no real payment will be made. Built for practice using the BBVA OpenCells framework and LitElement. In a few seconds, you will be redirected to the products page...",
     "user-lougot": "Logout",
     "user-info": "User information.",
-    "user-name": "Username"
+    "user-name": "Username",
+    "user-title": "User Account"
   },
   "es": {
     "header-home": "Inicio",
@@ -41,6 +42,7 @@
     "shopping-payment-msg": "Gracias por tu compra. Esta es una página de demostración, por lo que no se realizará ningún pago real. Construido para practicar usando el marco de trabajo BBVA OpenCells y LitElement. En unos segundos, serás redirigido a la página de productos...",
     "user-lougot": "Salir",
     "user-info": "Información del usuario.",
-    "user-name": "Nombre de usuario"
+    "user-name": "Nombre de usuario",
+    "user-title": "Cuenta de usuario"
   }
 }

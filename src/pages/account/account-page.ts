@@ -81,7 +81,7 @@ export class AccountPage extends LitElement {
     return html`
       <div class="container">
         <div class="acc-header">
-          <h1>Cuenta</h1>
+          <h1>${t('user-title')}</h1>
           <md-filled-button class="user-logout" @click=${this.handleLogOff}
             >${t('user-lougot')}</md-filled-button
           >
