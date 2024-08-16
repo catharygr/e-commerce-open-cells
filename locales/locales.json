@@ -21,7 +21,8 @@
     "user-info": "User information.",
     "user-name": "Username",
     "user-title": "User Account",
-    "user-admin": "Admin session."
+    "user-admin": "Admin session.",
+    "user-admin-btn": "Admin"
   },
   "es": {
     "header-home": "Inicio",
@@ -45,6 +46,7 @@
     "user-info": "Información del usuario.",
     "user-name": "Nombre de usuario",
     "user-title": "Cuenta de usuario",
-    "user-admin": "Sesión de admin."
+    "user-admin": "Sesión de admin.",
+    "user-admin-btn": "Admin"
   }
 }
