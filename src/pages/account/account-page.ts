@@ -5,10 +5,16 @@ import CssReset from '../../css/reset.css.js';
 import '@material/web/button/filled-button.js';
 import { PageController } from '@open-cells/page-controller';
 import { resetInterceptorContext } from '@open-cells/core/src/bridge.js';
+import { t, updateWhenLocaleResourcesChange } from '@open-cells/localize';
 
 @customElement('account-page')
 export class AccountPage extends LitElement {
   pageController = new PageController(this);
+
+  constructor() {
+    super();
+    updateWhenLocaleResourcesChange(this);
+  }
 
   static styles = [
     CssReset,
@@ -77,12 +83,12 @@ export class AccountPage extends LitElement {
         <div class="acc-header">
           <h1>Cuenta</h1>
           <md-filled-button class="user-logout" @click=${this.handleLogOff}
-            >Salir</md-filled-button
+            >${t('user-lougot')}</md-filled-button
           >
         </div>
         <div class="user-info">
-          <h2>Información del usuario</h2>
-          <p>Nombre del usuario: ${this.userState?.name || 'Anónimo'}</p>
+          <h2>${t('user-info')}</h2>
+          <p>${t('user-name')} ${this.userState?.name || 'Anónimo'}</p>
           <p>Email: ${this.userState?.email || 'No email'}</p>
         </div>
         ${this.userState?.role === 'admin'
