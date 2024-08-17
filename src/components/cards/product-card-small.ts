@@ -213,9 +213,8 @@ export class ProductCardSmall extends LitElement {
                 ?disabled=${this.isProductInCart()}
                 @click=${addToCart}
                 class="cart-btn"
-                >${this.isProductInCart()
-                  ? t('card-in-cart')
-                  : t('add-to-cart')}
+              >
+                ${this.isProductInCart() ? t('card-in-cart') : t('add-to-cart')}
               </md-filled-button>
             </div>
             <div class="card-details">
