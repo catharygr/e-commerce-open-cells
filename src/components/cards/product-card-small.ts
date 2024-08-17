@@ -200,7 +200,7 @@ export class ProductCardSmall extends LitElement {
                     productId: this.product.id,
                   });
                 }}
-                >Ver producto</a
+                >${t('card-view-product')}</a
               >
               <md-filled-button
                 ?disabled=${this.isProductInCart()}
