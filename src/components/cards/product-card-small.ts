@@ -168,6 +168,11 @@ export class ProductCardSmall extends LitElement {
         alt="rating"
       />`;
     });
+
+    const buttonText = this.isProductInCart()
+      ? t('card-in-cart')
+      : t('add-to-cart');
+
     return html`
       <div class="container">
         <div class="card">
@@ -206,10 +211,9 @@ export class ProductCardSmall extends LitElement {
                 ?disabled=${this.isProductInCart()}
                 @click=${addToCart}
                 class="cart-btn"
-                >${this.isProductInCart()
-                  ? t('card-in-cart')
-                  : t('add-to-cart')}</md-filled-button
               >
+                ${buttonText}
+              </md-filled-button>
             </div>
             <div class="card-details">
               <span class="card-rating">${starArray}</span>
