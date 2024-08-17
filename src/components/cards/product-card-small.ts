@@ -14,6 +14,12 @@ import { t, updateWhenLocaleResourcesChange } from '@open-cells/localize';
 @customElement('product-card-small')
 export class ProductCardSmall extends LitElement {
   elementController = new ElementController(this);
+
+  constructor() {
+    super();
+    updateWhenLocaleResourcesChange(this);
+  }
+
   @property()
   product;
 
@@ -169,10 +175,6 @@ export class ProductCardSmall extends LitElement {
       />`;
     });
 
-    const buttonText = this.isProductInCart()
-      ? t('card-in-cart')
-      : t('add-to-cart');
-
     return html`
       <div class="container">
         <div class="card">
@@ -211,8 +213,9 @@ export class ProductCardSmall extends LitElement {
                 ?disabled=${this.isProductInCart()}
                 @click=${addToCart}
                 class="cart-btn"
-              >
-                ${buttonText}
+                >${this.isProductInCart()
+                  ? t('card-in-cart')
+                  : t('add-to-cart')}
               </md-filled-button>
             </div>
             <div class="card-details">
