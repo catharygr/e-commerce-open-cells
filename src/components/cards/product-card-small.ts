@@ -207,8 +207,8 @@ export class ProductCardSmall extends LitElement {
                 @click=${addToCart}
                 class="cart-btn"
                 >${this.isProductInCart()
-                  ? 'En el carrito'
-                  : 'Añadir al carrito'}</md-filled-button
+                  ? t('card-in-cart')
+                  : t('add-to-cart')}</md-filled-button
               >
             </div>
             <div class="card-details">
