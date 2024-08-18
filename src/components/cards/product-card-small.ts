@@ -178,7 +178,9 @@ export class ProductCardSmall extends LitElement {
     return html`
       <div class="container">
         <div class="card">
-          ${offer ? html`<div class="offer-triangle"><p>Oferta</p></div>` : ''}
+          ${offer
+            ? html`<div class="offer-triangle"><p>${t('card-offer')}</p></div>`
+            : ''}
           ${this.userState?.isLogged
             ? html` <md-icon-button
                 @click=${this.isProductInFavorites()
