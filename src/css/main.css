@@ -1,5 +1,8 @@
 :root {
   --md-ref-typeface-plain: system-ui, sans-serif;
+  --color-primary: black;
+  --color-secondary: white;
+  --color-tertiary: #e4e4e4;
 }
 
 html,
@@ -9,4 +12,14 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-primary: white;
+    --color-secondary: black;
+    --color-tertiary: #333;
+  }
 }

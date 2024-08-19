@@ -29,7 +29,7 @@ export class HomeCard extends LitElement {
         flex-direction: column;
         gap: 0.5rem;
         padding: 1rem;
-        background-color: #f5f5f5;
+        background-color: var(--color-tertiary);
         border-radius: 0.5rem;
         border: 1px solid #ddd;
 

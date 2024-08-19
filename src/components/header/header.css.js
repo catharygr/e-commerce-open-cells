@@ -2,7 +2,7 @@ import { css } from 'lit';
 
 export const styles = css`
   :host {
-    background-color: #e4e4e4;
+    background-color: var(--color-tertiary);
     position: relative;
   }
   header {
@@ -205,7 +205,7 @@ export const styles = css`
     .list-nav a {
       text-decoration: none;
       font-weight: 700;
-      color: black;
+      color: var(--color-primary);
       font-size: 1.2rem;
     }
     .open-menu-btn {

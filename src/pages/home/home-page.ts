@@ -63,6 +63,7 @@ export class HomePage extends LitElement {
         justify-content: center;
         align-items: center;
         padding: 0.4rem;
+        opacity: 0.8;
         --md-sys-color-primary: #999;
         --md-filled-icon-button-container-width: 3rem;
         --md-filled-icon-button-container-height: 3rem;
