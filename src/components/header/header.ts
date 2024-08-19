@@ -158,8 +158,9 @@ export class HeaderComponent extends LitElement {
           }}
         >
           <img
-            style=${this.userState?.isLogged === true &&
-            'filter: invert(15%) sepia(82%) saturate(3350%) hue-rotate(355deg) brightness(101%) contrast(79%)'}
+            style=${this.userState?.isLogged
+              ? 'filter: var(--filter-red)'
+              : 'filter: var(--filter-svg)'}
             class="tienda-logo"
             src=${svgStorefront}
             alt="storefront"
@@ -223,13 +224,15 @@ export class HeaderComponent extends LitElement {
     const darkMode = !this.isDarkMode;
     const root = document.querySelector(':root');
     if (darkMode) {
-      root.style.setProperty('--color-primary', '#333');
-      root.style.setProperty('--color-secondary', '#fff');
-      root.style.setProperty('--color-tertiary', '#ccc');
+      root.style.setProperty('--color-primary', ' white');
+      root.style.setProperty('--color-secondary', '#231f20');
+      root.style.setProperty('--color-tertiary', 'black');
+      root.style.setProperty('--filter-svg', 'var(--filter-white)');
     } else {
-      root.style.setProperty('--color-primary', '#fff');
-      root.style.setProperty('--color-secondary', '#333');
-      root.style.setProperty('--color-tertiary', '#f00');
+      root.style.setProperty('--color-primary', ' #231f20');
+      root.style.setProperty('--color-secondary', 'white');
+      root.style.setProperty('--color-tertiary', '#e4e4e4');
+      root.style.setProperty('--filter-svg', 'var(--filter-black)');
     }
     this.isDarkMode = darkMode;
   }

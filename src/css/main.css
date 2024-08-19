@@ -3,6 +3,13 @@
   --color-primary: #231f20;
   --color-secondary: white;
   --color-tertiary: #e4e4e4;
+  --filter-red: invert(15%) sepia(82%) saturate(3350%) hue-rotate(355deg)
+    brightness(101%) contrast(79%);
+  --filter-black: invert(0%) sepia(96%) saturate(16%) hue-rotate(246deg)
+    brightness(98%) contrast(105%);
+  --filter-white: invert(100%) sepia(100%) saturate(0%) hue-rotate(147deg)
+    brightness(107%) contrast(102%);
+  --filter-svg: var(--filter-black);
   /* --md-sys-color-primary: var(--color-primary); */
 }
 
@@ -21,7 +28,8 @@ body {
   :root {
     --color-primary: white;
     --color-secondary: #231f20;
-    --color-tertiary: #333;
-    --md-sys-color-primary: white;
+    --color-tertiary: #231f20;
+    --filter-svg: var(--filter-white);
+    /* --md-sys-color-primary: white; */
   }
 }

@@ -17,7 +17,6 @@ export const styles = css`
 
   .tienda-logo {
     width: 30px;
-    color: var(--color-primary);
   }
 
   .search-form {
