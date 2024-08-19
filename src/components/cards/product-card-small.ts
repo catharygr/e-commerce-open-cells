@@ -58,6 +58,7 @@ export class ProductCardSmall extends LitElement {
       .card-img {
         object-fit: contain;
         aspect-ratio: 1/1;
+        background-color: white;
       }
 
       .card-content {

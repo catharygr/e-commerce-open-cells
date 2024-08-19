@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { LitElement, html } from 'lit';
-import { customElement, query } from 'lit/decorators.js';
+import { customElement, query, state } from 'lit/decorators.js';
 import { styles } from './header.css.js';
 import CssReset from '../../css/reset.css.js';
 import '@material/web/icon/icon.js';
@@ -11,6 +11,7 @@ import { PageController } from '@open-cells/page-controller';
 import svgAccountCircle from '@material-design-icons/svg/outlined/account_circle.svg';
 import svgFavorite from '@material-design-icons/svg/outlined/favorite_border.svg';
 import svgDarkMode from '@material-design-icons/svg/outlined/dark_mode.svg';
+import svgLightMode from '@material-design-icons/svg/outlined/light_mode.svg';
 import svgShoppingCart from '@material-design-icons/svg/outlined/shopping_cart.svg';
 import svgStorefront from '@material-design-icons/svg/outlined/storefront.svg';
 import svgSearch from '@material-design-icons/svg/outlined/search.svg';
@@ -38,6 +39,7 @@ export class HeaderComponent extends LitElement {
   @query('.cart') cart;
   @query('.search-modal') searchModal;
   @query('.search-field') searchField;
+  // @query(':root') root;
 
   static inbounds = {
     userState: { channel: 'user-state' },
@@ -48,6 +50,23 @@ export class HeaderComponent extends LitElement {
   static outbounds = {
     searchQuery: { channel: 'search-query' },
   };
+
+  @state()
+  isDarkMode = false;
+
+  firstUpdated() {
+    if (
+      window.matchMedia &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches
+    ) {
+      this.isDarkMode = true;
+    } else if (
+      window.matchMedia &&
+      window.matchMedia('(prefers-color-scheme: light)').matches
+    ) {
+      this.isDarkMode = false;
+    }
+  }
 
   render() {
     // HTMl template para la navegación
@@ -146,9 +165,9 @@ export class HeaderComponent extends LitElement {
             alt="storefront"
           />
         </a>
-        <button @click=${this.openNavegation} class="open-menu-btn">
+        <md-icon-button @click=${this.openNavegation} class="open-menu-btn">
           <img src="${svgMenu}" alt="menu" />
-        </button>
+        </md-icon-button>
         ${navTemplate}
         <form @submit=${this.handleSubmit} class="search-form">
           <md-filled-text-field
@@ -163,28 +182,34 @@ export class HeaderComponent extends LitElement {
           </md-filled-text-field>
         </form>
         <div class="action-header">
-          <button @click=${() => this.pageController.navigate('account')}>
+          <md-icon-button
+            @click=${() => this.pageController.navigate('account')}
+          >
             <img
               style=${this.userState?.isLogged === true &&
               'filter: invert(80%) sepia(31%) saturate(6604%) hue-rotate(70deg) brightness(97%) contrast(82%)'}
               src=${svgAccountCircle}
               alt="account"
             />
-          </button>
-          <button @click=${() => this.pageController.navigate('favorites')}>
+          </md-icon-button>
+          <md-icon-button
+            @click=${() => this.pageController.navigate('favorites')}
+          >
             <img src="${svgFavorite}" alt="favorite" />
-          </button>
-          <button>
-            <img src="${svgDarkMode}" alt="dark mode" />
-          </button>
-          <button class="cart-btn" @click=${this.openCart}>
+          </md-icon-button>
+          <md-icon-button @click=${this.handleDarkMode}>
+            ${!this.isDarkMode
+              ? html`<img src="${svgDarkMode}" alt="dark mode" />`
+              : html`<img src="${svgLightMode}" alt="light mode" />`}
+          </md-icon-button>
+          <md-icon-button class="cart-btn" @click=${this.openCart}>
             <img src="${svgShoppingCart}" alt="shopping cart" />
             ${this.userState?.cart.length
               ? html`<span class="cart-count"
                   >${this.userState?.cart.length}</span
                 >`
               : ''}
-          </button>
+          </md-icon-button>
           <md-icon-button @click=${this.toggleLanguage} class="icon-language"
             ><img src="${svgLanguage}" alt="Language"
           /></md-icon-button>
@@ -192,6 +217,21 @@ export class HeaderComponent extends LitElement {
         ${cartTemplate}
       </header>
     `;
+  }
+
+  handleDarkMode() {
+    const darkMode = !this.isDarkMode;
+    const root = document.querySelector(':root');
+    if (darkMode) {
+      root.style.setProperty('--color-primary', '#333');
+      root.style.setProperty('--color-secondary', '#fff');
+      root.style.setProperty('--color-tertiary', '#ccc');
+    } else {
+      root.style.setProperty('--color-primary', '#fff');
+      root.style.setProperty('--color-secondary', '#333');
+      root.style.setProperty('--color-tertiary', '#f00');
+    }
+    this.isDarkMode = darkMode;
   }
 
   openNavegation() {

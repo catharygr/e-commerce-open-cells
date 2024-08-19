@@ -17,6 +17,7 @@ export const styles = css`
 
   .tienda-logo {
     width: 30px;
+    color: var(--color-primary);
   }
 
   .search-form {
@@ -70,7 +71,6 @@ export const styles = css`
     display: flex;
     justify-content: center;
     flex-grow: 1;
-    gap: 0.5rem;
   }
 
   .close-menu-icon {
