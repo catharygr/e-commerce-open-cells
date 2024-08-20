@@ -25,7 +25,13 @@
     "user-name": "Username",
     "user-title": "User Account",
     "user-admin": "Admin session.",
-    "user-admin-btn": "Admin"
+    "user-admin-btn": "Admin",
+    "login-title": "Log in to your account.",
+    "login-name": "Name",
+    "login-email": "Email",
+    "login-password": "Password",
+    "login-admin": "Are you an admin?",
+    "login-btn-enter": "Log in"
   },
   "es": {
     "header-home": "Inicio",
@@ -53,6 +59,12 @@
     "user-name": "Nombre de usuario",
     "user-title": "Cuenta de usuario",
     "user-admin": "Sesión de admin.",
-    "user-admin-btn": "Admin"
+    "user-admin-btn": "Admin",
+    "login-title": "Inicia sesión en tu cuenta.",
+    "login-name": "Nombre",
+    "login-email": "Email",
+    "login-password": "Contraseña",
+    "login-admin": "¿Eres admin?",
+    "login-btn-enter": "Entrar"
   }
 }

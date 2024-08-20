@@ -19,7 +19,6 @@ export class SearchModalCard extends LitElement {
 
         & h3 {
           font-size: 0.8rem;
-          color: black;
         }
 
         & img {

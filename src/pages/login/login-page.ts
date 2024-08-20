@@ -10,10 +10,16 @@ import CssReset from '../../css/reset.css.js';
 import svgVisibility from '@material-design-icons/svg/outlined/visibility.svg';
 import svgVisibilityOff from '@material-design-icons/svg/outlined/visibility_off.svg';
 import { PageController } from '@open-cells/page-controller';
+import { t, updateWhenLocaleResourcesChange } from '@open-cells/localize';
 
 @customElement('login-page')
 export class LoginPage extends LitElement {
   pageController = new PageController(this);
+
+  constructor() {
+    super();
+    updateWhenLocaleResourcesChange(this);
+  }
   static styles = [
     CssReset,
     css`
@@ -94,11 +100,11 @@ export class LoginPage extends LitElement {
   render() {
     return html`
       <div class="container">
-        <h2 class="titulo">Entra a tu cuenta</h2>
+        <h2 class="titulo">${t('login-title')}</h2>
         <form @submit=${this.handleSubmmit} class="form-login">
           <md-outlined-text-field
             required
-            label="Nombre"
+            label=${t('login-name')}
             id="nombre"
             name="nombre"
             type="text"
@@ -106,7 +112,7 @@ export class LoginPage extends LitElement {
           </md-outlined-text-field>
           <md-outlined-text-field
             required
-            label="Email"
+            label=${t('login-email')}
             id="email"
             name="email"
             type="email"
@@ -114,7 +120,7 @@ export class LoginPage extends LitElement {
           </md-outlined-text-field>
           <md-outlined-text-field
             required
-            label="Password"
+            label=${t('login-password')}
             id="password"
             name="password"
             type="password"
@@ -136,9 +142,9 @@ export class LoginPage extends LitElement {
           </md-outlined-text-field>
           <label for="admin">
             <md-checkbox id="admin"></md-checkbox>
-            ¿Eres admin?
+            ${t('login-admin')}
           </label>
-          <md-filled-button>Entrar</md-filled-button>
+          <md-filled-button>${t('login-btn-enter')}</md-filled-button>
         </form>
       </div>
     `;

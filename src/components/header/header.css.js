@@ -51,6 +51,9 @@ export const styles = css`
     & :is(.search-modal-close-btn, .search-modal-btn) {
       align-self: flex-end;
     }
+    & p {
+      color: black;
+    }
   }
 
   md-filled-text-field {
