@@ -1,5 +1,6 @@
 // @ts-nocheck
 import { html, LitElement, css } from 'lit';
+import { map } from 'lit/directives/map.js';
 import { PageController } from '@open-cells/page-controller';
 import { customElement, state, query } from 'lit/decorators.js';
 import CssReset from '../../css/reset.css.js';
@@ -95,6 +96,11 @@ export class HomePage extends LitElement {
   };
 
   render() {
+    // map(
+    //   this.randomProducts,
+    //   (product) =>
+    //     html`<home-card .product=${this.getRandomProducts()}></home-card>`
+    // );
     this.randomProducts = new Array(5)
       .fill(null)
       .map(
