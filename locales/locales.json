@@ -36,7 +36,10 @@
     "add-go-list": "Go to list",
     "add-title-product": "Title",
     "add-description": "Description",
-    "add-category": "Category"
+    "add-category": "Category",
+    "add-price": "Price",
+    "add-offer": "Product on sale",
+    "add-product-btn": "Save"
   },
   "es": {
     "header-home": "Inicio",
@@ -75,6 +78,9 @@
     "add-go-list": "Ir a la lista",
     "add-title-product": "Título",
     "add-description": "Descripción",
-    "add-category": "Categoría"
+    "add-category": "Categoría",
+    "add-price": "Precio",
+    "add-offer": "Producto en oferta",
+    "add-product-btn": "Guardar"
   }
 }

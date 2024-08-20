@@ -56,6 +56,10 @@ export class AddPage extends LitElement {
         --md-sys-color-primary: green;
       }
 
+      .add-icon-svg {
+        filter: var(--filter-svg);
+      }
+
       .delete-btn {
         --md-sys-color-primary: red;
       }
@@ -123,7 +127,9 @@ export class AddPage extends LitElement {
               e.preventDefault();
               this.pageController.backStep();
             }}
-            ><img src=${svgArrowBack} />${t('add-go-list')}</a
+            ><img class="add-icon-svg" src=${svgArrowBack} />${t(
+              'add-go-list'
+            )}</a
           >
         </div>
         <form @submit=${this.handleSaveProduct} class="add-form">
