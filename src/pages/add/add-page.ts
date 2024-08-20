@@ -129,7 +129,7 @@ export class AddPage extends LitElement {
         <form @submit=${this.handleSaveProduct} class="add-form">
           <md-filled-text-field
             id="title"
-            label=${t('add-title')}
+            label=${t('add-title-product')}
             type="textarea"
             rows="2"
           ></md-filled-text-field>

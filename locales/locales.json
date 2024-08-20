@@ -33,7 +33,10 @@
     "login-admin": "Are you an admin?",
     "login-btn-enter": "Log in",
     "add-title": "Add Product",
-    "add-go-list": "Go to list"
+    "add-go-list": "Go to list",
+    "add-title-product": "Title",
+    "add-description": "Description",
+    "add-category": "Category"
   },
   "es": {
     "header-home": "Inicio",
@@ -69,6 +72,9 @@
     "login-admin": "¿Eres admin?",
     "login-btn-enter": "Entrar",
     "add-title": "Agregar producto",
-    "add-go-list": "Ir a la lista"
+    "add-go-list": "Ir a la lista",
+    "add-title-product": "Título",
+    "add-description": "Descripción",
+    "add-category": "Categoría"
   }
 }
