@@ -233,6 +233,19 @@
         "rate": 4.5,
         "count": 146
       }
+    },
+    {
+      "id": "8aef9539-6e13-4b23-9d18-5e4077f04829",
+      "title": "Camisa",
+      "price": 34.45,
+      "offer": true,
+      "description": "Para hombre",
+      "category": "Hombre",
+      "image": "https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg",
+      "rating": {
+        "rate": "0.9",
+        "count": 269
+      }
     }
   ]
 }

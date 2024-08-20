@@ -2,8 +2,8 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, query } from 'lit/decorators.js';
 import '@material/web/textfield/outlined-text-field';
+import '@material/web/textfield/filled-text-field';
 import '@material/web/button/filled-button.js';
-import '@material/web/iconbutton/icon-button.js';
 import '@material/web/iconbutton/icon-button.js';
 import '@material/web/checkbox/checkbox.js';
 import CssReset from '../../css/reset.css.js';
@@ -40,6 +40,10 @@ export class LoginPage extends LitElement {
         width: min(90vw, 30rem);
         margin-block: 2rem;
         gap: 1rem;
+      }
+
+      .btn-icon-svg {
+        filter: var(--filter-svg);
       }
 
       md-filled-button {
@@ -102,23 +106,23 @@ export class LoginPage extends LitElement {
       <div class="container">
         <h2 class="titulo">${t('login-title')}</h2>
         <form @submit=${this.handleSubmmit} class="form-login">
-          <md-outlined-text-field
+          <md-filled-text-field
             required
             label=${t('login-name')}
             id="nombre"
             name="nombre"
             type="text"
           >
-          </md-outlined-text-field>
-          <md-outlined-text-field
+          </md-filled-text-field>
+          <md-filled-text-field
             required
             label=${t('login-email')}
             id="email"
             name="email"
             type="email"
           >
-          </md-outlined-text-field>
-          <md-outlined-text-field
+          </md-filled-text-field>
+          <md-filled-text-field
             required
             label=${t('login-password')}
             id="password"
@@ -128,6 +132,7 @@ export class LoginPage extends LitElement {
           >
             <md-icon-button
               @click=${this.togglePasswordVisibility}
+              class="btn-icon-svg"
               toggle
               slot="trailing-icon"
               type="button"
@@ -139,7 +144,7 @@ export class LoginPage extends LitElement {
                 alt="visibility_off"
               />
             </md-icon-button>
-          </md-outlined-text-field>
+          </md-filled-text-field>
           <label for="admin">
             <md-checkbox id="admin"></md-checkbox>
             ${t('login-admin')}

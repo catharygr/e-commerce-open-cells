@@ -5,6 +5,7 @@ import CssReset from '../../css/reset.css.js';
 import { PageController } from '@open-cells/page-controller';
 import '@material/web/button/filled-button.js';
 import '@material/web/textfield/outlined-text-field';
+import '@material/web/button/filled-button.js';
 import '@material/web/checkbox/checkbox.js';
 import svgArrowBack from '@material-design-icons/svg/filled/arrow_back.svg';
 import { fetchData, addProduct } from '../../utilidades/backend.js';
@@ -120,29 +121,29 @@ export class AddPage extends LitElement {
           >
         </div>
         <form @submit=${this.handleSaveProduct} class="add-form">
-          <md-outlined-text-field
+          <md-filled-text-field
             id="title"
             label="Title"
             type="textarea"
             rows="2"
-          ></md-outlined-text-field>
-          <md-outlined-text-field
+          ></md-filled-text-field>
+          <md-filled-text-field
             id="description"
             label="Description"
             type="textarea"
             rows="5"
-          ></md-outlined-text-field>
-          <md-outlined-text-field
+          ></md-filled-text-field>
+          <md-filled-text-field
             id="category"
             label="Category"
             type="text"
-          ></md-outlined-text-field>
-          <md-outlined-text-field
+          ></md-filled-text-field>
+          <md-filled-text-field
             id="price"
             label="Price"
             type="text"
-            suffix-text="€"
-          ></md-outlined-text-field>
+            rows="5"
+          ></md-filled-text-field>
           <label>
             <md-checkbox touch-target="wrapper" id="offer"></md-checkbox>
             Producto en oferta
