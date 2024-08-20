@@ -129,34 +129,34 @@ export class AddPage extends LitElement {
         <form @submit=${this.handleSaveProduct} class="add-form">
           <md-filled-text-field
             id="title"
-            label="Title"
+            label=${t('add-title')}
             type="textarea"
             rows="2"
           ></md-filled-text-field>
           <md-filled-text-field
             id="description"
-            label="Description"
+            label=${t('add-description')}
             type="textarea"
             rows="5"
           ></md-filled-text-field>
           <md-filled-text-field
             id="category"
-            label="Category"
+            label=${t('add-category')}
             type="text"
           ></md-filled-text-field>
           <md-filled-text-field
             id="price"
-            label="Price"
+            label=${t('add-price')}
             type="text"
             rows="5"
           ></md-filled-text-field>
           <label>
             <md-checkbox touch-target="wrapper" id="offer"></md-checkbox>
-            Producto en oferta
+            ${t('add-offer')}
           </label>
 
           <md-filled-button class="save-btn" type="submit"
-            >Guardar</md-filled-button
+            >${t('add-product-btn')}</md-filled-button
           >
         </form>
       </section>
