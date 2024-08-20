@@ -11,13 +11,12 @@ export class FooterComponent extends LitElement {
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: #e4e4e4;
-        border-top: 1px solid #e0e0e0;
+        background-color: var(--color-tertiary);
         padding-block: 1rem;
       }
 
       footer a {
-        color: red;
+        color: orange;
       }
 
       footer a:hover {
