@@ -31,7 +31,9 @@
     "login-email": "Email",
     "login-password": "Password",
     "login-admin": "Are you an admin?",
-    "login-btn-enter": "Log in"
+    "login-btn-enter": "Log in",
+    "add-title": "Add Product",
+    "add-go-list": "Go to list"
   },
   "es": {
     "header-home": "Inicio",
@@ -65,6 +67,8 @@
     "login-email": "Email",
     "login-password": "Contraseña",
     "login-admin": "¿Eres admin?",
-    "login-btn-enter": "Entrar"
+    "login-btn-enter": "Entrar",
+    "add-title": "Agregar producto",
+    "add-go-list": "Ir a la lista"
   }
 }

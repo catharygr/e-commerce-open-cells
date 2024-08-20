@@ -9,10 +9,16 @@ import '@material/web/button/filled-button.js';
 import '@material/web/checkbox/checkbox.js';
 import svgArrowBack from '@material-design-icons/svg/filled/arrow_back.svg';
 import { fetchData, addProduct } from '../../utilidades/backend.js';
+import { t, updateWhenLocaleResourcesChange } from '@open-cells/localize';
 
 @customElement('add-page')
 export class AddPage extends LitElement {
   pageController = new PageController(this);
+
+  constructor() {
+    super();
+    updateWhenLocaleResourcesChange(this);
+  }
 
   static styles = [
     CssReset,
@@ -109,7 +115,7 @@ export class AddPage extends LitElement {
     return html`
       <section class="container">
         <div class="add-header">
-          <h1>Añadir producto</h1>
+          <h1>${t('add-title')}</h1>
           <a
             class="link-back"
             href="/account/admin"
@@ -117,7 +123,7 @@ export class AddPage extends LitElement {
               e.preventDefault();
               this.pageController.backStep();
             }}
-            ><img src=${svgArrowBack} />Ir a la lista</a
+            ><img src=${svgArrowBack} />${t('add-go-list')}</a
           >
         </div>
         <form @submit=${this.handleSaveProduct} class="add-form">
