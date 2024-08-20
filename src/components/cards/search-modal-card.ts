@@ -19,6 +19,7 @@ export class SearchModalCard extends LitElement {
 
         & h3 {
           font-size: 0.8rem;
+          color: black;
         }
 
         & img {
@@ -43,7 +44,7 @@ export class SearchModalCard extends LitElement {
 
   render() {
     return html`
-      <div class="search-modal-card">
+      <div>
         <img src="${this.product?.image}" alt="${this.product?.title}" />
         <h3>${this.product?.title.slice(0, 30)}</h3>
         <p class="price">

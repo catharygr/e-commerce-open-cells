@@ -90,6 +90,7 @@ export class HomeCard extends LitElement {
         width: 1rem;
         height: 1rem;
         font-size: 1rem;
+        filter: var(--filter-svg);
       }
       .offer-triangle {
         position: absolute;

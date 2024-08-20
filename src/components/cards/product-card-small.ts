@@ -97,6 +97,7 @@ export class ProductCardSmall extends LitElement {
 
       .card-rating {
         display: flex;
+        filter: var(--filter-svg);
       }
 
       .opiniones-stars-svg {

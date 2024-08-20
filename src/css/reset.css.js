@@ -83,4 +83,7 @@ export default css`
     list-style: none;
     padding: 0;
   }
+  a {
+    color: var(--link-color);
+  }
 `;

@@ -187,8 +187,9 @@ export class HeaderComponent extends LitElement {
             @click=${() => this.pageController.navigate('account')}
           >
             <img
-              style=${this.userState?.isLogged === true &&
-              'filter: invert(80%) sepia(31%) saturate(6604%) hue-rotate(70deg) brightness(97%) contrast(82%)'}
+              style=${this.userState?.isLogged
+                ? 'filter: var(--filter-green)'
+                : 'filter: var(--filter-svg)'}
               src=${svgAccountCircle}
               alt="account"
             />
@@ -196,15 +197,31 @@ export class HeaderComponent extends LitElement {
           <md-icon-button
             @click=${() => this.pageController.navigate('favorites')}
           >
-            <img src="${svgFavorite}" alt="favorite" />
+            <img
+              class="action-header-svg"
+              src="${svgFavorite}"
+              alt="favorite"
+            />
           </md-icon-button>
           <md-icon-button @click=${this.handleDarkMode}>
             ${!this.isDarkMode
-              ? html`<img src="${svgDarkMode}" alt="dark mode" />`
-              : html`<img src="${svgLightMode}" alt="light mode" />`}
+              ? html`<img
+                  class="action-header-svg"
+                  src="${svgDarkMode}"
+                  alt="dark mode"
+                />`
+              : html`<img
+                  class="action-header-svg"
+                  src="${svgLightMode}"
+                  alt="light mode"
+                />`}
           </md-icon-button>
           <md-icon-button class="cart-btn" @click=${this.openCart}>
-            <img src="${svgShoppingCart}" alt="shopping cart" />
+            <img
+              class="action-header-svg"
+              src="${svgShoppingCart}"
+              alt="shopping cart"
+            />
             ${this.userState?.cart.length
               ? html`<span class="cart-count"
                   >${this.userState?.cart.length}</span
@@ -212,7 +229,7 @@ export class HeaderComponent extends LitElement {
               : ''}
           </md-icon-button>
           <md-icon-button @click=${this.toggleLanguage} class="icon-language"
-            ><img src="${svgLanguage}" alt="Language"
+            ><img class="action-header-svg" src="${svgLanguage}" alt="Language"
           /></md-icon-button>
         </div>
         ${cartTemplate}

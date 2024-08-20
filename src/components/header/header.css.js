@@ -71,6 +71,9 @@ export const styles = css`
     justify-content: center;
     flex-grow: 1;
   }
+  .action-header-svg {
+    filter: var(--filter-svg);
+  }
 
   .close-menu-icon {
     width: 1em;
