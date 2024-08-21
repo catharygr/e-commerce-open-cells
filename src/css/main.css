@@ -31,7 +31,7 @@ body {
   :root {
     --color-primary: white;
     --color-secondary: #231f20;
-    --color-tertiary: black;
+    --color-tertiary: #111;
     --filter-svg: var(--filter-white);
     /* --md-sys-color-primary: white; */
   }
