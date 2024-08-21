@@ -4,10 +4,16 @@ import { customElement } from 'lit/decorators.js';
 import CssReset from '../../css/reset.css.js';
 import { PageController } from '@open-cells/page-controller';
 import '@material/web/button/filled-button.js';
+import { t, updateWhenLocaleResourcesChange } from '@open-cells/localize';
 
 @customElement('admin-page')
 export class AdminPage extends LitElement {
   pageController = new PageController(this);
+
+  constructor() {
+    super();
+    updateWhenLocaleResourcesChange(this);
+  }
 
   static styles = [
     CssReset,
@@ -60,15 +66,15 @@ export class AdminPage extends LitElement {
   render() {
     return html`<div class="container">
       <div class="admin-add">
-        <h1>Admin</h1>
+        <h1>${t('admin-title')}</h1>
         <md-filled-button
           @click=${() => this.pageController.navigate('add')}
           class="add-btn"
-          >Añadir producto</md-filled-button
+          >${t('admin-add-product')}</md-filled-button
         >
       </div>
       <b>
-        <p>Puedes editar en produtos que ya existen o cargar uno nuevo</p>
+        <p>${t('admin-msg')}</p>
       </b>
       <div class="admin-edit">
         ${this.allProducts?.map(
@@ -81,7 +87,7 @@ export class AdminPage extends LitElement {
                   this.pageController.navigate('edit', {
                     productId: product.id,
                   })}
-                >Editar</md-filled-button
+                >${t('admin-edit')}</md-filled-button
               >
             </div>`
         )}
