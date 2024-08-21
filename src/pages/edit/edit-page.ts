@@ -6,6 +6,7 @@ import { PageController } from '@open-cells/page-controller';
 import '@material/web/button/filled-button.js';
 import '@material/web/textfield/outlined-text-field';
 import '@material/web/checkbox/checkbox.js';
+import { t, updateWhenLocaleResourcesChange } from '@open-cells/localize';
 import svgArrowBack from '@material-design-icons/svg/filled/arrow_back.svg';
 import {
   editProduct,
@@ -16,6 +17,11 @@ import {
 @customElement('edit-page')
 export class EditPage extends LitElement {
   pageController = new PageController(this);
+
+  constructor() {
+    super();
+    updateWhenLocaleResourcesChange(this);
+  }
 
   static styles = [
     CssReset,
@@ -86,7 +92,7 @@ export class EditPage extends LitElement {
     return html`
       <section class="container">
         <div class="edit-header">
-          <h1>Editar producto</h1>
+          <h1>${t('edit-product')}</h1>
           <a
             class="link-back"
             href="/account/admin"
@@ -94,27 +100,27 @@ export class EditPage extends LitElement {
               e.preventDefault();
               this.pageController.backStep();
             }}
-            ><img src=${svgArrowBack} />Ir a la lista</a
+            ><img src=${svgArrowBack} />${t('edit-go-list')}</a
           >
         </div>
         <form @submit=${this.handleSaveProduct} class="edit-form">
           <md-outlined-text-field
             id="title"
-            label="Title"
+            label=${t('edit-title-product')}
             type="textarea"
             rows="2"
             value=${this.product?.title}
           ></md-outlined-text-field>
           <md-outlined-text-field
             id="description"
-            label="Description"
+            label=${t('edit-description')}
             type="textarea"
             rows="5"
             value=${this.product?.description}
           ></md-outlined-text-field>
           <md-outlined-text-field
             id="price"
-            label="Price"
+            label=${t('edit-price')}
             type="text"
             suffix-text="€"
             value=${this.product?.price.toFixed(2)}
@@ -125,15 +131,15 @@ export class EditPage extends LitElement {
               ?checked=${this.product?.offer}
               id="offer"
             ></md-checkbox>
-            Producto en oferta
+            ${t('edit-offer')}
           </label>
 
           <md-filled-button class="save-btn" type="submit"
-            >Guardar</md-filled-button
+            >${t('edit-save')}</md-filled-button
           >
         </form>
         <md-filled-button @click=${this.handleDeleteProduct} class="delete-btn"
-          >Eliminar</md-filled-button
+          >${t('edit-delete')}</md-filled-button
         >
       </section>
     `;
