@@ -245,11 +245,15 @@ export class HeaderComponent extends LitElement {
       root.style.setProperty('--color-secondary', '#231f20');
       root.style.setProperty('--color-tertiary', 'black');
       root.style.setProperty('--filter-svg', 'var(--filter-white)');
+      root.style.setProperty('--btn-color-save', 'green');
+      root.style.setProperty('--btn-color-delete', 'red');
     } else {
       root.style.setProperty('--color-primary', ' #231f20');
       root.style.setProperty('--color-secondary', 'white');
       root.style.setProperty('--color-tertiary', '#e4e4e4');
       root.style.setProperty('--filter-svg', 'var(--filter-black)');
+      root.style.setProperty('--btn-color-save', 'green');
+      root.style.setProperty('--btn-color-delete', 'red');
     }
     this.isDarkMode = darkMode;
   }

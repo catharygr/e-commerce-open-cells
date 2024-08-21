@@ -13,7 +13,8 @@
     brightness(107%) contrast(102%);
   --filter-svg: var(--filter-black);
   --link-color: darkorange;
-  /* --md-sys-color-primary: var(--color-primary); */
+  --btn-color-save: var(--btn-color-save);
+  --btn-color-delete: var(--btn-color-delete);
 }
 
 html,
@@ -33,6 +34,9 @@ body {
     --color-secondary: #231f20;
     --color-tertiary: #111;
     --filter-svg: var(--filter-white);
+    --btn-color-save: green;
+    --btn-color-delete: red;
+
     /* --md-sys-color-primary: white; */
   }
 }

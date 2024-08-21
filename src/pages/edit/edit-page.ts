@@ -56,11 +56,15 @@ export class EditPage extends LitElement {
       }
 
       .save-btn {
-        --md-sys-color-primary: green;
+        --md-sys-color-primary: var(--btn-color-save);
       }
 
       .delete-btn {
-        --md-sys-color-primary: red;
+        --md-sys-color-primary: var(--btn-color-delete);
+      }
+
+      .edit-icon-svg {
+        filter: var(--filter-svg);
       }
     `,
   ];
@@ -135,14 +139,13 @@ export class EditPage extends LitElement {
             ></md-checkbox>
             ${t('edit-offer')}
           </label>
-
           <md-filled-button class="save-btn" type="submit"
-            >${t('edit-save')}</md-filled-button
-          >
+            >${t('edit-save')}
+          </md-filled-button>
         </form>
         <md-filled-button @click=${this.handleDeleteProduct} class="delete-btn"
-          >${t('edit-delete')}</md-filled-button
-        >
+          >${t('edit-delete')}
+        </md-filled-button>
       </section>
     `;
   }
