@@ -42,7 +42,8 @@
     "add-product-btn": "Save",
     "admin-add-product": "Add Product",
     "admin-title": "Admin Panel",
-    "admin-msg": "You can edit existing products or upload a new one."
+    "admin-msg": "You can edit existing products or upload a new one.",
+    "admin-edit": "Edit"
   },
   "es": {
     "header-home": "Inicio",
@@ -87,6 +88,7 @@
     "add-product-btn": "Guardar",
     "admin-add-product": "Agregar Producto",
     "admin-title": "Panel de Admin",
-    "admin-msg": "Puedes editar productos existentes o cargar uno nuevo."
+    "admin-msg": "Puedes editar productos existentes o cargar uno nuevo.",
+    "admin-edit": "Editar"
   }
 }
