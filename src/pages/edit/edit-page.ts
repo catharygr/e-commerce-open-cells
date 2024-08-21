@@ -100,31 +100,33 @@ export class EditPage extends LitElement {
               e.preventDefault();
               this.pageController.backStep();
             }}
-            ><img src=${svgArrowBack} />${t('edit-go-list')}</a
+            ><img class="edit-icon-svg" src=${svgArrowBack} />${t(
+              'edit-go-list'
+            )}</a
           >
         </div>
         <form @submit=${this.handleSaveProduct} class="edit-form">
-          <md-outlined-text-field
+          <md-filled-text-field
             id="title"
             label=${t('edit-title-product')}
             type="textarea"
             rows="2"
             value=${this.product?.title}
-          ></md-outlined-text-field>
-          <md-outlined-text-field
+          ></md-filled-text-field>
+          <md-filled-text-field
             id="description"
             label=${t('edit-description')}
             type="textarea"
             rows="5"
             value=${this.product?.description}
-          ></md-outlined-text-field>
-          <md-outlined-text-field
+          ></md-filled-text-field>
+          <md-filled-text-field
             id="price"
             label=${t('edit-price')}
             type="text"
             suffix-text="€"
             value=${this.product?.price.toFixed(2)}
-          ></md-outlined-text-field>
+          ></md-filled-text-field>
           <label>
             <md-checkbox
               touch-target="wrapper"

@@ -3,7 +3,6 @@ import { LitElement, html, css } from 'lit';
 import { customElement, property, query, state } from 'lit/decorators.js';
 import CssReset from '../../css/reset.css.js';
 import { PageController } from '@open-cells/page-controller';
-import '@material/web/button/filled-button.js';
 import '@material/web/textfield/outlined-text-field';
 import '@material/web/button/filled-button.js';
 import '@material/web/checkbox/checkbox.js';
