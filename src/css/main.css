@@ -15,8 +15,8 @@
   --link-color: darkorange;
   --btn-color-save: var(--btn-color-save);
   --btn-color-delete: var(--btn-color-delete);
-  --btn-color-save-disabled: lightgreen;
-  --btn-color-delete-disabled: lightcoral;
+  --btn-color-save-disabled: #e4e4e4;
+  --btn-color-delete-disabled: #e4e4e4;
   --btn-text-color-disabled: grey;
 }
 
@@ -39,8 +39,8 @@ body {
     --filter-svg: var(--filter-white);
     --btn-color-save: green;
     --btn-color-delete: red;
-    --btn-color-save-disabled: darkgreen;
-    --btn-color-delete-disabled: darkred;
+    --btn-color-save-disabled: #e4e4e4;
+    --btn-color-delete-disabled: #e4e4e4;
     --btn-text-color-disabled: grey;
   }
 }
