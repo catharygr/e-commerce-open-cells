@@ -87,6 +87,9 @@ export const styles = css`
     filter: invert(20%) sepia(100%) saturate(7500%) hue-rotate(5deg)
       brightness(100%) contrast(105%);
   }
+  .menu-icon-svg {
+    filter: var(--filter-svg);
+  }
 
   .list-nav {
     display: flex;

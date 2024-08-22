@@ -167,7 +167,7 @@ export class HeaderComponent extends LitElement {
           />
         </a>
         <md-icon-button @click=${this.openNavegation} class="open-menu-btn">
-          <img src="${svgMenu}" alt="menu" />
+          <img class="menu-icon-svg" src="${svgMenu}" alt="menu" />
         </md-icon-button>
         ${navTemplate}
         <form @submit=${this.handleSubmit} class="search-form">
