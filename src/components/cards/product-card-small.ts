@@ -89,6 +89,11 @@ export class ProductCardSmall extends LitElement {
         --md-filled-button-trailing-space: 1rem;
       }
 
+      .cart-btn[disabled] {
+        background-color: var(--btn-color-save-disabled);
+        color: var(--btn-text-color-disabled);
+      }
+
       .card-details {
         display: flex;
         justify-content: space-between;

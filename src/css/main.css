@@ -42,7 +42,5 @@ body {
     --btn-color-save-disabled: darkgreen;
     --btn-color-delete-disabled: darkred;
     --btn-text-color-disabled: grey;
-
-    /* --md-sys-color-primary: white; */
   }
 }

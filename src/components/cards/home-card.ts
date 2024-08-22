@@ -76,6 +76,10 @@ export class HomeCard extends LitElement {
         --md-filled-button-leading-space: 1rem;
         --md-filled-button-trailing-space: 1rem;
       }
+      .cart-btn[disabled] {
+        background-color: var(--btn-color-save-disabled);
+        color: var(--btn-text-color-disabled);
+      }
       .opiniones {
         display: flex;
         font-size: 1rem;
