@@ -63,6 +63,16 @@ export class EditPage extends LitElement {
         --md-sys-color-primary: var(--btn-color-delete);
       }
 
+      .save-btn[disabled] {
+        background-color: var(--btn-color-save-disabled);
+        color: var(--btn-text-color-disabled);
+      }
+
+      .delete-btn[disabled] {
+        background-color: var(--btn-color-delete-disabled);
+        color: var(--btn-text-color-disabled);
+      }
+
       .edit-icon-svg {
         filter: var(--filter-svg);
       }

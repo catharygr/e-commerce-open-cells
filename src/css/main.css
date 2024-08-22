@@ -15,6 +15,9 @@
   --link-color: darkorange;
   --btn-color-save: var(--btn-color-save);
   --btn-color-delete: var(--btn-color-delete);
+  --btn-color-save-disabled: lightgreen;
+  --btn-color-delete-disabled: lightcoral;
+  --btn-text-color-disabled: grey;
 }
 
 html,
@@ -36,6 +39,9 @@ body {
     --filter-svg: var(--filter-white);
     --btn-color-save: green;
     --btn-color-delete: red;
+    --btn-color-save-disabled: darkgreen;
+    --btn-color-delete-disabled: darkred;
+    --btn-text-color-disabled: grey;
 
     /* --md-sys-color-primary: white; */
   }

@@ -247,6 +247,9 @@ export class HeaderComponent extends LitElement {
       root.style.setProperty('--filter-svg', 'var(--filter-white)');
       root.style.setProperty('--btn-color-save', 'green');
       root.style.setProperty('--btn-color-delete', 'red');
+      root.style.setProperty('--btn-color-save-disabled', 'darkgreen');
+      root.style.setProperty('--btn-color-delete-disabled', 'darkred');
+      root.style.setProperty('--btn-text-color-disabled', 'grey');
     } else {
       root.style.setProperty('--color-primary', ' #231f20');
       root.style.setProperty('--color-secondary', 'white');
@@ -254,6 +257,9 @@ export class HeaderComponent extends LitElement {
       root.style.setProperty('--filter-svg', 'var(--filter-black)');
       root.style.setProperty('--btn-color-save', 'green');
       root.style.setProperty('--btn-color-delete', 'red');
+      root.style.setProperty('--btn-color-save-disabled', 'lightgreen');
+      root.style.setProperty('--btn-color-delete-disabled', 'lightcoral');
+      root.style.setProperty('--btn-text-color-disabled', 'grey');
     }
     this.isDarkMode = darkMode;
   }
