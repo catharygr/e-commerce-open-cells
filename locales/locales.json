@@ -53,7 +53,8 @@
     "edit-save": "Save",
     "edit-delete": "Delete",
     "favorite-title": "Your Favorites",
-    "favorite-msg": "Please log in to view your favorites."
+    "favorite-msg": "Please log in to view your favorites.",
+    "favorite-empty": "You don't have any favorites yet."
   },
   "es": {
     "header-home": "Inicio",
@@ -109,6 +110,7 @@
     "edit-save": "Guardar",
     "edit-delete": "Eliminar",
     "favorite-title": "Tus Favoritos",
-    "favorite-msg": "Por favor, inicia sesión para ver tus favoritos."
+    "favorite-msg": "Por favor, inicia sesión para ver tus favoritos.",
+    "favorite-empty": "Aún no tienes favoritos."
   }
 }

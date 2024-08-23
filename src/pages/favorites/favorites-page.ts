@@ -72,7 +72,7 @@ export class FavoritesPage extends LitElement {
           <div class="container">
             ${this.userState.favorites.length
               ? this.renderCards()
-              : html`<h2 class="empty-fav">No tienes nada en favoritos.</h2>`}
+              : html`<h2 class="empty-fav">${t('favorite-empty')}</h2>`}
           </div>
         `;
   }
