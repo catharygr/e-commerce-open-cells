@@ -8,6 +8,7 @@ import { fetchData } from '../utilidades/backend.js';
 import { styles } from './app-index.css.js';
 import './header/header.js';
 import './footer/footer.js';
+import { getProductsMiddleware } from '../api/firebase.middlewares.js';
 
 startApp({
   routes,
@@ -54,7 +55,8 @@ export class AppIndex extends LitElement {
   async connectedCallback() {
     try {
       super.connectedCallback();
-      this.allProducts = await fetchData();
+      this.allProducts = await getProductsMiddleware();
+      // this.allProducts = await fetchData();
       if (sessionStorage.getItem('user')) {
         this.elementController.updateInterceptorContext({
           user: JSON.parse(sessionStorage.getItem('user')),

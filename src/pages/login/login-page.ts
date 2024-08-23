@@ -11,6 +11,8 @@ import svgVisibility from '@material-design-icons/svg/outlined/visibility.svg';
 import svgVisibilityOff from '@material-design-icons/svg/outlined/visibility_off.svg';
 import { PageController } from '@open-cells/page-controller';
 import { t, updateWhenLocaleResourcesChange } from '@open-cells/localize';
+import { auth } from '../../api/firebase.js';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 
 @customElement('login-page')
 export class LoginPage extends LitElement {
@@ -72,6 +74,8 @@ export class LoginPage extends LitElement {
     const role = this.shadowRoot?.querySelector('#admin').checked
       ? 'admin'
       : 'user';
+
+    signInWithEmailAndPassword(auth, email, password);
 
     // Guardar ambos en sessionStorage como un objecto
     sessionStorage.setItem(
