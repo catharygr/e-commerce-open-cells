@@ -6,6 +6,8 @@ import '@material/web/button/filled-button.js';
 import { PageController } from '@open-cells/page-controller';
 import { resetInterceptorContext } from '@open-cells/core/src/bridge.js';
 import { t, updateWhenLocaleResourcesChange } from '@open-cells/localize';
+import { signOut } from 'firebase/auth';
+import { auth } from '../../api/firebase.js';
 
 @customElement('account-page')
 export class AccountPage extends LitElement {
@@ -61,6 +63,7 @@ export class AccountPage extends LitElement {
   };
 
   handleLogOff() {
+    signOut(auth);
     sessionStorage.removeItem('user');
     this.pageController.resetInterceptorContext();
     this.userState = {
