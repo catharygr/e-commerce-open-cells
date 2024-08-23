@@ -8,10 +8,17 @@ import '../../components/cards/product-card-small.js';
 import { PageController } from '@open-cells/page-controller';
 import '@material/web/button/filled-button.js';
 import '@material/web/iconbutton/icon-button.js';
+import { t, updateWhenLocaleResourcesChange } from '@open-cells/localize';
 
 @customElement('favorites-page')
 export class FavoritesPage extends LitElement {
   pageController = new PageController(this);
+
+  constructor() {
+    super();
+    updateWhenLocaleResourcesChange(this);
+  }
+
   static styles = [
     CssReset,
     css`
@@ -52,10 +59,10 @@ export class FavoritesPage extends LitElement {
   render() {
     if (!this.userState?.isLogged) {
       return html` <div class="not-logged-container">
-        <h1>Tus favoritos</h1>
-        <p>Por favor login para ver tus favoritos</p>
+        <h1>${t('favorite-title')}</h1>
+        <p>${t('favorite-msg')}</p>
         <md-filled-button @click=${() => this.pageController.navigate('login')}
-          >Log in</md-filled-button
+          >${t('favorite-log-in')}</md-filled-button
         >
       </div>`;
     }

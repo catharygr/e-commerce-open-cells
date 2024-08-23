@@ -51,7 +51,9 @@
     "edit-price": "Price",
     "edit-offer": "Product on sale",
     "edit-save": "Save",
-    "edit-delete": "Delete"
+    "edit-delete": "Delete",
+    "favorite-title": "Your Favorites",
+    "favorite-msg": "Please log in to view your favorites."
   },
   "es": {
     "header-home": "Inicio",
@@ -105,6 +107,8 @@
     "edit-price": "Precio",
     "edit-offer": "Producto en oferta",
     "edit-save": "Guardar",
-    "edit-delete": "Eliminar"
+    "edit-delete": "Eliminar",
+    "favorite-title": "Tus Favoritos",
+    "favorite-msg": "Por favor, inicia sesión para ver tus favoritos."
   }
 }
