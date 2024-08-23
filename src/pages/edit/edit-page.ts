@@ -13,7 +13,11 @@ import {
   fetchData,
   deleteProduct,
 } from '../../utilidades/backend.js';
-import { getProductsMiddleware } from '../api/firebase.middlewares.js';
+import {
+  addProductMiddleware,
+  getProductsMiddleware,
+  removeProductMiddleware,
+} from '../../api/firebase.middlewares.js';
 
 @customElement('edit-page')
 export class EditPage extends LitElement {
@@ -179,7 +183,7 @@ export class EditPage extends LitElement {
         price: parseFloat(this.priceField.value),
         offer: this.checkbox.checked,
       };
-      await editProduct(newEditProduct);
+      await addProductMiddleware(newEditProduct);
       this.allProducts = await getProductsMiddleware();
       this.pageController.navigate('admin');
       this.form.reset();
@@ -192,7 +196,7 @@ export class EditPage extends LitElement {
     this.saveBtn.disabled = true;
     this.deleteBtn.disabled = true;
     try {
-      await deleteProduct(this.product?.id);
+      await removeProductMiddleware(this.product?.id);
       this.allProducts = await getProductsMiddleware();
       this.pageController.navigate('admin');
       this.form.reset();

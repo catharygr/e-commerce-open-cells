@@ -9,7 +9,10 @@ import '@material/web/checkbox/checkbox.js';
 import svgArrowBack from '@material-design-icons/svg/filled/arrow_back.svg';
 import { fetchData, addProduct } from '../../utilidades/backend.js';
 import { t, updateWhenLocaleResourcesChange } from '@open-cells/localize';
-import { getProductsMiddleware } from '../api/firebase.middlewares.js';
+import {
+  addProductMiddleware,
+  getProductsMiddleware,
+} from '../../api/firebase.middlewares.js';
 
 @customElement('add-page')
 export class AddPage extends LitElement {
@@ -95,7 +98,7 @@ export class AddPage extends LitElement {
         },
       };
 
-      await addProduct(newProduct);
+      await addProductMiddleware(newProduct);
       this.allProducts = await getProductsMiddleware();
       this.pageController.navigate('admin');
       this.addForm.reset();
