@@ -101,7 +101,6 @@ export class EditPage extends LitElement {
   @query('#offer') checkbox;
   @query('#title') titleField;
   @query('#description') descriptionField;
-  @query('#category') categoryField;
   @query('#price') priceField;
   @query('.edit-form') form;
   @query('.save-btn') saveBtn;
@@ -139,11 +138,6 @@ export class EditPage extends LitElement {
             type="textarea"
             rows="5"
             value=${this.product?.description}
-          ></md-filled-text-field>
-          <md-filled-text-field
-            id="category"
-            label=${t('edit-category')}
-            type="text"
           ></md-filled-text-field>
           <md-filled-text-field
             id="price"
@@ -186,7 +180,6 @@ export class EditPage extends LitElement {
         ...this.product,
         title: this.titleField.value,
         description: this.descriptionField.value,
-        category: this.categoryField.value,
         price: parseFloat(this.priceField.value),
         offer: this.checkbox.checked,
       };
