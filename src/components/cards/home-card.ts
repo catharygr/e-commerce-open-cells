@@ -229,15 +229,9 @@ export class HomeCard extends LitElement {
               class="cart-btn"
               >${this.isProductInCart()
                 ? t('card-in-cart-home')
-                : 'Añadir al carrito'}
+                : t('card-add-home')}
             </md-filled-button>
-            <md-filled-button
-              ?disabled=${this.isProductInCart()}
-              @click=${addToCart}
-              class="cart-btn"
-            >
-              ${this.isProductInCart() ? t('card-in-cart') : t('add-to-cart')}
-            </md-filled-button>
+
             <div class="opiniones">
               <div class="opiniones-stars">
                 <p>Rating:&nbsp;&nbsp</p>
