@@ -140,6 +140,11 @@ export class EditPage extends LitElement {
             value=${this.product?.description}
           ></md-filled-text-field>
           <md-filled-text-field
+            id="category"
+            label=${t('edit-category')}
+            type="text"
+          ></md-filled-text-field>
+          <md-filled-text-field
             id="price"
             label=${t('edit-price')}
             type="text"
