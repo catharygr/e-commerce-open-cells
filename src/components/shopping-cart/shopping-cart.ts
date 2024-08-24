@@ -36,6 +36,11 @@ export class ShoppingCart extends LitElement {
         border-radius: 0.5rem;
       }
 
+      .cart-title,
+      .cart-price {
+        color: black;
+      }
+
       .cart-msg {
         color: black;
       }
@@ -107,7 +112,7 @@ export class ShoppingCart extends LitElement {
         (item) => html`<li class="cart-product">
           <div class="cart-product-header">
             <img src=${item?.image} alt=${item?.title} />
-            <p>${item?.title}</p>
+            <p class="cart-title">${item?.title}</p>
             <md-icon-button @click=${() => this.deleteProduct(item?.id)}>
               <img class="cart-delete" src=${svgDeleteForever} alt="delete" />
           </div>
@@ -126,6 +131,7 @@ export class ShoppingCart extends LitElement {
               <img src=${svgPlus} alt="plus" />
             </md-icon-button>
             <span
+            class="cart-price"
               >${new Intl.NumberFormat('es-ES', {
                 style: 'currency',
                 currency: 'EUR',
