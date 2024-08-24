@@ -36,6 +36,7 @@ export class HomeCard extends LitElement {
         & h2 {
           text-align: center;
           font-size: 1.2rem;
+          margin-top: 1.1rem;
         }
       }
 
@@ -124,6 +125,7 @@ export class HomeCard extends LitElement {
             font-size: 1.8rem;
             max-width: 90%;
             text-align: left;
+            margin-top: 0;
           }
         }
         .content {

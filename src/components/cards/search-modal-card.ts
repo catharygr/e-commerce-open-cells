@@ -16,24 +16,23 @@ export class SearchModalCard extends LitElement {
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
+      }
+      h3 {
+        font-size: 0.8rem;
+      }
 
-        & h3 {
-          font-size: 0.8rem;
-        }
-
-        & img {
-          aspect-ratio: 1/1;
-          object-fit: contain;
-          border-radius: 0.5rem;
-          box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
-          background-color: #fff;
-          padding: 0.5rem;
-        }
-        & .price {
-          font-size: 0.8rem;
-          font-weight: bold;
-          margin-top: auto;
-        }
+      img {
+        aspect-ratio: 1/1;
+        object-fit: contain;
+        border-radius: 0.5rem;
+        box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+        background-color: #fff;
+        padding: 0.5rem;
+      }
+      .price {
+        font-size: 0.8rem;
+        font-weight: bold;
+        margin-top: auto;
       }
     `,
   ];
