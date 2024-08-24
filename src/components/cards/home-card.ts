@@ -211,7 +211,7 @@ export class HomeCard extends LitElement {
                                 productId: this.product.id,
                               });
                             }}
-                            >Leer más</a
+                            >${t('read-more-description')}</a
                           >`
                       : ''}
                   `
@@ -228,9 +228,16 @@ export class HomeCard extends LitElement {
               @click=${addToCart}
               class="cart-btn"
               >${this.isProductInCart()
-                ? 'En el carrito'
-                : 'Añadir al carrito'}</md-filled-button
+                ? t('card-in-cart-home')
+                : 'Añadir al carrito'}
+            </md-filled-button>
+            <md-filled-button
+              ?disabled=${this.isProductInCart()}
+              @click=${addToCart}
+              class="cart-btn"
             >
+              ${this.isProductInCart() ? t('card-in-cart') : t('add-to-cart')}
+            </md-filled-button>
             <div class="opiniones">
               <div class="opiniones-stars">
                 <p>Rating:&nbsp;&nbsp</p>
