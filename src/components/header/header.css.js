@@ -138,6 +138,7 @@ export const styles = css`
     & > .cart-title {
       font-size: 1rem;
       text-align: center;
+      color: black;
     }
   }
 

@@ -30,10 +30,6 @@ export class ShoppingCartPage extends LitElement {
         gap: 1rem;
       }
 
-      .cart-title {
-        color: black;
-      }
-
       .action-btn {
         display: flex;
         gap: 1rem;
@@ -69,7 +65,7 @@ export class ShoppingCartPage extends LitElement {
 
   render() {
     return html` <div class="container">
-      <h1 class="cart-title">${t('shopping-title')}</h1>
+      <h1>${t('shopping-title')}</h1>
       <shopping-cart></shopping-cart>
       <div class="action-btn">
         <md-filled-button
