@@ -22,7 +22,7 @@ export const getProductsMiddleware = async () => {
 };
 export const addProductMiddleware = async (newProduct) => {
   try {
-    await setDoc(doc(db, 'products', newProduct.id.toString), newProduct);
+    await setDoc(doc(db, 'products', newProduct.id), newProduct);
   } catch (error) {
     throw new Error(error.message);
   }

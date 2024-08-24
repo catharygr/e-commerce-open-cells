@@ -75,6 +75,7 @@ export class AddPage extends LitElement {
   @query('#price') priceInput;
   @query('#offer') offerInput;
   @query('.add-form') addForm;
+  @query('#img-url') imgInput;
 
   static outbounds = {
     allProducts: { channel: 'all-products' },
@@ -90,8 +91,7 @@ export class AddPage extends LitElement {
         offer: this.offerInput.checked,
         description: this.descriptionInput.value,
         category: this.categoryInput.value,
-        image:
-          'https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg',
+        image: this.imgInput.value,
         rating: {
           rate: (Math.random() * 5).toFixed(1),
           count: Math.floor(Math.random() * 1000),
@@ -151,6 +151,11 @@ export class AddPage extends LitElement {
           <md-filled-text-field
             id="category"
             label=${t('add-category')}
+            type="text"
+          ></md-filled-text-field>
+          <md-filled-text-field
+            id="img-url"
+            label="URL de la imagen"
             type="text"
           ></md-filled-text-field>
           <md-filled-text-field
