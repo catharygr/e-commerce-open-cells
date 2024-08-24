@@ -35,6 +35,10 @@ export class ShoppingCart extends LitElement {
         padding: 0.4rem;
         border-radius: 0.5rem;
       }
+
+      .cart-msg {
+        color: black;
+      }
       .cart-product-header {
         display: flex;
         gap: 1rem;
@@ -134,7 +138,7 @@ export class ShoppingCart extends LitElement {
     return !this.allProducts
       ? html`<spinner-element></spinner-element>`
       : this.userState?.cart === undefined || this.userState?.cart.length === 0
-      ? html`<p>${t('shopping-msg')}</p>`
+      ? html`<p class="cart-msg">${t('shopping-msg')}</p>`
       : html` <ul class="cart-item">
             ${productTemplate}
           </ul>

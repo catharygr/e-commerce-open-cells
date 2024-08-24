@@ -183,6 +183,14 @@ export class EditPage extends LitElement {
         price: parseFloat(this.priceField.value),
         offer: this.checkbox.checked,
       };
+
+      if (
+        typeof newEditProduct.title !== 'string' ||
+        typeof newEditProduct.description !== 'string' ||
+        isNaN(newEditProduct.price)
+      ) {
+        throw new Error('Datos inválidos para el producto');
+      }
       await addProductMiddleware(newEditProduct);
       this.allProducts = await getProductsMiddleware();
       this.pageController.navigate('admin');
