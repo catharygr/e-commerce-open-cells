@@ -39,7 +39,6 @@ export class HeaderComponent extends LitElement {
   @query('.cart') cart;
   @query('.search-modal') searchModal;
   @query('.search-field') searchField;
-  // @query(':root') root;
 
   static inbounds = {
     userState: { channel: 'user-state' },
