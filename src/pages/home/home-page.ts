@@ -98,7 +98,8 @@ export class HomePage extends LitElement {
     this.randomProducts = new Array(5)
       .fill(null)
       .map(
-        () => html`<home-card .product=${this.getRandomProducts()}></home-card>`
+        (item) =>
+          html`<home-card .product=${this.getRandomProduct()}></home-card>`
       );
     return !this.allProducts
       ? html`<spinner-element></spinner-element>`
@@ -123,7 +124,7 @@ export class HomePage extends LitElement {
     this.requestUpdate();
   }
 
-  getRandomProducts() {
+  getRandomProduct() {
     if (!this.allProducts) return;
     const randomNum = Math.floor(Math.random() * this.allProducts.length);
     return this.allProducts[randomNum];
