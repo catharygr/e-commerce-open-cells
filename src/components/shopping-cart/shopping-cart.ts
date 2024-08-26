@@ -39,7 +39,7 @@ export class ShoppingCart extends LitElement {
       .cart-title,
       .cart-price,
       .cart-msg {
-        color: black;
+        color: var(--color-;
       }
 
       .cart-product-header {

@@ -108,6 +108,7 @@ export const styles = css`
   .cart {
     display: none;
   }
+
   .open-nav {
     display: flex;
     justify-content: center;
@@ -124,7 +125,8 @@ export const styles = css`
     right: 0;
     bottom: 0;
     width: min(80vw, 20rem);
-    background-color: white;
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
     display: flex;
     flex-direction: column;
     z-index: 900;
