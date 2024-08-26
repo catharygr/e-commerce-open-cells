@@ -9,6 +9,7 @@ import { styles } from './app-index.css.js';
 import './header/header.js';
 import './footer/footer.js';
 import { getProductsMiddleware } from '../api/firebase.middlewares.js';
+import { setUrl, setLocalesHost, requestResources } from '@open-cells/localize';
 
 startApp({
   routes,
@@ -40,6 +41,10 @@ startApp({
     return { intercept, redirect };
   },
 });
+
+setLocalesHost('src');
+setUrl('locales/locales.json');
+requestResources();
 
 @customElement('app-index')
 export class AppIndex extends LitElement {
