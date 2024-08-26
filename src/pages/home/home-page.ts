@@ -54,7 +54,7 @@ export class HomePage extends LitElement {
       }
       .carousel-buttons {
         grid-row: 1 / 2;
-        grid-column: 1 / 2;
+        grid-column: 1 / -1;
         gap: 1rem;
         align-self: center;
         justify-self: stretch;
@@ -135,7 +135,7 @@ export class HomePage extends LitElement {
             <h1>Welcome to Our Store</h1>
             <div class="carousel">
               <div class="carousel-inner">${this.randomProducts}</div>
-              <div class="carousel-buttons">
+              <div class="carousel-buttons8">
                 <md-filled-icon-button @click=${this.carouselMinus}
                   ><img src=${svgMinus}
                 /></md-filled-icon-button>
