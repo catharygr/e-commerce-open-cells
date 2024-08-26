@@ -137,7 +137,12 @@ export const styles = css`
     & > .checkout-btn {
       --md-sys-color-primary: darkgreen;
     }
+    & .checkout-btn[disabled] {
+      background-color: var(--btn-color-save-disabled);
+      color: var(--btn-text-color-disabled);
+    }
   }
+
   .cart-title {
     font-size: 1rem;
     text-align: center;

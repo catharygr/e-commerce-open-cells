@@ -37,11 +37,13 @@ export class ShoppingCart extends LitElement {
       }
 
       .cart-title,
-      .cart-price,
+      .cart-price {
+        color: black;
+      }
+
       .cart-msg {
         color: var(--color-primary);
       }
-
       .cart-product-header {
         display: flex;
         gap: 1rem;
