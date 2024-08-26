@@ -5,7 +5,6 @@ import { customElement, state, query } from 'lit/decorators.js';
 import CssReset from '../../css/reset.css.js';
 import '../../components/Others/spinner.js';
 import '../../components/cards/home-card.js';
-import '../../components/Others/spinner.js';
 import '@material/web/iconbutton/filled-icon-button.js';
 import svgMinus from '@material-design-icons/svg/filled/remove.svg';
 import svgPlus from '@material-design-icons/svg/filled/add.svg';
@@ -94,6 +93,33 @@ export class HomePage extends LitElement {
     allProducts: { channel: 'all-products' },
   };
 
+  // render() {
+  //   this.randomProducts = new Array(5)
+  //     .fill(null)
+  //     .map(
+  //       (item) =>
+  //         html`<home-card .product=${this.getRandomProduct()}></home-card>`
+  //     );
+  //   return !this.allProducts
+  //     ? html`<spinner-element></spinner-element>`
+  //     : html`
+  //         <div class="container">
+  //           <h1>${t('title-home')}</h1>
+  //           <div class="carousel">
+  //             <div class="carousel-inner">${this.randomProducts}</div>
+  //             <div class="carousel-buttons">
+  //               <md-filled-icon-button @click=${this.carouselMinus}>
+  //                 <img src=${svgMinus} alt="minus" />
+  //               </md-filled-icon-button>
+  //               <md-filled-icon-button @click=${this.carouselPlus}>
+  //                 <img src=${svgPlus} alt="plus" />
+  //               </md-filled-icon-button>
+  //             </div>
+  //           </div>
+  //         </div>
+  //       `;
+  // }
+
   render() {
     this.randomProducts = new Array(5)
       .fill(null)
@@ -101,19 +127,20 @@ export class HomePage extends LitElement {
         (item) =>
           html`<home-card .product=${this.getRandomProduct()}></home-card>`
       );
+
     return !this.allProducts
       ? html`<spinner-element></spinner-element>`
       : html`
           <div class="container">
-            <h1>${t('title-home')}</h1>
+            <h1>Welcome to Our Store</h1>
             <div class="carousel">
               <div class="carousel-inner">${this.randomProducts}</div>
               <div class="carousel-buttons">
-                <md-filled-icon-button @click=${this.carouselMinus}>
-                  <img src=${svgMinus} alt="minus" />
-                </md-filled-icon-button>
+                <md-filled-icon-button @click=${this.carouselMinus}
+                  ><img src=${svgMinus}
+                /></md-filled-icon-button>
                 <md-filled-icon-button @click=${this.carouselPlus}>
-                  <img src=${svgPlus} alt="plus" />
+                  <img src=${svgPlus} />
                 </md-filled-icon-button>
               </div>
             </div>
