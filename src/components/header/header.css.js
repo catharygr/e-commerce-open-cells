@@ -135,11 +135,10 @@ export const styles = css`
     & > .checkout-btn {
       --md-sys-color-primary: darkgreen;
     }
-    & > .cart-title {
-      font-size: 1rem;
-      text-align: center;
-      color: black;
-    }
+  }
+  .cart-title {
+    font-size: 1rem;
+    text-align: center;
   }
 
   header {
