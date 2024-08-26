@@ -168,6 +168,7 @@ export const styles = css`
 
   .cart-btn {
     position: relative;
+
     & .cart-count {
       position: absolute;
       top: -10px;
