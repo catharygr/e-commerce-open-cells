@@ -82,9 +82,9 @@ export class HomeCard extends LitElement {
         color: var(--btn-text-color-disabled);
       }
       .opiniones {
+        margin-top: auto;
         display: flex;
         font-size: 1rem;
-        margin-top: auto;
         gap: 2rem;
       }
       .opiniones-stars {
@@ -224,6 +224,13 @@ export class HomeCard extends LitElement {
               }).format(price)}
             </p>
 
+            <div class="opiniones">
+              <div class="opiniones-stars">
+                <p>Rating:&nbsp;&nbsp</p>
+                ${starArray}
+              </div>
+              <p>Reviews: ${count}</p>
+            </div>
             <md-filled-button
               ?disabled=${this.isProductInCart()}
               @click=${addToCart}
@@ -232,14 +239,6 @@ export class HomeCard extends LitElement {
                 ? t('card-in-cart-home')
                 : t('card-add-home')}
             </md-filled-button>
-
-            <div class="opiniones">
-              <div class="opiniones-stars">
-                <p>Rating:&nbsp;&nbsp</p>
-                ${starArray}
-              </div>
-              <p>Reviews: ${count}</p>
-            </div>
           </div>
         </div>
       </section>

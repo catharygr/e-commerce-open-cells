@@ -93,33 +93,6 @@ export class HomePage extends LitElement {
     allProducts: { channel: 'all-products' },
   };
 
-  // render() {
-  //   this.randomProducts = new Array(5)
-  //     .fill(null)
-  //     .map(
-  //       (item) =>
-  //         html`<home-card .product=${this.getRandomProduct()}></home-card>`
-  //     );
-  //   return !this.allProducts
-  //     ? html`<spinner-element></spinner-element>`
-  //     : html`
-  //         <div class="container">
-  //           <h1>${t('title-home')}</h1>
-  //           <div class="carousel">
-  //             <div class="carousel-inner">${this.randomProducts}</div>
-  //             <div class="carousel-buttons">
-  //               <md-filled-icon-button @click=${this.carouselMinus}>
-  //                 <img src=${svgMinus} alt="minus" />
-  //               </md-filled-icon-button>
-  //               <md-filled-icon-button @click=${this.carouselPlus}>
-  //                 <img src=${svgPlus} alt="plus" />
-  //               </md-filled-icon-button>
-  //             </div>
-  //           </div>
-  //         </div>
-  //       `;
-  // }
-
   render() {
     this.randomProducts = new Array(5)
       .fill(null)
@@ -127,26 +100,26 @@ export class HomePage extends LitElement {
         (item) =>
           html`<home-card .product=${this.getRandomProduct()}></home-card>`
       );
-
     return !this.allProducts
       ? html`<spinner-element></spinner-element>`
       : html`
           <div class="container">
-            <h1>Welcome to Our Store</h1>
+            <h1>${t('title-home')}</h1>
             <div class="carousel">
               <div class="carousel-inner">${this.randomProducts}</div>
-              <div class="carousel-buttons8">
-                <md-filled-icon-button @click=${this.carouselMinus}
-                  ><img src=${svgMinus}
-                /></md-filled-icon-button>
+              <div class="carousel-buttons">
+                <md-filled-icon-button @click=${this.carouselMinus}>
+                  <img src=${svgMinus} alt="minus" />
+                </md-filled-icon-button>
                 <md-filled-icon-button @click=${this.carouselPlus}>
-                  <img src=${svgPlus} />
+                  <img src=${svgPlus} alt="plus" />
                 </md-filled-icon-button>
               </div>
             </div>
           </div>
         `;
   }
+
   onPageEnter() {
     this.requestUpdate();
   }
