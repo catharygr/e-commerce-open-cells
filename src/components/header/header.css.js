@@ -137,7 +137,7 @@ export const styles = css`
     & > .checkout-btn {
       --md-sys-color-primary: darkgreen;
     }
-    & .checkout-btn[disabled] {
+    & > .checkout-btn[disabled] {
       background-color: var(--btn-color-save-disabled);
       color: var(--btn-text-color-disabled);
     }
