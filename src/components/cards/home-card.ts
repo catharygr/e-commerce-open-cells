@@ -201,7 +201,7 @@ export class HomeCard extends LitElement {
               <b>Description: </b><br />
               ${this.ocApp.value.currentPage === 'home'
                 ? html`
-                    ${description.slice(0, 400)}${description.length > 400
+                    ${description.slice(0, 500)}${description.length > 400
                       ? html`...
                           <a
                             href="/#!/producto/${this.product.id}"
