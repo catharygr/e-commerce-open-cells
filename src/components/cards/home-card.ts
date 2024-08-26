@@ -71,16 +71,16 @@ export class HomeCard extends LitElement {
         background-color: #fff;
         padding: 0.5rem;
       }
-      // .cart-btn {
-      //   --md-sys-color-primary: darkgreen;
-      //   --md-filled-button-container-height: 2rem;
-      //   --md-filled-button-leading-space: 1rem;
-      //   --md-filled-button-trailing-space: 1rem;
-      // }
-      // .cart-btn[disabled] {
-      //   background-color: var(--btn-color-save-disabled);
-      //   color: var(--btn-text-color-disabled);
-      // }
+      .cart-btn {
+        --md-sys-color-primary: darkgreen;
+        --md-filled-button-container-height: 2rem;
+        --md-filled-button-leading-space: 1rem;
+        --md-filled-button-trailing-space: 1rem;
+      }
+      .cart-btn[disabled] {
+        background-color: var(--btn-color-save-disabled);
+        color: var(--btn-text-color-disabled);
+      }
       .opiniones {
         display: flex;
         font-size: 1rem;
@@ -175,53 +175,47 @@ export class HomeCard extends LitElement {
     });
     return html`
       <section>
-        ${
-          offer
-            ? html`<div class="offer-triangle"><p>${t('card-offer')}</p></div>`
-            : ''
-        }
-        ${
-          this.userState?.isLogged
-            ? html` <md-icon-button
-                @click=${this.isProductInFavorites()
-                  ? () => this.removeFromFav(this.product.id)
-                  : addToFav}
-                class="fav-btn"
-              >
-                <img
-                  src="${!this.isProductInFavorites()
-                    ? svgFavOutline
-                    : svgFavFilled}"
-                  alt="favorite"
-                />
-              </md-icon-button>`
-            : ''
-        }
+        ${offer
+          ? html`<div class="offer-triangle"><p>${t('card-offer')}</p></div>`
+          : ''}
+        ${this.userState?.isLogged
+          ? html` <md-icon-button
+              @click=${this.isProductInFavorites()
+                ? () => this.removeFromFav(this.product.id)
+                : addToFav}
+              class="fav-btn"
+            >
+              <img
+                src="${!this.isProductInFavorites()
+                  ? svgFavOutline
+                  : svgFavFilled}"
+                alt="favorite"
+              />
+            </md-icon-button>`
+          : ''}
         <h2>${title}</h2>
         <div class="content">
           <img class="img-product" src="${image}" alt="${title}" />
           <div class="detalles">
             <p class="card-description">
               <b>Description: </b><br />
-              ${
-                this.ocApp.value.currentPage === 'home'
-                  ? html`
-                      ${description.slice(0, 400)}${description.length > 400
-                        ? html`...
-                            <a
-                              href="/#!/producto/${this.product.id}"
-                              @click=${(e) => {
-                                e.preventDefault();
-                                this.elementController.navigate('producto', {
-                                  productId: this.product.id,
-                                });
-                              }}
-                              >${t('read-more-description')}</a
-                            >`
-                        : ''}
-                    `
-                  : html`${description}`
-              }
+              ${this.ocApp.value.currentPage === 'home'
+                ? html`
+                    ${description.slice(0, 400)}${description.length > 400
+                      ? html`...
+                          <a
+                            href="/#!/producto/${this.product.id}"
+                            @click=${(e) => {
+                              e.preventDefault();
+                              this.elementController.navigate('producto', {
+                                productId: this.product.id,
+                              });
+                            }}
+                            >${t('read-more-description')}</a
+                          >`
+                      : ''}
+                  `
+                : html`${description}`}
             </p>
             <p>
               <b>Price: </b>${new Intl.NumberFormat('es-ES', {
@@ -234,21 +228,10 @@ export class HomeCard extends LitElement {
               ?disabled=${this.isProductInCart()}
               @click=${addToCart}
               class="cart-btn"
-              >${
-                this.isProductInCart()
-                  ? t('card-in-cart-home')
-                  : t('card-add-home')
-              }
+              >${this.isProductInCart()
+                ? t('card-in-cart-home')
+                : t('card-add-home')}
             </md-filled-button>
-
-            <!-- ?disabled=${this.isProductInCart()} -->
-            <!-- ${this.isProductInCart() ? 'In cart' : 'Add to cart'} -->
-            <!-- @click=${addToCart} -->
-            <!-- class="cart-btn" -->
-            <button
-            >
-            SASA
-            <button>
 
             <div class="opiniones">
               <div class="opiniones-stars">
