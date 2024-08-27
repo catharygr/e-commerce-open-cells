@@ -144,13 +144,16 @@ export class ShoppingCart extends LitElement {
     return !this.allProducts
       ? html`<spinner-element></spinner-element>`
       : this.userState?.cart === undefined || this.userState?.cart.length === 0
-      ? html`<p class="cart-msg">${t('shopping-msg')}</p>`
+      ? html`<p class="cart-msg">
+          ${t('shopping-msg') ??
+          'Tu carrito está vacío. Agrega algunos productos al carrito.'}
+        </p>`
       : html` <ul class="cart-item">
             ${productTemplate}
           </ul>
           <div class="cart-total">
             <p>
-              ${t('shopping-tax')}:
+              ${t('shopping-tax') ?? 'Tax(Incluido en el precio)'}:
               ${new Intl.NumberFormat('es-ES', {
                 style: 'currency',
                 currency: 'EUR',

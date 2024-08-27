@@ -84,24 +84,27 @@ export class AccountPage extends LitElement {
     return html`
       <div class="container">
         <div class="acc-header">
-          <h1>${t('user-title')}</h1>
+          <h1>${t('user-title') ?? 'Cuenta de usuario'}</h1>
           <md-filled-button class="user-logout" @click=${this.handleLogOff}
-            >${t('user-lougot')}</md-filled-button
+            >${t('user-lougot') ?? 'Salir'}</md-filled-button
           >
         </div>
         <div class="user-info">
-          <h2>${t('user-info')}</h2>
-          <p>${t('user-name')} ${this.userState?.name || 'Anónimo'}</p>
+          <h2>${t('user-info') ?? 'Información del usuario.'}</h2>
+          <p>
+            ${t('user-name') ?? 'Nombre de usuario'}
+            ${this.userState?.name || 'Anónimo'}
+          </p>
           <p>Email: ${this.userState?.email || 'No email'}</p>
         </div>
         ${this.userState?.role === 'admin'
           ? html`
               <div class="user-admin">
-                <h2>${t('user-admin')}</h2>
+                <h2>${t('user-admin') ?? 'Sesión de admin.'}</h2>
                 <md-filled-button
                   @click=${() => this.pageController.navigate('admin')}
                 >
-                  ${t('user-admin-btn')}
+                  ${t('user-admin-btn') ?? 'Admin'}
                 </md-filled-button>
               </div>
             `
