@@ -66,15 +66,18 @@ export class AdminPage extends LitElement {
   render() {
     return html`<div class="container">
       <div class="admin-add">
-        <h1>${t('admin-title')}</h1>
+        <h1>${t('admin-title') ?? 'Panel de Admin'}</h1>
         <md-filled-button
           @click=${() => this.pageController.navigate('add')}
           class="add-btn"
-          >${t('admin-add-product')}</md-filled-button
+          >${t('admin-add-product') ?? 'Agregar Producto'}</md-filled-button
         >
       </div>
       <b>
-        <p>${t('admin-msg')}</p>
+        <p>
+          ${t('admin-msg') ??
+          'Puedes editar productos existentes o cargar uno nuevo.'}
+        </p>
       </b>
       <div class="admin-edit">
         ${this.allProducts?.map(
@@ -87,7 +90,7 @@ export class AdminPage extends LitElement {
                   this.pageController.navigate('edit', {
                     productId: product.id,
                   })}
-                >${t('admin-edit')}</md-filled-button
+                >${t('admin-edit') ?? 'Editar'}</md-filled-button
               >
             </div>`
         )}

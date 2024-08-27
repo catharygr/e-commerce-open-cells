@@ -109,7 +109,7 @@ export class AddPage extends LitElement {
 
   updated(changedProperties) {
     super.updated(changedProperties);
-    // Asegúrate de que el desplazamiento solo se realice bajo ciertas condiciones, si es necesario
+    // Asegurarse de que el desplazamiento solo se realice bajo ciertas condiciones, si es necesario
     requestAnimationFrame(() => {
       const formElement = this.shadowRoot?.querySelector('.add-form');
       if (formElement) {
@@ -122,7 +122,7 @@ export class AddPage extends LitElement {
     return html`
       <section class="container">
         <div class="add-header">
-          <h1>${t('add-title')}</h1>
+          <h1>${t('add-title') ?? ''}</h1>
           <a
             class="link-back"
             href="/account/admin"
@@ -138,19 +138,19 @@ export class AddPage extends LitElement {
         <form @submit=${this.handleSaveProduct} class="add-form">
           <md-filled-text-field
             id="title"
-            label=${t('add-title-product')}
+            label=${t('add-title-product') ?? 'Título'}
             type="textarea"
             rows="2"
           ></md-filled-text-field>
           <md-filled-text-field
             id="description"
-            label=${t('add-description')}
+            label=${t('add-description') ?? 'Descripción'}
             type="textarea"
             rows="5"
           ></md-filled-text-field>
           <md-filled-text-field
             id="category"
-            label=${t('add-category')}
+            label=${t('add-category') ?? 'Categoría'}
             type="text"
           ></md-filled-text-field>
           <md-filled-text-field
@@ -160,17 +160,17 @@ export class AddPage extends LitElement {
           ></md-filled-text-field>
           <md-filled-text-field
             id="price"
-            label=${t('add-price')}
+            label=${t('add-price') ?? 'Precio'}
             type="text"
             rows="5"
           ></md-filled-text-field>
           <label>
             <md-checkbox touch-target="wrapper" id="offer"></md-checkbox>
-            ${t('add-offer')}
+            ${t('add-offer') ?? 'Categoría'}
           </label>
 
           <md-filled-button class="save-btn" type="submit"
-            >${t('add-product-btn')}</md-filled-button
+            >${t('add-product-btn') ?? 'Guardar'}</md-filled-button
           >
         </form>
       </section>

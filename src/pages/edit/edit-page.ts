@@ -111,7 +111,7 @@ export class EditPage extends LitElement {
     return html`
       <section class="container">
         <div class="edit-header">
-          <h1>${t('edit-product')}</h1>
+          <h1>${t('edit-product') ?? ''}</h1>
           <a
             class="link-back"
             href="/account/admin"
@@ -121,27 +121,27 @@ export class EditPage extends LitElement {
             }}
             ><img class="edit-icon-svg" src=${svgArrowBack} />${t(
               'edit-go-list'
-            )}</a
+            ) ?? ''}</a
           >
         </div>
         <form @submit=${this.handleSaveProduct} class="edit-form">
           <md-filled-text-field
             id="title"
-            label=${t('edit-title-product')}
+            label=${t('edit-title-product') ?? 'Título'}
             type="textarea"
             rows="2"
             value=${this.product?.title}
           ></md-filled-text-field>
           <md-filled-text-field
             id="description"
-            label=${t('edit-description')}
+            label=${t('edit-description') ?? 'Descripción'}
             type="textarea"
             rows="5"
             value=${this.product?.description}
           ></md-filled-text-field>
           <md-filled-text-field
             id="price"
-            label=${t('edit-price')}
+            label=${t('edit-price') ?? 'Precio'}
             type="text"
             suffix-text="€"
             value=${this.product?.price.toFixed(2)}
@@ -152,14 +152,14 @@ export class EditPage extends LitElement {
               ?checked=${this.product?.offer}
               id="offer"
             ></md-checkbox>
-            ${t('edit-offer')}
+            ${t('edit-offer') ?? 'Producto en oferta'}
           </label>
           <md-filled-button class="save-btn" type="submit"
-            >${t('edit-save')}
+            >${t('edit-save') ?? 'Guarda'}
           </md-filled-button>
         </form>
         <md-filled-button @click=${this.handleDeleteProduct} class="delete-btn"
-          >${t('edit-delete')}
+          >${t('edit-delete') ?? 'Eliminar'}
         </md-filled-button>
       </section>
     `;
