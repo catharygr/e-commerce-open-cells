@@ -95,7 +95,7 @@ export class HeaderComponent extends LitElement {
               this.closeNavegation();
               this.pageController.navigate('productos');
             }}
-            >${t('header-products')}</a
+            >${t('header-products') ?? 'Bienvenido a mi tienda'}</a
           >
         </li>
         <li>

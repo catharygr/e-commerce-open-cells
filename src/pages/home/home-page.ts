@@ -104,7 +104,7 @@ export class HomePage extends LitElement {
       ? html`<spinner-element></spinner-element>`
       : html`
           <div class="container">
-            <h1>${t('title-home')}</h1>
+            <h1>${t('title-home') ?? 'Bienvenido a mi tienda'}</h1>
             <div class="carousel">
               <div class="carousel-inner">${this.randomProducts}</div>
               <div class="carousel-buttons">
