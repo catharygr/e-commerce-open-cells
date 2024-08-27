@@ -95,7 +95,7 @@ export class HeaderComponent extends LitElement {
               this.closeNavegation();
               this.pageController.navigate('productos');
             }}
-            >${t('header-products') ?? 'Bienvenido a mi tienda'}</a
+            >${t('header-products') ?? 'Productos'}</a
           >
         </li>
         <li>
@@ -106,13 +106,13 @@ export class HeaderComponent extends LitElement {
               this.closeNavegation();
               this.pageController.navigate('ofertas');
             }}
-            >${t('header-offers')}</a
+            >${t('header-offers') ?? 'Ofertas'}</a
           >
         </li>
       </ul>
     </nav>`;
     const cartTemplate = html` <div class="cart">
-      <h3 class="cart-title">${t('header-cart')}</h3>
+      <h3 class="cart-title">${t('header-cart') ?? 'Carrito de Compras'}</h3>
       <shopping-cart></shopping-cart>
       <md-filled-button
         ?disabled=${!this.userState?.cart || this.userState?.cart.length === 0}
@@ -121,10 +121,10 @@ export class HeaderComponent extends LitElement {
           this.pageController.navigate('cart');
         }}
         class="checkout-btn"
-        >${t('header-payment')}</md-filled-button
+        >${t('header-payment') ?? 'Pagar'}</md-filled-button
       >
       <md-filled-button @click=${this.closeCart} class="close-cart-btn"
-        >${t('header-close')}</md-filled-button
+        >${t('header-close') ?? 'Cerrar'}</md-filled-button
       >
     </div>`;
 
@@ -136,12 +136,13 @@ export class HeaderComponent extends LitElement {
         >
           <img src="${svgClose}" alt="close" />
         </md-icon-button>
-        <p>${t('header-search')} ${this.searchQuery}</p>
+        <p>${t('header-search') ?? 'Resultados para:'} ${this.searchQuery}</p>
         <div class="search-modal-results">
           ${this.allProducts && this.searchQuery && this.renderCards()}
         </div>
         <md-filled-button @click=${this.handleSubmit} class="search-modal-btn"
-          >${t('search-all-results')}</md-filled-button
+          >${t('search-all-results') ??
+          'Ver todos los resultados...'}</md-filled-button
         >
       </div>
     `;
@@ -172,7 +173,7 @@ export class HeaderComponent extends LitElement {
         <form @submit=${this.handleSubmit} class="search-form">
           <md-filled-text-field
             class="search-field"
-            placeholder=${t('header-search-placeholder')}
+            placeholder=${t('header-search-placeholder') ?? 'Buscar productos'}
             icon="search"
             @input="${this.handleSearch}"
           >
