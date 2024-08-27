@@ -6,10 +6,16 @@ import '../../components/cards/home-card.js';
 import '../../components/Others/spinner.js';
 import '@material/web/button/filled-button.js';
 import CSSreset from '../../css/reset.css.js';
+import { t, updateWhenLocaleResourcesChange } from '@open-cells/localize';
 
 @customElement('single-product-page')
 export class SingleProductPage extends LitElement {
   pageController = new PageController(this);
+
+  constructor() {
+    super();
+    updateWhenLocaleResourcesChange(this);
+  }
 
   static styles = [
     CSSreset,
@@ -41,7 +47,7 @@ export class SingleProductPage extends LitElement {
       ? html`<spinner-element></spinner-element>`
       : html`
           <div class="container">
-            <h1>Detalles del producto</h1>
+            <h1>${t('single-product-detail')}</h1>
             <home-card .product=${this.productFiltrado()}></home-card>
           </div>
         `;

@@ -65,18 +65,22 @@ export class ShoppingCartPage extends LitElement {
 
   render() {
     return html` <div class="container">
-      <h1>${t('shopping-title')}</h1>
+      <h1>${t('shopping-title') ?? 'Tu carrito de compras.'}</h1>
       <shopping-cart></shopping-cart>
       <div class="action-btn">
         <md-filled-button
           @click=${() => this.pageController.navigate('productos')}
-          >${t('shopping-continue-btn')}</md-filled-button
+          >${t('shopping-continue-btn') ??
+          'Continuar Comprando'}</md-filled-button
         >
         <md-filled-button @click=${this.handlePaymet}
-          >${t('shopping-pay-btn')}</md-filled-button
+          >${t('shopping-pay-btn') ?? 'Pagar'}</md-filled-button
         >
       </div>
-      <p class="payment-msg">${t('shopping-payment-msg')}</p>
+      <p class="payment-msg">
+        ${t('shopping-payment-msg') ??
+        'Gracias por tu compra. Esta es una página de demostración, por lo que no se realizará ningún pago real. Construido para practicar usando el marco de trabajo BBVA OpenCells y LitElement. En unos segundos, serás redirigido a la página de productos...'}
+      </p>
     </div>`;
   }
 
