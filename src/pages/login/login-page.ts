@@ -44,10 +44,6 @@ export class LoginPage extends LitElement {
         gap: 1rem;
       }
 
-      .btn-icon-svg {
-        filter: var(--filter-svg);
-      }
-
       md-filled-button {
         margin-top: 1rem;
       }
@@ -61,7 +57,7 @@ export class LoginPage extends LitElement {
   };
 
   togglePasswordVisibility(e) {
-    e.preventDefault;
+    e.preventDefault();
     this.passField.type =
       this.passField.type === 'password' ? 'text' : 'password';
   }
@@ -138,7 +134,6 @@ export class LoginPage extends LitElement {
           >
             <md-icon-button
               @click=${this.togglePasswordVisibility}
-              class="btn-icon-svg"
               toggle
               slot="trailing-icon"
               type="button"

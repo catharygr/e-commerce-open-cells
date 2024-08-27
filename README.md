@@ -1,1 +1,21 @@
-# Desarrollando un proyecto propio de un E-commerce-Tienda de productos online con el framework Open Cells desarrollado por BBVA y la librería Lit Element.
+# Proyecto de Ecommerce
+
+https://opencells-ecommerce-lit-caty.netlify.app
+
+## Este proyecto de ecommerce ha sido desarrollado utilizando el framework Open Cells de BBVA, junto con la librería LitElement y Material Design. El proyecto incluye varias funcionalidades clave para mejorar la experiencia del usuario tanto en dispositivos de escritorio como móviles.
+
+## Funcionalidades
+
+- Navegación mejorada: Listado de productos optimizado para ordenadores.
+- Búsqueda: Funcionalidad de búsqueda integrada.
+- Menú de hamburguesa: Menú adaptable para dispositivos móviles.
+- Favoritos: Posibilidad de agregar productos a una lista de favoritos.
+- Carrito de compra: Funcionalidad completa de carrito de compra.
+- Tema de color: Soporte para temas de color personalizados.
+- Traducción: utilizado i18n & localization para traducción entre castellano e inglés.
+
+## Tecnologías Utilizadas
+
+- Open Cells: Framework desarrollado por BBVA.
+- LitElement: Librería para la creación de componentes web.
+- Material Design: Conjunto de principios de diseño para crear interfaces de usuario atractivas y consistentes.
