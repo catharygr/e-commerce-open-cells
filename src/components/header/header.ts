@@ -84,7 +84,7 @@ export class HeaderComponent extends LitElement {
               this.closeNavegation();
               this.pageController.navigate('home');
             }}
-            >${t('header-home')}</a
+            >${t('header-home') ?? 'Inicio'}</a
           >
         </li>
         <li>
