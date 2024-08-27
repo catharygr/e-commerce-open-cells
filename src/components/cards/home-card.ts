@@ -176,7 +176,9 @@ export class HomeCard extends LitElement {
     return html`
       <section>
         ${offer
-          ? html`<div class="offer-triangle"><p>${t('card-offer')}</p></div>`
+          ? html`<div class="offer-triangle">
+              <p>${t('card-offer') ?? 'Oferta'}</p>
+            </div>`
           : ''}
         ${this.userState?.isLogged
           ? html` <md-icon-button
