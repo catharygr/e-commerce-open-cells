@@ -186,7 +186,9 @@ export class ProductCardSmall extends LitElement {
       <div class="container">
         <div class="card">
           ${offer
-            ? html`<div class="offer-triangle"><p>${t('card-offer')}</p></div>`
+            ? html`<div class="offer-triangle">
+                <p>${t('card-offer') ?? 'Oferta'}</p>
+              </div>`
             : ''}
           ${this.userState?.isLogged
             ? html` <md-icon-button
@@ -216,14 +218,16 @@ export class ProductCardSmall extends LitElement {
                     productId: this.product.id,
                   });
                 }}
-                >${t('card-view-product')}</a
+                >${t('card-view-product') ?? 'Ver Producto'}</a
               >
               <md-filled-button
                 ?disabled=${this.isProductInCart()}
                 @click=${addToCart}
                 class="cart-btn"
               >
-                ${this.isProductInCart() ? t('card-in-cart') : t('add-to-cart')}
+                ${this.isProductInCart()
+                  ? t('card-in-cart') ?? 'En el carrito'
+                  : t('add-to-cart') ?? 'Agregar...'}
               </md-filled-button>
             </div>
             <div class="card-details">
