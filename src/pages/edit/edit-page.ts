@@ -111,7 +111,7 @@ export class EditPage extends LitElement {
     return html`
       <section class="container">
         <div class="edit-header">
-          <h1>${t('edit-product') ?? ''}</h1>
+          <h1>${t('edit-product') ?? 'Editar producto'}</h1>
           <a
             class="link-back"
             href="/account/admin"
@@ -121,7 +121,7 @@ export class EditPage extends LitElement {
             }}
             ><img class="edit-icon-svg" src=${svgArrowBack} />${t(
               'edit-go-list'
-            ) ?? ''}</a
+            ) ?? 'Ir a la lista'}</a
           >
         </div>
         <form @submit=${this.handleSaveProduct} class="edit-form">

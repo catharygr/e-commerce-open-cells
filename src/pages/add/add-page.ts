@@ -122,7 +122,7 @@ export class AddPage extends LitElement {
     return html`
       <section class="container">
         <div class="add-header">
-          <h1>${t('add-title') ?? ''}</h1>
+          <h1>${t('add-title') ?? 'Agregar producto'}</h1>
           <a
             class="link-back"
             href="/account/admin"
@@ -132,7 +132,7 @@ export class AddPage extends LitElement {
             }}
             ><img class="add-icon-svg" src=${svgArrowBack} />${t(
               'add-go-list'
-            )}</a
+            ) ?? 'Ir a la lista'}</a
           >
         </div>
         <form @submit=${this.handleSaveProduct} class="add-form">
