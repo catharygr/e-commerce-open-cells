@@ -59,10 +59,13 @@ export class FavoritesPage extends LitElement {
   render() {
     if (!this.userState?.isLogged) {
       return html` <div class="not-logged-container">
-        <h1>${t('favorite-title')}</h1>
-        <p>${t('favorite-msg')}</p>
+        <h1>${t('favorite-title') ?? 'Tus Favoritos'}</h1>
+        <p>
+          ${t('favorite-msg') ??
+          'Por favor, inicia sesión para ver tus favoritos.'}
+        </p>
         <md-filled-button @click=${() => this.pageController.navigate('login')}
-          >${t('favorite-log-in')}</md-filled-button
+          >${t('favorite-log-in') ?? 'Iniciar sesión'}</md-filled-button
         >
       </div>`;
     }
@@ -72,7 +75,9 @@ export class FavoritesPage extends LitElement {
           <div class="container">
             ${this.userState.favorites.length
               ? this.renderCards()
-              : html`<h2 class="empty-fav">${t('favorite-empty')}</h2>`}
+              : html`<h2 class="empty-fav">
+                  ${t('favorite-empty') ?? 'Aún no tienes favoritos.'}
+                </h2>`}
           </div>
         `;
   }

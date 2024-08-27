@@ -57,7 +57,9 @@
     "edit-delete": "Delete",
     "favorite-title": "Your Favorites",
     "favorite-msg": "Please log in to view your favorites.",
-    "favorite-empty": "You don't have any favorites yet."
+    "favorite-empty": "You don't have any favorites yet.",
+    "favorite-log-in": "Log in",
+    "page-noFound": "Page not found"
   },
   "es": {
     "header-home": "Inicio",
@@ -117,6 +119,8 @@
     "edit-delete": "Eliminar",
     "favorite-title": "Tus Favoritos",
     "favorite-msg": "Por favor, inicia sesión para ver tus favoritos.",
-    "favorite-empty": "Aún no tienes favoritos."
+    "favorite-empty": "Aún no tienes favoritos.",
+    "favorite-log-in": "Iniciar sesión",
+    "page-noFound": "Página no encontrada"
   }
 }

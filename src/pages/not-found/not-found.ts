@@ -1,10 +1,17 @@
+// @ts-nocheck
 import { LitElement, html, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { PageController } from '@open-cells/page-controller';
+import { t, updateWhenLocaleResourcesChange } from '@open-cells/localize';
 
 @customElement('not-found-page')
 export class NotFoundPage extends LitElement {
   controller = new PageController(this);
+
+  constructor() {
+    super();
+    updateWhenLocaleResourcesChange(this);
+  }
 
   static styles = css`
     .container-found {
@@ -27,7 +34,7 @@ export class NotFoundPage extends LitElement {
     return html`
       <div class="container-found">
         <h1>404</h1>
-        <p>Página no encontrada</p>
+        <p>${t('page-noFound') ?? 'Página no encontrada'}</p>
       </div>
     `;
   }

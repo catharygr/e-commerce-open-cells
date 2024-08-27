@@ -108,11 +108,13 @@ export class LoginPage extends LitElement {
   render() {
     return html`
       <div class="container">
-        <h2 class="titulo">${t('login-title')}</h2>
+        <h2 class="titulo">
+          ${t('login-title') ?? 'Inicia sesión en tu cuenta.'}
+        </h2>
         <form @submit=${this.handleSubmmit} class="form-login">
           <md-filled-text-field
             required
-            label=${t('login-name')}
+            label=${t('login-name') ?? 'Nombre'}
             id="nombre"
             name="nombre"
             type="text"
@@ -120,7 +122,7 @@ export class LoginPage extends LitElement {
           </md-filled-text-field>
           <md-filled-text-field
             required
-            label=${t('login-email')}
+            label=${t('login-email') ?? 'Email'}
             id="email"
             name="email"
             type="email"
@@ -128,7 +130,7 @@ export class LoginPage extends LitElement {
           </md-filled-text-field>
           <md-filled-text-field
             required
-            label=${t('login-password')}
+            label=${t('login-password') ?? 'Contraseña'}
             id="password"
             name="password"
             type="password"
@@ -151,9 +153,11 @@ export class LoginPage extends LitElement {
           </md-filled-text-field>
           <label for="admin">
             <md-checkbox id="admin"></md-checkbox>
-            ${t('login-admin')}
+            ${t('login-admin') ?? '¿Eres admin?'}
           </label>
-          <md-filled-button>${t('login-btn-enter')}</md-filled-button>
+          <md-filled-button
+            >${t('login-btn-enter') ?? 'Entrar'}</md-filled-button
+          >
         </form>
       </div>
     `;
