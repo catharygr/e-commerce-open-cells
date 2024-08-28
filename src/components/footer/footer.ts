@@ -28,7 +28,7 @@ export class FooterComponent extends LitElement {
   render() {
     return html` <footer>
       <p>
-        &copy; ${new Date().getFullYear()} Open Cells by
+        &copy; ${new Date().getFullYear()} by
         <a href="https://bubulazi.com/">Bubulazi</a>
       </p>
     </footer>`;
