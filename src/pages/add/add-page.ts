@@ -166,7 +166,7 @@ export class AddPage extends LitElement {
           ></md-filled-text-field>
           <label>
             <md-checkbox touch-target="wrapper" id="offer"></md-checkbox>
-            ${t('add-offer') ?? 'Categoría'}
+            ${t('add-offer') ?? 'Producto en oferta'}
           </label>
 
           <md-filled-button class="save-btn" type="submit"

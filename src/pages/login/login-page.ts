@@ -50,7 +50,7 @@ export class LoginPage extends LitElement {
     `,
   ];
 
-  @query('md-outlined-text-field[id="password"]') passField;
+  @query('#password') passField;
 
   static outbounds = {
     userState: { channel: 'user-state' },
