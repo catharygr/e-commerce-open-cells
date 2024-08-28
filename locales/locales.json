@@ -85,7 +85,7 @@
     "shopping-title": "Tu carrito de compras.",
     "shopping-continue-btn": "Continuar Comprando",
     "shopping-pay-btn": "Pagar",
-    "shopping-payment-msg": "Gracias por tu compra. Esta es una página de demostración, por lo que no se realizará ningún pago real. Construido para practicar usando el marco de trabajo BBVA OpenCells y LitElement. En unos segundos, serás redirigido a la página de productos...",
+    "shopping-payment-msg": "Gracias por tu compra. Esta es una página de demostración, por lo que no se realizará ningún pago real. Construido para practicar el framework Open Cells de BBVA y LitElement. En unos segundos, serás redirigido a la página de productos...",
     "user-lougot": "Salir",
     "user-info": "Información del usuario.",
     "user-name": "Nombre de usuario",
