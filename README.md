@@ -2,7 +2,7 @@
 
 https://opencells-ecommerce-lit-caty.netlify.app
 
-## Este proyecto de ecommerce ha sido desarrollado utilizando el framework Open Cells de BBVA, junto con la librería LitElement y Material Design. El proyecto incluye varias funcionalidades clave para mejorar la experiencia del usuario tanto en dispositivos de escritorio como móviles.
+## Este proyecto de ecommerce ha sido desarrollado con el framework Open Cells de BBVA, utilizando la librería LitElement y Material Design. El proyecto incluye varias funcionalidades clave para mejorar la experiencia del usuario tanto en dispositivos de escritorio como móviles.
 
 ## Funcionalidades
 
