@@ -171,13 +171,13 @@ export const styles = css`
 
     & .cart-count {
       position: absolute;
-      top: -10px;
-      right: -10px;
+      top: -2px;
+      right: -2px;
       background-color: red;
       color: white;
-      font-size: 0.7rem;
+      font-size: 0.8rem;
       border-radius: 50%;
-      padding: 0.2rem 0.4rem;
+      padding: 0.25rem 0.2rem;
     }
   }
 
