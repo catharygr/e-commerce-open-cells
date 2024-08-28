@@ -42,9 +42,9 @@ startApp({
   },
 });
 
-setLocalesHost('src');
-setUrl('locales/locales.json');
-requestResources();
+// setLocalesHost('src');
+// setUrl('locales/locales.json');
+// requestResources();
 
 @customElement('app-index')
 export class AppIndex extends LitElement {
